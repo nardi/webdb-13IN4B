@@ -1,0 +1,171 @@
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<meta name="Author" content="Wolter Kaper" />
+<title>Docent toevoegen / wijzigen</title>
+<link href="http://www.science.uva.nl/onderwijs/styles/informatie.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+	td.inputs { text-align : right; vertical-align : top; } 
+</style>
+<script type="text/javascript">
+//<![CDATA[
+
+//klasse elementgroep, stelt een groep formulierelementen voor
+//die tegelijk enabled/disabled worden
+//methoden:
+//elementGroep.teWijzigen(JaNee)  - instellen of de elementgroep te wijzigen is
+//elementGroep.heeftWaarde()      - checken of een (of meer) van de elementen in de groep een waarde heeft
+function elementGroep(ieerste, ilaatste, enabled) {
+	this.eerste=ieerste;
+	this.laatste=ilaatste;
+	this.teWijzigen = elementgroep_teWijzigen;
+	this.teWijzigen(enabled);
+	this.heeftWaarde = elementgroep_heeftWaarde;
+}
+function elementgroep_teWijzigen(waarde) {
+	for (var i=this.eerste; i<=this.laatste; i++) {
+		frm1.elements[i].disabled = !waarde;
+		frm1.elements[i].style.backgroundColor = 
+			(waarde) ? ("") : ("Silver");
+	}
+}
+function elementgroep_heeftWaarde() {  //geeft 'true' als er minstens één waarde is
+	var result = false;
+	for (var i=this.eerste; i<=this.laatste; i++) {
+		if (frm1.elements[i].value) result = true; 
+	}
+	return result;
+}
+
+//formulier initialiseren
+function init() {
+	//maak globale variabelen
+	frm1 = document.getElementById('form1');
+	groepA = new elementGroep(4, 9, false);
+	groepB = new elementGroep(11, 16, false);
+	//begintoestand van elementen en groepen
+	if (frm1.extern[0].checked) externAanUit(true);
+	else {
+		if (frm1.beheer[0].checked) beheerAanUit(true);
+		if (groepB.heeftWaarde() || frm1.extern[0].checked) {
+			extraInfoAanUit(true);
+			frm1.extraInfo.checked=true;
+		}
+	}
+}
+
+//De volgende functies reageren op de radiobuttons
+//voor resp. beheer, extraInfo en extern
+
+function externAanUit(waarde) {
+	frm1.beheer[0].disabled = waarde;
+	frm1.beheer[1].disabled = waarde;
+	if (waarde) {
+		frm1.beheer[0].checked = true;
+		beheerAanUit(true);
+		frm1.extraInfo.checked = true;
+		extraInfoAanUit(true);
+	}
+}
+function beheerAanUit(waarde) {
+	groepA.teWijzigen(waarde); 
+}
+function extraInfoAanUit(waarde) {
+	groepB.teWijzigen(waarde);
+}
+function bijSubmitten() {
+	//alles moet enabled om waarden te kunnen doorgeven
+	frm1.beheer[0].disabled = false;
+	frm1.beheer[1].disabled = false;
+	groepA.teWijzigen(true);
+	groepB.teWijzigen(true);
+}
+//]]>
+</script>
+</head>
+<body onload="init();">
+<h1>Docent toevoegen / wijzigen</h1>
+<form id="form1" method="post" action="noppes.php" onsubmit="bijSubmitten();">
+<table><tr>
+	<td><input type="radio" name="extern" value="1" onclick="
+		externAanUit(true);"
+		/>Externe docent<br />
+	<input type="radio" name="extern" value="0" onclick="
+		externAanUit(false);"
+		checked="checked"
+		/>Interne docent<br />
+	&nbsp;</td>
+	<td><input type="radio" name="beheer" value="1" 
+		onclick="beheerAanUit(true);"
+		/>Zelf beheren<br />
+	<input type="radio" name="beheer" value="0"onclick="
+		beheerAanUit(false);"
+		checked="checked"
+	  />CNG volgen &nbsp;&nbsp;<br />
+	&nbsp;</td>
+</tr></table>
+<table><tr>
+<td class="inputs">CNG-gebruikersnaam</td>
+<td><input type="text" name="username" value="" size="32" /> (voor email)</td>
+</tr>
+<tr>
+<td class="inputs">Achternaam</td>
+<td><input type="text" name="last_name" value="" size="32" /></td>
+</tr>
+<tr>
+<td class="inputs">Voornaam</td>
+<td><input type="text" name="first_name" value="" size="32" /></td>
+</tr>
+<tr>
+<td class="inputs">Middelste naam:</td>
+<td><input type="text" name="middle_name" value="" size="32" /></td>
+</tr>
+<tr>
+<td class="inputs">Initialen</td>
+<td><input type="text" name="initials" value="" size="32" /></td>
+</tr>
+<tr>
+<td class="inputs">Titel</td>
+<td><input type="text" name="title" value="" size="32" /></td>
+</tr>
+<tr>
+	<td colspan="2">&nbsp;<br />
+	<input type="checkbox" name="extraInfo" value="extraInfo" onclick="
+		extraInfoAanUit(this.checked);" />
+	Extra informatie toevoegen?</td>
+</tr>
+<tr>
+<td class="inputs">Adres</td>
+<td><input type="text" name="adress" value="" size="32" /></td>
+</tr>
+<tr>
+<td class="inputs">Kamer</td>
+<td><input type="text" name="room" value="" size="32" /></td>
+</tr>
+<tr>
+<td class="inputs">Telefoon</td>
+<td><input type="text" name="telephone" value="" size="32" /></td>
+</tr>
+<tr>
+<td class="inputs">Email</td>
+<td><input type="text" name="email" value="" size="32" /> (voor externen)</td>
+</tr>
+<tr>
+<td class="inputs">Instituut / groep</td>
+<td><input type="text" name="institute" value="" size="32" /></td>
+</tr>
+<tr>
+<td class="inputs">Homepagina</td>
+<td><input type="text" name="homepage" value="" size="32" /></td>
+</tr>
+<tr><td colspan="2">
+	<input type="button" value="Annuleren" onclick="
+		window.location.href='noppes.php';" />
+	<input type="submit" value="Bewaren" /></td></tr>
+</table>
+</form>
+<hr />
+</body>
+</html>

@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
+  <title>positioneren: voorbeeldje</title>
+
+  <style type="text/css">
+    body { margin: 0px; padding: 0px; }
+    div.links { position: relative; float:left; top: 0px; left: 0px; width: 30%; background-color: Black; color: White; }
+    div.tekst { position: relative; top: 0px; left: 0%; width: 100%; background-color: Silver; }
+    div.voettekst { position: relative; top: 0px; left: 20%; width: 60%; background-color: Gray; }
+  </style>
+</head>
+
+<body>
+<div class="links"> 
+Dit is een zij-kolommetje. Hij is met float: left tegen de linkerkant gezet.
+Helaas gaan IE en Mozilla verschillend om met de resterende ruimte.
+Voor IE moet je het doen zoals hier: de andere kolom krijgt nu 100%
+(De float-kolom pakt ruimte af, het is alsof die er niet meer is).
+Mozilla doet het volgens de W3C norm: daar moet je de ruimte gewoon meetellen.
+Om het in beide browsers goed te krijgen... zie Css-absoluut-relatief2.html
+</div>
+<div class="tekst"> Hier komt dus de tekst. Bla bla bla bla bla bla bla
+bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+bla bla bla bla bla bla. 
+</div>
+
+<div class="voettekst"> Als de tekst hierboven langer wordt, schuift
+dit vanzelf naar onderen. Dat komt, door de relatieve positionering. 
+</div>
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+LEESMIJ.TXT
+
+fatalerror.inc.php
+regelt hoe fatale fouten worden afgehandeld:
+Foutmelding naar het scherm, of naar een log, op basis van 1 constante
+
+mymysqli.class.php
+werkt ongeveer zoals de standaard mysqli, maar met gratis foutmeldingen toegevoegd
+- gebruikt fatalerror.inc.php
+- gebruikt mystatement.class.php
+
+mystatement.class.php
+werkt ongeveer zoals standaard mysqli_stmt, maar met gratis foutmeldingen toegevoegd
+- gebruikt fatalerror.inc.php
+
+Meer info: zie de code zelf.

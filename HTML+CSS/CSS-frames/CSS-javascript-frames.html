@@ -1,0 +1,112 @@
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<meta name="Author" content="Wolter Kaper" />
+	<title>CSS-frames pagina!</title>
+<script type="text/javascript">
+//<![CDATA[
+	function link1() {
+		//dit geeft de 'target':
+		var div1 = document.getElementById('main1');
+		//en nu moeten we de tekst al helemaal opgeven:
+		div1.innerHTML='Resultaat!!<br />Tekst van link 1'
+	}
+	function link2() {
+		var div1 = document.getElementById('main1');
+		div1.innerHTML='En dit is een heel ander verhaal<br />Resultaat van klikken op link 2!<br />blablabla'
+	}
+//]]>
+</script>
+
+<style type="text/css">
+div.topwindow {
+	overflow : hidden;
+	background : Aqua;
+}
+div.mainwindow {
+	overflow : auto;
+	height : 400px;
+	background : Fuchsia;
+}
+body {
+	overflow : hidden;
+}
+span.link {
+	text-decoration : underline;
+	color: Blue;
+}
+</style>
+
+</head>
+
+<body>
+<div class="topwindow">
+	Probeer deze links: &nbsp; &nbsp;
+	<span class="link" onclick="link1();">Hyperlink 1</span> &nbsp; &nbsp;
+	<span class="link" onclick="link2();">Hyperlink 2</span>
+</div>
+
+<div class="mainwindow" id="main1">
+aaa<br />
+aaa<br />
+aaa<br />
+Dit venster kan scrollen...<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+zzz - The End -<br />
+</div>
+
+
+</body>
+</html>

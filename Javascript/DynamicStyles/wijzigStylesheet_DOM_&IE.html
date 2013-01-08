@@ -1,0 +1,130 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
+	<meta name="Author" content="Wolter Kaper" />
+
+	<title>Dynamische stylesheet test</title>
+
+<!-- Hieronder zie je de hoogste stylesheet, die door javascript wordt gewijzigd //-->
+
+<style type="text/css">
+
+	div.jan {color: Red; background-color: Black;}
+
+	h1 {font-family: Times-Roman; }
+
+</style>
+
+<script type="text/javascript">
+
+//<![CDATA[
+
+
+
+	IE = (navigator.appName=="Microsoft Internet Explorer");
+
+	function changestyles() {
+
+		aantal = document.styleSheets.length;
+
+		with (document.styleSheets[aantal-1]) {
+
+			if (! IE) {
+
+				//volgens de DOM-standaard en Mozilla
+
+				hoogsteregel = cssRules.length-1;
+
+				//zo voeg ik regels toe aan het eind van de stylesheet
+
+				//deze kunnen eerdere regels overrulen, als ze dezelfde eigenscahp instellen
+
+				insertRule("div.jan {color: Black; background-color: Red;}", hoogsteregel+1);
+
+				insertRule("h1 {font-family: Arial; }", hoogsteregel+2);			
+
+			}
+
+			else {
+
+				//volgens Microsoft
+
+				hoogsteregel = rules.length-1; //niet nodig, toegevoegde regels komen altijd aan het eind bij Microsoft
+
+				addRule("div.jan", "{color: Black; background-color: Red;}");
+
+				addRule("h1", "{font-family: Arial; }");							
+
+			}
+
+		}
+
+	}
+
+	function changestyles22() {
+
+		aantal = document.styleSheets.length;
+
+		with (document.styleSheets[aantal-1]) {
+
+			if (! IE) {
+
+				//zo wis ik bestaande regels in de stylesheet
+
+				deleteRule(0); //er zijn twee regels, ik wis 2x degene op positie 0
+
+				deleteRule(0);
+
+			}
+
+			else {
+
+				//hetzelfde volgens Microsoft
+
+				removeRule(0);
+
+				removeRule(0);
+
+			}
+
+		}
+
+	}
+
+//]]>
+
+</script>
+
+</head>
+
+<body>
+
+
+
+<div class="jan">
+
+	<h1>Let op mijn lettertype</h1>
+
+	<p>Dit is een gewone alinea</p>
+
+	<p><a href="javascript:changestyles();">Hier</a> kun je 2 stijlregels toeveoegen aan een sheet die er al 2 heeft.</p>
+
+	<p><a href="javascript:changestyles22();">Hier</a> kun je 2 bestaande stijlregels wissen.</p>
+
+	<p>Zie de source!</p>
+
+</div>
+
+
+
+</body>
+
+</html>
+

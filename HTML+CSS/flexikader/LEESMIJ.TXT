@@ -1,0 +1,7 @@
+"Css-absoluut-relatief" gaat over het maken van kolommen en voetteksten met DIV's in plaats
+van een tabel.
+
+In "flexikader.htm" is een kader met grafische versiering met DIV's gemaakt. De eerste 
+ontwerper van dit mooie ontwerp (Niels Roosen) had daarvoor een tabel gebruikt. De 
+ingewikkelde combinatie van absoluut en relatief was nodig om het in beide browsers goed te 
+krijgen.

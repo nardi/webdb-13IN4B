@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>
+HTML5 video
+</title>
+<script>
+function fail(s,e)
+{
+    switch(e.target.error.code)
+    {
+        case e.target.error.MEDIA_ERR_ABORTED:
+            alert(s + ": Playback aborted.");
+            break;
+        case e.target.error.MEDIA_ERR_NETWORK:
+            alert(s + ": Network error.");
+            break;
+        case e.target.error.MEDIA_ERR_DECODE:
+            alert(s + ": Error decoding media (corrupt?).");
+            break;
+        case e.target.error.MEDIA_ERR_SRC_NOT_SUPPORTED:
+            alert(s + ": Media not supported or file not found.");
+            break;
+        default:
+            alert(s + ": Unknown error.");
+            break;
+    }
+}
+</script>
+</head>
+<body>
+<h1>HTML5 video</h1>
+OGG<br/>
+<video controls autoplay loop onerror="fail('OGG', event)" src="multitouchreel.ogg">
+</video><br/>
+WMV<br/>
+<video controls autoplay loop onerror="fail('WMV', event)" src="MTT.wmv">
+</video><br/>
+AVI<br/>
+<video controls autoplay loop onerror="fail('AVI', event)" src="PSS.avi">
+</video><br/>
+MPG<br/>
+<video controls autoplay loop onerror="fail('MPG', event)" src="multitouchreel.mpg">
+</video><br/>
+</body>
+</html>
