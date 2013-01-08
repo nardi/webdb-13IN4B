@@ -1,0 +1,34 @@
+#category {
+    width: 70%;
+    text-align: center;
+}
+
+.product-thumb {
+    float: left;
+    padding: 1%;
+    width: 23%;
+    height: 17em;
+    text-align: center;
+}
+
+.product-thumb img {
+    width: 62%;
+}
+
+.product-thumb a {
+    text-decoration:none;
+}
+
+.product-thumb p {
+    color: black;
+    margin: 0;
+    margin-top: 8px;
+}
+
+.product-thumb .title {
+    font-size: 1.1em;
+}
+
+.product-thumb .price {
+    font-size: 1.7em; 
+}
