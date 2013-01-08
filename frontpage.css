@@ -1,9 +1,9 @@
 #frontpage {
-    width: 70%;
-    text-align: center;
+    width: 80%;
+    margin-bottom: 50px;
 }
 
-#new-releases {
-    width: 80%;
-    text-align: center;
+#on-sale, #new-releases, #pre-orders {
+  clear: both;
+  display: inline-block;
 }

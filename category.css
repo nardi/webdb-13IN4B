@@ -1,4 +1,10 @@
-#category {
-    width: 70%;
+.category {
     text-align: center;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.category h1 {
+    font-size: 1.8em;
 }
