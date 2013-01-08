@@ -1,0 +1,64 @@
+.product-thumb, .product-thumb-preorder {
+    float: left;
+    padding: 1%;
+    width: 22%;
+    height: 15em;
+    text-align: center;
+}
+
+.product-thumb-preorder {
+    height: 17em;
+}
+
+.product-thumb img {
+    width: 66%;
+}
+
+.product-thumb a {
+    text-decoration:none;
+}
+
+.product-thumb p {
+    color: black;
+    margin: 0;
+    margin-top: 8px;
+}
+
+.product-thumb .title {
+    font-size: 1em;
+}
+
+.product-thumb .price {
+    font-size: 1.6em; 
+}
+
+.product-thumb .date {
+    font-size: 1em; 
+}
+
+.product-hilite {
+    float: left;
+    padding: 1%;
+    width: 23%;
+    height: 17em;
+    text-align: center;
+}
+
+.product-hilite img {
+    height: 100%;
+    float: left;
+}
+
+.product-hilite .title {
+    font-size: 1.1em;
+}
+
+.product-hilite .old-price {
+    font-size: 1.4em;
+    text-decoration: strikethrough;
+}
+
+.product-hilite .price {
+    font-size: 1.7em; 
+}
+
