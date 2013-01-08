@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" 
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+</head>
+<body>
+<h1>Javascript strings</h1>
+<pre>
+<script type="text/javascript">
+// <![CDATA[
+var stringLiteral = "The 'quick' brown fox ";
+var stringObject = new String("The 'quick' brown fox ");
+
+// printing strings
+document.writeln(stringLiteral);
+
+// string concatenation
+document.writeln(stringLiteral + stringObject);
+
+// strings are objects with methods and properties
+document.writeln(stringLiteral.toLowerCase());
+document.writeln(stringObject.toUpperCase());
+// note: length is a property, not a method
+document.writeln("string length: " + stringObject.length);
+
+// substring matching
+document.writeln("position of \"quick\": " + stringObject.indexOf("quick"));
+document.writeln("substring 5 to 10: " + stringObject.substring(5, 10));
+
+// the value of the strings are equal; following is true
+if (stringLiteral == stringObject)
+  document.writeln("stringLiteral == stringObject");
+else
+  document.writeln("stringLiteral != stringObject");
+
+// the type of the strings are NOT equal; following is false
+if (stringLiteral === stringObject)
+  document.writeln("stringLiteral === stringObject");
+else
+  document.writeln("stringLiteral !== stringObject");
+
+// check if a variable exists
+// this one does:
+if (typeof(stringLiteral) != "undefined")
+  document.writeln("stringLiteral exists");
+else
+  document.writeln("stringLiteral does not exist");
+// this one does not:
+if (typeof(unknownVariable) != "undefined")
+  document.writeln("unknownVariable exists");
+else
+  document.writeln("unknownVariable does not exist");
+
+// string can be easily wrapped in HTML tags
+document.writeln(stringLiteral.fontsize(20));
+document.writeln(stringLiteral.italics());
+document.writeln(stringLiteral.link());
+
+// split string"
+var wordArray = stringObject.split(" ");
+for (i=0; i<wordArray.length; i++)
+  document.writeln(wordArray[i]);
+
+// ]]>
+</script>
+</pre>
+</body>
+</html>

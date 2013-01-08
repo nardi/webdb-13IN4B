@@ -1,0 +1,30 @@
+HTML frames horen niet meer bij de XHTML 'strict' specificatie.
+
+---Het effect van frames kun je bereiken zonder frames:
+
+In deze map laat ik drie techniekjes zien, waarmee je het effect van frames kunt bereiken 
+zonder <frameset> en zonder <frame>.
+De derde, met PHP, is de enige die het effect van frames volledig nabootst.
+
+1. "CSS-frames.html". 
+Dit laat zien hoe je met CSS een pagina verdeelt in delen (DIV-elementen) die onafhankelijk 
+van elkaar kunnen scrollen. Je kunt met CSS geen hyperlinks maken die deze 
+'frames' 'target'-en.
+
+2. "CSS-php-frames.php"
+Met hulp van de PHP "include" opdracht kun je zorgen dat binnen de DIV de inhoud van een 
+andere file verschijnt: echte navigatie met 'frames' zonder <frame>!
+Let op de ingebouwde controle of geen onvertrouwde code wordt uitgevoerd. 
+
+3. "CSS-ajax-frames.html"
+Hier is taconite gebruikt als "ajax" bibliotheek. Deze techniek is aardig als je kleine 
+eilandjes op een grote pagina hebt die variabele inhoud vertonen. Nadelen: de toestand 
+van de frames is niet te bookmarken ("show real url" is toegevoegd als workaround) en 
+de back en forward button van de browser brengen je niet terug naar eerdere/latere stadia 
+van de frameset.
+
+Toekomst: in XHTML 2 wordt een nieuwe standaard voor hyperlinks opgenomen"XLink", hiermee 
+kun je een element (vb. <DIV id="Jantje">) als doelwit van een link opgeven. Als het 
+zover is, dan zijn de ouderwetse 'target's die naar <frame>s verwijzen, echt helemaal 
+overbodig geworden.
+

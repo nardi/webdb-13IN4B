@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" 
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<script type="text/javascript">
+function checkform()
+{
+  id = document.getElementById("name");
+  if (id.value.length < 3) {
+    alert("Name should be at least 3 characters long.")
+    return false;
+  }
+  return true;
+}
+</script>
+</head>
+<body>
+<h1>Form</h1>
+<form method="post" action="post_dump.php" onsubmit="return checkform();">
+<p id="count">Type a name</p>
+Name: <input type="text" id="name" name="name" />
+<input type="submit" value="Submit" />
+</form>
+</body>
+</html>

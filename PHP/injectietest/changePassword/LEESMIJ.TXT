@@ -1,0 +1,17 @@
+Als je in het formulier invult:
+
+newpassword: haha
+   password: x
+   username: jan" OR username="admin
+
+dan wordt het wachtwoord dat hoort bij "admin" ingesteld op "haha", hoewel "x" niet het juiste oude wachtwoord is voor admin.
+
+De query wordt namelijk:
+UPDATE injectietest SET password="haha" WHERE password="x" AND username="jan" OR username="admin"
+
+AND heeft prioriteit boven OR
+De voorwaarde: password="x" AND username="jan", is onwaar voor elk record in de database
+De voorwaarde: username="admin" is echter waar voor het record van de admin.
+Dus dit record wordt gewijzigd.
+
+Bij al deze trucs speelt een rol dat ik een string halverwege kon beeindigen, waardoor ik SQL-code kon toevoegen aan de query.

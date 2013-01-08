@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<meta name="Author" content="Wolter Kaper" />
+	<title>De onMouseOver gebeurtenis gebruiken 1</title>
+<style type="text/css">
+	body { font-family: Arial; }
+	.shaky { width: 50px;}
+</style>
+</head>
+
+<body>
+
+<p>Dank zij het trefwoord "this" (een legaal Javascript trefwoord) is het programmeerwerk hier bijzonder simpel. Zie de HTML-broncode en zie versie 2.</p>
+	
+<div class="shaky" onmouseover="this.style.borderStyle='solid';" onmouseout="this.style.borderStyle='none';">
+		<p onmouseover="this.style.textAlign='right';" onmouseout="this.style.textAlign='left';">Een</p>
+		<p onmouseover="this.style.textAlign='right';" onmouseout="this.style.textAlign='left';">Twee</p>
+		<p onmouseover="this.style.textAlign='right';" onmouseout="this.style.textAlign='left';">Drie</p>
+		<p onmouseover="this.style.textAlign='right';" onmouseout="this.style.textAlign='left';">Vier</p>
+</div>
+
+</body>
+
+</html>

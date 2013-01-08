@@ -1,0 +1,9 @@
+Ajax: autocomplete voorbeeldje, gebruikt dojo javascript-library
+
+Suggest.html
+	Het formulier, met speciale dojo-tag
+suggest.php
+	Het serverscript dat de suggesties ophaalt
+
+fatalerror, mymysqli, mystatement ken je al.
+Dit zijn identieke copietjes, met alleen in mymysqli andere connectiegegevens.
