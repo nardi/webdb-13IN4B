@@ -5,7 +5,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
         <meta name="Author" content="Wolter Kaper" />
         <title>SIS</title>
-        <link rel="stylesheet" type="text/css" href="main.css" />
+        <link rel="stylesheet" type="text/css" href="mainstyle.css" />
 </head>
 
 <body>
@@ -34,8 +34,9 @@
             <a href="index.php?pag=frontpage.html">frontpage</a> <br />
             <a href="index.php?pag=overons.html">overons</a> <br />
             <a href="index.php?pag=Registratieformulier.html">Registratieformulier</a> <br />
-            <a href="index.php?pag=Wachtwoordvergeten.html">wachtwoordvergeten</a> <br />
-            <a href="index.php?pag=ItemDescription.html">Item Description</a> <br />
+            <a href="index.php?pag=Wachtwoordvergeten.html">Wachtwoordvergeten</a> <br />
+            <a href="index.php?pag=item-description.html">item-description</a> <br />
+            <a href="index.php?pag=category.html">category</a> <br />
         </div>
         
         <div id="content">
@@ -47,7 +48,8 @@
                     $pag=='overons.html'  ||
                     $pag=='Registratieformulier.html'  ||
                     $pag=='Wachtwoordvergeten.html'  ||
-                    $pag=='ItemDescription.html'
+                    $pag=='category.html'  ||
+                    $pag=='item-description.html'
                 ){
                 //a legal file is requested, serve it up
                     include($pag) ; //fetch the file and replace '<?php ... by its contents
