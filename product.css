@@ -1,17 +1,15 @@
 .vcenter-container {
-  display: table;
+    display: table;
 }
 
 .vcenter {
-  display: table-cell;
-  vertical-align: middle;
+    display: table-cell;
+    vertical-align: middle;
 }
 
 .product-thumb {
     float: left;
-    margin: 0.5%;
-    padding: 0.5%;
-    width: 22.8%;
+    width: 25%;
     height: 18em;
     text-align: center;
 }
@@ -38,7 +36,7 @@
 }
 
 .product-hilite {
-    height: 210px;
+    height: 200px;
     display: inline-block;
     border: 1px solid black;
 }
