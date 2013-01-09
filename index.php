@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
         <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-        <meta name="Author" content="Wolter Kaper" />
+        <meta name="Author" content="Wolter Kaper" wie="dat" />
         <title>SIS</title>
         <link rel="stylesheet" type="text/css" href="main.css" />
 </head>
@@ -19,9 +19,10 @@
         </div>
 
         <div id="dashboard">
-            <a href="http://sisv2.tk/index.php?pag=MijnAccount.html"> Mijn account </a><br>
-            <a href="http://sisv2.tk/index.php?pag=Registratieformulier.html"> Registreren </a><br>
-            <a href="http://sisv2.tk/index.php?pag=Inloggen.html"> Inloggen </a>
+            <a href="http://sisv2.tk/index.php?pag=MijnAccount.html"> Mijn account </a><br />
+            <a href="http://sisv2.tk/index.php?pag=Registratieformulier.html"> Registreren </a><br />
+            <a href="http://sisv2.tk/index.php?pag=Inloggen.html"> Inloggen </a><br />
+            <a href="http://sisv2.tk/index.php?pag=cart.html"> Winkelwagen (3) </a>
         </div>
 
     </div>
