@@ -33,6 +33,7 @@ html, body {
 
 
 #contentWindow {
+    position : relative;
     width : 100%;
     overflow : auto;
 }
