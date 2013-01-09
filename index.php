@@ -85,8 +85,11 @@ html, body {
             Hier <br />
             Komen <br />
             Items <br />
-            <a href="index.php?pag=frontpage.html">Nardi's frontpage.</a>
-            <a href="index.php?pag=ItemDescription.html">Bas's I.D.</a>
+            <a href="index.php?pag=frontpage.html">frontpage</a> <br />
+            <a href="index.php?pag=overons.html">overons</a> <br />
+            <a href="index.php?pag=Registratieformulier.html">Registratieformulier</a> <br />
+            <a href="index.php?pag=Wachtwoordvergeten.html">wachtwoordvergeten</a> <br />
+            <a href="index.php?pag=ItemDescription.html">Item Description</a> <br />
         </div>
         
         <div id="content">
@@ -95,8 +98,10 @@ html, body {
                 
                 if (
                     $pag=='frontpage.html' ||
-                    $pag=='ItemDescription.html'  ||
-                    $pag=='pietje.txt'
+                    $pag=='overons.html'  ||
+                    $pag=='Registratieformulier.html'  ||
+                    $pag=='Wachtwoordvergeten.html'  ||
+                    $pag=='ItemDescription.html'
                 ){
                 //a legal file is requested, serve it up
                     include($pag) ; //fetch the file and replace '<?php ... by its contents
