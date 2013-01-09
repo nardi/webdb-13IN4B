@@ -8,6 +8,7 @@
     width: 85%;
     margin-top: 10px;
     margin-bottom: 10px;
+    display: inline-block;
 }
 
 .category h1 {
