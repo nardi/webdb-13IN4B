@@ -1,5 +1,6 @@
 html {
     overflow: scroll;
+    font-family: Lucida Sans Unicode, Century Gothic, Futura;
 }
 
 html, body {
@@ -38,6 +39,11 @@ html, body {
 #sidebar {
     float : left;
     width : 12em;
+}
+
+#sidebar a {
+  text-decoration: none;
+  color: black;
 }
 
 #content {
