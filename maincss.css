@@ -1,5 +1,6 @@
 html {
     overflow: scroll;
+    font-family: Lucida Sans Unicode, Century Gothic, Futura;
 }
 
 html, body {
@@ -10,7 +11,7 @@ html, body {
 
 #mainWindow {
     height : 100%;
-    width : 60em;
+    width : 25cm;
     margin-left : auto;
     margin-right : auto
 }
@@ -33,13 +34,19 @@ html, body {
 
 #contentWindow {
     width : 100%;
+    overflow : auto;
 }
 
 #sidebar {
     float : left;
-    width : 12em;
+    width : 5cm;
 }
 
 #content {
     overflow : hidden;
+}
+
+#content a {
+  text-decoration: none;
+  color: black;
 }

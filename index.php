@@ -19,7 +19,9 @@
         </div>
 
         <div id="dashboard">
-            Inloggen en zooi gebeurt hier. 
+            <a href="http://sisv2.tk/index.php?pag=MijnAccount.html"> Mijn account </a><br>
+            <a href="http://sisv2.tk/index.php?pag=Registratieformulier.html"> Registreren </a><br>
+            <a href="http://sisv2.tk/index.php?pag=Inloggen.html"> Inloggen </a>
         </div>
 
     </div>
@@ -27,10 +29,6 @@
     <div id="contentWindow">
 
         <div id="sidebar">
-            Hoi <br />
-            Hier <br />
-            Komen <br />
-            Items <br />
             <a href="index.php?pag=frontpage.html">frontpage</a> <br />
             <a href="index.php?pag=overons.html">overons</a> <br />
             <a href="index.php?pag=Registratieformulier.html">Registratieformulier</a> <br />
@@ -43,25 +41,19 @@
             <?php
                 $pag = (isset($_GET['pag'])) ? ($_GET['pag']) : ('') ; //read URL-pag parameter in
                 
-                /*
-                if (
-                    $pag=='frontpage.html' ||
-                    $pag=='overons.html'  ||
-                    $pag=='Registratieformulier.html'  ||
-                    $pag=='Wachtwoordvergeten.html'  ||
-                    $pag=='category.html'  ||
-                    $pag=='item-description.html'
-                ){
-                */
-                
-                if (file_exists($pag)) {
-                //a legal file is requested, serve it up
-                    include($pag) ; //fetch the file and replace '<?php ... by its contents
+                if (empty($pag)) {
+                    include("frontpage.html");
                 }
-
                 else {
-                //an illegal file is requested; serve an innocent default instead
-                    echo "Allan, please add $pag";
+                    if (file_exists($pag)) {
+                    //a legal file is requested, serve it up
+                        include($pag); //fetch the file and replace '<?php ... by its contents
+                    }
+
+                    else {
+                    //an illegal file is requested; serve an innocent default instead
+                        echo "Allan, please add $pag";
+                    }
                 }
             ?>
             
@@ -69,29 +61,6 @@
         </div>
     </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-<!--
-
-<div class="topwindow">
-                 Probeer deze: &nbsp;
-                 <a href="CSS-php-frames.php?pag=jantje.txt">Hyperlink 1</a> &nbsp;
-                 <a href="CSS-php-frames.php?pag=pietje.txt">Hyperlink 2</a> &nbsp;
-                 <a href="CSS-php-frames.zip">Download code</a>
-</div>
-
-<div class="contentWindow"> 
-                 
-
-</div> -->
 
 </body>
 </html>
