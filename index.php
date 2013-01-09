@@ -5,61 +5,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
         <meta name="Author" content="Wolter Kaper" />
         <title>SIS</title>
-<style type="text/css">
-
-html {
-    overflow: scroll;
-}
-
-html, body {
-    margin : 0;
-    height : 100%;
-    width : 100%;
-}
-
-#mainWindow {
-    height : 100%;
-    width : 60em;
-    margin-left : auto;
-    margin-right : auto
-}
-
-#banner {
-    height : 10%;
-    width : 100%;
-    
-}
-
-#logo {
-    float : left;
-    width : 40em;
-}
-    
-#dashboard {
-    float : left;
-}
-
-
-#contentWindow {
-    width : 100%;
-}
-
-#sidebar {
-    float : left;
-    width : 12em;
-}
-
-#content {
-    overflow : hidden;
-}
-
-
-
-
-
-
-
-</style>
+        <link rel="stylesheet" type="text/css" href="main.css" />
 </head>
 
 <body>
