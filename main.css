@@ -48,6 +48,10 @@ html, body {
     overflow : hidden;
 }
 
+#content h1 {
+  font-size: 1.8em;
+}
+
 #content a {
   text-decoration: none;
   color: black;
