@@ -33,7 +33,6 @@ html, body {
 
 
 #contentWindow {
-    position : relative;
     width : 100%;
     overflow : auto;
 }
@@ -44,6 +43,7 @@ html, body {
 }
 
 #content {
+    position : relative;
     overflow : hidden;
 }
 
