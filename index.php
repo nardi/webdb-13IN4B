@@ -43,6 +43,7 @@
             <?php
                 $pag = (isset($_GET['pag'])) ? ($_GET['pag']) : ('') ; //read URL-pag parameter in
                 
+                /*
                 if (
                     $pag=='frontpage.html' ||
                     $pag=='overons.html'  ||
@@ -51,13 +52,16 @@
                     $pag=='category.html'  ||
                     $pag=='item-description.html'
                 ){
+                */
+                
+                if (file_exists($pag)) {
                 //a legal file is requested, serve it up
                     include($pag) ; //fetch the file and replace '<?php ... by its contents
                 }
 
                 else {
                 //an illegal file is requested; serve an innocent default instead
-                    include("frontpage.html");
+                    echo "Allan, please add $pag";
                 }
             ?>
             
