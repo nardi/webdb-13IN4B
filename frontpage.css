@@ -4,7 +4,7 @@
     text-align: center;
 }
 
-#on-sale, #new-releases, #pre-orders {
+#on-sale, #new-releases, #preorders {
     clear: both;
     display: inline-block;
 }

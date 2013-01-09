@@ -5,7 +5,8 @@
 
 .product-list {
     width: 85%;
-    display: inline-block;
+    margin-left: 7.5%;
+    margin-right: 7.5%;
     border-collapse: collapse;
 }
 
@@ -15,9 +16,9 @@
     padding: 4pt;
 }
 
-.product-list td {
+.product-list td:not(.update-button) {
     border: 1px solid black;
-    background-color: #fdfdfd;
+    background-color: #fefefe;
 }
 
 .product-list .product-id {
@@ -45,7 +46,6 @@
 
 .product-list .update-button {
     text-align: left;
-    border: 0;
 }
 
 .product-list .total-price th {
@@ -55,5 +55,4 @@
 .product-list .total-price td span {
     text-decoration: underline;
     border-bottom: 1px solid black;
-    background-color: inherit;
 }
