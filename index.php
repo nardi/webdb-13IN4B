@@ -86,6 +86,7 @@ html, body {
             Komen <br />
             Items <br />
             <a href="index.php?pag=frontpage.html">Nardi's frontpage.</a>
+            <a href="index.php?pag=ItemDescription.html">Bas's I.D.</a>
         </div>
         
         <div id="content">
