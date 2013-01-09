@@ -95,7 +95,7 @@ html, body {
                 
                 if (
                     $pag=='frontpage.html' ||
-                    $pag=='jantje.txt'  ||
+                    $pag=='ItemDescription.html'  ||
                     $pag=='pietje.txt'
                 ){
                 //a legal file is requested, serve it up
