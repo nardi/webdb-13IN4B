@@ -1,0 +1,52 @@
+#ItemName{
+	width:100%;
+	background-color:pink;
+	height:20pt;
+	text-align:center;
+}
+#ItemCover{
+	width:420px;
+	float:left;
+}
+#ItemCover img{
+	border:10px solid black; 
+	float:left;
+}
+
+#ItemDescription{
+	width:30%;
+	margin-right:1px;
+	float:left;
+}
+
+#SystemRequirements{
+	width;40%;
+	float:right;
+}
+
+#Prijs{
+	width:40%;
+	float:left;
+	text-align:right;
+}
+
+#Quotes{
+	width:20%;
+	float:right;
+}
+
+#container{
+	height:100%;
+}
+
+.SystemRequirementsTable{
+	border-collapse:collapse;
+}
+
+.SystemRequirementsTable table, th, td{
+	border: 1pt solid blue;
+}
+
+.ItemDescriptionContainer h4{
+	background-color:cyan;
+}
