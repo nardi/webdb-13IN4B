@@ -41,11 +41,11 @@ html, body {
     width : 12em;
 }
 
-#sidebar a {
-  text-decoration: none;
-  color: black;
-}
-
 #content {
     overflow : hidden;
+}
+
+#content a {
+  text-decoration: none;
+  color: black;
 }
