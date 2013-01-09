@@ -5,61 +5,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
         <meta name="Author" content="Wolter Kaper" />
         <title>SIS</title>
-<style type="text/css">
-
-html {
-    overflow: scroll;
-}
-
-html, body {
-    margin : 0;
-    height : 100%;
-    width : 100%;
-}
-
-#mainWindow {
-    height : 100%;
-    width : 60em;
-    margin-left : auto;
-    margin-right : auto
-}
-
-#banner {
-    height : 10%;
-    width : 100%;
-    
-}
-
-#logo {
-    float : left;
-    width : 40em;
-}
-    
-#dashboard {
-    float : left;
-}
-
-
-#contentWindow {
-    width : 100%;
-}
-
-#sidebar {
-    float : left;
-    width : 12em;
-}
-
-#content {
-    overflow : hidden;
-}
-
-
-
-
-
-
-
-</style>
+        <link rel="stylesheet" type="text/css" href="maincss.css" />
 </head>
 
 <body>
@@ -88,8 +34,9 @@ html, body {
             <a href="index.php?pag=frontpage.html">frontpage</a> <br />
             <a href="index.php?pag=overons.html">overons</a> <br />
             <a href="index.php?pag=Registratieformulier.html">Registratieformulier</a> <br />
-            <a href="index.php?pag=Wachtwoordvergeten.html">wachtwoordvergeten</a> <br />
-            <a href="index.php?pag=ItemDescription.html">Item Description</a> <br />
+            <a href="index.php?pag=Wachtwoordvergeten.html">Wachtwoordvergeten</a> <br />
+            <a href="index.php?pag=item-description.html">item-description</a> <br />
+            <a href="index.php?pag=category.html">category</a> <br />
         </div>
         
         <div id="content">
@@ -101,7 +48,8 @@ html, body {
                     $pag=='overons.html'  ||
                     $pag=='Registratieformulier.html'  ||
                     $pag=='Wachtwoordvergeten.html'  ||
-                    $pag=='ItemDescription.html'
+                    $pag=='category.html'  ||
+                    $pag=='item-description.html'
                 ){
                 //a legal file is requested, serve it up
                     include($pag) ; //fetch the file and replace '<?php ... by its contents
