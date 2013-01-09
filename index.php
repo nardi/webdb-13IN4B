@@ -5,7 +5,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
         <meta name="Author" content="Wolter Kaper" />
         <title>SIS</title>
-        <link rel="stylesheet" type="text/css" href="mainstyle.css" />
+        <link rel="stylesheet" type="text/css" href="maincss.css" />
 </head>
 
 <body>
