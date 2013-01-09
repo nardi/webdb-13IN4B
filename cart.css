@@ -17,6 +17,7 @@
 
 .product-list td {
     border: 1px solid black;
+    background-color: #fdfdfd;
 }
 
 .product-list .product-id {
@@ -30,6 +31,7 @@
 
 .product-list .product-image img {
     width: 100%;
+    display: block;
 }
 
 .product-list .product-title {
@@ -53,4 +55,5 @@
 .product-list .total-price td span {
     text-decoration: underline;
     border-bottom: 1px solid black;
+    background-color: inherit;
 }
