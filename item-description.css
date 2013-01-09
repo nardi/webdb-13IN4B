@@ -5,41 +5,45 @@
 	text-align:center;
 }
 #ItemCover{
-	width:15%;
-	float:left;
+	position:absolute;
+	margin-left:0.5cm;
+	left:0cm;
+	width:5cm;
 }
 #ItemCover img{
-	width:90%;
+	width:4.5cm;
 	border:10px solid black; 
-	float:left;
 }
 
 #ItemDescription{
-	width:30%;
-	margin-right:1px;
-	float:left;
+	width:5cm;
 }
 
 #SystemRequirements{
-	width;40%;
-	float:right;
+	width:4cm;
+	position:absolute;
+	left:16cm;
 }
 
 #Prijs{
-	width:40%;
-	float:left;
 	text-align:right;
 }
 
 #Quotes{
-	width:20%;
-	float:right;
+	position:absolute;
+	left:11.5cm;
+	margin-left:0cm;
+	margin-right:0.5cm;
+	width:4cm;
 }
 
-#container{
-	height:100%;
+#game-description-en-prijs{
+	width:5cm;
+	position:absolute;
+	margin-left:0.5cm;
+	margin-right:0.5cm;
+	left:5.5cm;
 }
-
 .SystemRequirementsTable{
 	border-collapse:collapse;
 }
@@ -48,6 +52,9 @@
 	border: 1pt solid blue;
 }
 
+.ItemDescriptionContainer{
+	overflow:auto;
+}
 .ItemDescriptionContainer h4{
 	background-color:cyan;
 }
