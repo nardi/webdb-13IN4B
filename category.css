@@ -1,8 +1,14 @@
+#category {
+    width: 100%;
+    text-align: center;
+}
+
 .category {
     text-align: center;
-    width: 100%;
+    width: 85%;
     margin-top: 10px;
     margin-bottom: 10px;
+    display: inline-block;
 }
 
 .category h1 {

@@ -1,10 +1,10 @@
 #frontpage {
     margin-bottom: 50px;
-    text-align: center;
     width: 100%;
+    text-align: center;
 }
 
 #on-sale, #new-releases, #pre-orders {
-  clear: both;
-  display: inline-block;
+    clear: both;
+    display: inline-block;
 }
