@@ -1,5 +1,7 @@
 #frontpage {
     margin-bottom: 50px;
+    text-align: center;
+    width: 100%;
 }
 
 #on-sale, #new-releases, #pre-orders {
