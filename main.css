@@ -72,9 +72,8 @@ html, body {
 
 .clickable-item:hover {
     cursor: pointer;
-    background: #FFFB00;
-    color: #FF0000;
-    border: 2px solid black;
+    background: #FF0000;
+    color: #FFFB00;
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
