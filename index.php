@@ -25,7 +25,7 @@
             <a href="http://sisv2.tk/index.php?pag=Inloggen.html"> Inloggen </a>
             </div>
             <div id="acc-mand">
-            <a href="http://sisv2.tk/index.php?pag=MijnAccount.html"> Mijn account </a><br />
+            <a href="http://sisv2.tk/index.php?pag=account-overzicht.html"> Mijn account </a><br />
             <a href="http://sisv2.tk/index.php?pag=cart.html"> Winkelwagen (3) </a>
             </div>
         </div>
