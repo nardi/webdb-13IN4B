@@ -1,0 +1,59 @@
+aaa<br />
+aaa<br />
+aaa<br />
+Kijk, nou verschijnt er een hele nieuwe tekst.<br />
+Deze komt echt uit een file.<br />
+De file is geen compleet HTML-document,<br />
+maar bevat alleen elementen die binnen een BODY-element kunnen voorkomen.<br />
+aaa<br />
+(Zoals gewoonlijk als je templates gebruikt met php.)<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+zzz - The End -<br />

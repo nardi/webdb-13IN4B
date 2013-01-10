@@ -1,0 +1,14 @@
+Als je in het formulier invult:
+
+als username: iets
+als password: blah" OR "x"="x
+
+Dan krijg je toegang!
+
+De query wordt dan:
+SELECT username FROM injectietest WHERE username="iets" AND password="blah" OR "x"="x"
+
+De voorwaarde "x"="x" is altijd waar.
+Dus de onveilige versie geeft toegang.
+
+

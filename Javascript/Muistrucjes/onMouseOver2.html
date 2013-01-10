@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<meta name="Author" content="Wolter Kaper" />
+	<title>De onMouseOver gebeurtenis gebruiken</title>
+	<script type="text/javascript">
+		function Kleur(elt, kleur) {
+			elt.style.background = kleur;
+		}
+		function Italicise(elt, waarde) {
+			elt.style.fontStyle = waarde;
+		}	
+	</script>
+	<style type="text/css">
+		p	{font-family: Arial; }
+		em	{font-style: Italic; }
+	</style>
+</head>
+
+<body>
+
+<p>Het sleutelwoord 'this' slaat op het element waar het actieve gebeurtenisattribuut bij hoort.</p>
+
+	<p id="één" onmouseover="Kleur(this, 'Red');"
+	onmouseout="Kleur(this, 'White');">
+	Elke regel van deze bladzijde</p>
+
+	<p id="twee" onmouseover="Kleur(this, 'Blue');"
+	onmouseout="Kleur(this, 'White');">
+	kun je apart van een kleurtje</p>
+
+	<p id="drie" onmouseover="Kleur(this, 'Green');"
+	onmouseout="Kleur(this, 'White');">
+	voorzien. Elk heeft z'n eigen</p>
+
+	<p id="vier" onmouseover="Italicise(this, 'Italic');"
+	onmouseout="Italicise(this, 'Normal');">
+	kleur, maar deze valt uit de toon.</p>
+
+</body>
+
+</html>
+

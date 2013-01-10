@@ -1,0 +1,22 @@
+Drie javascripts om formulieren intelligenter te maken.
+
+"Disable_inputblock.html"
+Hiermee kun je blokken opeenvolgende fomulierelementen maken, die als groep
+gedisabled / enabled kunnen worden.
+(gedisabled = grijs en de gebruiker kan er niets invullen)
+
+
+"DynamicOptionList.html"
+Je hebt twee pulldown lijsten (selectboxes) A en B, bijvoorbeeld in A kies
+je een provincie en in B een stad.
+De opties in B hangen af van de gemaakte keus in A.
+Dit javascript zorgt dat de inhoud van B wordt aangepast.
+- versie 2: 
+Als selectbox B maar 1 keuze heeft: verberg de box
+
+
+"VerplichteVeldenCheck.html"
+Een simpele controle van verplichte velden.
+Als een of meer verplichte velden niet zijn ingevuld, verschijnt een melding
+en wordt het formulier niet gesubmit.
+

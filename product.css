@@ -1,0 +1,85 @@
+.vcenter-container {
+    display: table;
+}
+
+.vcenter {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.product-thumb {
+    float: left;
+    width: 25%;
+    height: 15em;
+    text-align: center;
+}
+
+.product-thumb.preorder {
+    height: 17em;
+}
+
+.product-thumb img {
+    width: 66%;
+}
+
+.product-thumb p {
+    margin: 0;
+    margin-top: 8px;
+}
+
+.product-thumb .title {
+    font-size: 1em;
+}
+
+.product-thumb .price {
+    font-size: 1.6em; 
+}
+
+.product-thumb .date {
+    font-size: 1em; 
+}
+
+.product-hilite {
+    height: 170pt;
+    display: inline-block;
+    border: 1px solid black;
+    background-color: #fefefe;
+}
+
+.product-hilite #desc, .product-hilite img {
+    height: 100%;
+    float: left;
+}
+
+.product-hilite p {
+    margin: 10px;
+    margin-bottom: 0;
+}
+
+.product-hilite .title {
+    font-size: 1.1em;
+}
+
+.product-hilite .old-price {
+    font-size: 1.4em;
+    text-decoration: line-through;
+}
+
+.product-hilite .price {
+    font-size: 1.7em; 
+}
+
+/*
+Dit is voor een mogelijke aanbiedingenwisselaar
+.product-hilite .previews {
+    text-align: center;
+    background-color: black;
+    float: left;
+}
+
+.product-hilite .previews img {
+    height: 25%;
+    float: left;
+    clear: right;
+} */
+

@@ -1,0 +1,11 @@
+#category {
+    width: 100%;
+    text-align: center;
+}
+
+.category {
+    text-align: center;
+    width: 85%;
+    margin-bottom: 10px;
+    display: inline-block;
+}

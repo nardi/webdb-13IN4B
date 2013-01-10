@@ -1,0 +1,10 @@
+#frontpage {
+    margin-bottom: 50px;
+    width: 100%;
+    text-align: center;
+}
+
+#on-sale, #new-releases, #preorders {
+    clear: both;
+    display: inline-block;
+}
