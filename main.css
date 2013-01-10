@@ -18,14 +18,14 @@ html, body {
 }
 
 #banner {
-    height : 10%;
+    height : 2.5cm;
     width : 100%;
     
 }
 
 #logo {
     float : left;
-    width : 40em;
+    width : 20cm;
 }
     
 #dashboard {
