@@ -39,6 +39,10 @@ html, body {
     float : right;
 }
 
+#dashboard a{
+    margin-right: 10pt;
+}
+
 /* 
  * The main window
  */
@@ -54,6 +58,9 @@ html, body {
     float : left;
     width : 5cm;
     margin-right: 0.5cm;
+    background-color: #fcfce0;
+    margin-top: 0.4cm;
+    padding-bottom: 5pt;
 }
 
 .clickable-item {
