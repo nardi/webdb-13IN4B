@@ -16,7 +16,9 @@
     <div id="banner">
 
         <div id="logo">
+			<div class="clickable-item" onClick="window.open('index.php?pag=frontpage.html', '_self');">
             <img src="images/logo/logo-sis.png" alt="Link to homepage" />
+			</div>
         </div>
 
         <div id="dashboard">
