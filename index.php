@@ -30,12 +30,24 @@
     <div id="contentWindow">
 
         <div id="sidebar">
-            <a href="index.php?pag=frontpage.html">frontpage</a> <br />
-            <a href="index.php?pag=overons.html">overons</a> <br />
-            <a href="index.php?pag=Registratieformulier.html">Registratieformulier</a> <br />
-            <a href="index.php?pag=Wachtwoordvergeten.html">Wachtwoordvergeten</a> <br />
-            <a href="index.php?pag=item-description.html">item-description</a> <br />
-            <a href="index.php?pag=category.html">category</a> <br />
+            <div class="clickable-item">
+                <a href="index.php?pag=frontpage.html">frontpage</a> 
+            </div>
+            <div class="clickable-item">
+                <a href="index.php?pag=overons.html">overons</a>
+            </div>
+            <div class="clickable-item">
+                <a href="index.php?pag=Registratieformulier.html">Registratieformulier</a> <br />
+            </div>
+            <div class="clickable-item">
+                <a href="index.php?pag=Wachtwoordvergeten.html">Wachtwoordvergeten</a> <br />
+            </div>
+            <div class="clickable-item">
+                <a href="index.php?pag=item-description.html">item-description</a> <br />
+            </div>
+            <div class="clickable-item">
+                <a href="index.php?pag=category.html">category</a> <br />
+            </div>
         </div>
         
         <div id="content">

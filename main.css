@@ -17,31 +17,51 @@ html, body {
     margin-right : auto
 }
 
+/* 
+ * The upper window
+ */
+
 #banner {
     height : 2.5cm;
     width : 100%;
     
 }
 
+/* The logo */ 
+ 
 #logo {
     float : left;
     width : 20cm;
 }
+
+/* The dashboard */
     
 #dashboard {
     float : left;
 }
 
+/* 
+ * The main window
+ */
 
 #contentWindow {
     width : 100%;
     overflow : auto;
 }
 
+/* Sidebar */
+
 #sidebar {
     float : left;
     width : 5cm;
 }
+
+.clickable-item:hover {
+    background: #00B3FF;
+    color: #FFFFFF;
+}
+
+/* Content window */
 
 #content {
     position : relative;
