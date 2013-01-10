@@ -33,20 +33,20 @@
             <div class="clickable-item" onClick="window.open('index.php?pag=frontpage.html');">
                 frontpage
             </div>
-            <div class="clickable-item">
-                <a href="index.php?pag=overons.html">overons</a>
+            <div class="clickable-item" onClick="window.open('index.php?pag=overons.html');">
+                overons
             </div>
-            <div class="clickable-item">
-                <a href="index.php?pag=Registratieformulier.html">Registratieformulier</a> <br />
+            <div class="clickable-item" onClick="window.open('index.php?pag=Registratieformulier.html');">
+                Registratieformulier
             </div>
-            <div class="clickable-item">
-                <a href="index.php?pag=Wachtwoordvergeten.html">Wachtwoordvergeten</a> <br />
+            <div class="clickable-item" onClick="window.open('index.php?pag=Wachtwoordvergeten.html');">
+                Wachtwoordvergeten
             </div>
-            <div class="clickable-item">
-                <a href="index.php?pag=item-description.html">item-description</a> <br />
+            <div class="clickable-item" onClick="window.open('index.php?pag=item-description.html');">
+               item-description
             </div>
-            <div class="clickable-item">
-                <a href="index.php?pag=category.html">category</a> <br />
+            <div class="clickable-item" onClick="window.open('index.php?pag=category.html');">
+                category
             </div>
         </div>
         
