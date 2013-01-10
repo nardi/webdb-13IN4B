@@ -35,7 +35,7 @@
     <div id="contentWindow">
 
         <div id="sidebar">
-            <div class="clickable-item" onClick="window.open('index.php?pag=frontpage.html', '_self'); this.style.backgroundColor='#ADADAD'">
+            <div class="clickable-item" onClick="window.open('index.php?pag=frontpage.html', '_self');">
                 frontpage
             </div>
             <div class="clickable-item" onClick="window.open('index.php?pag=overons.html', '_self');">
