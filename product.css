@@ -1,12 +1,3 @@
-.vcenter-container {
-    display: table;
-}
-
-.vcenter {
-    display: table-cell;
-    vertical-align: middle;
-}
-
 .product-thumb {
     float: left;
     width: 25%;
