@@ -15,7 +15,7 @@
     <div id="banner">
 
         <div id="logo">
-            S.I.S logo hier!
+            S.I.S logo hier! LOL #YOLO SWAG.
         </div>
 
         <div id="dashboard">
