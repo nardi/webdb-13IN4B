@@ -16,7 +16,7 @@
     <div id="banner">
 
         <div id="logo">
-            S.I.S logo hier! LOL #YOLO SWAG.
+            <img src="images/logo/logo-sis.png" alt="Link to homepage" />
         </div>
 
         <div id="dashboard">
