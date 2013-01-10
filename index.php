@@ -30,8 +30,8 @@
     <div id="contentWindow">
 
         <div id="sidebar">
-            <div class="clickable-item">
-                <a href="index.php?pag=frontpage.html">frontpage</a> 
+            <div class="clickable-item" onClick="window.open('index.php?pag=frontpage.html');">
+                frontpage
             </div>
             <div class="clickable-item">
                 <a href="index.php?pag=overons.html">overons</a>
