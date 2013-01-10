@@ -56,6 +56,10 @@ html, body {
     width : 5cm;
 }
 
+.clickable-item a {
+    color: #000000;
+}
+
 .clickable-item:hover {
     background: #00B3FF;
     color: #FFFFFF;
