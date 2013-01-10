@@ -12,7 +12,7 @@ html, body {
 
 #mainWindow {
     height : 100%;
-    width : 25cm;
+    width : 25.5cm;
     margin-left : auto;
     margin-right : auto
 }
@@ -38,6 +38,7 @@ html, body {
     
 #dashboard {
     float : left;
+    margin-right: 0.5cm;
 }
 
 /* 
