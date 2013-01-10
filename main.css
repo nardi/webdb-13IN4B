@@ -38,7 +38,6 @@ html, body {
     
 #dashboard {
     float : left;
-    margin-right: 0.5cm;
 }
 
 /* 
@@ -55,6 +54,7 @@ html, body {
 #sidebar {
     float : left;
     width : 5cm;
+    margin-right: 0.5cm;
 }
 
 .clickable-item {
