@@ -31,13 +31,12 @@ html, body {
  
 #logo {
     float : left;
-    width : 20cm;
 }
 
 /* The dashboard */
     
 #dashboard {
-    float : left;
+    float : right;
 }
 
 /* 
@@ -92,4 +91,5 @@ html, body {
 
 #acc-mand{
 	float:left;
+    margin-left:0.1cm;
 }
