@@ -62,6 +62,7 @@ html, body {
 }
 
 .clickable-item:hover {
+    cursor: pointer;
     background: #00B3FF;
     color: #FFFFFF;
 }
