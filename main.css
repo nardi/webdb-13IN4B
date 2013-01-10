@@ -45,6 +45,10 @@ html, body {
     float : left;
 }
 
+#logo:hover{
+	cursor:pointer;
+}
+
 #logo img{
     height: 1.7cm;
     margin-top: 1em;
