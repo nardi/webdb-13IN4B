@@ -33,6 +33,11 @@ html, body {
     float : left;
 }
 
+#logo img{
+    height:2.5cm;
+    }
+}
+
 /* The dashboard */
     
 #dashboard {
