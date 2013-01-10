@@ -13,13 +13,13 @@
 
 <div id="mainWindow">
 
-    <div id="banner">
+    <div id="banner" class="vcenter-container">
 
         <div id="logo">
             <img src="images/logo/logo-sis.png" alt="Link to homepage" />
         </div>
 
-        <div id="dashboard">
+        <div id="dashboard" class="vcenter">
             <div id="reg-log">
             <a href="http://sisv2.tk/index.php?pag=Registratieformulier.html"> Registreren </a><br />
             <a href="http://sisv2.tk/index.php?pag=Inloggen.html"> Inloggen </a>

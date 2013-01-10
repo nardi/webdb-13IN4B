@@ -17,14 +17,26 @@ html, body {
     margin-right : auto
 }
 
+/*
+ *  Useful for vertical centering
+ */
+ 
+.vcenter-container {
+    display: table;
+}
+
+.vcenter {
+    display: table-cell;
+    vertical-align: middle;
+}
+
 /* 
  * The upper window
  */
 
 #banner {
     height : 2.5cm;
-    width : 100%;
-    
+    width : 100%; 
 }
 
 /* The logo */ 
@@ -35,7 +47,6 @@ html, body {
 
 #logo img{
     height:2.5cm;
-    }
 }
 
 /* The dashboard */
