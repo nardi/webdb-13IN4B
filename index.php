@@ -25,7 +25,7 @@
             <a href="http://sisv2.tk/index.php?pag=Inloggen.html"> Inloggen </a>
             </div>
             <div id="acc-mand">
-            <a href="http://sisv2.tk/index.php?pag=account-overzicht.html"> Mijn account </a><br />
+            <a href="http://sisv2.tk/index.php?pag=MijnAccount.html"> Mijn account </a><br />
             <a href="http://sisv2.tk/index.php?pag=cart.html"> Winkelwagen (3) </a>
             </div>
         </div>
@@ -35,7 +35,7 @@
     <div id="contentWindow">
 
         <div id="sidebar">
-            <div class="clickable-item" onClick="window.open('index.php?pag=frontpage.html', '_self'); this.style.backgroundColor='#ADADAD'">
+            <div class="clickable-item" onClick="window.open('index.php?pag=frontpage.html', '_self');">
                 frontpage
             </div>
             <div class="clickable-item" onClick="window.open('index.php?pag=overons.html', '_self');">
