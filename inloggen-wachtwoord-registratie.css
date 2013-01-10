@@ -1,12 +1,99 @@
-    div.registratieformulier {
-    width: 280pt;
-    }
-    div.wachtwoord-vergeten {
-    width: 300pt;       
-    }
-    div.inlogformulier {
-    width: 200pt;
-    }
-    div.rechtsboven {
-    width: 100pt;
-    }
+.registratieformulier {
+width: 280pt;
+}
+.wachtwoord-vergeten {
+width: 300pt;       
+}
+.inlogformulier {
+width: 200pt;
+}
+.rechtsboven {
+width: 100pt;
+}
+.account-bewerken {
+width: 280pt;
+}
+.account-wachtwoord-veranderen {
+width: 300pt;
+}
+.account-overzicht {
+width: 280pt;
+}
+input{
+width: 180px;
+}
+.bestellingen-geschiedenis {
+width: 420pt;
+}
+.bestellingen-lopende {
+width: 420pt;
+}
+#cart {
+width: 100%;
+text-align: center;
+}
+
+.product-list {
+    width: 85%;
+    margin-left: 7.5%;
+    margin-right: 7.5%;
+    border-collapse: collapse;
+}
+
+.product-list td, .product-list th {
+    text-align: center;
+    vertical-align: middle;
+    padding: 4pt;
+}
+
+.product-list td:not(.update-button) {
+    border: 1px solid black;
+    background-color: #fefefe;
+}
+
+.product-list .product-id {
+    text-align: right;
+}
+
+.product-list .product-image {
+    width: 80pt;
+    padding: 0;
+}
+
+.product-list .product-image img {
+    width: 100%;
+    display: block;
+}
+
+.product-list .product-title {
+    text-align: left;
+}
+
+.product-list input[name^="amount"] {
+    text-align: center;
+    width: 20pt;
+}
+
+.product-list .update-button {
+    text-align: left;
+}
+
+.product-list .total-price th {
+    text-align: right;
+}
+
+.product-list .total-price td span {
+    text-decoration: underline;
+    border-bottom: 1px solid black;
+}
+#category {
+    width: 100%;
+    text-align: center;
+}
+
+.category {
+    text-align: center;
+    width: 85%;
+    margin-bottom: 10px;
+    display: inline-block;
+}
