@@ -30,22 +30,22 @@
     <div id="contentWindow">
 
         <div id="sidebar">
-            <div class="clickable-item" onClick="window.location('index.php?pag=frontpage.html');">
+            <div class="clickable-item" onClick="window.open('index.php?pag=frontpage.html', '_self');">
                 frontpage
             </div>
-            <div class="clickable-item" onClick="window.location('index.php?pag=overons.html');">
+            <div class="clickable-item" onClick="window.open('index.php?pag=overons.html', '_self');">
                 overons
             </div>
-            <div class="clickable-item" onClick="window.location('index.php?pag=Registratieformulier.html');">
+            <div class="clickable-item" onClick="window.open('index.php?pag=Registratieformulier.html', '_self');">
                 Registratieformulier
             </div>
-            <div class="clickable-item" onClick="window.location('index.php?pag=Wachtwoordvergeten.html');">
+            <div class="clickable-item" onClick="window.open('index.php?pag=Wachtwoordvergeten.html', '_self');">
                 Wachtwoordvergeten
             </div>
-            <div class="clickable-item" onClick="window.location('index.php?pag=item-description.html');">
+            <div class="clickable-item" onClick="window.open('index.php?pag=item-description.html', '_self');">
                item-description
             </div>
-            <div class="clickable-item" onClick="window.location('index.php?pag=category.html');">
+            <div class="clickable-item" onClick="window.open('index.php?pag=category.html', '_self');">
                 category
             </div>
         </div>
