@@ -15,10 +15,8 @@
 
     <div id="banner" class="vcenter-container">
 
-        <div id="logo">
-			<div class="clickable-item" onClick="window.open('index.php?pag=frontpage.html', '_self');">
+        <div id="logo" onClick="window.open('index.php?pag=frontpage.html', '_self');">
             <img src="images/logo/logo-sis.png" alt="Link to homepage" />
-			</div>
         </div>
 
         <div id="dashboard" class="vcenter">
