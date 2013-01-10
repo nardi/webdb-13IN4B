@@ -82,3 +82,11 @@ html, body {
   text-decoration: none;
   color: black;
 }
+
+#reg-log{
+	float:left;
+}
+
+#acc-mand{
+	float:left;
+}
