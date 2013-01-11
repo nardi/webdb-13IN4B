@@ -7,20 +7,21 @@ $con = connect_to_db();
 mysql_select_db("webdb13IN4B", $con);
 $voornaam=$_POST['voornaam'];
 $achternaam=$_POST['achternaam'];
-$Land=$_POST['land'];
-$Postcode=$_POST['postcode'];
-$Huisnummer=$_POST['huisnummer'];
-$Geboortejaar=$_POST['geboortejaar'];
-$Geboortemaand=$_POST['geboortemaand'];
-$Telefoonnummer=$_POST['telefoonnummer'];
-$Mobielnummer=$_POST['mobiel nummer'];
+$land=$_POST['land'];
+$postcode=$_POST['postcode'];
+$huisnummer=$_POST['huisnummer'];
+$geboortejaar=$_POST['geboortejaar'];
+$geboortemaand=$_POST['geboortemaand'];
+$telefoonnummer=$_POST['telefoonnummer'];
+$mobielnummer=$_POST['mobiel nummer'];
 $emailadres=$_POST['e-mailadres'];
 $wachtwoord=$_POST['wachtwoord'];
+$dateOfRegistration=date('Y m d');
 
 $sql="INSERT INTO database_registratie (voornaam, achternaam, land, postcode, huisnummer,
-geboortejaar, geboortemaand, telefoonnummer, mobielnummer, e-mailadres, wachtwoord)
+geboortejaar, geboortemaand, telefoonnummer, mobielnummer, e-mailadres, wachtwoord, RegistratieDatum)
 VALUES ('$voornaam', '$achternaam', '$land', '$postcode', '$huisnummer', $geboortejaar, $geboortemaand,
-$telefoonnummer, $mobiel nummer', '$emailadres', '$wachtwoord')";
+$telefoonnummer, $mobiel nummer', '$emailadres', '$wachtwoord', '$dateOfRegistration')";
 
 /*
     Zo moet error-handlen:
@@ -38,7 +39,9 @@ $telefoonnummer, $mobiel nummer', '$emailadres', '$wachtwoord')";
         throw new Exception($con->error);
 */
 
-$con->query($sql);
+if(!$con->query($sql))
+    throw new Exception($con->error);
+
 
 $con->close();
 ?>
