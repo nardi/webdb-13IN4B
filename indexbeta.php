@@ -3,10 +3,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
         <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-        <meta name="Content of Site" content="Super Internet Shop, a webshop made by UvA" />
-        <link rel="shortcut icon" href="favicon.ico" />
+        <meta name="Author" content="Wolter Kaper" wie="dat" />
+        <link rel="shortcut icon" type="image/ico" href="Super S Icon.ico" />
         <title>SIS</title>
-        <link rel="stylesheet" type="text/css" href="main.css" />
+        <link rel="stylesheet" type="text/css" href="mainbeta.css" />
 </head>
 
 <body>
@@ -33,7 +33,7 @@
 
     <div id="contentWindow">
         <div id="sidebar">
-            <div class="clickable-item" onClick="window.open('index.php?pag=frontpage.html', '_self');">
+            <div class="clickable-item test" onClick="window.open('index.php?pag=frontpage.html', '_self');">
                 frontpage
             </div>
             <div class="clickable-item" onClick="window.open('index.php?pag=overons.html', '_self');">
@@ -50,9 +50,6 @@
             </div>
             <div class="clickable-item" onClick="window.open('index.php?pag=category.html', '_self');">
                 category
-            </div>
-            <div class="clickable-item" onClick="window.open('indexbeta.php', '_self');">
-                Beta-layout
             </div>
         </div>
         
