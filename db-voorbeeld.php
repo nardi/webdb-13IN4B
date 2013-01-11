@@ -17,7 +17,7 @@ $wachtwoord=$_POST['wachtwoord'];
 $dateOfRegistration=date('Y m d');
 
 $sql="INSERT INTO database_registratie (voornaam, achternaam, land, postcode, huisnummer,
-geboortejaar, geboortemaand, telefoonnummer, mobiel nummer, emailadres, wachtwoord, RegistratieDatum)
+geboortejaar, geboortemaand, telefoonnummer, mobielnummer, emailadres, wachtwoord, RegistratieDatum)
 VALUES ('$voornaam', '$achternaam', '$land', '$postcode', '$huisnummer', $geboortejaar, $geboortemaand,
 $telefoonnummer, $mobielnummer', '$emailadres', '$wachtwoord', '$dateOfRegistration')";
 
