@@ -51,7 +51,7 @@
             <div class="clickable-item" onClick="window.open('index.php?pag=category.html', '_self');">
                 category
             </div>
-            <div class="clickable-item" onClick="window.open('indexbeta.php', '_self');">
+            <div class="clickable-item" onClick="window.open('indexbeta.php');">
                 Beta-layout
             </div>
         </div>
