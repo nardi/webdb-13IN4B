@@ -32,7 +32,7 @@ VALUES ('$voornaam', '$achternaam', '$land', '$postcode', '$huisnummer', '$geboo
     if (!$res)
         throw new Exception($con->error);
     
-    of:
+    of: 
     if (!$res = $con->query(...)) (misschien, weet niet)
         throw new Exception($con->error);
 */
