@@ -21,19 +21,17 @@
 
         <div id="dashboard" class="vcenter">
             <div id="reg-log">
-            <a href="http://sisv2.tk/index.php?pag=Registratieformulier.html"> Registreren </a><br />
-            <a href="http://sisv2.tk/index.php?pag=Inloggen.html"> Inloggen </a>
+            <a href="http://sisv2.tk/index.php?pag=Registratieformulier.html">Registreren</a><br />
+            <a href="http://sisv2.tk/index.php?pag=Inloggen.html">Inloggen</a>
             </div>
             <div id="acc-mand">
-            <a href="http://sisv2.tk/index.php?pag=account-overzicht.html"> Mijn account </a><br />
-            <a href="http://sisv2.tk/index.php?pag=cart.html"> Winkelwagen (3) </a>
+            <a href="http://sisv2.tk/index.php?pag=account-overzicht.html">Mijn account</a><br />
+            <a href="http://sisv2.tk/index.php?pag=cart.html">Winkelwagen (3)</a>
             </div>
         </div>
-
     </div>
 
     <div id="contentWindow">
-
         <div id="sidebar">
             <div class="clickable-item" onClick="window.open('index.php?pag=frontpage.html', '_self');">
                 frontpage
@@ -74,8 +72,6 @@
                     }
                 }
             ?>
-            
-          
         </div>
     </div>
 </div>
