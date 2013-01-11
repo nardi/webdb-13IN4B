@@ -4,7 +4,7 @@
 <head>
         <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
         <meta name="Content of Site" content="Super Internet Shop, a webshop made by UvA" />
-        <link rel="shortcut icon" href="Super S Icon.ico" />
+        <link rel="shortcut icon" href="favicon.ico" />
         <title>SIS</title>
         <link rel="stylesheet" type="text/css" href="main.css" />
 </head>
