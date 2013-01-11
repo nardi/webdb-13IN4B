@@ -41,10 +41,10 @@ if(!$con->query($sql)){
     throw new Exception($con->error);
     }
     
-else
-    window.open('index.php?pag=registratie-succesvol.html', '_self');
+
 
 $con->close();
 
+window.open('index.php?pag=registratie-succesvol.html', '_self');
 
 ?>
