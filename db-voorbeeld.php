@@ -1,6 +1,6 @@
 <?php
 require 'main.php';
-@include("redirect-to-thanks.php");
+require 'redirect-to-thanks.php';
 
 $con = connect_to_db();
 
