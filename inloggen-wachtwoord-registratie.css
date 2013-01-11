@@ -98,10 +98,11 @@ text-align: center;
     display: inline-block;
 }
 
-.datum input{
-width:40pt ;
+.datum {
+width: 130pt ;
+
 }
 
-.jaar input{
-width:45pt ;
+.datum input{
+width: 31.7%;
 }
