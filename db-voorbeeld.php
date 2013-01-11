@@ -14,7 +14,7 @@ $telefoonnummer=$_POST['telefoonnummer'];
 $mobielnummer=$_POST['mobielnummer'];
 $emailadres=$_POST['e-mailadres'];
 $wachtwoord=$_POST['wachtwoord'];
-$dateOfRegistration=date('Y m d');
+$dateOfRegistration=date('Y-m-d');
 
 $sql="INSERT INTO database_registratie (voornaam, achternaam, land, postcode, huisnummer,
 geboortedatum, telefoonnummer, mobielnummer, emailadres, wachtwoord, RegistratieDatum)
