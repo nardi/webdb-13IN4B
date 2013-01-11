@@ -22,6 +22,22 @@ geboortejaar, geboortemaand, telefoonnummer, mobielnummer, e-mailadres, wachtwoo
 VALUES ('$voornaam', '$achternaam', '$land', '$postcode', '$huisnummer', $geboortejaar, $geboortemaand,
 $telefoonnummer, $mobiel nummer', '$emailadres', '$wachtwoord')";
 
+/*
+    Zo moet error-handlen:
+    if (!$con->query(...))
+        throw new Exception($con->error);
+
+    of met resultaat:
+    $res = $con->query(...)
+    
+    if (!$res)
+        throw new Exception($con->error);
+    
+    of:
+    if (!$res = $con->query(...)) (misschien, weet niet)
+        throw new Exception($con->error);
+*/
+
 $con->query($sql);
 
 $con->close();
