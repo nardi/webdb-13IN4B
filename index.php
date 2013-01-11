@@ -15,7 +15,7 @@
 
     <div id="banner" class="vcenter-container">
 
-        <div id="logo">
+        <div id="logo" onClick="window.open('index.php?pag=frontpage.html', '_self');">
             <img src="images/logo/logo-sis.png" alt="Link to homepage" />
         </div>
 
@@ -25,7 +25,7 @@
             <a href="http://sisv2.tk/index.php?pag=Inloggen.html">Inloggen</a>
             </div>
             <div id="acc-mand">
-            <a href="http://sisv2.tk/index.php?pag=MijnAccount.html">Mijn account</a><br />
+            <a href="http://sisv2.tk/index.php?pag=account-overzicht.html">Mijn account</a><br />
             <a href="http://sisv2.tk/index.php?pag=cart.html">Winkelwagen (3)</a>
             </div>
         </div>
