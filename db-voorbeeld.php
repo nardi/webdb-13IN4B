@@ -37,9 +37,14 @@ VALUES ('$voornaam', '$achternaam', '$land', '$postcode', '$huisnummer', '$geboo
         throw new Exception($con->error);
 */
 
-if(!$con->query($sql))
+if(!$con->query($sql)){
     throw new Exception($con->error);
-
+    }
+    
+else
+    
 
 $con->close();
+
+
 ?>
