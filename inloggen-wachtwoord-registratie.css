@@ -97,3 +97,11 @@ text-align: center;
     margin-bottom: 10px;
     display: inline-block;
 }
+
+.datum input{
+width:20pt ;
+}
+
+.jaar input{
+width:28pt ;
+}
