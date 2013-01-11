@@ -20,7 +20,7 @@ width: 350pt;
 width: 280pt;
 }
 input{
-width: 180px;
+width: 130pt;
 }
 .bestellingen-geschiedenis {
 width: 420pt;
@@ -96,4 +96,13 @@ text-align: center;
     width: 85%;
     margin-bottom: 10px;
     display: inline-block;
+}
+
+.datum {
+width: 130pt ;
+
+}
+
+.datum input{
+width: 25%;
 }
