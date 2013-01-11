@@ -4,7 +4,6 @@ require 'main.php';
 $con = connect_to_db();
 
 //Insert name and e-mail
-mysql_select_db("webdb13IN4B", $con);
 $voornaam=$_POST['voornaam'];
 $achternaam=$_POST['achternaam'];
 $land=$_POST['land'];
@@ -12,15 +11,15 @@ $postcode=$_POST['postcode'];
 $huisnummer=$_POST['huisnummer'];
 $geboortedatum=$_POST['jaar']. '-' . $_POST['maand'] . '-' . $_POST['dag'];
 $telefoonnummer=$_POST['telefoonnummer'];
-$mobielnummer=$_POST['mobiel nummer'];
+$mobielnummer=$_POST['mobielnummer'];
 $emailadres=$_POST['e-mailadres'];
 $wachtwoord=$_POST['wachtwoord'];
 $dateOfRegistration=date('Y m d');
 
 $sql="INSERT INTO database_registratie (voornaam, achternaam, land, postcode, huisnummer,
-geboortejaar, geboortemaand, telefoonnummer, mobielnummer, e-mailadres, wachtwoord, RegistratieDatum)
+geboortejaar, geboortemaand, telefoonnummer, mobiel nummer, emailadres, wachtwoord, RegistratieDatum)
 VALUES ('$voornaam', '$achternaam', '$land', '$postcode', '$huisnummer', $geboortejaar, $geboortemaand,
-$telefoonnummer, $mobiel nummer', '$emailadres', '$wachtwoord', '$dateOfRegistration')";
+$telefoonnummer, $mobielnummer', '$emailadres', '$wachtwoord', '$dateOfRegistration')";
 
 /*
     Zo moet error-handlen:
