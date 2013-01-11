@@ -42,7 +42,7 @@ if(!$con->query($sql)){
     }
     
 else
-    
+    window.open('index.php?pag=registratie-succesvol.html', '_self');
 
 $con->close();
 
