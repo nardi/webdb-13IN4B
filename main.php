@@ -14,9 +14,7 @@
     {
         $mysqli = new mysqli("localhost", "webdb13IN4B", "trestunu", "webdb13IN4B");
         if ($mysqli->connect_errno)
-        {
             throw new Exception($mysqli->connect_error);
-        }
         return $mysqli;
     }
 ?>
