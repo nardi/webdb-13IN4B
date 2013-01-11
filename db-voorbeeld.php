@@ -1,5 +1,6 @@
 <?php
 require 'main.php';
+@include("redirect-to-thanks.php");
 
 $con = connect_to_db();
 
@@ -41,10 +42,9 @@ if(!$con->query($sql)){
     throw new Exception($con->error);
     }
     
-
+else
+    redirect("index.php?pag=registratie-succesvol.html");
 
 $con->close();
-
-window.open('index.php?pag=registratie-succesvol.html', '_self');
 
 ?>
