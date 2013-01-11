@@ -17,7 +17,7 @@ $emailadres=$_POST['e-mailadres'];
 $wachtwoord=$_POST['wachtwoord'];
 $dateOfRegistration=date('Y-m-d');
 
-$md5= string md5(string $wachtwoord[,raw_output=false]);
+$md5= string md5(string $wachtwoord[, $raw_output=false]);
 
 $sql="INSERT INTO database_registratie (voornaam, achternaam, land, postcode, huisnummer,
 geboortedatum, telefoonnummer, mobielnummer, emailadres, wachtwoord, RegistratieDatum)
