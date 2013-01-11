@@ -1,4 +1,8 @@
-<?php    
+<?php
+    /*
+     * Gebruik met: require 'main.php';
+     */
+
     function show_error_page($exception)
     {
         echo "Er ging iets mis bij het laden van deze pagina:</br></br>" . $exception->getMessage();
