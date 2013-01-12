@@ -14,8 +14,17 @@
     $emailadres = $_POST['e-mailadres'];
     $wachtwoord = $_POST['wachtwoord'];
     $created_at = date('Y-m-d');
-
+    
+    //Random getal voor salt genereren
+    $saltbytes = openssl_random_pseudo_bytes(32);
+    $salt = bin2hex($bytes);
+    
+    //Hashen met SHA-256
     $wwhash = hash('sha256', $wachtwoord);
+    $saltedwwhash = hash('sha256', $salt . $wwhash);
+    
+    //Combinatie salt en wachtwoordhash voor database
+    $saltww = $salt . $saltedwwhash;
     /*               '.       
         .-""-._     \ \.--|  
        /       "-..__) .-'   
@@ -24,7 +33,7 @@
        `'----'._\--'  
      * Whale whale whale, what have we here?
      *
-     * Leuk, maar deze functie kan niet misgaan.
+     * Leuk, maar deze functie (md5()) kan niet misgaan.
      * Ook is dat error-handlen specifiek voor het mysqli-object bedoeld,
      * andere functies werken weer anders.
      */
@@ -32,7 +41,7 @@
     $sql = "INSERT INTO database_registratie (voornaam, achternaam, land, postcode, huisnummer,
     geboortedatum, telefoonnummer, mobielnummer, emailadres, wachtwoord, RegistratieDatum)
     VALUES ('$voornaam', '$achternaam', '$land', '$postcode', '$huisnummer', '$geboortedatum',
-    '$telefoonnummer', '$mobielnummer', '$emailadres', '$wwhash', '$created_at')";
+    '$telefoonnummer', '$mobielnummer', '$emailadres', '$saltww', '$created_at')";
 
     /*
         Zo moet error-handlen bij database-queries:
@@ -45,8 +54,8 @@
         if (!$res)
             throw new Exception($db->error);
         
-        of: 
-        if (!$res = $db->query(...)) (misschien, weet niet)
+        of misschien (weet niet zeker): 
+        if (!$res = $db->query(...))
             throw new Exception($db->error);
     */
 
