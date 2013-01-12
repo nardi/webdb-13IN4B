@@ -18,6 +18,14 @@ $wachtwoord=$_POST['wachtwoord'];
 $dateOfRegistration=date('Y-m-d');
 
 if(!$md5=md5($wachtwoord))
+    /*               '.       
+        .-""-._     \ \.--|  
+       /       "-..__) .-'   
+     ?_______?             /     
+      \'-.__,   .__.,'       
+       `'----'._\--'  
+     * Whale whale whale, what have we here?
+     */
     throw new Exception($md5->error);
 
 $sql="INSERT INTO database_registratie (voornaam, achternaam, land, postcode, huisnummer,
