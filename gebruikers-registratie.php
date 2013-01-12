@@ -17,7 +17,7 @@
     
     //Random getal voor salt genereren
     $saltbytes = openssl_random_pseudo_bytes(32);
-    $salt = bin2hex($bytes);
+    $salt = bin2hex($saltbytes);
     
     //Hashen met SHA-256
     $wwhash = hash('sha256', $wachtwoord);
@@ -50,11 +50,9 @@
 
         of met resultaat:
         $res = $db->query(...)
-        
         if (!$res)
             throw new Exception($db->error);
-        
-        of misschien (weet niet zeker): 
+        of: 
         if (!$res = $db->query(...))
             throw new Exception($db->error);
     */
