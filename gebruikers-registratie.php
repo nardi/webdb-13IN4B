@@ -1,23 +1,21 @@
 <?php
-require 'main.php';
-require 'redirect.php';
+    require 'main.php';
 
-$con = connect_to_db();
+    $db = connect_to_db();
 
-//Insert name and e-mail
-$voornaam=$_POST['voornaam'];
-$achternaam=$_POST['achternaam'];
-$land=$_POST['land'];
-$postcode=$_POST['postcode'];
-$huisnummer=$_POST['huisnummer'];
-$geboortedatum=$_POST['jaar']. '-' . $_POST['maand'] . '-' . $_POST['dag'];
-$telefoonnummer=$_POST['telefoonnummer'];
-$mobielnummer=$_POST['mobielnummer'];
-$emailadres=$_POST['e-mailadres'];
-$wachtwoord=$_POST['wachtwoord'];
-$dateOfRegistration=date('Y-m-d');
+    $voornaam = $_POST['voornaam'];
+    $achternaam = $_POST['achternaam'];
+    $land = $_POST['land'];
+    $postcode = $_POST['postcode'];
+    $huisnummer = $_POST['huisnummer'];
+    $geboortedatum = $_POST['jaar'] . '-' . $_POST['maand'] . '-' . $_POST['dag'];
+    $telefoonnummer = $_POST['telefoonnummer'];
+    $mobielnummer = $_POST['mobielnummer'];
+    $emailadres = $_POST['e-mailadres'];
+    $wachtwoord = $_POST['wachtwoord'];
+    $created_at = date('Y-m-d');
 
-if(!$md5=md5($wachtwoord))
+    $wwhash = hash('sha256', $wachtwoord);
     /*               '.       
         .-""-._     \ \.--|  
        /       "-..__) .-'   
@@ -25,37 +23,37 @@ if(!$md5=md5($wachtwoord))
       \'-.__,   .__.,'       
        `'----'._\--'  
      * Whale whale whale, what have we here?
+     *
+     * Leuk, maar deze functie kan niet misgaan.
+     * Ook is dat error-handlen specifiek voor het mysqli-object bedoeld,
+     * andere functies werken weer anders.
      */
-    throw new Exception($md5->error);
 
-$sql="INSERT INTO database_registratie (voornaam, achternaam, land, postcode, huisnummer,
-geboortedatum, telefoonnummer, mobielnummer, emailadres, wachtwoord, RegistratieDatum)
-VALUES ('$voornaam', '$achternaam', '$land', '$postcode', '$huisnummer', '$geboortedatum',
-'$telefoonnummer', '$mobielnummer', '$emailadres', '$md5', '$dateOfRegistration')";
+    $sql = "INSERT INTO database_registratie (voornaam, achternaam, land, postcode, huisnummer,
+    geboortedatum, telefoonnummer, mobielnummer, emailadres, wachtwoord, RegistratieDatum)
+    VALUES ('$voornaam', '$achternaam', '$land', '$postcode', '$huisnummer', '$geboortedatum',
+    '$telefoonnummer', '$mobielnummer', '$emailadres', '$wwhash', '$created_at')";
 
-/*
-    Zo moet error-handlen:
-    if (!$con->query(...))
-        throw new Exception($con->error);
+    /*
+        Zo moet error-handlen bij database-queries:
+        if (!$db->query(...))
+            throw new Exception($db->error);
 
-    of met resultaat:
-    $res = $con->query(...)
-    
-    if (!$res)
-        throw new Exception($con->error);
-    
-    of: 
-    if (!$res = $con->query(...)) (misschien, weet niet)
-        throw new Exception($con->error);
-*/
+        of met resultaat:
+        $res = $db->query(...)
+        
+        if (!$res)
+            throw new Exception($db->error);
+        
+        of: 
+        if (!$res = $db->query(...)) (misschien, weet niet)
+            throw new Exception($db->error);
+    */
 
-if(!$con->query($sql)){
-    throw new Exception($con->error);
-    }
-    
-else
-    redirect("index.php?pag=registratie-succesvol.html");
+    if(!$db->query($sql))
+        throw new Exception($db->error);
+    else
+        redirect("index.php?pag=registratie-succesvol.html");
 
-$con->close();
-
+    $db->close();
 ?>

@@ -17,4 +17,9 @@
             throw new Exception($mysqli->connect_error);
         return $mysqli;
     }
+    
+    function redirect_to($url)
+    {
+        header("location:$url");
+    }
 ?>
