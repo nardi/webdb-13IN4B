@@ -59,9 +59,10 @@
     else{
         mail($emailadres,'Super Internet Shop verificatie e-mail.', 
         'Bedankt voor het registreren bij Super Internet Shop,\n
-        klik hier om uw registratie te bevestigen. \n
+        klik <a href=sisv2.tk/index.php?pag=registratie-geverifieerd.html>hier</a> \n
+        om uw registratie te bevestigen. \n
         Dit is een automatisch gegenereerd bericht, \n
-        u kunt niet reageren.', 'From:Je moeder.');
+        u kunt niet reageren.', 'From:JeMoeder.');
         
         $db->close();
         
