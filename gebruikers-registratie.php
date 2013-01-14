@@ -57,7 +57,7 @@
     if(!$db->query($sql))
         throw new Exception($db->error);
     else
-        redirect("index.php?pag=registratie-succesvol.html");
+        redirect_to("index.php?pag=registratie-succesvol.html");
 
     $db->close();
     
