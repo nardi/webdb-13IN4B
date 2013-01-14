@@ -2,10 +2,11 @@
     require 'main.php';
 
     $db = connect_to_db();
+	
 	$emailadres = $_POST['e-mailadres'];
     $wachtwoord = $_POST['wachtwoord'];
 	
-	$sql = “SELECT wachtwoord FROM database_registratie WHERE  email = $emailadres”;
+	$sql = "SELECT wachtwoord FROM database_registratie WHERE email = $emailadres";
 	echo $db->query($sql);
 	
 	/*
