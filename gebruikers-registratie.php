@@ -5,10 +5,11 @@
 
     $voornaam = safe_POST('voornaam', $db);
     $achternaam = safe_POST('achternaam', $db);
-    $land = safe_POST('land', $db);
     $postcode = safe_POST('postcode', $db);
+    $plaats = safe_POST('plaats' , $db);
+    $straat = safe_POST('straat' , $db);
     $huisnummer = safe_POST('huisnummer', $db);
-    $geboortedatum = $db->escape_string($_POST['jaar'] . '-' . $_POST['maand'] . '-' . $_POST['dag']);
+    $toevoeging = safe_POST('toevoeging', $db);
     $telefoonnummer = safe_POST('telefoonnummer', $db);
     $mobielnummer = safe_POST('mobielnummer', $db);
     $emailadres = safe_POST('e-mailadres', $db);
@@ -34,11 +35,14 @@
      * Whale whale whale, what have we here?
      *
      */
-
-    $sql = "INSERT INTO database_registratie (voornaam, achternaam, land, postcode, huisnummer,
-    geboortedatum, telefoonnummer, mobielnummer, emailadres, wachtwoord, registratiedatum)
-    VALUES ('$voornaam', '$achternaam', '$land', '$postcode', '$huisnummer', '$geboortedatum',
-    '$telefoonnummer', '$mobielnummer', '$emailadres', '$saltww', '$registratiedatum')";
+    //Onderstaande is nog niet helemaal af.
+    $sql_gebruikers = "INSERT INTO Gebruikers (naam, achternaam, telefoonnummer, email, wachtwoord,
+    registratie_datum, status)
+    VALUES ('$voornaam', '$achternaam', '$telefoonnummer', '$emailadres', '$saltww', '$registratiedatum', '1')";
+    
+    $sql_adressen = "INSERT INTO Adressen (postcode, huisnummer, toevoeging, plaats, straat)
+    VALUES ('$postcode' , '$huisnummer' , '$toevoeging' , '$plaats' , '$straat');
+    
 
     /*
         Zo moet error-handlen bij database-queries:
