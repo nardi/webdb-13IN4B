@@ -58,10 +58,10 @@
         throw new Exception($db->error);
     else{
         mail($emailadres,'Super Internet Shop verificatie e-mail.', 
-        'Bedankt voor het registreren bij Super Internet Shop,\r\n
-        klik <a href=sisv2.tk/index.php?pag=registratie-geverifieerd.html>hier</a> \r\n
-        om uw registratie te bevestigen. \r\n
-        Dit is een automatisch gegenereerd bericht, \r\n
+        'Bedankt voor het registreren bij Super Internet Shop,<br />
+        klik <a href="sisv2.tk/index.php?pag=registratie-geverifieerd.html">hier</a> <br />
+        om uw registratie te bevestigen. <br />
+        Dit is een automatisch gegenereerd bericht, <br />
         u kunt niet reageren.', 'From:JeMoeder.');
         
         $db->close();
