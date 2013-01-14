@@ -3,16 +3,16 @@
 
     $db = connect_to_db();
 
-    $voornaam = $_POST['voornaam'];
-    $achternaam = $_POST['achternaam'];
-    $land = $_POST['land'];
-    $postcode = $_POST['postcode'];
-    $huisnummer = $_POST['huisnummer'];
-    $geboortedatum = $_POST['jaar'] . '-' . $_POST['maand'] . '-' . $_POST['dag'];
-    $telefoonnummer = $_POST['telefoonnummer'];
-    $mobielnummer = $_POST['mobielnummer'];
-    $emailadres = $_POST['e-mailadres'];
-    $wachtwoord = $_POST['wachtwoord'];
+    $voornaam = $db->escape_string($_POST['voornaam']);;
+    $achternaam = $db->escape_string($_POST['achternaam']);;
+    $land = $db->escape_string($_POST['land']);;
+    $postcode = $db->escape_string($_POST['postcode']);;
+    $huisnummer = $db->escape_string($_POST['huisnummer']);;
+    $geboortedatum = $db->escape_string($_POST['jaar'] . '-' . $_POST['maand'] . '-' . $_POST['dag']);;
+    $telefoonnummer = $db->escape_string($_POST['telefoonnummer']);;
+    $mobielnummer = $db->escape_string($_POST['mobielnummer']);;
+    $emailadres = $db->escape_string($_POST['e-mailadres']);;
+    $wachtwoord = $db->escape_string($_POST['wachtwoord']);;
     $created_at = date('Y-m-d');
     
     //Random getal voor salt genereren
