@@ -56,14 +56,18 @@
 
     if(!$db->query($sql))
         throw new Exception($db->error);
-    else
+    else{
+        mail('$emailadres','Super Internet Shop verificatie e-mail.', 
+        'Bedankt voor het registreren bij Super Internet Shop,\n
+        klik hier om uw registratie te bevestigen. \n
+        Dit is een automatisch gegenereerd bericht, \n
+        u kunt niet reageren.', 'From:Je moeder.');
+        
+        $db->close();
+        
         redirect_to("index.php?pag=registratie-succesvol.html");
-
-    $db->close();
+    }
     
-    mail('$emailadres','Super Internet Shop verificatie e-mail.', 
-    'Bedankt voor het registreren bij Super Internet Shop,\n
-    klik hier om uw registratie te bevestigen. \n
-    Dit is een automatisch gegenereerd bericht, \n
-    u kunt niet reageren.', 'From:Je moeder.');
+    
+    
 ?>
