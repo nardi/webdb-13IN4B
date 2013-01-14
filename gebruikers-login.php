@@ -7,7 +7,11 @@
     $wachtwoord = $_POST['wachtwoord'];
 	
 	$sql = "SELECT Wachtwoord FROM database_registratie WHERE Emailadres = $emailadres";
-	echo print_r($db->query($sql), TRUE);
+	$res = $db->query($sql)
+	if (!$res)
+            throw new Exception($db->error);
+	
+	
 	
 	/*
 	$wwhash = hash('sha256', $wachtwoord);
