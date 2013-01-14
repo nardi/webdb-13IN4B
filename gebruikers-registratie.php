@@ -62,7 +62,7 @@
         klik <a href="sisv2.tk/index.php?pag=registratie-geverifieerd.html">hier</a> <br />
         om uw registratie te bevestigen. <br />
         Dit is een automatisch gegenereerd bericht, <br />
-        u kunt niet reageren.', 'From:JeMoeder.' . "\r\n" . 'Content-type: text/html;);
+        u kunt niet reageren.', 'From:JeMoeder.' . "\r\n" . 'Content-type: text/html');
         
         $db->close();
         
