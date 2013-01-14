@@ -6,7 +6,7 @@
 	$emailadres = $_POST['e-mailadres'];
     $wachtwoord = $_POST['wachtwoord'];
 	
-	$sql = "SELECT wachtwoord FROM database_registratie WHERE email = $emailadres";
+	$sql = "SELECT Wachtwoord FROM database_registratie WHERE Emailadres = $emailadres";
 	echo print_r($db->query($sql), TRUE);
 	
 	/*
