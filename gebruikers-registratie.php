@@ -33,9 +33,6 @@
        `'----'._\--'  
      * Whale whale whale, what have we here?
      *
-     * Leuk, maar deze functie (md5()) kan niet misgaan.
-     * Ook is dat error-handlen specifiek voor het mysqli-object bedoeld,
-     * andere functies werken weer anders.
      */
 
     $sql = "INSERT INTO database_registratie (voornaam, achternaam, land, postcode, huisnummer,
@@ -63,4 +60,10 @@
         redirect("index.php?pag=registratie-succesvol.html");
 
     $db->close();
+    
+    mail('$emailadres','Super Internet Shop verificatie e-mail.', 
+    'Bedankt voor het registreren bij Super Internet Shop,\n
+    klik hier om uw registratie te bevestigen. \n
+    Dit is een automatisch gegenereerd bericht, \n
+    u kunt niet reageren.', 'From:Je moeder.');
 ?>
