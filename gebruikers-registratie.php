@@ -57,7 +57,7 @@
     if(!$db->query($sql))
         throw new Exception($db->error);
     else{
-        mail('$emailadres','Super Internet Shop verificatie e-mail.', 
+        mail($emailadres,'Super Internet Shop verificatie e-mail.', 
         'Bedankt voor het registreren bij Super Internet Shop,\n
         klik hier om uw registratie te bevestigen. \n
         Dit is een automatisch gegenereerd bericht, \n
