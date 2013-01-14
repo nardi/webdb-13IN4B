@@ -3,17 +3,17 @@
 
     $db = connect_to_db();
 
-    $voornaam = $db->escape_string($_POST['voornaam']);
-    $achternaam = $db->escape_string($_POST['achternaam']);
-    $land = $db->escape_string($_POST['land']);
-    $postcode = $db->escape_string($_POST['postcode']);
-    $huisnummer = $db->escape_string($_POST['huisnummer']);
+    $voornaam = safe_POST('voornaam', $db);
+    $achternaam = safe_POST('achternaam', $db);
+    $land = safe_POST('land', $db);
+    $postcode = safe_POST('postcode', $db);
+    $huisnummer = safe_POST('huisnummer', $db);
     $geboortedatum = $db->escape_string($_POST['jaar'] . '-' . $_POST['maand'] . '-' . $_POST['dag']);
-    $telefoonnummer = $db->escape_string($_POST['telefoonnummer']);
-    $mobielnummer = $db->escape_string($_POST['mobielnummer']);
-    $emailadres = $db->escape_string($_POST['e-mailadres']);
-    $wachtwoord = $db->escape_string($_POST['wachtwoord']);
-    $created_at = date('Y-m-d');
+    $telefoonnummer = safe_POST('telefoonnummer', $db);
+    $mobielnummer = safe_POST('mobielnummer', $db);
+    $emailadres = safe_POST('e-mailadres', $db);
+    $wachtwoord = safe_POST('wachtwoord', $db);
+    $registratiedatum = date('Y-m-d');
     
     //Random getal voor salt genereren
     $saltbytes = openssl_random_pseudo_bytes(32);
@@ -36,9 +36,9 @@
      */
 
     $sql = "INSERT INTO database_registratie (voornaam, achternaam, land, postcode, huisnummer,
-    geboortedatum, telefoonnummer, mobielnummer, emailadres, wachtwoord, RegistratieDatum)
+    geboortedatum, telefoonnummer, mobielnummer, emailadres, wachtwoord, registratiedatum)
     VALUES ('$voornaam', '$achternaam', '$land', '$postcode', '$huisnummer', '$geboortedatum',
-    '$telefoonnummer', '$mobielnummer', '$emailadres', '$saltww', '$created_at')";
+    '$telefoonnummer', '$mobielnummer', '$emailadres', '$saltww', '$registratiedatum')";
 
     /*
         Zo moet error-handlen bij database-queries:
