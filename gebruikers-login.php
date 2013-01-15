@@ -28,8 +28,13 @@
 		$_SESSION['gebruiker-id'] = $id;
 		$_SESSION['gebruiker-naam'] = $naam;
 		echo "Welkom terug, ".$_SESSION['gebruiker-naam'];
+		?>
 		
-		redirect_to("index.php?pag=registratie-succesvol.html");
+		<script type="text/JavaScript">
+		setTimeout("location.href = 'http://www.natural-environment.com';",1500);
+		</script>
+		
+		<?php
 	}
 	else {
 		echo "Fail";
