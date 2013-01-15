@@ -33,6 +33,6 @@
     
     $post_data = file_get_contents('php://input');
     $verify_data = "cmd=_notify-validate&" . $post_data;
-    $result = post("https://www.sandbox.paypal.com/nl/cgi-bin/webscr", data);
-    error_log($verify_data . "\n\n" . "'$result'", 1, "paypal@superinternetshop.nl");
+    $result = post("https://www.sandbox.paypal.com/nl/cgi-bin/webscr", $verify_data);
+    error_log($verify_data . "\n\n" . "'$result'", 1, "mij@nardilam.nl");
 ?>
