@@ -16,10 +16,6 @@
     registratie_datum, status)
     VALUES ('$voornaam', '$achternaam', '$telefoonnummer', '$emailadres', '$saltww', '$registratiedatum', '1')";*/
     
-    $sqli_producten = $db->prepare("INSERT INTO Producten (titel, platform, genre, beschrijving, prijs,
-    release_date, voorraad)
-    VALUES (?,?,?,?,?,?,?)");
-
     $sqli_producten = $db->prepare("INSERT INTO Producten (titel, beschrijving, prijs, release_date, voorraad, platform, genre)
     VALUES (?,?,?,?,?,?,?)");
     
