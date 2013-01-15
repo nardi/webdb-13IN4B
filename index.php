@@ -31,7 +31,7 @@
 			<?php 
 				session_start();
 				if (isset($_SESSION['logged-in'])) {
-					echo "Ingelogd, $SESSION['gebruiker-id']";
+					echo "Ingelogd";
 					
 				}
 				else {
