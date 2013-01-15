@@ -45,25 +45,25 @@
 
     <div id="contentWindow">
         <div id="sidebar">
-            <div class="clickable-item" onClick="window.open('index.php?pag=frontpage.html', '_self');">
+            <div class="clickable-item" onClick="window.open('?pag=frontpage.html', '_self');">
                 frontpage
             </div>
-            <div class="clickable-item" onClick="window.open('index.php?pag=overons.html', '_self');">
+            <div class="clickable-item" onClick="window.open('?pag=overons.html', '_self');">
                 overons
             </div>
-            <div class="clickable-item" onClick="window.open('index.php?pag=overons.html#contact', '_self');">
+            <div class="clickable-item" onClick="window.open('?pag=overons.html#contact', '_self');">
                 contact
             </div>
-            <div class="clickable-item" onClick="window.open('index.php?pag=Registratieformulier.html', '_self');">
+            <div class="clickable-item" onClick="window.open('?pag=Registratieformulier.html', '_self');">
                 Registratieformulier
             </div>
-            <div class="clickable-item" onClick="window.open('index.php?pag=Wachtwoordvergeten.html', '_self');">
+            <div class="clickable-item" onClick="window.open('?pag=Wachtwoordvergeten.html', '_self');">
                 Wachtwoordvergeten
             </div>
-            <div class="clickable-item" onClick="window.open('index.php?pag=item-description.html', '_self');">
+            <div class="clickable-item" onClick="window.open('?pag=item-description.html', '_self');">
                item-description
             </div>
-            <div class="clickable-item" onClick="window.open('index.php?pag=category.html', '_self');">
+            <div class="clickable-item" onClick="window.open('?pag=category.html', '_self');">
                 category
             </div>
             <div class="clickable-item" onClick="window.open('indexbeta.php', '_self');">

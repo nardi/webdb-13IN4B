@@ -5,6 +5,7 @@
 	session_start();
 	if ((!isset($_SESSION['logged-in'])) || ($_SESSION['gebruiker-status'] < 3)) {
 		?>
+		<pre>
 					_.._						<br />
 				   (_.-.\						<br />
 			   .-,       `						<br />
@@ -14,7 +15,7 @@
 			   ',.__.   ,__.-'/					<br />
 				 '--/_.'----'`					<br />
 		Whale whale whale, what have we here?	<br />
-		
+		</pre>
 		<?php
 	}
 	else {
