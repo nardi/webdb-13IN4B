@@ -24,4 +24,6 @@
     </div>
 </div>
 -->
-Test
+<?php
+	echo "Test";
+?>
