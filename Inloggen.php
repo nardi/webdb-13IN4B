@@ -5,7 +5,14 @@
 		//echo "Al ingelogd, $_SESSION['gebruiker-id']";
 		echo "Uitgelogd";
 		session_destroy();
-		redirect_to("index.php?pag=frontpage.html");
+		?>
+		
+		<script type="text/JavaScript">
+			setTimeout("location.href = 'http://superinternetshop.nl://frontpage.html';",1500);
+		</script>
+		
+		<?php
+		
 	}
 	
 	else {
