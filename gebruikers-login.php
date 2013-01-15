@@ -1,6 +1,5 @@
 <?php
 	session_start();
-	
     require 'main.php';
 
     $db = connect_to_db();
