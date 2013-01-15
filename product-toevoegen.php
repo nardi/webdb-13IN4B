@@ -1,26 +1,86 @@
+<link rel="stylesheet" type="text/css" href="inloggen-wachtwoord-registratie.css">
+<link rel="stylesheet" type="text/css" href="centering.css">
+ 
 <?php
-    require 'main.php';
+	if ((!isset($_SESSION['logged-in'])) || ($_SESSION['gebruiker-status'] < 3)) {
+	?>
+	<pre>
 
-    $db = connect_to_db();
 
-    $titel = safe_POST('titel', $db);
-    $beschrijving = safe_POST('beschrijving', $db);
-    $prijs = safe_POST('prijs', $db);
-    $release_date = safe_POST('release_date' , $db);
-    $voorraad = safe_POST('voorraad', $db);
-    $platform = safe_POST('platform' , $db);
-    $genre = safe_POST('genre', $db);
-    
-    
-    $sqli_producten = $db->prepare("INSERT INTO Producten (titel, beschrijving, prijs, release_date, voorraad, platform, genre)
-    VALUES (?,?,?,?,?,?,?)");
-    
-    $sqli_producten->bind_param('sssssss',$titel, $beschrijving, $prijs, $release_date, $voorraad, $platform, $genre);
+            _.._
+           (_.-.\
+       .-,       `
+  .--./ /     _.-""-.
+   '-. (__..-"       \
+      \          a    |
+       ',.__.   ,__.-'/
+         '--/_.'----'`
+Whale, whale, whale. What do we have here?		
+	</pre>
+	<?php
+	}
+	else {
+		?>
+		<div class="centered-container">
+			<div class="product-toevoegen">
+				<form action="product-toevoegen-db.php" method="post">
+				  <div align="right"> 
+				  <h1><center><b>Product toevoegen</b></center></h1>
+					  <hr width="100%">
+					  <center><b>Productspecificaties</b></center>
+					  <br>
+					  Titel: <input type="text" name="titel"><br>  
+					  <div class= "bes">
+					    Beschrijving:
+					  </div>
+					  <div class= "beschrijving">
+					    <textarea rows="5" cols="80"></textarea>
+					  </div></br>  
+					  Prijs: <input type="text" name="prijs"><br>
+					  Release date: <input type="text" name="release_date"><br>
+					  Voorraad: <input type="text" name="voorraad"><br>
+					  Platform:
+					  <div class="platform">
+		  
+						  <select name="platform">
+						  <option value="ps3">PS3</option>
+						  <option value="ps2">PS2</option>
+						  <option value="psp">PSP</option>
+						  <option value="psvita">PlayStation Vita</option>
+						  <option value="xbox">XBOX 360</option>
+						  <option value="pc">PC</option>
+						  <option value="nds">Nintendo DS</option>
+						  <option value="n3ds">Nintendo 3DS</option>  
+						  <option value="wiiu">Wii U</option>
+						  <option value="wii">Wii</option>
+						  <option value="pc">PC</option>
+						  </select>
 
-    if(!$sqli_producten->execute())
-        throw new Exception($sqli_producten->error);
+					  </div>
+					  <br/>              
+					  Genre:
+					  <div class="genre">
 
-    $db->close();
-    
-    redirect_to("index.php?pag=product-toevoegen-succesvol.html");
-?>
+						  <select name="genre">
+						  <option value="actie">Actie</option>
+						  <option value="race">Race</option>
+						  <option value="sport">Sport</option>
+						  <option value="virtueelleven">Virtueel leven</option>
+						  <option value="avontuur">Avontuur</option>
+						  <option value="partyenmuziek">Party & Muziek</option>
+						  <option value="strat">Strategie</option>
+						  </select>
+
+					  </div>
+					  <br/>
+					  <div align="right">
+					  
+					  </div>
+					  <input type="submit" value="Voeg product toe">
+				  </div>
+				</form>
+			</div>
+		</div>
+		<?php
+		}
+		?>
