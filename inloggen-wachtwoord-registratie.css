@@ -100,18 +100,15 @@ text-align: center;
 
 .datum {
 width: 130pt ;
-
 }
 
 .datum input{
 width: 28.5%;
 }
 
-.huisnummer {
-width: 130pt ;
-
-}
-
 .huisnummer input{
 width: 25%;
+}
+.huisnummer{
+width: 130pt;
 }
