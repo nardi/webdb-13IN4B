@@ -27,6 +27,10 @@ function completeAddress()
             document.regform.straat.value = adresInfo.street;
             document.regform.plaats.value = adresInfo.city;
         }
+        else
+        {
+            document.regform.straat.value = document.regform.plaats.value = '';
+        }
     }, postcode, huisnummer, toevoeging);
 }
 
