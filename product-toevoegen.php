@@ -27,8 +27,13 @@
 					  <hr width="100%">
 					  <center><b>Productspecificaties</b></center>
 					  <br>
-					  Titel: <input type="text" name="titel"><br>
-					  Beschrijving: <input type="text" name="beschrijving"><br>
+					  Titel: <input type="text" name="titel"><br>  
+					  <div class= "bes">
+					    Beschrijving:
+					  </div>
+					  <div class= "beschrijving">
+					    <textarea rows="5" cols="80"></textarea>
+					  </div></br>  
 					  Prijs: <input type="text" name="prijs"><br>
 					  Release date: <input type="text" name="release_date"><br>
 					  Voorraad: <input type="text" name="voorraad"><br>
