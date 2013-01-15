@@ -3,7 +3,9 @@
 	session_start();
 	if (isset($_SESSION['logged-in'])) {
 		//echo "Al ingelogd, $_SESSION['gebruiker-id']";
-		echo "Ingelogd: <br />".$_SESSION['gebruiker-id'];
+		echo "Uitgelogd";
+		session_destroy();
+		redirect_to("index.php?pag=frontpage.html");
 	}
 	
 	else {

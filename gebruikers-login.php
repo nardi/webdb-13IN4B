@@ -8,10 +8,10 @@
 	$emailadres = $_POST['e-mailadres'];
     $wachtwoord = $_POST['wachtwoord'];
 	
-	$sql = $db->prepare("SELECT id, wachtwoord FROM Gebruikers WHERE email = ? LIMIT 1");
+	$sql = $db->prepare("SELECT id, wachtwoord, naam FROM Gebruikers WHERE email = ? LIMIT 1");
 	$sql->bind_param("s", $emailadres);
 	$sql->execute();
-	$sql->bind_result($id, $wwdb);
+	$sql->bind_result($id, $wwdb, $naam);
 
 	if (! $sql->fetch()) {print "Onverwachte fout: Geen data."; exit(); }
 	$sql->free_result();
@@ -24,17 +24,16 @@
 	$saltedwwhash = hash('sha256', $salt . $wwhash);
 	
 	if($saltedwwhash == $salthash[1]) {
-		echo "Succes";
 		$_SESSION['logged-in'] = 1;
-		$_SESSION['gebruiker-id'] = $id; 
+		$_SESSION['gebruiker-id'] = $id;
+		$_SESSION['gebruiker-naam'] = $naam;
+		echo "Welkom terug, ".$_SESSION['gebruiker-naam'];
+		
+		redirect_to("index.php?pag=registratie-succesvol.html");
 	}
 	else {
 		echo "Fail";
 	}
-	
-	echo "<br /> <br />saltedwwhash: <br />";
-	echo "$wwdb <br />";
-	echo "salthash: <br /> $salthash[0] <br /> $salthash[1]";
 	
 ?>
 	
