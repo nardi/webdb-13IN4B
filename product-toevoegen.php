@@ -11,16 +11,12 @@
     $platform = safe_POST('platform' , $db);
     $genre = safe_POST('genre', $db);
     
-    //Onderstaande is nog niet helemaal af.
-    /*$sql_gebruikers = "INSERT INTO Gebruikers (naam, achternaam, telefoonnummer, email, wachtwoord,
-    registratie_datum, status)
-    VALUES ('$voornaam', '$achternaam', '$telefoonnummer', '$emailadres', '$saltww', '$registratiedatum', '1')";*/
     
     $sqli_producten = $db->prepare("INSERT INTO Producten (titel, beschrijving, prijs, release_date, voorraad, platform, genre)
     VALUES (?,?,?,?,?,?,?)");
     
     $sqli_producten->bind_param($titel, $beschrijving, $prijs, $release_date, $voorraad, $platform, $genre);
-     
+
     if(!$sqli_producten->execute())
         throw new Exception($sqli_producten->error);
 
