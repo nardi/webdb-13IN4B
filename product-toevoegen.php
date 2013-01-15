@@ -3,7 +3,7 @@
  
 <?php
 	if ((!isset($_SESSION['logged-in'])) || ($_SESSION['gebruiker-status'] < 3)) {
-		echo "You don't belong here!!!"
+		echo "You don't belong here!!!";
 	}
 	else {
 		?>
