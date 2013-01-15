@@ -4,20 +4,7 @@
 <?php
 	session_start();
 	if ((!isset($_SESSION['logged-in'])) || ($_SESSION['gebruiker-status'] < 3)) {
-		?>
-		<pre>
-		
-					_.._
-				   (_.-.\
-			   .-,       `
-		  .--./ /     _.-""-.
-		   '-. (__..-"       \
-			  \          a    |
-			   ',.__.   ,__.-'/
-				 '--/_.'----'`
-	Whale whale whale, what have we here?
-		</pre>
-		<?php
+		echo "You don't belong here!!!"
 	}
 	else {
 		?>
