@@ -15,7 +15,7 @@
 	$sql->free_result();
 	$db->close();
 	
-	echo "wachtwoord"
+	echo "wachtwoord";
 	echo ($wwdb);
 	
 	
