@@ -15,10 +15,6 @@
 	$sql->free_result();
 	$db->close();
 	
-	echo "wachtwoord: <br />";
-	echo "$wwdb <br />";
-	
-	
 	
 	$wwhash = hash('sha256', $wachtwoord);
 	$salthash = str_split($wwdb, 64);
@@ -31,6 +27,10 @@
 	else {
 		echo "Fail";
 	}
+	
+	echo "<br /> <br />saltedwwhash: <br />";
+	echo "$saltedwwhash <br />";
+	echo "salthash: <br /> $salthash[1]";
 	
 ?>
 	
