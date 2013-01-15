@@ -1,10 +1,12 @@
 
 //http://www.randomsnippets.com/2008/04/01/how-to-verify-email-format-via-javascript/
-function test(){alert("Werken kreng!");}
+function test(){alert("Werken kreng");}
 
 function check(field, divLabel){
-    var label-pos = getElementById(divLabel);
-    if(document.forms["registratieformulier"][field].value==null){
+    alert("started");
+    var labelPos = divLabel;
+    var fieldVal = document.getElementById(field).value;
+    if(fieldVal.value==null){
         labelPos.style.backgroundImage="url('images/labels/warning-label.png')";
         labelPos.title = "Dit veld mag niet leeg zijn";
         labelPos.style.width = "30px";
