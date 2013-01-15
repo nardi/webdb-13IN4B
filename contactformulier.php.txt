@@ -14,9 +14,9 @@ if (isset($_REQUEST['email']))
   {
   //send email
   $email = $_REQUEST['email'] ;
-  $subject = $_REQUEST['subject'] ;
-  $message = $_REQUEST['message'] ;
-  mail("someone@example.com", $subject,
+  $onderwerp = $_REQUEST['subject'] ;
+  $bericht = $_REQUEST['message'] ;
+  mail("kirakiraboshi82@gmail.com", $subject,
   $message, "From:" . $email);
   echo "Thank you for using our mail form";
   }
