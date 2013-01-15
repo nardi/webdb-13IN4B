@@ -1,6 +1,9 @@
 <?php
     function https_post($url, $data)
     {
+        if (!function_exists('curl_init'))
+            error_log("Geen curl :(");
+    
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_1);
         curl_setopt($ch, CURLOPT_POST, 1);
@@ -19,6 +22,8 @@
         }
         
         curl_close($ch);
+        
+        return $result;
         
         /* $url = parse_url($url);
         $host = $url['host'];

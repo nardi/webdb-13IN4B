@@ -133,8 +133,18 @@ width: 80pt;
 
 .platform {
 width: 130pt;
+text-align: right;
 }
 
 .genre {
 width: 130pt;
+text-align: right;
+}
+
+.beschrijving  textarea{
+width: 129pt; 
+}
+
+.bes{
+ float: left;
 }
