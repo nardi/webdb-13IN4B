@@ -42,7 +42,7 @@
     registratie_datum, status)
     VALUES (?,?,?,?,?,?,'1')");
     
-    $sqli_gebruikers->bind_param('ssssss','$voornaam', '$achternaam', '$telefoonnummer', '$emailadres', '$saltww', '$registratiedatum');
+    $sqli_gebruikers->bind_param('ssssss',$voornaam, $achternaam, $telefoonnummer, $emailadres, $saltww, $registratiedatum);
     
     /*$sql_adressen = "INSERT INTO Adressen (postcode, huisnummer, toevoeging, plaats, straat)
     VALUES ('$postcode' , '$huisnummer' , '$toevoeging' , '$plaats' , '$straat')";*/
@@ -50,7 +50,7 @@
     $sqli_adressen = $db->prepare("INSERT INTO Adressen (postcode, huisnummer, toevoeging, plaats, straat)
     VALUES (?,?,?,?,?)");
     
-    $sqli_adressen->bind_param('sssss','$postcode' , '$huisnummer' , '$toevoeging' , '$plaats' , '$straat');
+    $sqli_adressen->bind_param('sisss',$postcode , $huisnummer , $toevoeging , $plaats , $straat);
     
 
     /*
