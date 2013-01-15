@@ -25,5 +25,13 @@
 </div>
 -->
 <?php
-	echo "Test";
+	session_start();
+	
+	if (isset($_SESSION['logged-in'])) {
+		echo "Al ingelogd, $_SESSION['gebruiker-id']";
+	}
+	
+	else {
+		echo "Hoi, newb";
+	}
 ?>
