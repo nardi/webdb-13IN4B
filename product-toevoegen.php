@@ -19,10 +19,12 @@
     $sqli_producten = $db->prepare("INSERT INTO Producten (titel, platform, genre, beschrijving, prijs,
     release_date, voorraad)
     VALUES (?,?,?,?,?,?,?)");
+
+    $sqli_producten = $db->prepare("INSERT INTO Producten (titel, beschrijving, prijs, release_date, voorraad, platform, genre)
+    VALUES (?,?,?,?,?,?,?)");
     
-    $sqli_producten->bind_param('ssssss',$titel, $platform, $genre, $beschrijving, $prijs, $release_date, $voorraad);
-    
-    
+    $sqli_producten->bind_param('ssssss',$titel, $beschrijving, $prijs, $release_date, $voorraad, $platform, $genre);
+     
     if(!$sqli_producten->execute())
         throw new Exception($sqli_producten->error);
 
