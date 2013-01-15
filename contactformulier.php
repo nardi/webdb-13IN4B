@@ -22,7 +22,7 @@ if (isset($_REQUEST['email']))
 else
 //if "email" is not filled out, display the form
   {
-  echo "<form method='post' action='mailform.php'>
+  echo "<form method='post' action='contactformulier.php'>
   Email: <input name='email' type='text'><br>
   Subject: <input name='subject' type='text'><br>
   Message:<br>
