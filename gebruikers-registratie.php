@@ -38,7 +38,7 @@
     registratie_datum, status)
     VALUES ('$voornaam', '$achternaam', '$telefoonnummer', '$emailadres', '$saltww', '$registratiedatum', '1')";*/
     
-    $sqli_gebruikers = $mysqli->prepare("INSERT INTO Gebruikers (naam, achternaam, telefoonnummer, email, wachtwoord,
+    $sqli_gebruikers = $db->prepare("INSERT INTO Gebruikers (naam, achternaam, telefoonnummer, email, wachtwoord,
     registratie_datum, status)
     VALUES (?,?,?,?,?,?,1)");
     
@@ -47,8 +47,8 @@
     /*$sql_adressen = "INSERT INTO Adressen (postcode, huisnummer, toevoeging, plaats, straat)
     VALUES ('$postcode' , '$huisnummer' , '$toevoeging' , '$plaats' , '$straat')";*/
     
-    $sqli_adressen = "INSERT INTO Adressen (postcode, huisnummer, toevoeging, plaats, straat)
-    VALUES (?,?,?,?,?)";
+    $sqli_adressen = $db->prepare("INSERT INTO Adressen (postcode, huisnummer, toevoeging, plaats, straat)
+    VALUES (?,?,?,?,?)");
     
     $sqli_adressen->bind_param('$postcode' , '$huisnummer' , '$toevoeging' , '$plaats' , '$straat');
     
