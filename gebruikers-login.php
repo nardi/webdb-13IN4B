@@ -29,8 +29,8 @@
 	}
 	
 	echo "<br /> <br />saltedwwhash: <br />";
-	echo "$saltedwwhash <br />";
-	echo "salthash: <br /> $salthash[1]";
+	echo "$wwdb <br />";
+	echo "salthash: <br /> $salthash[0] <br /> $salthash[1]";
 	
 ?>
 	
