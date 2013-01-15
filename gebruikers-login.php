@@ -12,7 +12,7 @@
 	$sql->bind_result($wwdb);
 
 	if (! $sql->fetch()) {print "Onverwachte fout: Geen data."; exit(); }
-	$sql->free_result()
+	$sql->free_result();
 	$db->close();
 	
 	echo "wachtwoord"
