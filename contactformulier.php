@@ -13,10 +13,10 @@ if (isset($_REQUEST['email']))
   {
   //send email
   $email = $_REQUEST['email'] ;
-  $onderwerp = $_REQUEST['subject'] ;
-  $bericht = $_REQUEST['message'] ;
-  mail("kirakiraboshi82@gmail.com", $subject,
-  $message, "From:" . $email);
+  $onderwerp = $_REQUEST['onderwerp'] ;
+  $bericht = $_REQUEST['bericht'] ;
+  mail("kirakiraboshi82@gmail.com", $onderwerp,
+  $bericht, "From:" . $email);
   echo "Thank you for using our mail form";
   }
 else
