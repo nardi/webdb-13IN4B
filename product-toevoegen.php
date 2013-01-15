@@ -5,15 +5,15 @@
 	session_start();
 	if ((!isset($_SESSION['logged-in'])) || ($_SESSION['gebruiker-status'] < 3)) {
 		?>
-					_.._
-				   (_.-.\
-			   .-,       `
-		  .--./ /     _.-""-.
-		   '-. (__..-"       \
-			  \          a    |
-			   ',.__.   ,__.-'/
-				 '--/_.'----'`
-		Whale whale whale, what have we here?
+					_.._						<br />
+				   (_.-.\						<br />
+			   .-,       `						<br />
+		  .--./ /     _.-""-.					<br />
+		   '-. (__..-"       \					<br />
+			  \          a    |					<br />
+			   ',.__.   ,__.-'/					<br />
+				 '--/_.'----'`					<br />
+		Whale whale whale, what have we here?	<br />
 		
 		<?php
 	}
