@@ -31,6 +31,7 @@
 			
 			<?php 
 				session_start();
+				
 				if (isset($_SESSION['logged-in'])) {
 					echo $_SESSION['gebruiker-naam'];
 				}
@@ -68,6 +69,16 @@
             <div class="clickable-item" onClick="window.open('indexbeta.php', '_self');">
                 Beta-layout
             </div>
+			
+			<?php
+				session_start();
+				
+				if (isset($_SESSION['logged-in'])) {
+					if ($_SESSION['gebruiker-status'] == 3) {
+						?>
+						<div class="clickable-item" onClick="window.open('product-toevoegen.php', '_self');">
+							Product Toevoegen
+						</div>
         </div>
         
         <div id="content">
