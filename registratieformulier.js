@@ -2,13 +2,16 @@
 //http://www.randomsnippets.com/2008/04/01/how-to-verify-email-format-via-javascript/
 function test(){alert("Werken kreng!");}
 
-function check(field, div-label){
+function check(field, divLabel){
+    var label-pos = getElementById(divLabel);
     if(document.forms["registratieformulier"][field].value==null){
-        div-label.background-image:url('images/labels/warning-label.png');
-        div-label.title = "Dit veld mag niet leeg zijn";
+        labelPos.style.backgroundImage="url('images/labels/warning-label.png')";
+        labelPos.title = "Dit veld mag niet leeg zijn";
+        labelPos.style.width = "30px";
+        labelPos.style.height = "30px";
     }
     else{
-        div-label.background-image:url('images/labels/ok-label.png');
+        divLabel.style.backgroundImage="url('images/labels/ok-label.png')";
     }   
 }
 function checkMail(){
@@ -24,12 +27,12 @@ function checkMail(){
         }
 }
 
-function verify(field 1, field2, div-label){
+function verify(field 1, field2, divLabel){
     if(document.forms["registratieformulier"][field1].value != document.forms["registratieformulier"][field2]){
-        div-label.background-image:url('images/labels/warning-label.png');
-        div-label.title = "Dit veld mag niet leeg zijn";
+        divLabel.background-image:url('images/labels/warning-label.png');
+        divLabel.title = "Dit veld mag niet leeg zijn";
     }
     else{
-        div-label.background-image:url('images/labels/ok-label.png');
+        divLabel.background-image:url('images/labels/ok-label.png');
     }   
 }
