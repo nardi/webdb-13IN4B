@@ -11,7 +11,7 @@
 	$sql = $db->prepare("SELECT id, wachtwoord, naam, status FROM Gebruikers WHERE email = ? LIMIT 1");
 	$sql->bind_param("s", $emailadres);
 	$sql->execute();
-	$sql->bind_result($id, $wwdb, $naam), $status;
+	$sql->bind_result($id, $wwdb, $naam, $status);
 
 	if (! $sql->fetch()) {print "Onverwachte fout: Geen data."; exit(); }
 	$sql->free_result();
