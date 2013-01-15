@@ -7,11 +7,9 @@
     $achternaam = safe_POST('achternaam', $db);
     $postcode = safe_POST('postcode', $db);
     $plaats = safe_POST('plaats' , $db);
-    $straat = safe_POST('straat' , $db);
     $huisnummer = safe_POST('huisnummer', $db);
     $toevoeging = safe_POST('toevoeging', $db);
     $telefoonnummer = safe_POST('telefoonnummer', $db);
-    $mobielnummer = safe_POST('mobielnummer', $db);
     $emailadres = safe_POST('e-mailadres', $db);
     $wachtwoord = safe_POST('wachtwoord', $db);
     $registratiedatum = date('Y-m-d');
@@ -42,7 +40,7 @@
     
     $sqli_gebruikers = $mysqli->prepare("INSERT INTO Gebruikers (naam, achternaam, telefoonnummer, email, wachtwoord,
     registratie_datum, status)
-    VALUES (?,?,?,?,?,?,'1')");
+    VALUES (?,?,?,?,?,?,1)");
     
     $sqli_gebruikers->bind_param('$voornaam', '$achternaam', '$telefoonnummer', '$emailadres', '$saltww', '$registratiedatum');
     
