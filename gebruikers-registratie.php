@@ -36,12 +36,23 @@
      *
      */
     //Onderstaande is nog niet helemaal af.
-    $sql_gebruikers = "INSERT INTO Gebruikers (naam, achternaam, telefoonnummer, email, wachtwoord,
+    /*$sql_gebruikers = "INSERT INTO Gebruikers (naam, achternaam, telefoonnummer, email, wachtwoord,
     registratie_datum, status)
-    VALUES ('$voornaam', '$achternaam', '$telefoonnummer', '$emailadres', '$saltww', '$registratiedatum', '1')";
+    VALUES ('$voornaam', '$achternaam', '$telefoonnummer', '$emailadres', '$saltww', '$registratiedatum', '1')";*/
     
-    $sql_adressen = "INSERT INTO Adressen (postcode, huisnummer, toevoeging, plaats, straat)
-    VALUES ('$postcode' , '$huisnummer' , '$toevoeging' , '$plaats' , '$straat');
+    $sqli_gebruikers = $mysqli->prepare("INSERT INTO Gebruikers (naam, achternaam, telefoonnummer, email, wachtwoord,
+    registratie_datum, status)
+    VALUES (?,?,?,?,?,?,'1')");
+    
+    $sqli_gebruikers->bind_param('$voornaam', '$achternaam', '$telefoonnummer', '$emailadres', '$saltww', '$registratiedatum');
+    
+    /*$sql_adressen = "INSERT INTO Adressen (postcode, huisnummer, toevoeging, plaats, straat)
+    VALUES ('$postcode' , '$huisnummer' , '$toevoeging' , '$plaats' , '$straat')";*/
+    
+    $sqli_adressen = "INSERT INTO Adressen (postcode, huisnummer, toevoeging, plaats, straat)
+    VALUES (?,?,?,?,?)";
+    
+    $sqli_adressen->bind_param('$postcode' , '$huisnummer' , '$toevoeging' , '$plaats' , '$straat');
     
 
     /*
@@ -58,7 +69,7 @@
             throw new Exception($db->error);
     */
 
-    if(!$db->query($sql))
+    if(!$db->query($sqli_gebruikers) || !$db->query($sqli_adressen))
         throw new Exception($db->error);
     else{
         mail($emailadres,'Super Internet Shop verificatie e-mail.', 
