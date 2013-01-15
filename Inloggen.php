@@ -26,7 +26,7 @@
 -->
 <?php
 	echo "voor session";
-	session_start();
+	//session_start();
 	echo "achter session";
 	if (isset($_SESSION['logged-in'])) {
 		echo "Al ingelogd, $_SESSION['gebruiker-id']";
