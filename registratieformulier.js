@@ -1,6 +1,6 @@
 
 //http://www.randomsnippets.com/2008/04/01/how-to-verify-email-format-via-javascript/
-alert("Werken kreng!");
+function test(){alert("Werken kreng!");}
 
 function check(field, div-label){
     if(document.forms["registratieformulier"][field].value==null){
