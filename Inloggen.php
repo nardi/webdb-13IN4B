@@ -1,14 +1,9 @@
 
-<!--
-
--->
 <?php
-	echo "voor session <br />";
 	session_start();
-	echo "achter session <br />";
 	if (isset($_SESSION['logged-in'])) {
 		//echo "Al ingelogd, $_SESSION['gebruiker-id']";
-		echo "Ingelogd <br />";
+		echo "Ingelogd: <br />".$_SESSION['gebruiker-id'];
 	}
 	
 	else {
