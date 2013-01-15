@@ -1,6 +1,5 @@
 
 <?php
-	session_start();
 	if (isset($_SESSION['logged-in'])) {
 		//echo "Al ingelogd, $_SESSION['gebruiker-id']";
 		echo "Uitgelogd";

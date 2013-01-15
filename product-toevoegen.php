@@ -2,7 +2,6 @@
 <link rel="stylesheet" type="text/css" href="centering.css">
  
 <?php
-	session_start();
 	if ((!isset($_SESSION['logged-in'])) || ($_SESSION['gebruiker-status'] < 3)) {
 		echo "You don't belong here!!!"
 	}
