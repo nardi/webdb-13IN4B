@@ -76,6 +76,7 @@
 				if (isset($_SESSION['logged-in'])) {
 					if ($_SESSION['gebruiker-status'] == 3) {
 						?>
+						<hr>
 						<div class="clickable-item" onClick="window.open('product-toevoegen.php', '_self');">
 							Product Toevoegen
 						</div>
