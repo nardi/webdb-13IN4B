@@ -3,6 +3,7 @@
     
 <div class="centered-container">
     <div class="inlogformulier">
+		Hoi
 		<div ALIGN="right"> 
 			<?php
 				session_start();
