@@ -40,9 +40,9 @@
     
     $sqli_gebruikers = $db->prepare("INSERT INTO Gebruikers (naam, achternaam, telefoonnummer, email, wachtwoord,
     registratie_datum, status)
-    VALUES (?,?,?,?,?,?,1)");
+    VALUES (?,?,?,?,?,?,'1')");
     
-    $sqli_gebruikers->bind_param('$voornaam', '$achternaam', '$telefoonnummer', '$emailadres', '$saltww', '$registratiedatum');
+    $sqli_gebruikers->bind_param('ssssss',$voornaam, $achternaam, $telefoonnummer, $emailadres, $saltww, $registratiedatum);
     
     /*$sql_adressen = "INSERT INTO Adressen (postcode, huisnummer, toevoeging, plaats, straat)
     VALUES ('$postcode' , '$huisnummer' , '$toevoeging' , '$plaats' , '$straat')";*/
@@ -50,7 +50,7 @@
     $sqli_adressen = $db->prepare("INSERT INTO Adressen (postcode, huisnummer, toevoeging, plaats, straat)
     VALUES (?,?,?,?,?)");
     
-    $sqli_adressen->bind_param('$postcode' , '$huisnummer' , '$toevoeging' , '$plaats' , '$straat');
+    $sqli_adressen->bind_param('sisss',$postcode , $huisnummer , $toevoeging , $plaats , $straat);
     
 
     /*
@@ -67,20 +67,22 @@
             throw new Exception($db->error);
     */
 
-    if(!$db->query($sqli_gebruikers) || !$db->query($sqli_adressen))
-        throw new Exception($db->error);
-    else{
-        mail($emailadres,'Super Internet Shop verificatie e-mail.', 
-        'Bedankt voor het registreren bij Super Internet Shop,<br />
-        klik <a href="sisv2.tk/index.php?pag=registratie-geverifieerd.html">hier</a> <br />
-        om uw registratie te bevestigen. <br />
-        Dit is een automatisch gegenereerd bericht, <br />
-        u kunt niet reageren.', 'From:JeMoeder.' . "\r\n" . 'Content-type: text/html');
+    if(!$sqli_gebruikers->execute())
+        throw new Exception($sqli_gebruikers->error);
+    if(!$sqli_adressen->execute())
+        throw new Exception($sqli_adressen->error);
+    
+    mail($emailadres,'Super Internet Shop verificatie e-mail.', 
+    'Bedankt voor het registreren bij Super Internet Shop,<br />
+    klik <a href="sisv2.tk/index.php?pag=registratie-geverifieerd.html">hier</a> <br />
+    om uw registratie te bevestigen. <br />
+    Dit is een automatisch gegenereerd bericht, <br />
+    u kunt niet reageren.', 'From:JeMoeder.' . "\r\n" . 'Content-type: text/html');
         
-        $db->close();
-        
-        redirect_to("index.php?pag=registratie-succesvol.html");
-    }
+    $db->close();
+    
+    redirect_to("index.php?pag=registratie-succesvol.html");
+    
     
     
     

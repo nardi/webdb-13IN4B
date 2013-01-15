@@ -1,6 +1,11 @@
 .registratieformulier {
-width: 300pt;
+width: 400pt;
 }
+
+.product-toevoegen {
+width: 400pt;
+}
+
 .wachtwoord-vergeten {
 width: 300pt;       
 }
@@ -110,5 +115,26 @@ width: 28.5%;
 width: 25%;
 }
 .huisnummer{
+width: 130pt;
+}
+
+.telnr{
+width: 130pt;
+
+}
+
+.telnr1 input{
+width: 25pt;
+}
+
+.telnr2 input{
+width: 80pt;
+}
+
+.platform {
+width: 130pt;
+}
+
+.genre {
 width: 130pt;
 }
