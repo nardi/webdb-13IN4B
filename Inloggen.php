@@ -35,7 +35,7 @@
 							<input type="submit" value="Log in"><br>
 						</form>
 						
-						<a href='http://sisv2.tk/index.php?pag=Wachtwoordvergeten.html'><SMALL> Uw wachtwoord vergeten? </SMALL></a>
+						<a href='http://sisv2.tk/Wachtwoordvergeten.html'><SMALL> Uw wachtwoord vergeten? </SMALL></a>
 					</div>
 				</div>
 			</div>";

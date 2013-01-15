@@ -74,14 +74,14 @@
     
     mail($emailadres,'Super Internet Shop verificatie e-mail.', 
     'Hoi schat dankje voor het registreren bij Super Internet Shop,<br />
-    klik <a href="sisv2.tk/index.php?pag=registratie-geverifieerd.html">hier</a> <br />
+    klik <a href="http://superinternetshop.nl/registratie-geverifieerd.html">hier</a> <br />
     om je registratie te bevestigen. <br />
     Ik heb het erg druk dus <br />
     je kunt niet reageren. Veel plezier op school vandaag.', 'From:JeMoeder.' . "\r\n" . 'Content-type: text/html');
         
     $db->close();
     
-    redirect_to("index.php?pag=registratie-succesvol.html");
+    redirect_to("registratie-succesvol.html");
     
     
     

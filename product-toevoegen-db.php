@@ -22,5 +22,5 @@
 
     $db->close();
     
-    redirect_to("index.php?pag=product-toevoegen-succesvol.html");
+    redirect_to("product-toevoegen-succesvol.html");
 ?>

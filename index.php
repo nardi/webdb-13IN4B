@@ -33,8 +33,8 @@
 
         <div id="dashboard" class="vcenter">
             <div id="reg-log">
-            <a href="Registratieformulier.html">Registreren</a><br />
-            <a href="Inloggen.php">Inloggen</a>
+            <a href="registratie.html">Registreren</a><br />
+            <a href="inloggen.php">Inloggen</a>
             </div>
             <div id="acc-mand">
             <a href="account-overzicht.html">Mijn account</a><br />
