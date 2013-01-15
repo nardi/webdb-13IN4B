@@ -1,7 +1,7 @@
 <link rel="stylesheet" type="text/css" href="inloggen-wachtwoord-registratie.css">
 <link rel="stylesheet" type="text/css" href="centering.css">
-<script src="registratieformulier.js"></script>    
-<div class="centered-container">
+<script src="registratieformulier.js"></script>  
+<div class="centered-container" onload="test()">
     <div class="registratieformulier">
         <form action="gebruikers-registratie.php" method="post">
           <div align="right"> 
@@ -13,7 +13,7 @@
               Achternaam: <input type="text" name="achternaam" onchange="check(achternaam, achternaam-label)"><div id="achternaam-label"></div><br>
               Huisnummer en toevoeging:
               <div class="huisnummer"> 
-                <input type="tekst" name="huisnummer" onchange="check(huisnummer, huisnummer-label)"> <div id="huisnummer-label"></div>
+                <input type="tekst" name="huisnummer" onchange="check(huisnummer, huisnummer-label)"> <input type="tekst" name="toevoeging"> <div id="huisnummer-label"></div>
               </div><br/>
               Postcode: <input type="text" name="postcode" onchange="check(postcode, postcode-label)"><div id="postcode-label"></div><br>
               Stad: <input type="text" name="land" onchange="check(stad, stad-label)"><div id="stad-label"></div><br>
