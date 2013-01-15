@@ -3,8 +3,7 @@
     
 <div class="centered-container">
     <div class="registratieformulier">
-        <form action="mailform.php" method="post">
-          <div align="right"> 
+      
           <h1><center><b>Contactformulier</b></center></h1>
               <hr width="100%">
 
