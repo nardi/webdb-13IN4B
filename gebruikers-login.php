@@ -1,4 +1,6 @@
 <?php
+	session_start();
+	
     require 'main.php';
 
     $db = connect_to_db();
@@ -6,10 +8,10 @@
 	$emailadres = $_POST['e-mailadres'];
     $wachtwoord = $_POST['wachtwoord'];
 	
-	$sql = $db->prepare("SELECT Wachtwoord FROM Gebruikers WHERE email = ? LIMIT 1");
+	$sql = $db->prepare("SELECT id, wachtwoord FROM Gebruikers WHERE email = ? LIMIT 1");
 	$sql->bind_param("s", $emailadres);
 	$sql->execute();
-	$sql->bind_result($wwdb);
+	$sql->bind_result($id, $wwdb);
 
 	if (! $sql->fetch()) {print "Onverwachte fout: Geen data."; exit(); }
 	$sql->free_result();
@@ -23,6 +25,8 @@
 	
 	if($saltedwwhash == $salthash[1]) {
 		echo "Succes";
+		$_SESSION['logged-in'] = 1;
+		$_SESSION['gebruiker-id'] = $id; 
 	}
 	else {
 		echo "Fail";

@@ -28,6 +28,16 @@
             <a href="http://sisv2.tk/index.php?pag=account-overzicht.html">Mijn account</a><br />
             <a href="http://sisv2.tk/index.php?pag=cart.html">Winkelwagen (3)</a>
             </div>
+			<?php 
+				session_start();
+				if (isset($_SESSION['logged-in'])) {
+					echo "Ingelogd, $SESSION['gebruiker-id']";
+					
+				}
+				else {
+					echo "Niet ingelogd";
+				}
+			?>
         </div>
     </div>
 
