@@ -6,11 +6,17 @@
 	$emailadres = $_POST['e-mailadres'];
     $wachtwoord = $_POST['wachtwoord'];
 	
-	$sql = "SELECT Wachtwoord FROM database_registratie WHERE Emailadres = $emailadres";
-	$res = $db->query($sql)
-	if (!$res)
-            throw new Exception($db->error);
+	$sql = $db->prepare("SELECT Wachtwoord FROM database_registratie WHERE Emailadres = ? LIMIT 1");
+	$sql->bind_param("s", $emailadres);
+	$sql->execute();
+	$sql->bind_result($wwdb);
+
+	if (! $sql->fetch()) {print "Onverwachte fout: Geen data."; exit(); }
+	$sql->free_result();
+	$db->close();
 	
+	echo "wachtwoord";
+	echo ($wwdb);
 	
 	
 	/*
