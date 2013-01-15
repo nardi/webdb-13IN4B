@@ -1,4 +1,15 @@
-<?php print '<?xml version="1.0"?>' ?>
+<?php
+    $pag = (isset($_GET['pag'])) ? ($_GET['pag']) : (''); //read URL-pag parameter in
+    if (strpos($pag, '.'))
+    {
+        $pagename = implode('.', explode('.', $pag, -1));
+    }
+    else
+    {
+        $pagename = $pag;
+    }
+?>
+<?xml version="1.0"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -7,6 +18,7 @@
         <link rel="shortcut icon" href="favicon.ico" />
         <title>SIS</title>
         <link rel="stylesheet" type="text/css" href="main.css" />
+        <link rel="stylesheet" type="text/css" href="<?php echo $pagename; ?>.css" />
 </head>
 
 <body>
@@ -15,18 +27,18 @@
 
     <div id="banner" class="vcenter-container">
 
-        <div id="logo" onClick="window.open('index.php?pag=frontpage.html', '_self');">
+        <div id="logo" onClick="window.open('/', '_self');">
             <img src="images/logo/logo-sis.png" alt="Link to homepage" />
         </div>
 
         <div id="dashboard" class="vcenter">
             <div id="reg-log">
-            <a href="http://sisv2.tk/index.php?pag=Registratieformulier.html">Registreren</a><br />
-            <a href="http://sisv2.tk/index.php?pag=Inloggen.php">Inloggen</a>
+            <a href="Registratieformulier.html">Registreren</a><br />
+            <a href="Inloggen.php">Inloggen</a>
             </div>
             <div id="acc-mand">
-            <a href="http://sisv2.tk/index.php?pag=account-overzicht.html">Mijn account</a><br />
-            <a href="http://sisv2.tk/index.php?pag=cart.html">Winkelwagen (3)</a>
+            <a href="account-overzicht.html">Mijn account</a><br />
+            <a href="cart.html">Winkelwagen (3)</a>
             </div>
 			
 			<?php 
@@ -45,25 +57,25 @@
 
     <div id="contentWindow">
         <div id="sidebar">
-            <div class="clickable-item" onClick="window.open('?pag=frontpage.html', '_self');">
+            <div class="clickable-item" onClick="window.open('/', '_self');">
                 frontpage
             </div>
-            <div class="clickable-item" onClick="window.open('?pag=overons.html', '_self');">
+            <div class="clickable-item" onClick="window.open('overons.html', '_self');">
                 overons
             </div>
-            <div class="clickable-item" onClick="window.open('?pag=overons.html#contact', '_self');">
+            <div class="clickable-item" onClick="window.open('overons.html#contact', '_self');">
                 contact
             </div>
-            <div class="clickable-item" onClick="window.open('?pag=Registratieformulier.html', '_self');">
+            <div class="clickable-item" onClick="window.open('Registratieformulier.html', '_self');">
                 Registratieformulier
             </div>
-            <div class="clickable-item" onClick="window.open('?pag=Wachtwoordvergeten.html', '_self');">
+            <div class="clickable-item" onClick="window.open('Wachtwoordvergeten.html', '_self');">
                 Wachtwoordvergeten
             </div>
-            <div class="clickable-item" onClick="window.open('?pag=item-description.html', '_self');">
+            <div class="clickable-item" onClick="window.open('item-description.html', '_self');">
                item-description
             </div>
-            <div class="clickable-item" onClick="window.open('?pag=category.html', '_self');">
+            <div class="clickable-item" onClick="window.open('category.html', '_self');">
                 category
             </div>
             <div class="clickable-item" onClick="window.open('indexbeta.php', '_self');">
@@ -77,7 +89,7 @@
 					if ($_SESSION['gebruiker-status'] == 3) {
 						?>
 						<hr>
-						<div class="clickable-item" onClick="window.open('?pag=product-toevoegen.php', '_self');">
+						<div class="clickable-item" onClick="window.open('product-toevoegen.php', '_self');">
 							Product Toevoegen
 						</div>
 						<?php
@@ -88,8 +100,6 @@
         
         <div id="content">
             <?php
-                $pag = (isset($_GET['pag'])) ? ($_GET['pag']) : ('') ; //read URL-pag parameter in
-                
                 if (empty($pag)) {
                     include("frontpage.html");
                 }
