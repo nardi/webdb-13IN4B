@@ -1,8 +1,39 @@
+// Code voor ophalen adres
+function getAddress(callback, postcode, nummer, toevoeging)
+{
+    var xhr = new XMLHttpRequest();
+    var url = 'adres.php?postcode=' + postcode + '&nummer=' + nummer;
+    if (toevoeging && toevoeging != '')
+        url += '&toevoeging=' + toevoeging
+    xhr.open('GET', url);
+    xhr.onreadystatechange = function()
+    {
+        if (xhr.readyState == 4)
+            callback(JSON.parse(xhr.responseText));
+    };
+    xhr.send();
+}
+
+function completeAddress()
+{
+    var postcode = document.regform.postcode.value;
+    var huisnummer = document.regform.huisnummer.value;
+    var toevoeging = document.regform.toevoeging.value;
+    
+    getAddress(function(adresInfo)
+    {
+        if (!adresInfo.exception)
+        {
+            document.regform.straat.value = adresInfo.street;
+            document.regform.plaats.value = adresInfo.city;
+        }
+    }, postcode, huisnummer, toevoeging);
+}
+
 
 //http://www.randomsnippets.com/2008/04/01/how-to-verify-email-format-via-javascript/
-function test(){alert("Werken kreng!");}
 
-function check(field, divLabel){
+/* function check(field, divLabel){
     var label-pos = getElementById(divLabel);
     if(document.forms["registratieformulier"][field].value==null){
         labelPos.style.backgroundImage="url('images/labels/warning-label.png')";
@@ -27,7 +58,7 @@ function checkMail(){
         }
 }
 
-function verify(field 1, field2, divLabel){
+function verify(field1, field2, divLabel){
     if(document.forms["registratieformulier"][field1].value != document.forms["registratieformulier"][field2]){
         divLabel.background-image:url('images/labels/warning-label.png');
         divLabel.title = "Dit veld mag niet leeg zijn";
@@ -35,4 +66,4 @@ function verify(field 1, field2, divLabel){
     else{
         divLabel.background-image:url('images/labels/ok-label.png');
     }   
-}
+} */

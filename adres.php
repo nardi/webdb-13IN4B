@@ -1,6 +1,6 @@
 <?php
     $postcode = $_GET['postcode'];
-    $nr = $_GET['nummer'];
+    $nummer = $_GET['nummer'];
     $toevoeging = isset($_GET['toevoeging']) ? '/' . $_GET['toevoeging'] : '';
     
     $ch = curl_init("https://api.postcode.nl/rest/addresses/$postcode/$nummer" . $toevoeging);
