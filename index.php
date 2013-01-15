@@ -79,6 +79,10 @@
 						<div class="clickable-item" onClick="window.open('product-toevoegen.php', '_self');">
 							Product Toevoegen
 						</div>
+						<?php
+					}
+				}
+			?>
         </div>
         
         <div id="content">
