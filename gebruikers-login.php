@@ -9,7 +9,7 @@
 	$sql = "SELECT Wachtwoord FROM database_registratie WHERE Emailadres = $emailadres";
 	$res = $db->query($sql)
 	if (!$res)
-            throw new Exception($db->error);
+		throw new Exception($db->error);
 	
 	
 	
