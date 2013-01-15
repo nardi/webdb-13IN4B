@@ -3,7 +3,21 @@
  
 <?php
 	if ((!isset($_SESSION['logged-in'])) || ($_SESSION['gebruiker-status'] < 3)) {
-		echo "You don't belong here!!!";
+	?>
+	<pre>
+
+
+            _.._
+           (_.-.\
+       .-,       `
+  .--./ /     _.-""-.
+   '-. (__..-"       \
+      \          a    |
+       ',.__.   ,__.-'/
+         '--/_.'----'`
+Whale, whale, whale. What do we have here?		
+	</pre>
+	<?php
 	}
 	else {
 		?>

@@ -12,23 +12,7 @@
 	$sql->execute();
 	$sql->bind_result($id, $wwdb, $naam, $status);
 
-	if (! $sql->fetch()) {
-		?>
-		<pre>
-
-
-            _.._
-           (_.-.\
-       .-,       `
-  .--./ /     _.-""-.
-   '-. (__..-"       \
-      \          a    |
-       ',.__.   ,__.-'/
-         '--/_.'----'`
-		</pre>
-		<?php
-
-		exit(); }
+	if (! $sql->fetch()) {print "Onverwachte fout: Geen data."; exit(); }
 	$sql->free_result();
 	$db->close();
 	
