@@ -73,11 +73,11 @@
         throw new Exception($sqli_adressen->error);
     
     mail($emailadres,'Super Internet Shop verificatie e-mail.', 
-    'Bedankt voor het registreren bij Super Internet Shop,<br />
+    'Hoi schat dankje voor het registreren bij Super Internet Shop,<br />
     klik <a href="sisv2.tk/index.php?pag=registratie-geverifieerd.html">hier</a> <br />
-    om uw registratie te bevestigen. <br />
-    Dit is een automatisch gegenereerd bericht, <br />
-    u kunt niet reageren.', 'From:JeMoeder.' . "\r\n" . 'Content-type: text/html');
+    om je registratie te bevestigen. <br />
+    Ik heb het erg druk dus <br />
+    je kunt niet reageren. Veel plezier op school vandaag.', 'From:JeMoeder.' . "\r\n" . 'Content-type: text/html');
         
     $db->close();
     
