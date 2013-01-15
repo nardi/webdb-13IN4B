@@ -12,6 +12,7 @@
 						echo "Al ingelogd, $_SESSION['gebruiker-id']";
 					}
 					else {
+						echo "Hoi";
 						echo "<h1><CENTER><b>Inloggen</b></CENTER></h1>
 						<hr width='100%'>
 						<br>
