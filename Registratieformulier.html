@@ -1,6 +1,6 @@
 <link rel="stylesheet" type="text/css" href="inloggen-wachtwoord-registratie.css">
 <link rel="stylesheet" type="text/css" href="centering.css">
-    
+<script src="refistratieformulier.js"></script>    
 <div class="centered-container">
     <div class="registratieformulier">
         <form action="gebruikers-registratie.php" method="post">
@@ -9,31 +9,30 @@
               <hr width="100%">
               <center><b>Accountgegevens</b></center>
               <br>
-              Voornaam: <input type="text" name="voornaam"><img src="/images/labels/warning-label.png" /><img src="/images/labels/ok-label.png" /><br>
-              Achternaam: <input type="text" name="achternaam"><img src="/images/labels/warning-label.png" /><img src="/images/labels/ok-label.png" /><br>
+              Voornaam: <input type="text" name="voornaam" onchange="check(voornaam, voornaam-label)"><div id="voornaam-label"></div><br>
+              Achternaam: <input type="text" name="achternaam" onchange="check(achternaam, achternaam-label)"><div id="achternaam-label"></div><br>
               Huisnummer en toevoeging:
               <div class="huisnummer"> 
-                <input type="tekst" name="huisnummer"> <input type="tekst" name="toevoeging"><img src="/images/labels/warning-label.png" /><img src="/images/labels/ok-label.png" />
+                <input type="tekst" name="huisnummer" onchange="check(huisnummer, huisnummer-label)"> <div id="huisnummer-label"></div>
               </div><br/>
-              Postcode: <input type="text" name="postcode"><img src="/images/labels/warning-label.png" /><img src="/images/labels/ok-label.png" /><br>
-              Stad: <input type="text" name="land"><img src="/images/labels/warning-label.png" /><img src="/images/labels/ok-label.png" /><br>
-              Plaats: <input type="text" name="plaats"><img src="/images/labels/warning-label.png" /><img src="/images/labels/ok-label.png" /><br>
+              Postcode: <input type="text" name="postcode" onchange="check(postcode, postcode-label)"><div id="postcode-label"></div><br>
+              Stad: <input type="text" name="land" onchange="check(stad, stad-label)"><div id="stad-label"></div><br>
               Telefoonnummer: 
               <div class="telnr"> 
                 <div class="telnr1"> 
                     <input type="tel" name="telefoonnummer"> -
                 </div> 
                 <div class="telnr2"> 
-                    <input type="tel" name="telefoonnummer2">
-                </div> 
-                <img src="/images/labels/warning-label.png" /><img src="/images/labels/ok-label.png" />
-              </div>                
+                    <input type="tel" name="telefoonnummer2" onchange="check(telefoonnummer, tel-label)">
+                </div>
+              </div>  
+              <div id="tel-label"></div>
               <hr width="100%">
               <center><b>Inloggegevens</b></center><br>
-              E-mailadres: <input type="email" name="e-mailadres"><img src="/images/labels/warning-label.png" /><img src="/images/labels/ok-label.png" /><br>
-              E-mailadres bevestigen: <input type="email" name="e-mailadres-conf"><img src="/images/labels/warning-label.png" /><img src="/images/labels/ok-label.png" /><br>
-              Wachtwoord: <input type="password" name="wachtwoord"><img src="/images/labels/warning-label.png" /><img src="/images/labels/ok-label.png" /><br>
-              Wachtwoord bevestigen: <input type="password" name="wachtwoord-conf"><img src="/images/labels/warning-label.png" /><img src="/images/labels/ok-label.png" /><br>
+              E-mailadres: <input type="email" name="e-mailadres" onchange="checkMail()"><div id="email-label"></div><br>
+              E-mailadres bevestigen: <input type="email" name="e-mailadres-conf" onchange="verify(email,email-bevestigen, email-bevestigen-label)"><div id="email-bevestigen-label"></div><br>
+              Wachtwoord: <input type="password" name="wachtwoord" onchange="check(wachtwoord, wachtwoord-label)"><div id="wachtwoord-label"></div><br>
+              Wachtwoord bevestigen: <input type="password" name="wachtwoord-conf" onchange="verify(wachtwoord, wachtwoord-bevestigen, wachtwoord-bevestigen-label)"><div id="wachtwoord-bevestigen-label></div><br>
               <input type="submit" value="Maak account aan">
           </div>
         </form>
