@@ -33,9 +33,15 @@ function completeAddress()
 
 //http://www.randomsnippets.com/2008/04/01/how-to-verify-email-format-via-javascript/
 
-/* function check(field, divLabel){
-    var label-pos = getElementById(divLabel);
-    if(document.forms["registratieformulier"][field].value==null){
+// Ik heb even je code gecomment omdat de mijne anders ook helemaal niet geladen wordt :)
+
+/* function test(){alert("Werken kreng");}
+
+function check(field, divLabel){
+    alert("started");
+    var labelPos = divLabel;
+    var fieldVal = document.getElementById(field).value;
+    if(fieldVal.value==null){
         labelPos.style.backgroundImage="url('images/labels/warning-label.png')";
         labelPos.title = "Dit veld mag niet leeg zijn";
         labelPos.style.width = "30px";
