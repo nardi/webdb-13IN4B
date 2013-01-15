@@ -7,10 +7,11 @@
 			<form action="gebruikers-login.php" method="post">
 				<?php
 					session_start();
-					
+					echo "Dit werkt nog";
 					if (isset($_SESSION['logged-in'])) {
 						echo "Al ingelogd, $_SESSION['gebruiker-id']";
 					}
+					echo "Dit ook";
 					else {
 						echo "Hoi";
 						echo "<h1><CENTER><b>Inloggen</b></CENTER></h1>
@@ -23,6 +24,7 @@
 						Wachtwoord: <input type='password' name='wachtwoord'><br>
 						<input type='submit' value='Log in'><br>";
 					}
+					echo "The end";
 				?>
 			</form>
 			<a href="http://sisv2.tk/index.php?pag=Wachtwoordvergeten.html"><SMALL> Uw wachtwoord vergeten? </SMALL></a>
