@@ -31,7 +31,7 @@
 		?>
 		
 		<script type="text/JavaScript">
-			setTimeout("location.href = 'http://superinternetshop.nl/';",2000);
+			setTimeout("location.href = 'http://sisv2.tk/';",2000);
 		</script>
 		
 		<?php
