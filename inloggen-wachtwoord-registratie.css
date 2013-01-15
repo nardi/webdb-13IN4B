@@ -111,4 +111,18 @@ width: 25%;
 }
 .huisnummer{
 width: 130pt;
+text-align: left;
+}
+
+.telnr{
+width: 130pt;
+text-align: left;
+}
+
+.telnr1 input{
+width: 22pt;
+}
+
+.telnr2 input{
+width: 85pt;
 }

@@ -16,7 +16,7 @@
 	$db->close();
 	
 	echo "wachtwoord: <br />";
-	echo ($wwdb "<br />");
+	echo "$wwdb <br />";
 	
 	
 	
