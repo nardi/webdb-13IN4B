@@ -1,7 +1,7 @@
 <link rel="stylesheet" type="text/css" href="inloggen-wachtwoord-registratie.css">
 <link rel="stylesheet" type="text/css" href="centering.css">
 <script src="registratieformulier.js"></script>  
-<div class="centered-container" onload="test()">
+<div class="centered-container">
     <div class="registratieformulier">
         <form action="gebruikers-registratie.php" method="post">
           <div align="right"> 
@@ -9,7 +9,7 @@
               <hr width="100%">
               <center><b>Accountgegevens</b></center>
               <br>
-              Voornaam: <input type="text" name="voornaam" onchange="check(voornaam, voornaam-label)"><div id="voornaam-label"></div><br>
+              Voornaam: <input type="text" name="voornaam" onchange="test()" <!--check(voornaam, voornaam-label)-->"><div id="voornaam-label"></div><br>
               Achternaam: <input type="text" name="achternaam" onchange="check(achternaam, achternaam-label)"><div id="achternaam-label"></div><br>
               Huisnummer en toevoeging:
               <div class="huisnummer"> 
