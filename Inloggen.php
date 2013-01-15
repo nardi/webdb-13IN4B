@@ -8,7 +8,7 @@
 		?>
 		
 		<script type="text/JavaScript">
-			setTimeout("location.href = 'http://superinternetshop.nl://frontpage.html';",1500);
+			setTimeout("location.href = 'http://superinternetshop.nl:/?pag=frontpage.html';",1500);
 		</script>
 		
 		<?php
