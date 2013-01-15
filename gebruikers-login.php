@@ -6,7 +6,7 @@
 	$emailadres = $_POST['e-mailadres'];
     $wachtwoord = $_POST['wachtwoord'];
 	
-	$sql = $db->prepare("SELECT Wachtwoord FROM database_registratie WHERE Emailadres = ? LIMIT 1");
+	$sql = $db->prepare("SELECT Wachtwoord FROM Gebruikers WHERE email = ? LIMIT 1");
 	$sql->bind_param("s", $emailadres);
 	$sql->execute();
 	$sql->bind_result($wwdb);
