@@ -11,7 +11,7 @@
     {
         $genre_id = $_GET['genre'];
         
-        /* $sql = $db->query("SELECT naam FROM Genres WHERE id = ?");
+        $sql = $db->prepare("SELECT naam FROM Genres WHERE id = ?");
         $sql->bind_param("i", $genre_id);
         if(!$sql->execute())
             throw new Exception($sql->error);
@@ -22,8 +22,8 @@
             exit();
         }
         $genre = "$genre_naam";
-        $sql->free_result(); */
-        $genre = "asgas";
+        $sql->free_result();
+        
         $sql = $db->prepare("SELECT id, titel, prijs FROM Producten WHERE genre_id = ?");
         $sql->bind_param("i", $genre_id);
         if(!$sql->execute())
