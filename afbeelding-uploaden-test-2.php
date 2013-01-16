@@ -27,7 +27,7 @@ if ((($_FILES["file"]["type"] == "image/gif")
     else
       {
       move_uploaded_file($_FILES["file"]["tmp_name"],
-      "/datastore/webdb13IN4B/htdocs" . $_FILES["file"]["name"]);
+      "/datastore/webdb13IN4B/htdocs/images" . $_FILES["file"]["name"]);
       echo "Stored in: " . "upload/" . $_FILES["file"]["name"];
       }
     }
