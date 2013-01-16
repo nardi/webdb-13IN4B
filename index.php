@@ -19,7 +19,7 @@
         <title>SIS</title>
         <link rel="stylesheet" type="text/css" href="main.css" />
         <?php if (file_exists($pagename . ".css"))
-                echo '<link rel="stylesheet" type="text/css" href="' + $pagename '.css" />';
+                echo '<link rel="stylesheet" type="text/css" href="' . $pagename . '.css" />';
         ?>
 </head>
 
