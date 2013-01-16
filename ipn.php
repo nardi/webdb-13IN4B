@@ -25,9 +25,9 @@
     
     $post_data = file_get_contents('php://input');
     $verify_data = "cmd=_notify-validate&" . $post_data;
-    $result = https_post("https://www.sandbox.paypal.com/nl/cgi-bin/webscr", $verify_data);
+    $result = https_post("https://www.paypal.com/nl/cgi-bin/webscr", $verify_data);
     
-    if ($result === "VERIFIED") //&& $_POST['test_ipn'] !== 1)
+    if ($result === "VERIFIED" && $_POST['test_ipn'] != 1)
     {
         $bestelling = $_POST['custom'];
         

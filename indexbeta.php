@@ -15,40 +15,40 @@
 
     <div id="banner" class="vcenter-container">
 
-        <div id="logo" onClick="window.open('index.php?pag=frontpage.html', '_self');">
+        <div id="logo" onClick="window.open('frontpage.html', '_self');">
             <img src="images/logo/logo-sis-beta.png" alt="Link to homepage" />
         </div>
 
         <div id="dashboard" class="vcenter">
             <div id="reg-log">
-            <a href="http://sisv2.tk/index.php?pag=Registratieformulier.html">Registreren</a><br />
-            <a href="http://sisv2.tk/index.php?pag=Inloggen.html">Inloggen</a>
+            <a href="http://sisv2.tk/Registratieformulier.html">Registreren</a><br />
+            <a href="http://sisv2.tk/Inloggen.html">Inloggen</a>
             </div>
             <div id="acc-mand">
-            <a href="http://sisv2.tk/index.php?pag=account-overzicht.html">Mijn account</a><br />
-            <a href="http://sisv2.tk/index.php?pag=cart.html">Winkelwagen (3)</a>
+            <a href="http://sisv2.tk/account-overzicht.html">Mijn account</a><br />
+            <a href="http://sisv2.tk/cart.html">Winkelwagen (3)</a>
             </div>
         </div>
     </div>
 
     <div id="contentWindow">
         <div id="sidebar">
-            <div class="clickable-item test" onClick="window.open('index.php?pag=frontpage.html', '_self');">
+            <div class="clickable-item test" onClick="window.open('frontpage.html', '_self');">
                 frontpage
             </div>
-            <div class="clickable-item" onClick="window.open('index.php?pag=overons.html', '_self');">
+            <div class="clickable-item" onClick="window.open('overons.html', '_self');">
                 overons
             </div>
-            <div class="clickable-item" onClick="window.open('index.php?pag=Registratieformulier.html', '_self');">
+            <div class="clickable-item" onClick="window.open('Registratieformulier.html', '_self');">
                 Registratieformulier
             </div>
-            <div class="clickable-item" onClick="window.open('index.php?pag=Wachtwoordvergeten.html', '_self');">
+            <div class="clickable-item" onClick="window.open('Wachtwoordvergeten.html', '_self');">
                 Wachtwoordvergeten
             </div>
-            <div class="clickable-item" onClick="window.open('index.php?pag=item-description.html', '_self');">
+            <div class="clickable-item" onClick="window.open('item-description.html', '_self');">
                item-description
             </div>
-            <div class="clickable-item" onClick="window.open('index.php?pag=category.html', '_self');">
+            <div class="clickable-item" onClick="window.open('category.html', '_self');">
                 category
             </div>
         </div>

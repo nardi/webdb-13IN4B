@@ -1,6 +1,45 @@
+// Code voor ophalen adres
+function getAddress(callback, postcode, nummer, toevoeging)
+{
+    var xhr = new XMLHttpRequest();
+    var url = 'adres.php?postcode=' + postcode + '&nummer=' + nummer;
+    if (toevoeging && toevoeging != '')
+        url += '&toevoeging=' + toevoeging
+    xhr.open('GET', url);
+    xhr.onreadystatechange = function()
+    {
+        if (xhr.readyState == 4)
+            callback(JSON.parse(xhr.responseText));
+    };
+    xhr.send();
+}
+
+function completeAddress()
+{
+    var postcode = document.regform.postcode.value;
+    var huisnummer = document.regform.huisnummer.value;
+    var toevoeging = document.regform.toevoeging.value;
+    
+    getAddress(function(adresInfo)
+    {
+        if (!adresInfo.exception)
+        {
+            document.regform.straat.value = adresInfo.street;
+            document.regform.plaats.value = adresInfo.city;
+        }
+        else
+        {
+            document.regform.straat.value = document.regform.plaats.value = '';
+        }
+    }, postcode, huisnummer, toevoeging);
+}
+
 
 //http://www.randomsnippets.com/2008/04/01/how-to-verify-email-format-via-javascript/
-function test(){alert("Werken kreng");}
+
+// Ik heb even je code gecomment omdat de mijne anders ook helemaal niet geladen wordt :)
+
+/* function test(){alert("Werken kreng");}
 
 function check(field, divLabel){
     alert("started");
@@ -41,4 +80,4 @@ function verify(field1, field2, divLabel){
     else{
         divLabel.style.backgroundImage="url('images/labels/ok-label.png')";
     }   
-}
+} */

@@ -33,8 +33,8 @@
 
         <div id="dashboard" class="vcenter">
             <div id="reg-log">
-            <a href="Registratieformulier.html">Registreren</a><br />
-            <a href="Inloggen.php">Inloggen</a>
+            <a href="registratie.html">Registreren</a><br />
+            <a href="inloggen.php">Inloggen</a>
             </div>
             <div id="acc-mand">
             <a href="account-overzicht.html">Mijn account</a><br />
@@ -58,25 +58,22 @@
     <div id="contentWindow">
         <div id="sidebar">
             <div class="clickable-item" onClick="window.open('/', '_self');">
-                frontpage
+                Beginpagina
             </div>
             <div class="clickable-item" onClick="window.open('overons.html', '_self');">
-                overons
+                Over ons
             </div>
             <div class="clickable-item" onClick="window.open('overons.html#contact', '_self');">
                 contact
             </div>
-            <div class="clickable-item" onClick="window.open('Registratieformulier.html', '_self');">
-                Registratieformulier
-            </div>
-            <div class="clickable-item" onClick="window.open('Wachtwoordvergeten.html', '_self');">
-                Wachtwoordvergeten
+            <div class="clickable-item" onClick="window.open('wachtwoordvergeten.html', '_self');">
+                Wachtwoord vergeten
             </div>
             <div class="clickable-item" onClick="window.open('item-description.html', '_self');">
-               item-description
+                Productbeschrijving
             </div>
             <div class="clickable-item" onClick="window.open('category.html', '_self');">
-                category
+                Categorie
             </div>
             <div class="clickable-item" onClick="window.open('indexbeta.php', '_self');">
                 Beta-layout
