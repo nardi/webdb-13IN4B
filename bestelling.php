@@ -1,9 +1,6 @@
-<link rel="stylesheet" type="text/css" href="category.css" />
-<link rel="stylesheet" type="text/css" href="cart.css" />
+<div id="bestelling">
 
-<div id="cart">
-
-<h1>Winkelwagen</h1>
+<h1>Uw bestelling</h1>
 
 <form>
     <table class="product-list">
