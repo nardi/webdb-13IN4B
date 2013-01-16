@@ -24,7 +24,7 @@
         $genre = "$genre_naam";
         $sql->free_result(); */
         $genre = "asgas";
-        $sql = $db->prepare("SELECT id, titel, prijs FROM Producten WHERE genre.id = $genre_id");
+        $sql = $db->prepare("SELECT id, titel, prijs FROM Producten WHERE genre_id = ?");
         $sql->bind_param("i", $genre_id);
         if(!$sql->execute())
             throw new Exception($sql->error);
