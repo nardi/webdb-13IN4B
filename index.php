@@ -1,5 +1,5 @@
 <?php
-    $pag = (isset($_GET['pag'])) ? ($_GET['pag']) : (''); //read URL-pag parameter in
+    $pag = (isset($_GET['pag'])) ? ($_GET['pag']) : ('frontpage.html'); //read URL-pag parameter in
     if (strpos($pag, '.'))
     {
         $pagename = implode('.', explode('.', $pag, -1));
@@ -18,7 +18,9 @@
         <link rel="shortcut icon" href="favicon.ico" />
         <title>SIS</title>
         <link rel="stylesheet" type="text/css" href="main.css" />
-        <link rel="stylesheet" type="text/css" href="<?php echo $pagename; ?>.css" />
+        <?php if (file_exists($pagename . ".css"))
+                echo '<link rel="stylesheet" type="text/css" href="' + $pagename '.css" />';
+        ?>
 </head>
 
 <body>
