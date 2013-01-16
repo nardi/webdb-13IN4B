@@ -41,7 +41,7 @@ function completeAddress()
 
 // Ik heb even je code gecomment omdat de mijne anders ook helemaal niet geladen wordt :)
 
-function test(){alert("Werken kreng");}
+//function test(){alert("Werken kreng");}
 function checkPostcode(){
     var validPostcode = /^[0-9]{4}[\s-]?[a-z]{2}$/i;
     var postcode = document.getElementById('postcode').value;
@@ -83,17 +83,17 @@ function checkHuis(){
         error(huisLabel, 'Geen geldig huisnummer.');
         
 }
-function check(field, divLabel){
+function check(field, divLabel, msg){
     //alert("started");
     var labelPos = document.getElementById(divLabel);
-    var fieldVal = document.getElementById(field).value;
-    if(fieldVal==null || fieldVal==""){
+    var fieldVal = document.getElementById(field);
+    if(fieldVal==null || fieldVal.value==""){
         //alert("NULL!" + fieldVal);
-        error(labelPos);
+        error(labelPos, msg);
     }
     else{
         //alert("Niet NULL!" + fieldVal);
-        ok(labelPos);
+        ok(labelPos, msg);
         
     }   
 }
@@ -135,7 +135,7 @@ function ok(labelPos, msg){
     labelPos.title = melding;
     labelPos.style.backgroundRepeat="no-repeat";
 }
-
+var isValidForm = true;
 function error(field, msg){
     var labelPos = field;
     var melding;
@@ -147,4 +147,24 @@ function error(field, msg){
     labelPos.style.backgroundImage = "url('images/labels/warning-label.png')";
     labelPos.title = melding;
     labelPos.style.backgroundRepeat="no-repeat";
+    isValidForm = false;
+}
+
+function submitThisShit(){
+    var form = document.getElementById('regform');
+    checkNaam('voornaam', 'voornaam-label');
+    checkNaam('achternaam', 'achternaam-label');
+    checkHuis();
+    checkPostcode();
+    check('straat', 'straat-label', 'Uw postcode-huisnummer combinatie bestaat niet.');
+    checkTel();
+    checkMail();
+    verify('email','email-bevestigen','email-bevestigen-label');
+    check('wachtwoord','wachtwoord-label');
+    verify('wachtwoord','wachtwoord-bevestigen','wachtwoord-bevestigen-label');
+    
+    if(isValidForm)
+        form.action="gebruikers-registratie.php";
+    else
+        form.action= false;
 }
