@@ -1,0 +1,55 @@
+<link rel="stylesheet" type="text/css" href="inloggen-wachtwoord-registratie.css">
+<link rel="stylesheet" type="text/css" href="centering.css">
+<script type="text/javascript" src="registratieformulier.js"></script>
+
+<!--<script>function test(para){alert("Werken kreng!" + para);}
+
+function check(field){
+    alert("test started")
+    //var labelPos = getElementById('divLabel');
+    //var testy = field;
+    var testx = document.getElementsByName(""+field).value;
+    //document.getElementById(field).value;
+   alert(testx);
+   alert("test closed");
+        
+   }   
+</script>
+-->
+<div class="centered-container">
+    <div class="registratieformulier">
+        <form action="gebruikers-registratie.php" method="post">
+          <div align="right"> 
+          <h1><center><b>Registreren</b></center></h1>
+              <hr width="100%">
+              <center><b>Accountgegevens</b></center>
+              <br>
+              Voornaam: <input type="text" id="voornaam" name="voornaam" onchange="test()"><!--onchange="check('voornaam', 'voornaam-label')"--><div id="voornaam-label"></div><br>
+              Achternaam: <input type="text" id="achternaam" name="achternaam" onchange="check('achternaam', 'achternaam-label')"><div id="achternaam-label"></div><br>
+              Huisnummer en toevoeging:
+              <div class="huisnummer"> 
+                <input type="tekst" id="huisnummer" name="huisnummer" onchange="check('huisnummer', 'huisnummer-label')"> <input type="tekst" name="toevoeging"> <div id="huisnummer-label"></div>
+              </div><br/>
+              Postcode: <input type="text" id="postcode" name="postcode" onchange="check('postcode', 'postcode-label')"><div id="postcode-label"></div><br>
+              Stad: <input type="text" id="land" name="land" onchange="check('stad', 'stad-label')"><div id="stad-label"></div><br>
+              Telefoonnummer: 
+              <div class="telnr"> 
+                <div class="telnr1"> 
+                    <input type="tel" name="telefoonnummer"> -
+                </div> 
+                <div class="telnr2"> 
+                    <input type="tel" id="tel" name="telefoonnummer2" onchange="check('telefoonnummer', 'tel-label')">
+                </div>
+              </div>  
+              <div id="tel-label"></div>
+              <hr width="100%">
+              <center><b>Inloggegevens</b></center><br>
+              E-mailadres: <input type="email" id="email" name="e-mailadres" onchange="checkMail()"><div id="email-label"></div><br>
+              E-mailadres bevestigen: <input type="email" id="email-bevestigen" name="e-mailadres-conf" onchange="verify('email','email-bevestigen', 'email-bevestigen-label')"><div id="email-bevestigen-label"></div><br>
+              Wachtwoord: <input type="password" id="wachtwoord" name="wachtwoord" onchange="check('wachtwoord', 'wachtwoord-label')"><div id="wachtwoord-label"></div><br>
+              Wachtwoord bevestigen: <input type="password" id="wachtwoord-bevestigen" name="wachtwoord-conf" onchange="verify('wachtwoord', 'wachtwoord-bevestigen', 'wachtwoord-bevestigen-label')"><div id="wachtwoord-bevestigen-label"></div><br>
+              <input type="submit" value="Maak account aan">
+          </div>
+        </form>
+    </div>
+</div>
