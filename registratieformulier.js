@@ -62,7 +62,7 @@ function check(field, divLabel){
 function checkMail(){
         var validMail=/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i
         var mailFieldVal = document.getElementById('email').value;
-        if(mailFieldVal(validMail) ==-1){
+        if(/*mailFieldVal(validMail) =='-1' ||*/ mailFieldVal=="" || mailFieldVal==null){
             email-label.style.backgroundImage = "url('images/labels/warning-label.png')";
             email-label.style.title = "Dit is geen geldig e-mail adres";
             email-label.style.backgroundRepeat="no-repeat";
