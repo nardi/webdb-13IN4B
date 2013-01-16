@@ -27,13 +27,10 @@
 		$_SESSION['gebruiker-naam'] = $naam;
 		$_SESSION['gebruiker-status'] = $status;
 		echo "Welkom terug, ".$_SESSION['gebruiker-naam'];
-		?>
 		
-		<script type="text/JavaScript">
-			setTimeout("location.href = 'http://sisv2.tk/';",2000);
-		</script>
+		sleep(3);
+		redirect_to("/");
 		
-		<?php
 	}
 	else {
 		echo "Fail";
