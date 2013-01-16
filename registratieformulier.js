@@ -157,9 +157,9 @@ function submitThisShit(){
     checkNaam('achternaam', 'achternaam-label');
     checkHuis();
     checkPostcode();
-    document.getElementById('straatid').disabled=!document.getElementById('straatid').disabled;
-    check('straat', 'straat-label', 'Uw postcode-huisnummer combinatie bestaat niet.');
-    document.getElementById('straatid').disabled=!document.getElementById('straatid').disabled;
+    //document.getElementById('straatid').disabled=!document.getElementById('straatid').disabled;
+    check('straatid', 'straat-label', 'Uw postcode-huisnummer combinatie bestaat niet.');
+    //document.getElementById('straatid').disabled=!document.getElementById('straatid').disabled;
     checkTel();
     checkMail();
     verify('email','email-bevestigen','email-bevestigen-label');
