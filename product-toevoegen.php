@@ -55,6 +55,8 @@ Whale, whale, whale. What do we have here?
 						  <option value="<?php echo $platformid; ?>"><?php echo $platform; ?></option>
 <?php
         }
+        
+        $platformsql->free_result();
 ?>
 						  </select>
 					  </div>
@@ -64,15 +66,18 @@ Whale, whale, whale. What do we have here?
 
 						  <select name="genre">
 <?php
-        $genressql = $db->prepare("SELECT id, naam FROM Genres");
-        $genressql->execute();
-        $genressql->bind_result($genreid, $genre);
+        $genresql = $db->prepare("SELECT id, naam FROM Genres");
+        $genresql->execute();
+        $genresql->bind_result($genreid, $genre);
 
         while ($genresql->fetch()) {
 ?>
 						  <option value="<?php echo $genreid; ?>"><?php echo $genre; ?></option>
 <?php
         }
+        
+        $genresql->free_result();
+        $db->close();
 ?>
 						  </select>
 
