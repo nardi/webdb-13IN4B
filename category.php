@@ -11,7 +11,7 @@
     {
         $genre_id = $_GET['genre'];
         
-        $sql = $db->query("SELECT naam FROM Genres WHERE genre.id = ?");
+        $sql = $db->query("SELECT naam FROM Genres WHERE id = ?");
         $sql->bind_param("i", $genre_id);
         $sql->execute();
         $sql->bind_result($genre_naam);
