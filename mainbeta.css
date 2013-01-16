@@ -11,7 +11,8 @@ html, body {
 }
 
 #mainWindow {
-    height : 100%;
+    margin-top: 10pt;
+    height : *;
     width : 25.5cm;
     margin-left : auto;
     margin-right : auto
@@ -38,6 +39,8 @@ html, body {
     height : 2.5cm;
     width : 100%; 
     background: #08C1FF;
+    border-radius: 15px;
+    padding: 0.2cm;
 }
 
 /* The logo */ 
@@ -60,14 +63,14 @@ html, body {
 /* The dashboard */
     
 #dashboard {
-    border: 3px;
-    border-style: solid;
-    border-color: #08C1FF;
     float : right;
-    height: 100%;
+    height: 1.9cm;
+    border-radius: 15px;
+
     background: #FFFFFF;
     margin-left: auto;
     margin-right: auto;
+    padding-top: 0.5cm;
 }
 
 #dashboard a{

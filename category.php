@@ -9,11 +9,25 @@
     }
     else
     {
-        $genre = $_GET['genre'];
+        $genre_id = $_GET['genre'];
         
-        $sql = $db->prepare("SELECT id, titel, prijs FROM Producten WHERE genre = ?");
-        $sql->bind_param("s", $genre);
-        $sql->execute();
+        $sql = $db->prepare("SELECT naam FROM Genres WHERE id = ?");
+        $sql->bind_param("i", $genre_id);
+        if(!$sql->execute())
+            throw new Exception($sql->error);
+        $sql->bind_result($genre_naam);
+        if (!$sql->fetch())
+        {
+            echo "Deze categorie bestaat niet.";
+            exit();
+        }
+        $genre = "$genre_naam";
+        $sql->free_result();
+        
+        $sql = $db->prepare("SELECT id, titel, prijs FROM Producten WHERE genre_id = ?");
+        $sql->bind_param("i", $genre_id);
+        if(!$sql->execute())
+            throw new Exception($sql->error);
         $sql->bind_result($id, $titel, $prijs);
 
         if (!$sql->fetch())
