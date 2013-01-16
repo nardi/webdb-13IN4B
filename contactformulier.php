@@ -20,8 +20,9 @@ if (isset($_REQUEST['email']))
 
   $reply_onderwerp = "uw vraag aan Super Internet Shop" ;
   $reply_bericht = "Geachte heer / mevrouw, <br> Hartelijk dank voor uw email." ;	
+  $reply_email = "sis@hotmail.com" ;
   mail("$email, $reply_onderwerp,
-  $reply_bericht, "From:" . "superinternetshop@hotmail.com");
+  $reply_bericht, "From:" . $reply_email);
   echo "Thank you for using our mail form";
   }
 else
