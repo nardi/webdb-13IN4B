@@ -26,8 +26,8 @@ function completeAddress()
         {
             document.regform.straat.value = adresInfo.street;
             document.regform.plaats.value = adresInfo.city;
-            document.regform.co.value = adresInfo.latitude + ', ' + adresInfo.longitude;
-            document.regform.wo.value = adresInfo.surfaceArea + 'm2';
+            //document.regform.co.value = adresInfo.latitude + ', ' + adresInfo.longitude;
+            //document.regform.wo.value = adresInfo.surfaceArea + 'm2';
         }
         else
         {
@@ -88,7 +88,7 @@ function check(field, divLabel, msg){
     var labelPos = document.getElementById(divLabel);
     var fieldVal = document.getElementById(field);
     alert(fieldVal.value);
-    if(fieldVal==null || fieldVal.value==""){
+    if(fieldVal==undefined || fieldVal.value==""){
         //alert("NULL!" + fieldVal);
         error(labelPos, msg);
     }
