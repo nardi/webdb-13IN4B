@@ -24,7 +24,7 @@
 	$saltedwwhash = hash('sha256', $salt . $wwhash);
 	
 	if(empty($saltedwwhash)) {
-		echo "Geen wachtwoord ingevuld"
+		echo "Geen wachtwoord ingevuld";
 	}
 	
 	else if($saltedwwhash == $salthash[1]) {
