@@ -1,6 +1,8 @@
 <?php
     require 'main.php';
 
+	redirect_to("/");
+	
     $db = connect_to_db();
 	
 	$emailadres = $_POST['e-mailadres'];
@@ -21,13 +23,17 @@
 	$salt = $salthash[0];
 	$saltedwwhash = hash('sha256', $salt . $wwhash);
 	
-	if($saltedwwhash == $salthash[1]) {
+	if(empty($saltedwwhash)) {
+		echo "Geen wachtwoord ingevuld"
+	}
+	
+	else if($saltedwwhash == $salthash[1]) {
 		$_SESSION['logged-in'] = 1;
 		$_SESSION['gebruiker-id'] = $id;
 		$_SESSION['gebruiker-naam'] = $naam;
 		$_SESSION['gebruiker-status'] = $status;
 		echo "Welkom terug, ".$_SESSION['gebruiker-naam'];
-		//flush();
+		flush();
 	}
 	else {
 		echo "Fail";
@@ -35,7 +41,6 @@
 	
 	
 	sleep(3);
-	redirect_to("/");
 	
 ?>
 	
