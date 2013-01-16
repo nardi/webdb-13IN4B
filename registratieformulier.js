@@ -166,7 +166,7 @@ function submitThisShit(){
     verify('wachtwoord','wachtwoord-bevestigen','wachtwoord-bevestigen-label');
     
     if(isValidForm)
-        form.action="gebruikers-registratie.php";
-    else
-        form.action= false;
+        document.regform.action="gebruikers-registratie.php";
+    //else
+       // form.action= false;
 }
