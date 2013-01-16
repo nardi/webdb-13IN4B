@@ -20,7 +20,7 @@ if ((($_FILES["file"]["type"] == "image/gif")
     echo "Size: " . ($_FILES["file"]["size"] / 1024) . " kB<br>";
     echo "Temp file: " . $_FILES["file"]["tmp_name"] . "<br>";
 
-    if (file_exists("upload/" . $_FILES["file"]["name"]))
+    if (file_exists("/datastore/webdb13IN4B/htdocs" . $_FILES["file"]["name"]))
       {
       echo $_FILES["file"]["name"] . " already exists. ";
       }
