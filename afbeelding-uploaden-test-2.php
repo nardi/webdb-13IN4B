@@ -1,5 +1,7 @@
 <?php
 
+// Deze code is gekopieerd van w3school
+
 $allowedExts = array("jpg", "jpeg", "gif", "png");
 $extension = end(explode(".", $_FILES["file"]["name"]));
 if ((($_FILES["file"]["type"] == "image/gif")
@@ -28,7 +30,7 @@ if ((($_FILES["file"]["type"] == "image/gif")
       {
       move_uploaded_file($_FILES["file"]["tmp_name"],
       "/datastore/webdb13IN4B/htdocs/images/" . $_FILES["file"]["name"]);
-      echo "Stored in: " . "upload/" . $_FILES["file"]["name"];
+      echo "Stored in: " . "htdocs/images" . $_FILES["file"]["name"];
       }
     }
   }

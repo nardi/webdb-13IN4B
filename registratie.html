@@ -24,33 +24,36 @@ function check(field){
               <hr width="100%">
               <center><b>Accountgegevens</b></center>
               <br>
-              Voornaam: <input type="text" id="voornaam" name="voornaam" onchange="test()"><!--onchange="check('voornaam', 'voornaam-label')"--><div id="voornaam-label"></div><br>
-              Achternaam: <input type="text" id="achternaam" name="achternaam" onchange="check('achternaam', 'achternaam-label')"><div id="achternaam-label"></div><br>
+              Voornaam: <input type="text" id="voornaam" name="voornaam" onblur="check('voornaam', 'voornaam-label')"><div id="voornaam-label" class="label-div"></div><br>
+              Achternaam: <input type="text" id="achternaam" name="achternaam" onblur="check('achternaam', 'achternaam-label')"><div id="achternaam-label" class="label-div"></div><br>
               Huisnummer en toevoeging:
               <div class="huisnummer"> 
-                <input type="tekst" id="huisnummer" name="huisnummer" onchange="completeAddress(); check('huisnummer', 'huisnummer-label')"> <input type="tekst" name="toevoeging"> <div id="huisnummer-label"></div>
+                <input type="tekst" id="huisnummer" name="huisnummer" onchange="completeAddress()" onblur="check('huisnummer', 'huisnummer-label')"> <input type="tekst" name="toevoeging"><div id="huisnummer-label" class="label-div"></div>
               </div><br/>
-              Postcode: <input type="text" id="postcode" name="postcode" onchange="completeAddress(); check('postcode', 'postcode-label')"><div id="postcode-label"></div><br>
-              Straat: <input type="text" name="straat" disabled="disabled"><br>
-              Plaats: <input type="text" name="plaats" disabled="disabled"><br>
+
+              Postcode: <input type="text" id="postcode" name="postcode" onchange="completeAddress()" onblur="check('postcode', 'postcode-label')"><div id="postcode-label" class="label-div"></div><br>
+              Straat: <input type="text" name="straat" disabled="disabled"><div id="straat-label" class="label-div"></div><br>
+              Plaats: <input type="text" name="plaats" disabled="disabled"><div id="plaats-label" class="label-div"></div><br>
+
               Co&#246;rdinaten: <input type="text" name="co" disabled="disabled"><br>
               Woonoppervlak: <input type="text" name="wo" disabled="disabled"><br>
+
               Telefoonnummer: 
               <div class="telnr"> 
                 <div class="telnr1"> 
-                    <input type="tel" name="telefoonnummer"> -
+                    <input type="tel" name="telefoonnummer" id="tel" onblur="check('tel', 'tel-label')"> -
                 </div> 
                 <div class="telnr2"> 
-                    <input type="tel" id="tel" name="telefoonnummer2" onchange="check('telefoonnummer', 'tel-label')">
+                    <input type="tel" id="tel2" name="telefoonnummer2" onblur="check('tel2', 'tel-label')">
                 </div>
               </div>  
-              <div id="tel-label"></div>
+              <div id="tel-label" class="label-div" class="label-div"></div>
               <hr width="100%">
               <center><b>Inloggegevens</b></center><br>
-              E-mailadres: <input type="email" id="email" name="e-mailadres" onchange="checkMail()"><div id="email-label"></div><br>
-              E-mailadres bevestigen: <input type="email" id="email-bevestigen" name="e-mailadres-conf" onchange="verify('email','email-bevestigen', 'email-bevestigen-label')"><div id="email-bevestigen-label"></div><br>
-              Wachtwoord: <input type="password" id="wachtwoord" name="wachtwoord" onchange="check('wachtwoord', 'wachtwoord-label')"><div id="wachtwoord-label"></div><br>
-              Wachtwoord bevestigen: <input type="password" id="wachtwoord-bevestigen" name="wachtwoord-conf" onchange="verify('wachtwoord', 'wachtwoord-bevestigen', 'wachtwoord-bevestigen-label')"><div id="wachtwoord-bevestigen-label"></div><br>
+              E-mailadres: <input type="text" id="email" name="e-mailadres" onblur="checkMail()"><div id="email-label" class="label-div"></div><br>
+              E-mailadres bevestigen: <input type="text" id="email-bevestigen" name="e-mailadres-conf" onblur="verify('email','email-bevestigen', 'email-bevestigen-label')"><div id="email-bevestigen-label" class="label-div"></div><br>
+              Wachtwoord: <input type="password" id="wachtwoord" name="wachtwoord" onblur="check('wachtwoord', 'wachtwoord-label')"><div id="wachtwoord-label" class="label-div"></div><br>
+              Wachtwoord bevestigen: <input type="password" id="wachtwoord-bevestigen" name="wachtwoord-conf" onblur="verify('wachtwoord', 'wachtwoord-bevestigen', 'wachtwoord-bevestigen-label')"><div id="wachtwoord-bevestigen-label" class="label-div"></div><br>
               <input type="submit" value="Maak account aan">
           </div>
         </form>

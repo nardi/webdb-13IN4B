@@ -44,42 +44,54 @@ function completeAddress()
 function test(){alert("Werken kreng");}
 
 function check(field, divLabel){
-    alert("started");
+    //alert("started");
     var labelPos = document.getElementById(divLabel);
     var fieldVal = document.getElementById(field).value;
-    if(fieldVal.value==null){
-        alert("NULL!" + fieldVal.value);
+    if(fieldVal==null || fieldVal==""){
+        //alert("NULL!" + fieldVal);
         labelPos.style.backgroundImage="url('images/labels/warning-label.png')";
         labelPos.title = "Dit veld mag niet leeg zijn";
-        labelPos.style.width = "30px";
-        labelPos.style.height = "30px";
+        labelPos.style.backgroundRepeat="no-repeat";
     }
     else{
-        divLabel.style.backgroundImage="url('images/labels/ok-label.png')";
+        //alert("Niet NULL!" + fieldVal);
+        labelPos.style.backgroundImage="url('images/labels/ok-label.png')";
+        labelPos.style.title = "Dit veld is goed ingevuld.";
+        labelPos.style.backgroundRepeat="no-repeat";
+        
     }   
 }
 function checkMail(){
+        //alert("derp");
         var validMail=/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i
         var mailFieldVal = document.getElementById('email');
-        if(mailFieldVal.value(validMail) ==-1){
-            email-label.backgroundImage = "url('images/labels/warning-label.png')";
-            email-label.title = "Dit is geen geldig e-mail adres";
+        var labelPos = document.getElementById('email-label');
+        if(!validMail.test(mailFieldVal.value) || mailFieldVal.value=="" || !mailFieldVal.value){
+            labelPos.style.backgroundImage = "url('images/labels/warning-label.png')";
+            labelPos.title = "Dit is geen geldig e-mail adres";
+            labelPos.style.backgroundRepeat="no-repeat";
         }
         
         else{
-            email-label.backgroundImage = "url('images/labels/ok-label.png')";
+            labelPos.style.backgroundImage = "url('images/labels/ok-label.png')";
+            labelPos.style.title= "Dit is een geldig e-mail adres.";
+            labelPos.style.backgroundRepeat="no-repeat";
         }
 }
 
 function verify(field1, field2, divLabel){
     var field1Val = document.getElementById(field1).value;
     var field2Val = document.getElementById(field2).value;
+    var labelPos = document.getElementById(divLabel);
     
     if(field1Val != field2Val){
-        divLabel.style.backgroundImage = "url('images/labels/warning-label.png')";
-        divLabel.title = "Dit veld mag niet leeg zijn";
+        labelPos.style.backgroundImage = "url('images/labels/warning-label.png')";
+        labelPos.title = "Dit veld mag niet leeg zijn";
+        labelPos.style.backgroundRepeat="no-repeat";
     }
     else{
-        divLabel.style.backgroundImage="url('images/labels/ok-label.png')";
+        labelPos.style.backgroundImage="url('images/labels/ok-label.png')";
+        labelPos.title="E-mailadressen zijn niet hetzelfde.";
+        labelPos.style.backgroundRepeat="no-repeat";
     }   
 }
