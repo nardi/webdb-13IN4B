@@ -1,4 +1,5 @@
 <?php
+    session_start();
     $pag = (isset($_GET['pag'])) ? ($_GET['pag']) : ('frontpage.html'); //read URL-pag parameter in
     if (strpos($pag, '.'))
     {
@@ -34,66 +35,17 @@
         </div>
 
         <div id="dashboard" class="vcenter">
-            <div id="reg-log">
-            <a href="registratie.html">Registreren</a><br />
-            <a href="inloggen.php">Inloggen</a>
-            </div>
-            <div id="acc-mand">
-            <a href="account-overzicht.html">Mijn account</a><br />
-            <a href="cart.html">Winkelwagen (3)</a>
-            </div>
-			
-			<?php 
-				session_start();
-				
-				if (isset($_SESSION['logged-in'])) {
-					echo $_SESSION['gebruiker-naam'];
-				}
-				else {
-					echo "Niet ingelogd";
-				}
+            <?php
+            include("dashboard.php");
 			?>
-			
         </div>
     </div>
 
     <div id="contentWindow">
+        
         <div id="sidebar">
-            <div class="clickable-item" onClick="window.open('/', '_self');">
-                Beginpagina
-            </div>
-            <div class="clickable-item" onClick="window.open('overons.html', '_self');">
-                Over ons
-            </div>
-            <div class="clickable-item" onClick="window.open('overons.html#contact', '_self');">
-                contact
-            </div>
-            <div class="clickable-item" onClick="window.open('wachtwoordvergeten.html', '_self');">
-                Wachtwoord vergeten
-            </div>
-            <div class="clickable-item" onClick="window.open('item-description.html', '_self');">
-                Productbeschrijving
-            </div>
-            <div class="clickable-item" onClick="window.open('category.html', '_self');">
-                Categorie
-            </div>
-            <div class="clickable-item" onClick="window.open('indexbeta.php', '_self');">
-                Beta-layout
-            </div>
-			
-			<?php
-				//session_start();
-				
-				if (isset($_SESSION['logged-in'])) {
-					if ($_SESSION['gebruiker-status'] == 3) {
-						?>
-						<hr>
-						<div class="clickable-item" onClick="window.open('product-toevoegen.php', '_self');">
-							Product Toevoegen
-						</div>
-						<?php
-					}
-				}
+            <?php
+            include("sidebar.php");
 			?>
         </div>
         

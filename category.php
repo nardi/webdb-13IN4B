@@ -5,7 +5,7 @@
 	
     if (!isset($_GET['genre']))
     {
-         echo "Geef een categorie op";
+         echo "Geef een categorie op.";
     }
     else
     {
@@ -36,7 +36,7 @@
 <div class="product-thumb">
     <a href="product.php?id=<?php echo $id; ?>">
     <img src="images/products/<?php echo $id; ?>.jpg" />
-    <p class="title"><?php echo $genre; ?></p>
+    <p class="title"><?php echo $titel; ?></p>
     <p class="price">&euro;<?php echo $prijs; ?></p>
     </a>
 </div>

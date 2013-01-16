@@ -1,6 +1,5 @@
 <?php
     require 'main.php';
-    require 'adres.php';
 
     $db = connect_to_db();
     
