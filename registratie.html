@@ -31,8 +31,10 @@ function check(field){
                 <input type="tekst" id="huisnummer" name="huisnummer" onchange="completeAddress(); check('huisnummer', 'huisnummer-label')"> <input type="tekst" name="toevoeging"> <div id="huisnummer-label"></div>
               </div><br/>
               Postcode: <input type="text" id="postcode" name="postcode" onchange="completeAddress(); check('postcode', 'postcode-label')"><div id="postcode-label"></div><br>
-              Straat: <input type="text" name="straat" readonly="readonly"><br>
-              Plaats: <input type="text" name="plaats" readonly="readonly"><br>
+              Straat: <input type="text" name="straat" disabled="disabled"><br>
+              Plaats: <input type="text" name="plaats" disabled="disabled"><br>
+              Coördinaten: <input type="text" name="co" disabled="disabled"><br>
+              Woonoppervlak: <input type="text" name="wo" disabled="disabled"><br>
               Telefoonnummer: 
               <div class="telnr"> 
                 <div class="telnr1"> 

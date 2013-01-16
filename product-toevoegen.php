@@ -53,7 +53,6 @@ Whale, whale, whale. What do we have here?
 						  <option value="n3ds">Nintendo 3DS</option>  
 						  <option value="wiiu">Wii U</option>
 						  <option value="wii">Wii</option>
-						  <option value="pc">PC</option>
 						  </select>
 
 					  </div>
