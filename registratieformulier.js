@@ -152,6 +152,7 @@ function error(field, msg){
 
 function submitThisShit(){
     var form = document.getElementById('regformid');
+    isValidForm=true;
     checkNaam('voornaam', 'voornaam-label');
     checkNaam('achternaam', 'achternaam-label');
     checkHuis();
