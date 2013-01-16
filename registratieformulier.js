@@ -87,6 +87,7 @@ function check(field, divLabel, msg){
     //alert("started");
     var labelPos = document.getElementById(divLabel);
     var fieldVal = document.getElementById(field);
+    alert(fieldVal.value);
     if(fieldVal==null || fieldVal.value==""){
         //alert("NULL!" + fieldVal);
         error(labelPos, msg);
