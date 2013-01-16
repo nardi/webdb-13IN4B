@@ -23,14 +23,6 @@ Whale, whale, whale. What do we have here?
         require 'main.php';
 
         $db = connect_to_db();
-        
-        $platformsql = $db->prepare("SELECT id, naam FROM Platforms");
-        $platformsql->execute();
-        $platformsql->bind_result($platformid, $platform);
-        
-        $genressql = $db->prepare("SELECT id, naam FROM Genres");
-        $genressql->execute();
-        $genressql->bind_result($genreid, $genre);
 ?>
 		<div class="centered-container">
 			<div class="product-toevoegen">
@@ -54,11 +46,15 @@ Whale, whale, whale. What do we have here?
 					  <div class="platform">
                           <select name="platform">
 <?php
-    while ($platformsql->fetch()) {
+        $platformsql = $db->prepare("SELECT id, naam FROM Platforms");
+        $platformsql->execute();
+        $platformsql->bind_result($platformid, $platform);
+
+        while ($platformsql->fetch()) {
 ?>
 						  <option value="<?php echo $platformid; ?>"><?php echo $platform; ?></option>
 <?php
-    }
+        }
 ?>
 						  </select>
 					  </div>
@@ -68,11 +64,15 @@ Whale, whale, whale. What do we have here?
 
 						  <select name="genre">
 <?php
-    while ($genresql->fetch()) {
+        $genressql = $db->prepare("SELECT id, naam FROM Genres");
+        $genressql->execute();
+        $genressql->bind_result($genreid, $genre);
+
+        while ($genresql->fetch()) {
 ?>
 						  <option value="<?php echo $genreid; ?>"><?php echo $genre; ?></option>
 <?php
-    }
+        }
 ?>
 						  </select>
 
