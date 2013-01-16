@@ -24,8 +24,8 @@ else
   {
   echo "<form method='post' action='contactformulier.php'>
   Email: <input name='email' type='text'><br>
-  Subject: <input name='onderwerp' type='text'><br>
-  Message:<br>
+  Onderwerp: <input name='onderwerp' type='text'><br>
+  Bericht:<br>
   <textarea name='bericht' rows='15' cols='40'>
   </textarea><br>
   <input type='submit'>
