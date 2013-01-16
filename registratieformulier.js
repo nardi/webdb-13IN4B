@@ -43,12 +43,45 @@ function completeAddress()
 
 function test(){alert("Werken kreng");}
 function checkPostcode(){
-    var validPost = /[0-9]{4}+[\s-]?[a-z]{2}$/i;
+    var validPostcode = /^[0-9]{4}[\s-]?[a-z]{2}$/i;
     var postcode = document.getElementById('postcode').value;
-    if (validPostcode.test(postcode)){
-        
+    var postcodeLabel = document.getElementById('postcode-label');
+    if (!validPostcode.test(postcode))
+        error(postcodeLabel, 'Dit is geen geldige postcode.');  
+    else
+        ok(postcodeLabel, 'Dit is een geldige postcode.');
+}
+function checkNaam(field, label){
+    var validNaam = /^[a-z]{1,100}$/i
+    var naam = document.getElementById(field).value;
+    var naamLabel = document.getElementById(label);
+    if(!validNaam.test(naam))
+        error(naamLabel, 'Geen geldige naam.');
+    else
+        ok(naamLabel);
+}
+function checkTel(){
+    var validTel1 = /^[0-9]{2,4}$/;
+    var validTel2 = /^[0-9]{6,8}$/;
+    var fieldVal = document.getElementById('tel').value;
+    var fieldVal2 = document.getElementById('tel2').value;
+    var telLabel = document.getElementById('tel-label');
+    if(validTel1.test(fieldVal) && validTel2.test(fieldVal2)){
+        ok(telLabel, 'Dit is geen geldig telefoon nummer');
     }
-    
+    else
+        error(telLabel);
+}
+function checkHuis(){
+    var validHuis = /^[0-9]{1,5}$/;
+    fieldVal = document.getElementById('huisnummer').value;
+    var huisLabel = document.getElementById('huisnummer-label');
+    if(validHuis.test(fieldVal)){
+        ok(huisLabel);
+    }
+    else
+        error(huisLabel, 'Geen geldig huisnummer.');
+        
 }
 function check(field, divLabel){
     //alert("started");
@@ -104,6 +137,7 @@ function ok(labelPos, msg){
 }
 
 function error(field, msg){
+    var labelPos = field;
     var melding;
     if(msg==undefined)
         melding = "Dit veld mag niet leeg zijn.";

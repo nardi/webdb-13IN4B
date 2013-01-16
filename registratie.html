@@ -24,14 +24,14 @@ function check(field){
               <hr width="100%">
               <center><b>Accountgegevens</b></center>
               <br>
-              Voornaam: <input type="text" id="voornaam" name="voornaam" onblur="check('voornaam', 'voornaam-label')"><div id="voornaam-label" class="label-div"></div><br>
-              Achternaam: <input type="text" id="achternaam" name="achternaam" onblur="check('achternaam', 'achternaam-label')"><div id="achternaam-label" class="label-div"></div><br>
+              Voornaam: <input type="text" id="voornaam" name="voornaam" onblur="checkNaam('voornaam', 'voornaam-label')"><div id="voornaam-label" class="label-div"></div><br>
+              Achternaam: <input type="text" id="achternaam" name="achternaam" onblur="checkNaam('achternaam', 'achternaam-label')"><div id="achternaam-label" class="label-div"></div><br>
               Huisnummer en toevoeging:
               <div class="huisnummer"> 
-                <input type="tekst" id="huisnummer" name="huisnummer" onchange="completeAddress()" onblur="check('huisnummer', 'huisnummer-label')"> <input type="tekst" name="toevoeging"><div id="huisnummer-label" class="label-div"></div>
+                <input type="tekst" id="huisnummer" name="huisnummer" onchange="completeAddress()" onblur="checkHuis()"> <input type="tekst" name="toevoeging"><div id="huisnummer-label" class="label-div"></div>
               </div><br/>
 
-              Postcode: <input type="text" id="postcode" name="postcode" onchange="completeAddress()" onblur="check('postcode', 'postcode-label')"><div id="postcode-label" class="label-div"></div><br>
+              Postcode: <input type="text" id="postcode" name="postcode" onchange="completeAddress()" onblur="checkPostcode()"><div id="postcode-label" class="label-div"></div><br>
               Straat: <input type="text" name="straat" disabled="disabled"><div id="straat-label" class="label-div"></div><br>
               Plaats: <input type="text" name="plaats" disabled="disabled"><div id="plaats-label" class="label-div"></div><br>
 
@@ -41,10 +41,10 @@ function check(field){
               Telefoonnummer: 
               <div class="telnr"> 
                 <div class="telnr1"> 
-                    <input type="tel" name="telefoonnummer" id="tel" onblur="check('tel', 'tel-label')"> -
+                    <input type="tel" name="telefoonnummer" id="tel" onblur="checkTel()"> -
                 </div> 
                 <div class="telnr2"> 
-                    <input type="tel" id="tel2" name="telefoonnummer2" onblur="check('tel2', 'tel-label')">
+                    <input type="tel" id="tel2" name="telefoonnummer2" onblur="checkTel()">
                 </div>
               </div>  
               <div id="tel-label" class="label-div" class="label-div"></div>
