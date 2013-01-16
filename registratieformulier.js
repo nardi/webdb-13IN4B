@@ -91,6 +91,7 @@ function verify(field1, field2, divLabel){
     }
     else{
         labelPos.style.backgroundImage="url('images/labels/ok-label.png')";
+        labelPos.title="E-mailadressen zijn niet hetzelfde.";
         labelPos.style.backgroundRepeat="no-repeat";
     }   
 }
