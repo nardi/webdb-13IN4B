@@ -6,8 +6,13 @@
 		echo "Uitgelogd";
 		session_destroy();
 			
-		sleep(3);
-		redirect_to("/");
+		?>
+		
+		<script type="text/JavaScript">
+			setTimeout("location.href = '/';",2000);
+		</script>
+		
+		<?php
 	}
 	
 	else {

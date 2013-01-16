@@ -33,6 +33,11 @@ width: 420pt;
 .bestellingen-lopende {
 width: 420pt;
 }
+
+.label-div{
+	width:30px;
+	height:30px;
+}
 #cart {
 width: 100%;
 text-align: center;
