@@ -28,13 +28,14 @@
 		$_SESSION['gebruiker-status'] = $status;
 		echo "Welkom terug, ".$_SESSION['gebruiker-naam'];
 		
-		sleep(3);
-		redirect_to("/");
-		
 	}
 	else {
 		echo "Fail";
 	}
+	
+	
+	sleep(3);
+	redirect_to("/");
 	
 ?>
 	
