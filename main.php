@@ -36,4 +36,13 @@
         
         return curl_exec($ch);
     }
+    
+    function check_wachtwoord($wachtwoord, $wwdb)
+    {
+        $wwhash = hash('sha256', $wachtwoord);
+        $salthash = str_split($wwdb, 64);
+        $salt = $salthash[0];
+        $saltedwwhash = hash('sha256', $salt . $wwhash);
+        return $saltedwwhash === $salthash[1];
+    }
 ?>
