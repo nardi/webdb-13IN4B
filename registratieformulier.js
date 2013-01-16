@@ -165,8 +165,11 @@ function submitThisShit(){
     check('wachtwoord','wachtwoord-label');
     verify('wachtwoord','wachtwoord-bevestigen','wachtwoord-bevestigen-label');
     
-    if(isValidForm)
+    if(isValidForm){
         document.regform.action="gebruikers-registratie.php";
-    //else
-       // form.action= false;
+        return true;
+    }
+    else{
+       return false;
+    }
 }
