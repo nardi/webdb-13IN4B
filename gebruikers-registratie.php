@@ -3,14 +3,14 @@
 
     $db = connect_to_db();
     
-    $voornaam = safe_POST('voornaam', $db);
-    $achternaam = safe_POST('achternaam', $db);
-    $postcode = safe_POST('postcode', $db);
-    $huisnummer = safe_POST('huisnummer', $db);
-    $toevoeging = safe_POST('toevoeging', $db);
-    $telefoonnummer = safe_POST('telefoonnummer', $db);
-    $emailadres = safe_POST('e-mailadres', $db);
-    $wachtwoord = safe_POST('wachtwoord', $db);
+    $voornaam = $_POST['voornaam'];
+    $achternaam = $_POST['achternaam'];
+    $postcode = $_POST['postcode'];
+    $huisnummer = $_POST['huisnummer'];
+    $toevoeging = $_POST['toevoeging'];
+    $telefoonnummer = $_POST['telefoonnummer'];
+    $emailadres = $_POST['e-mailadres'];
+    $wachtwoord = $_POST['wachtwoord'];
     
     $adres_info = json_decode(get_address($postcode, $huisnummer));
     $straat = $adres_info->street;
@@ -85,9 +85,5 @@
         
     $db->close();
     
-    redirect_to("registratie-succesvol.html");
-    
-    
-    
-    
+    redirect_to("registratie-succesvol.html"); 
 ?>

@@ -11,17 +11,11 @@
 	$sql->execute();
 	$sql->bind_result($id, $wwdb, $naam, $status);
 
-	if (! $sql->fetch()) {print "Onverwachte fout: Geen data."; exit(); }
+	if (!$sql->fetch()) { print "Onverwachte fout: Geen data."; exit(); }
 	$sql->free_result();
 	$db->close();
 	
-	
-	$wwhash = hash('sha256', $wachtwoord);
-	$salthash = str_split($wwdb, 64);
-	$salt = $salthash[0];
-	$saltedwwhash = hash('sha256', $salt . $wwhash);
-	
-	if($saltedwwhash == $salthash[1]) {
+	if (check_wachtwoord($wachtwoord, $wwdb)) {
 		$_SESSION['logged-in'] = 1;
 		$_SESSION['gebruiker-id'] = $id;
 		$_SESSION['gebruiker-naam'] = $naam;
