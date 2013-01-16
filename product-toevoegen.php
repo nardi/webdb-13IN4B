@@ -20,7 +20,18 @@ Whale, whale, whale. What do we have here?
 	<?php
 	}
 	else {
-		?>
+        require 'main.php';
+
+        $db = connect_to_db();
+        
+        $platformsql = $db->prepare("SELECT id, naam FROM Platforms");
+        $platformsql->execute();
+        $platformsql->bind_result($platformid, $platform);
+        
+        $genressql = $db->prepare("SELECT id, naam FROM Genres");
+        $genressql->execute();
+        $genressql->bind_result($genreid, $genre);
+?>
 		<div class="centered-container">
 			<div class="product-toevoegen">
 				<form action="product-toevoegen-db.php" method="post">
@@ -30,7 +41,7 @@ Whale, whale, whale. What do we have here?
 					  <center><b>Productspecificaties</b></center>
 					  <br>
 					  Titel: <input type="text" name="titel"><br>  
-					  <div class= "bes">
+					  <div class="bes">
 					    Beschrijving:
 					  </div>
 					  <div class= "beschrijving">
@@ -41,33 +52,28 @@ Whale, whale, whale. What do we have here?
 					  Voorraad: <input type="text" name="voorraad"><br>
 					  Platform:
 					  <div class="platform">
-		  
-						  <select name="platform">
-						  <option value="ps3">PS3</option>
-						  <option value="ps2">PS2</option>
-						  <option value="psp">PSP</option>
-						  <option value="psvita">PlayStation Vita</option>
-						  <option value="xbox">XBOX 360</option>
-						  <option value="pc">PC</option>
-						  <option value="nds">Nintendo DS</option>
-						  <option value="n3ds">Nintendo 3DS</option>  
-						  <option value="wiiu">Wii U</option>
-						  <option value="wii">Wii</option>
+                          <select name="platform">
+<?php
+    while ($platformsql->fetch()) {
+?>
+						  <option value="<?php echo $platformid; ?>"><?php echo $platform; ?></option>
+<?php
+    }
+?>
 						  </select>
-
 					  </div>
 					  <br/>              
 					  Genre:
 					  <div class="genre">
 
 						  <select name="genre">
-						  <option value="actie">Actie</option>
-						  <option value="race">Race</option>
-						  <option value="sport">Sport</option>
-						  <option value="virtueelleven">Virtueel leven</option>
-						  <option value="avontuur">Avontuur</option>
-						  <option value="partyenmuziek">Party & Muziek</option>
-						  <option value="strat">Strategie</option>
+<?php
+    while ($genresql->fetch()) {
+?>
+						  <option value="<?php echo $genreid; ?>"><?php echo $genre; ?></option>
+<?php
+    }
+?>
 						  </select>
 
 					  </div>
