@@ -39,7 +39,7 @@ function completeAddress()
 
 // Ik heb even je code gecomment omdat de mijne anders ook helemaal niet geladen wordt :)
 
-/* function test(){alert("Werken kreng");}
+function test(){alert("Werken kreng");}
 
 function check(field, divLabel){
     alert("started");
@@ -80,4 +80,4 @@ function verify(field1, field2, divLabel){
     else{
         divLabel.style.backgroundImage="url('images/labels/ok-label.png')";
     }   
-} */
+}
