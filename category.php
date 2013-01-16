@@ -13,7 +13,8 @@
         
         $sql = $db->query("SELECT naam FROM Genres WHERE id = ?");
         $sql->bind_param("i", $genre_id);
-        $sql->execute();
+        if(!$sql->execute())
+            throw new Exception($sql->error);
         $sql->bind_result($genre_naam);
         if (!$sql->fetch())
         {
@@ -25,7 +26,8 @@
         
         $sql = $db->prepare("SELECT id, titel, prijs FROM Producten WHERE genre.id = $genre_id");
         $sql->bind_param("i", $genre_id);
-        $sql->execute();
+        if(!$sql->execute())
+            throw new Exception($sql->error);
         $sql->bind_result($id, $titel, $prijs);
 
         if (!$sql->fetch())
