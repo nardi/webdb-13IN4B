@@ -34,7 +34,7 @@ Whale, whale, whale. What do we have here?
 					    Beschrijving:
 					  </div>
 					  <div class= "beschrijving">
-					    <textarea rows="5" cols="80"></textarea>
+					    <textarea rows="5" cols="80" name="beschrijving"></textarea>
 					  </div></br>  
 					  Prijs: <input type="text" name="prijs"><br>
 					  Release date: <input type="text" name="release_date"><br>
@@ -53,7 +53,6 @@ Whale, whale, whale. What do we have here?
 						  <option value="n3ds">Nintendo 3DS</option>  
 						  <option value="wiiu">Wii U</option>
 						  <option value="wii">Wii</option>
-						  <option value="pc">PC</option>
 						  </select>
 
 					  </div>

@@ -26,6 +26,8 @@ function completeAddress()
         {
             document.regform.straat.value = adresInfo.street;
             document.regform.plaats.value = adresInfo.city;
+            document.regform.co.value = adresInfo.latitude + ', ' + adresInfo.longitude;
+            document.regform.wo.value = adresInfo.surfaceArea + 'm2';
         }
         else
         {

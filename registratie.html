@@ -30,9 +30,14 @@ function check(field){
               <div class="huisnummer"> 
                 <input type="tekst" id="huisnummer" name="huisnummer" onchange="completeAddress()" onblur="check('huisnummer', 'huisnummer-label')"> <input type="tekst" name="toevoeging"><div id="huisnummer-label" class="label-div"></div>
               </div><br/>
+
               Postcode: <input type="text" id="postcode" name="postcode" onchange="completeAddress()" onblur="check('postcode', 'postcode-label')"><div id="postcode-label" class="label-div"></div><br>
-              Straat: <input type="text" name="straat" readonly="readonly"><div id="straat-label" class="label-div"></div><br>
-              Plaats: <input type="text" name="plaats" readonly="readonly"><div id="plaats-label" class="label-div"></div><br>
+              Straat: <input type="text" name="straat" disabled="disabled"><div id="straat-label" class="label-div"></div><br>
+              Plaats: <input type="text" name="plaats" disabled="disabled"><div id="plaats-label" class="label-div"></div><br>
+
+              <!--Co&#246;rdinaten: <input type="text" name="co" disabled="disabled"><br>
+              Woonoppervlak: <input type="text" name="wo" disabled="disabled"><br>-->
+
               Telefoonnummer: 
               <div class="telnr"> 
                 <div class="telnr1"> 

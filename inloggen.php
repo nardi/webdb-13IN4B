@@ -1,17 +1,18 @@
 
 <?php
+	require 'main.php';
+
 	if (isset($_SESSION['logged-in'])) {
-		//echo "Al ingelogd, $_SESSION['gebruiker-id']";
 		echo "Uitgelogd";
 		session_destroy();
+			
 		?>
 		
 		<script type="text/JavaScript">
-			setTimeout("location.href = 'http://superinternetshop.nl/?pag=frontpage.html';",1500);
+			setTimeout("location.href = '/';",2000);
 		</script>
 		
 		<?php
-		
 	}
 	
 	else {
