@@ -15,16 +15,13 @@ if (isset($_REQUEST['email']))
   $email = $_REQUEST['email'] ;
   $onderwerp = $_REQUEST['onderwerp'] ;
   $bericht = $_REQUEST['bericht'] ;
-  mail("kirakiraboshi82@gmail.com", $onderwerp,
+  
+  mail("superinternetshop@gmail.com", $onderwerp,
   $bericht, "From:" . $email);
 
 
- //bij het terugsturen zit nog een fout
-  $reply_onderwerp = "uw vraag aan Super Internet Shop" ;
-  $reply_bericht = "Geachte heer / mevrouw, <br> Hartelijk dank voor uw email." ;	
-  $reply_email = "sis@hotmail.com" ;
-  mail("$email, $reply_onderwerp,
-  $reply_bericht, "From:" . $reply_email);
+
+  
   echo "Thank you for using our mail form";
   }
 else
