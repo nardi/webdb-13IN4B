@@ -26,14 +26,11 @@
 		$_SESSION['gebruiker-id'] = $id;
 		$_SESSION['gebruiker-naam'] = $naam;
 		$_SESSION['gebruiker-status'] = $status;
-		ob_start();
 		echo "Welkom terug, ".$_SESSION['gebruiker-naam'];
-		ob_flush();
+		//flush();
 	}
 	else {
-		ob_start();
 		echo "Fail";
-		ob_flush();
 	}
 	
 	
