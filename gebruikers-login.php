@@ -27,7 +27,7 @@
 		$_SESSION['gebruiker-naam'] = $naam;
 		$_SESSION['gebruiker-status'] = $status;
 		echo "Welkom terug, ".$_SESSION['gebruiker-naam'];
-		flush();
+		//flush();
 	}
 	else {
 		echo "Fail";
