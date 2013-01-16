@@ -1,17 +1,22 @@
 <?php
     require 'main.php';
+    require 'adres.php';
 
     $db = connect_to_db();
-
+    
     $voornaam = safe_POST('voornaam', $db);
     $achternaam = safe_POST('achternaam', $db);
     $postcode = safe_POST('postcode', $db);
-    $plaats = safe_POST('plaats' , $db);
     $huisnummer = safe_POST('huisnummer', $db);
     $toevoeging = safe_POST('toevoeging', $db);
     $telefoonnummer = safe_POST('telefoonnummer', $db);
     $emailadres = safe_POST('e-mailadres', $db);
     $wachtwoord = safe_POST('wachtwoord', $db);
+    
+    $adres_info = json_decode(get_address($postcode, $huisnummer));
+    $straat = $adres_info->street;
+    $plaats = $adres_info->city;
+    
     $registratiedatum = date('Y-m-d');
     
     //Random getal voor salt genereren
