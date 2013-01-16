@@ -60,18 +60,20 @@ function check(field, divLabel){
     }   
 }
 function checkMail(){
+        //alert("derp");
         var validMail=/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i
-        var mailFieldVal = document.getElementById('email').value;
-        if(/*mailFieldVal(validMail) =='-1' ||*/ mailFieldVal=="" || mailFieldVal==null){
-            email-label.style.backgroundImage = "url('images/labels/warning-label.png')";
-            email-label.style.title = "Dit is geen geldig e-mail adres";
-            email-label.style.backgroundRepeat="no-repeat";
+        var mailFieldVal = document.getElementById('email');
+        var labelPos = document.getElementById('email-label');
+        if(!validMail.test(mailFieldVal.value) || mailFieldVal.value=="" || !mailFieldVal.value){
+            labelPos.style.backgroundImage = "url('images/labels/warning-label.png')";
+            labelPos.title = "Dit is geen geldig e-mail adres";
+            labelPos.style.backgroundRepeat="no-repeat";
         }
         
         else{
-            email-label.style.backgroundImage = "url('images/labels/ok-label.png')";
-            email-label.style.title= "Dit is een geldig e-mail adres.";
-            email-label.style.backgroundRepeat="no-repeat";
+            labelPos.style.backgroundImage = "url('images/labels/ok-label.png')";
+            labelPos.style.title= "Dit is een geldig e-mail adres.";
+            labelPos.style.backgroundRepeat="no-repeat";
         }
 }
 
