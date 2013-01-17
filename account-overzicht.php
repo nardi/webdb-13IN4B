@@ -13,17 +13,11 @@ U bent niet ingelogd!
 	}
 	else {
         require 'main.php';
-
         $db = connect_to_db();
-?>
-
-
-<?php
-$db = connect_to_db();
-
-        $accountoverzicht1 = $db->prepare("SELECT naam, achternaam, telefoonnummer, email FROM Gebruikers WHERE id = 2");
-        $accountoverzicht1->execute();
-        $accountoverzicht1->bind_result($naam, $achternaam, $telefoonnummer, $email);
+        
+    $sql = $db->prepare("SELECT naam, achternaam, telefoonnummer, email FROM Gebruikers WHERE id = 2 LIMIT 1");
+	$sql->execute();
+	$sql->bind_result($naam, $achternaam, $telefoonnummer, $email);
         ?>
 
 
