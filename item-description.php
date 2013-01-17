@@ -21,12 +21,12 @@
     if(!$sqli_product->execute())
         throw new Exception($sqli_product->error);
         
-    $sqli_quotes = $db->prepare("SELECT tekst FROM Reviews WHERE id=?")
-    $sqli_quotes = $db->bind_param('s',$id);
-    $sqli_quotes = $db->bind_result($reviews)
-    $quotes;
+    $sqli_quotes = $db->prepare("SELECT tekst FROM Reviews WHERE id=?");
+    $sqli_quotes->bind_param('s',$id);
+    $sqli_quotes->bind_result($reviews);
+    $quotes="";
     while($sqli_quotes->fetch()){
-        $quotes.=echo "<br /><hr />".<$reviews;
+        $quotes.= "<br /><hr />".$reviews;
     }
     ?>
 <div class="ItemDescriptionContainer">
