@@ -9,7 +9,7 @@
     if (isset($_GET['genres']))
     {
         $query .= " (genre_id = ";
-        $query .= implode(explode(db->escape_string($_GET['genres']), ','), " OR genre_id = ");
+        $query .= implode(explode($db->escape_string($_GET['genres']), ','), " OR genre_id = ");
     }
     
     if (isset($_GET['platforms']))
