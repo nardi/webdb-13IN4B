@@ -25,7 +25,7 @@ $db = connect_to_db();
         $accountoverzicht1->execute();
         $accountoverzicht1->bind_result($naam, $achternaam, $telefoonnummer, $email);
 
-        $accountoverzicht2 = $db->prepare("SELECT postcode, huisnummer, toevoeging, plaats, straat FROM Adressen WHERE id = 10");
+        $accountoverzicht2 = $db->prepare("SELECT postcode, huisnummer, toevoeging, plaats, straat FROM Adressen WHERE id = 9");
         $accountoverzicht2->execute();
         $accountoverzicht2->bind_result($postcode, $huisnummer, $toevoeging, $plaats, $straat);
         ?>
