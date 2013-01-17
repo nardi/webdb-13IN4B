@@ -21,7 +21,7 @@ setcookie("user", "sis_user", time()+3600);
 <body>
  
 <?php
-if (isset($_COOKIE["user"])){
+if (isset($_COOKIE["sis_user"])){
 
 }
 else
