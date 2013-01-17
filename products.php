@@ -6,7 +6,7 @@
         echo $array[$id];
         $array[$id] = $db->escape_string($array[$id]);
         echo $array[$id];
-        $array[$id] = intval($array[$id]);
+        $array[$id] = '';
     }
     
     $query = "SELECT id, titel, prijs FROM Producten";
