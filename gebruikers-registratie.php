@@ -92,14 +92,14 @@
     }
     
     function doesThisMakeSense(){
-        $validNaam = '/^[a-z]{1,256}$/i;'
-        $validPostcode = '/^[0-9]{4}[\s-]?[a-z]{2}$/i;'
-        $validTel1 = '/^[0-9]{2,4}$/;'
-        $validTel2 = '/^[0-9]{6,8}$/;'
-        $validTelTot = '/^[0-9]{10}$/;'
-        $validHuis = '/^[0-9]{1,5}$/;'
-        $validMail='/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;'
-        $validWachtwoord='/^[0-9a-zA-Z]{+}$/;'
+        $validNaam = '/^[a-z]{1,256}$/i';
+        $validPostcode = '/^[0-9]{4}[\s-]?[a-z]{2}$/i';
+        $validTel1 = '/^[0-9]{2,4}$/';
+        $validTel2 = '/^[0-9]{6,8}$/';
+        $validTelTot = '/^[0-9]{10}$/';
+        $validHuis = '/^[0-9]{1,5}$/';
+        $validMail='/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i';
+        $validWachtwoord='/^[0-9a-zA-Z]{+}$/';
         
         if(preg_match($validNaam, $voornaam )===1 &&
            preg_match($validNaam, $achternaam )===1 &&
