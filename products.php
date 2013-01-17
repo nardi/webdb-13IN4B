@@ -5,9 +5,8 @@
     {
         global $db;
         $array[$id] = $db->escape_string($array[$id]);
-        
-        if (!is_numeric($array[$id]))
-            $array[$id] = '';
+        echo 'hi';
+        $array[$id] = intval($array[$id]);
     }
     
     $query = "SELECT id, titel, prijs FROM Producten";
