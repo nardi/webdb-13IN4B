@@ -1,10 +1,13 @@
 <?php
     $db = connect_to_db();
 
-    function safe_array(&$array, $id)
+    function check_array(&$array, $id)
     {
         global $db;
         $array[$id] = $db->escape_string($array[$id]);
+        
+        if (!is_numeric($array[$id]))
+            $array[$id] = '';
     }
     
     $query = "SELECT id, titel, prijs FROM Producten";
@@ -16,7 +19,9 @@
         if (isset($_GET['genres']))
         {
             $query .= " (genre_id = ";
-            $query .= implode(array_walk(array_filter(explode(',', $_GET['genres'])), 'safe_array'), " OR genre_id = ");
+            $genres = explode(',', $_GET['genres']);
+            array_walk($genres, 'check_array');
+            $query .= implode(" OR genre_id = ", array_filter($genres));
         }
         
         if (isset($_GET['platforms']))
@@ -24,7 +29,9 @@
             if (isset($_GET['genres']))
                 $query .= ") AND";
             $query .= " (platform_id = ";
-            $query .= implode(array_walk(array_filter(explode(',', $_GET['platforms'])), 'safe_array'), " OR platform_id = ");
+            $platforms = explode(',', $_GET['platforms']);
+            array_walk($platforms, 'check_array');
+            $query .= implode(" OR platform_id = ", array_filter($platforms));
         }
 
         $query .= ")";
