@@ -36,8 +36,7 @@
         $db = connect_to_db();
         $sql = $db->prepare("SELECT prijs, hoeveelheid FROM Bestelling_Product JOIN Bestellingen ON Bestellingen.id = bestelling_id WHERE Bestellingen.id = ?");
         $sql->bind_param('i', $bestelling);
-        if (!$sql->execute())
-            die("wrong query");
+        $sql->execute();
         $sql->bind_result($prijs, $hoeveelheid);
         $totaalprijs = 0;
         while ($sql->fetch())
@@ -48,7 +47,7 @@
         $business = $_POST['business']; // moet gelijk zijn aan "paypal@superinternetshop.nl"
         $status = $_POST['payment_status']; // Pending of Completed
         
-        error_log("totaalprijs: $totaalprijs/$total_price, business: $business, status: $status");
+        //error_log("totaalprijs: $totaalprijs/$total_price, business: $business, status: $status");
         
         if ($total_price == $totaalprijs && $business == 'paypal_1358181822_biz@nardilam.nl')
         {
@@ -61,8 +60,7 @@
             
             $sql = $db->prepare("UPDATE Bestellingen SET betaalstatus = ? WHERE id = ?");
             $sql->bind_param('si', $status, $bestelling);
-            if (!$sql->execute())
-                die("wrong query 2");
+            $sql->execute();
         }
         
         $db->close();
