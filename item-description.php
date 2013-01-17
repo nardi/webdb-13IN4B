@@ -14,12 +14,12 @@
     require 'main.php';
     $id=$_GET["id"];
     $db = connect_to_db();
-    $sqli_titel = $db->prepare("SELECT titel,platform_id,genre_id,beschrijving, prijs,
+    $sqli_product = $db->prepare("SELECT titel,platform_id,genre_id,beschrijving, prijs,
     release_date, voorraad, datum_toegevoegd FROM Producten WHERE id=?");
-    $sqli_titel->bind_param('s',$id);
+    $sqli_product->bind_param('s',$id);
     $sqli_product->bind_result($titel,$platform,$genre,$beschrijving.$prijs,$release,$voorraad,$toegevoegd);
-    (!$sqli_titel->execute())
-        throw new Exception($sqli_titel->error);
+    (!$sqli_product->execute())
+        throw new Exception($sqli_product->error);
         
     $sqli_quotes = $db->prepare("SELECT tekst FROM Reviews WHERE id=?")
     $sqli_quotes = $db->bind_param('s',$id);
