@@ -14,7 +14,7 @@ window.onload = alert("Deze website maakt gebruik van functionele cookies \
 <noscript>
 
 <?php
-echo "<script type='text/javascript'>alert('Deze website werkt het beste met javascript');</script>";
+echo "Deze website wordt alleen juist vergegeven met javascript";
 ?>
 
 </noscript>
