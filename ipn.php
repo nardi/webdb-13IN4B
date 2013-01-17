@@ -1,5 +1,5 @@
 <?php
-    require 'main.php'
+    require 'main.php';
 
     function https_post($url, $data)
     {
