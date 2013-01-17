@@ -1,6 +1,4 @@
 <?php
-require 'main.php';
-
 class Winkelwagen
 {
     private $producten;
@@ -27,16 +25,24 @@ class Winkelwagen
     
     function add($id)
     {
-        $db = connect_to_db();
-        
-        $sql = $db->prepare("SELECT * FROM Producten WHERE id = ? LIMIT 1");
-        $sql->bind_param('i', $id);
-        $sql->execute();
-        
-        if ($sql->fetch())
-            $this->producten[$id] = 1;
+        if (array_key_exists($id, $this->producten))
+        {
+            $this->producten[$id]++;
+        }
+        else
+        {    
+            $db = connect_to_db();
             
-        $sql->free_result();
+            $sql = $db->prepare("SELECT * FROM Producten WHERE id = ? LIMIT 1");
+            $sql->bind_param('i', $id);
+            $sql->execute();
+            
+            if ($sql->fetch())
+                $this->producten[$id] = 1;
+                
+            $sql->free_result();
+            $db->close();
+        }
     }
     
     function change_amount($id, $amount)
@@ -98,10 +104,10 @@ class Winkelwagen
         return count($this->producten) == 0;
     }
     
-    function display($editable, $pagename)
+    function display($editable)
     {
 ?>
-<?php if ($editable) echo '<form>'; ?>
+<?php if ($editable) echo '<form method="post">'; ?>
     <table class="product-list">
         <tr>
             <th>#</th>
@@ -133,7 +139,7 @@ class Winkelwagen
         }
 ?>
         <tr class="total-price">
-            <td class="update-button" colspan="3"><?php if ($editable) echo '<input type="submit" value="Update hoeveelheden" action="' . $pagename . '" method="post" />'; ?></td>
+            <td class="update-button" colspan="3"><?php if ($editable) echo '<input type="submit" value="Update hoeveelheden"/>'; ?></td>
             <th colspan="2">Totale prijs:</td>
             <td><span class="price">&euro;<?php echo $totaalprijs; ?><span></td>
         </tr>

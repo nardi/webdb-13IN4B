@@ -1,6 +1,4 @@
 <?php
-    require 'main.php';
-
     $db = connect_to_db();
 
     $titel = $_POST['titel'];

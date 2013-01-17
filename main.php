@@ -1,7 +1,8 @@
 <?php
     /*
-     * Gebruik met: require 'main.php';
+     * Gebruik met: 
      */
+    require 'ww-definitie.php';
 
     function show_error_page($exception)
     {

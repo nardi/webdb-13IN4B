@@ -1,4 +1,6 @@
 <?php
+    require 'main.php';
+    
     session_start();
     $pag = (isset($_GET['pag'])) ? ($_GET['pag']) : ('frontpage.html'); //read URL-pag parameter in
     if (strpos($pag, '.'))

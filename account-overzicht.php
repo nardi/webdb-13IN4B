@@ -10,7 +10,7 @@ U bent niet ingelogd!
 	<?php
 	}
 	else {
-        require 'main.php';
+        
         $db = connect_to_db();
         
         $sql = $db->prepare("SELECT naam, achternaam, telefoonnummer, email FROM Gebruikers WHERE id= '".$_SESSION['gebruiker-id']."' LIMIT 1");

@@ -1,6 +1,4 @@
 <?php
-    require 'ww-definitie.php';
-
     $ww = Winkelwagen::try_load_from_session();
     
     foreach ($ww->get_all() as $id)
@@ -9,8 +7,8 @@
             $ww->change_amount($id, $_POST["amount-$id"]);
     }
     
-    if (isset($_GET['add']))
-        $ww->add($_GET['add']);
+    if (isset($_POST['add']))
+        $ww->add($_POST['add']);
     
     $ww->save_to_session();
 ?>
@@ -23,20 +21,31 @@
     if ($ww->is_empty())
     { 
 ?>
-<p>Er bevinden zich geen producten in je winkelwagen.</p>
+<p>Er bevinden zich geen producten in uw winkelwagen.</p>
 <?php
     }
     else
     {
-        echo $ww->display(TRUE, $_GET['pag']);
+        echo $ww->display(TRUE);
 ?>
 <br/>
-<p>Voer uw wachtwoord opnieuw in ter controle voor u een bestelling plaatst:</p><br/>
+<?php
+        if (isset($_SESSION['logged-in']))
+        {
+?>
+<p>Voer uw wachtwoord opnieuw in ter controle voor u een bestelling plaatst:</p>
 <form action="bestelling.php" method="post">
     <input type="password" name="wachtwoord">
     <input type="submit" value="Plaats bestelling"><br/>
 </form>
 <?php
+        }
+        else
+        {
+?>
+<p><a href="inloggen.php">U moet ingelogd zijn om een bestelling te kunnen plaatsen. Klik hier om in te loggen.</a></p>
+<?php
+        }
     }
 ?>
 </div>

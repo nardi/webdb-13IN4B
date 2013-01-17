@@ -23,10 +23,15 @@
      ?>
      
 </div>
+<?php    
+    $ww = Winkelwagen::try_load_from_session();
+    $aantal = '';
+    if (!$ww->is_empty())
+        $aantal = ' (' . count($ww->getAll) . ')';
+?>
 <div id="acc-mand">
-    <a href="account-overzicht.html">Mijn account</a><br />
-    <!-- Link naar nieuwe winkelwagen hier -->
-    <a href="cart.html">Winkelwagen (3)</a>
+    <a href="account-overzicht.php">Mijn account</a><br />
+    <a href="winkelwagen.php">Winkelwagen<?php echo $aantal; ?></a>
 </div>
     
     
