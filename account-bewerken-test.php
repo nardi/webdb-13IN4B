@@ -8,7 +8,6 @@ U bent niet ingelogd!
 	}
 	else {
 
-
     require 'main.php';
 
     $db = connect_to_db();
@@ -20,39 +19,21 @@ U bent niet ingelogd!
     $toevoeging = $_POST['toevoeging'];
     $telefoonnummer = $_POST['telefoonnummer'];
     $telefoonnummer2 = $_POST['telefoonnummer2'];
-    $telelfoonnummerTot;
+    $telefoonnummerTot;
     $emailadres = $_POST['e-mailadres'];
-    $wachtwoord = $_POST['wachtwoord'];
     
     $adres_info = json_decode(get_address($postcode, $huisnummer));
     $straat = $adres_info->street;
     $plaats = $adres_info->city;
     
+    doesThisMakeSense();
+    
     
     function SqlThatShit(){
-        $sqli_gebruikers = $db->prepare("UPDATE Gebruikers (naam, achternaam, telefoonnummer, email) WHERE id= '".$_SESSION['gebruiker-id']."' LIMIT 1 VALUES (?,?,?,?)");
+        $sqli_gebruikers = $db->prepare("UPDATE Gebruikers SET naam, achternaam, telefoonnummer, email WHERE id= '".$_SESSION['gebruiker-id']."' LIMIT 1 VALUES (?,?,?,?)");
         
         $sqli_gebruikers->bind_param('ssss',$voornaam, $achternaam, $telefoonnummerTot, $emailadres);
         
-        $sqli_adressen = $db->prepare("UPDATE Adressen (postcode, huisnummer, toevoeging, plaats, straat)
-        VALUES (?,?,?,?,?)");
-        
-        $sqli_adressen->bind_param('sisss',$postcode , $huisnummer , $toevoeging , $plaats , $straat);
-    
-
-        /*
-            Zo moet error-handlen bij database-queries:
-            if (!$db->query(...))
-                throw new Exception($db->error);
-
-            of met resultaat:
-            $res = $db->query(...)
-            if (!$res)
-                throw new Exception($db->error);
-            of: 
-            if (!$res = $db->query(...))
-                throw new Exception($db->error);
-        */
 
         if(!$sqli_gebruikers->execute())
             throw new Exception($sqli_gebruikers->error);
