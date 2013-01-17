@@ -4,23 +4,25 @@
     $query = "SELECT id, titel, prijs FROM Producten";
     
     if(isset($_GET['genres']) || isset($_GET['platforms']))
+    {
         $query .= " WHERE";
     
-    if (isset($_GET['genres']))
-    {
-        $query .= " (genre_id = ";
-        $query .= implode(explode($db->escape_string($_GET['genres']), ','), " OR genre_id = ");
-    }
-    
-    if (isset($_GET['platforms']))
-    {
         if (isset($_GET['genres']))
-            $query .= ") AND";
-        $query .= " (platform_id = ";
-        $query .= implode(explode($db->escape_string($_GET['platforms']), ','), " OR platform_id = ");
-    }
+        {
+            $query .= " (genre_id = ";
+            $query .= implode(explode($db->escape_string($_GET['genres']), ','), " OR genre_id = ");
+        }
+        
+        if (isset($_GET['platforms']))
+        {
+            if (isset($_GET['genres']))
+                $query .= ") AND";
+            $query .= " (platform_id = ";
+            $query .= implode(explode($db->escape_string($_GET['platforms']), ','), " OR platform_id = ");
+        }
 
-    $query .= ")";
+        $query .= ")";
+    }
     echo $query;
     
     $result = $db->query($query);
