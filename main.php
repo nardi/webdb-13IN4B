@@ -18,11 +18,6 @@
         return $mysqli;
     }
     
-    function safe_post($name, $db)
-    {
-        return $db->escape_string($_POST[$name]);
-    }
-    
     function redirect_to($url)
     {
         header("location:$url");
