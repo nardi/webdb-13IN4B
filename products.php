@@ -48,11 +48,9 @@
 ?>
 
 <div class="product-thumb">
-    <a href="product.php?id=<?php echo $row['id']; ?>">
-    <img src="images/products/<?php echo $row['id']; ?>.jpg" />
-    <p class="title"><?php echo $row['titel']; ?></p>
-    <p class="price">&euro;<?php echo $row['prijs']; ?></p>
-    </a>
+    <a href="product.php?id=<?php echo $row['id']; ?>"><img src="images/products/<?php echo $row['id']; ?>.jpg" /></a>
+    <p class="title"><a href="product.php?id=<?php echo $row['id']; ?>"><?php echo $row['titel']; ?></a></p>
+    <p class="price"><a href="product.php?id=<?php echo $row['id']; ?>">&euro;<?php echo $row['prijs']; ?></a></p>
 </div>
 <?php
     }
