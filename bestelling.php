@@ -1,5 +1,4 @@
 <?php
-    require 'main.php';
     require 'ww-definitie.php';
     
     if (!isset($_SESSION['logged-in']))
