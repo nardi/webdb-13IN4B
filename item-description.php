@@ -20,8 +20,8 @@
     if(!$sqli_product->execute())
         throw new Exception($sqli_product->error);
     
-    $sqli_quotes = $db->prepare("SELECT tekst FROM Reviews WHERE product_id=?");
-    $sqli_quotes->bind_param('s',$id);
+    $sqli_quotes = $db->prepare("SELECT tekst FROM Reviews WHERE product_id=1");
+    //$sqli_quotes->bind_param('s',$id);
     $sqli_quotes->bind_result($reviews);
     $quotes="";
     if(!$sqli_quotes->execute())
