@@ -8,7 +8,6 @@ U bent niet ingelogd!
 	}
 	else {
 
-
     require 'main.php';
 
     $db = connect_to_db();
