@@ -18,6 +18,8 @@ U bent niet ingelogd!
     $sql = $db->prepare("SELECT naam, achternaam, telefoonnummer, email FROM Gebruikers WHERE id = 2 LIMIT 1");
 	$sql->execute();
 	$sql->bind_result($naam, $achternaam, $telefoonnummer, $email);
+    
+    echo $naam
         ?>
 
 
