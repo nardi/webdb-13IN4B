@@ -20,8 +20,7 @@
     
     
     function SqlThatShit(){
-        $sqli_gebruikers = $db->prepare("UPDATE Gebruikers (naam, achternaam, telefoonnummer, email) WHERE id= '".$_SESSION['gebruiker-id']."' LIMIT 1")
-        VALUES (?,?,?,?)");
+        $sqli_gebruikers = $db->prepare("UPDATE Gebruikers (naam, achternaam, telefoonnummer, email) WHERE id= '".$_SESSION['gebruiker-id']."' LIMIT 1 VALUES (?,?,?,?)");
         
         $sqli_gebruikers->bind_param('ssss',$voornaam, $achternaam, $telefoonnummerTot, $emailadres);
         
