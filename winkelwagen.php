@@ -2,7 +2,12 @@
     require 'ww-definitie.php';
 
     if (!isset($_SESSION['winkelwagen']))
+    {
         $_SESSION['winkelwagen'] = new Winkelwagen();
+        echo "nieuwe winkelwagen";
+    }
+    
+    echo print_r($_SESSION['winkelwagen'], TRUE);
 
     foreach ($_SESSION['winkelwagen']->get_all() as $id)
     {
