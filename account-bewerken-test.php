@@ -1,4 +1,14 @@
 <?php
+	if ((!isset($_SESSION['logged-in']))) {
+	?>
+	<pre>
+U bent niet ingelogd!
+	</pre>
+	<?php
+	}
+	else {
+
+
     require 'main.php';
 
     $db = connect_to_db();
@@ -86,5 +96,7 @@
         else
             redirect_to("error.html?msg=Foei je mag niet via een URL hier komen.");
            
+    }
+    
     }
 ?>
