@@ -30,7 +30,7 @@ U bent niet ingelogd!
     function SqlThatShit(){
         $sqli_gebruikers = $db->prepare("UPDATE Gebruikers SET naam=$voornaam, achternaam=$achternaam, telefoonnummer=$telefoonnummer, email=$emailadres WHERE id= '".$_SESSION['gebruiker-id']."' LIMIT 1 VALUES (?,?,?,?)");
         
-        //$sqli_gebruikers->bind_param('ssss',$voornaam, $achternaam, $telefoonnummerTot, $emailadres);
+        $sqli_gebruikers->bind_param('ssss',$voornaam, $achternaam, $telefoonnummerTot, $emailadres);
         
         $sqli_adressen = $db->prepare("UPDATE Adressen (postcode, huisnummer, toevoeging, plaats, straat)
         VALUES (?,?,?,?,?)");
