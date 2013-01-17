@@ -1,11 +1,11 @@
 <?php
     $db = connect_to_db();
 
-    function check_array(&$array, $id)
+    function check_array(&$array, $id, $db)
     {
-        global $db;
+        echo $array[$id];
         $array[$id] = $db->escape_string($array[$id]);
-        echo 'hi';
+        echo $array[$id];
         $array[$id] = intval($array[$id]);
     }
     
@@ -19,7 +19,7 @@
         {
             $query .= " (genre_id = ";
             $genres = explode(',', $_GET['genres']);
-            array_walk($genres, 'check_array');
+            array_walk($genres, 'check_array', $db);
             $query .= implode(" OR genre_id = ", array_filter($genres));
         }
         
@@ -29,7 +29,7 @@
                 $query .= ") AND";
             $query .= " (platform_id = ";
             $platforms = explode(',', $_GET['platforms']);
-            array_walk($platforms, 'check_array');
+            array_walk($platforms, 'check_array', $db);
             $query .= implode(" OR platform_id = ", array_filter($platforms));
         }
 
