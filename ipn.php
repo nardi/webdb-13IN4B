@@ -41,14 +41,14 @@
         $sql->bind_result($prijs, $hoeveelheid);
         $totaalprijs = 0;
         while ($sql->fetch())
-            $totaalprijs += $prijs + $hoeveelheid;
+            $totaalprijs += $prijs * $hoeveelheid;
         $sql->free_result();
         
         $total_price = $_POST['mc_gross']; //moet gelijk zijn aan prijs bestelling
         $business = $_POST['business']; // moet gelijk zijn aan "paypal@superinternetshop.nl"
         $status = $_POST['payment_status']; // Pending of Completed
         
-        error_log("totaalprijs: $totaalprijs, business: $business, status: $status");
+        error_log("totaalprijs: $totaalprijs/$total_price, business: $business, status: $status");
         
         if ($total_price == $totaalprijs && $business == 'paypal_1358181822_biz@nardilam.nl')
         {
