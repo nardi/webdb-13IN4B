@@ -88,7 +88,7 @@
             
         $db->close();
         
-        redirect_to("registratie-succesvol.html"); 
+         
     }
     
     function doesThisMakeSense(){
@@ -111,6 +111,7 @@
            preg_match($validWachtwoord, $wachtwoord )===1){
                 $telefoonnummerTot = $telefoonnummer . '-' . $telefoonnummer2;
                 SqlThatShit();
+                redirect_to("registratie-succesvol.html");
         }
         
         else
