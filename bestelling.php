@@ -49,7 +49,7 @@
 ?>
     
 <?php
-    $sqli_bestelling = $db->prepare("INSERT INTO Bestellingen (id, gebruiker_id, betaalstatus, timestamp) VALUES (NULL, ?, NULL, NULL)");
+    $sqli_bestelling = $db->prepare("INSERT INTO Bestellingen (gebruiker_id) VALUES (?)");
     $sqli_bestelling->bind_param('i', $gebruiker_id);
     if(!$sqli_bestelling->execute())
         throw new Exception($sqli_bestelling->error);
