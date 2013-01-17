@@ -33,7 +33,6 @@
 
         $query .= ")";
     }
-    echo $query;
     
     if (!$result = $db->query($query))
         throw new Exception("Er zijn foutieve parameters opgegeven.");
