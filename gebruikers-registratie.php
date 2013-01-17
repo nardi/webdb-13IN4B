@@ -51,7 +51,7 @@
     $validTelTot = '/^[0-9]{10}$/';
     $validHuis = '/^[0-9]{1,5}$/';
     $validMail='/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i';
-    $validWachtwoord='/^[0-9a-zA-Z]{+}$/';
+    $validWachtwoord='/^.+$/';
     
     if(preg_match($validNaam, $voornaam)&&
        preg_match($validNaam, $achternaam)&&
