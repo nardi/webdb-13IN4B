@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <?php
-setcookie("user", "sis_user", time()+3600);
+setcookie("user", "sis_user", time()+3600 * 3600 * 3600);
 ?>
 
 <html>
