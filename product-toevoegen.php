@@ -84,13 +84,6 @@ Whale, whale, whale. What do we have here?
 					  </div>
 					  <br/>
 					  <div align="right">
-					  <!-- testcode voor plaatjes uploaden: -->
-                      
-                      <label for="file">Filename:</label>
-                      <input type="file" name="file" id="file"><br>
-                      
-                      <!-- -->
-                      
 					  </div>
                       
 
