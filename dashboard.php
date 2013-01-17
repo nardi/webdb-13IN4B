@@ -28,7 +28,7 @@
     
     $ww = Winkelwagen::try_load_from_session();
     $aantal = '';
-    if (!$ww-is_empty())
+    if (!$ww->is_empty())
         $aantal = ' (' . count($ww->getAll) . ')';
 ?>
 <div id="acc-mand">
