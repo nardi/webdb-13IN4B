@@ -91,4 +91,4 @@
        preg_match($validTel1, $telefoonnummer).
        preg_match($validTel2, $telefoonnummer2).
        preg_match($validMail, $emailadres).
-?>
+;?>
