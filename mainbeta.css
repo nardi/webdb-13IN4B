@@ -83,6 +83,7 @@ html, body {
 #contentWindow {
     width : 100%;
     overflow : auto;
+    
 }
 
 /* Sidebar */
@@ -120,6 +121,9 @@ html, body {
 /* Content window */
 
 #content {
+    margin-top: 0.4cm;
+    border-radius: 20px;
+    background: #F0F0F0;
     position : relative;
     overflow : hidden;
 }
