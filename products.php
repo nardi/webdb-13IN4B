@@ -4,6 +4,7 @@
     function check_array(&$var, $id, $db)
     {
         $var = $db->escape_string($var);
+        $var = intval($var);
     }
     
     $query = "SELECT id, titel, prijs FROM Producten";
