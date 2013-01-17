@@ -1,4 +1,14 @@
 <?php
+	if ((!isset($_SESSION['logged-in']))) {
+	?>
+	<pre>
+U bent niet ingelogd!
+	</pre>
+	<?php
+	}
+	else {
+
+
     require 'main.php';
 
     $db = connect_to_db();
@@ -20,8 +30,7 @@
     
     
     function SqlThatShit(){
-        $sqli_gebruikers = $db->prepare("UPDATE Gebruikers (naam, achternaam, telefoonnummer, email) WHERE id= '".$_SESSION['gebruiker-id']."' LIMIT 1")
-        VALUES (?,?,?,?)");
+        $sqli_gebruikers = $db->prepare("UPDATE Gebruikers (naam, achternaam, telefoonnummer, email) WHERE id= '".$_SESSION['gebruiker-id']."' LIMIT 1 VALUES (?,?,?,?)");
         
         $sqli_gebruikers->bind_param('ssss',$voornaam, $achternaam, $telefoonnummerTot, $emailadres);
         
@@ -87,5 +96,7 @@
         else
             redirect_to("error.html?msg=Foei je mag niet via een URL hier komen.");
            
+    }
+    
     }
 ?>
