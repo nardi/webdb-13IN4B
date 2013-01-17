@@ -26,6 +26,8 @@ function completeAddress()
         {
             document.regform.straat.value = adresInfo.street;
             document.regform.plaats.value = adresInfo.city;
+            //document.regform.co.value = adresInfo.latitude + ', ' + adresInfo.longitude;
+            //document.regform.wo.value = adresInfo.surfaceArea + 'm2';
         }
         else
         {
@@ -50,7 +52,7 @@ function checkPostcode(){
         ok(postcodeLabel, 'Dit is een geldige postcode.');
 }
 function checkNaam(field, label){
-    var validNaam = /^[a-z\s\-]{1,250}$/i
+    var validNaam = /^[a-z\s\-]{1,256}$/i
     var naam = document.getElementById(field).value;
     var naamLabel = document.getElementById(label);
     if(!validNaam.test(naam))
@@ -61,10 +63,12 @@ function checkNaam(field, label){
 function checkTel(){
     var validTel1 = /^[0-9]{2,4}$/;
     var validTel2 = /^[0-9]{6,8}$/;
+    var validTelTot = /^[0-9]{10}$/;
     var fieldVal = document.getElementById('tel').value;
     var fieldVal2 = document.getElementById('tel2').value;
     var telLabel = document.getElementById('tel-label');
-    if(validTel1.test(fieldVal) && validTel2.test(fieldVal2)){
+    var telNummerTotaal = fieldVal + fieldVal2;
+    if(validTel1.test(fieldVal) && validTel2.test(fieldVal2) && validTelTot.test(telNummerTotaal)){
         ok(telLabel, 'Dit is geen geldig telefoon nummer');
     }
     else
@@ -85,8 +89,7 @@ function check(field, divLabel, msg){
     //alert("started");
     var labelPos = document.getElementById(divLabel);
     var fieldVal = document.getElementById(field);
-    alert(fieldVal.value);
-    if(fieldVal==null || fieldVal.value==""){
+    if(fieldVal==undefined || fieldVal.value==""){
         //alert("NULL!" + fieldVal);
         error(labelPos, msg);
     }
@@ -151,19 +154,23 @@ function error(field, msg){
 
 function submitThisShit(){
     var form = document.getElementById('regformid');
+    isValidForm=true;
     checkNaam('voornaam', 'voornaam-label');
     checkNaam('achternaam', 'achternaam-label');
     checkHuis();
     checkPostcode();
-    check('straat', 'straat-label', 'Uw postcode-huisnummer combinatie bestaat niet.');
+    check('straatid', 'straat-label', 'Uw postcode-huisnummer combinatie bestaat niet.');
     checkTel();
     checkMail();
     verify('email','email-bevestigen','email-bevestigen-label');
     check('wachtwoord','wachtwoord-label');
     verify('wachtwoord','wachtwoord-bevestigen','wachtwoord-bevestigen-label');
     
-    if(isValidForm)
-        form.action="gebruikers-registratie.php";
-    else
-        form.action= false;
+    if(isValidForm){
+        document.regform.action="gebruikers-registratie.php";
+        return true;
+    }
+    else{
+       return false;
+    }
 }

@@ -12,6 +12,8 @@
     $genre = $_POST['genre'];
     
     
+       
+    
     $sqli_producten = $db->prepare("INSERT INTO Producten (titel, beschrijving, prijs, release_date, voorraad, platform_id, genre_id)
     VALUES (?,?,?,?,?,?,?)");
     

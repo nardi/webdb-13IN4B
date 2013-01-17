@@ -86,4 +86,9 @@
     $db->close();
     
     redirect_to("registratie-succesvol.html"); 
+    
+    
+    function doesThisMakeSense(){
+        
+    }
 ?>
