@@ -33,7 +33,7 @@ $db = connect_to_db();
     <hr width="100%">
     <center><b>Accountgegevens</b></center>
     <br>
-    Voornaam: <input type="text" name="voornaam" disabled value = $naam ><br>
+    Voornaam: <input type="text" name="voornaam" disabled value = "<?php echo $naam; ?>" ><br>
     Achternaam: <input type="text" name="achternaam" disabled value ="$achternaam"><br>
     Postcode: <input type="text" name="postcode" disabled value ="leeg"><br>
     Huisnummer: <input type="text" name="huisnummer" disabled value ="leeg"><br>
