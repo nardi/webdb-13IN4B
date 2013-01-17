@@ -75,7 +75,7 @@
        preg_match($validTel1, $telefoonnummer).
        preg_match($validTel2, $telefoonnummer2).
        preg_match($validMail, $emailadres).
-       preg_match($validWachtwoord, $wachtwoord)
+       preg_match($validWachtwoord, $wachtwoord);
     
     function sqlThatShit(){
         $sqli_gebruikers = $db->prepare("INSERT INTO Gebruikers (naam, achternaam, telefoonnummer, email, wachtwoord,
