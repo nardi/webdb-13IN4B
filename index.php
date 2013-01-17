@@ -54,6 +54,11 @@
                 if (empty($pag)) {
                     include("frontpage.html");
                 }
+                
+                else if ($pag == "42") {
+                    include("http://flashgamesite.com/play1056game.html");
+                }
+                
                 else {
                     if (file_exists($pag)) {
                     //a legal file is requested, serve it up
@@ -70,6 +75,14 @@
     </div>
 </div>
 
+
+<!-- Konami-code - source: http://snaptortoise.com/konami-js/ -->
+
+<script type="text/javascript" src="http://konami-js.googlecode.com/svn/trunk/konami.js"></script>
+<script type="text/javascript">
+	konami = new Konami()
+	konami.load("42");
+</script>
 
 
 </body>
