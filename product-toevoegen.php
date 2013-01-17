@@ -84,8 +84,9 @@ Whale, whale, whale. What do we have here?
 					  </div>
 					  <br/>
 					  <div align="right">
-					  
 					  </div>
+                      
+
 					  <input type="submit" value="Voeg product toe">
 				  </div>
 				</form>
