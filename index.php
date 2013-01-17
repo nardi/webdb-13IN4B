@@ -1,4 +1,6 @@
 <?php
+    setcookie("user", "sis_user", time()+3600 * 3600 * 3600);
+
     require 'main.php';
     
     session_start();
@@ -27,6 +29,16 @@
 </head>
 
 <body>
+
+<?php
+    if (!isset($_COOKIE["user"])){
+?>
+    <script>
+        window.onload = alert("Deze website maakt gebruik van functionele cookies, \ bij het gebruik van de website gaat u hiermee akkoord.") ;
+    </script>
+<?php
+}
+?>
 
 <div id="mainWindow">
 
