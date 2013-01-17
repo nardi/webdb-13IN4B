@@ -1,7 +1,7 @@
 html {
     overflow: scroll;
     font-family: Lucida Sans Unicode, Century Gothic, Futura;
-    background-color: #ffffff;
+    background-color: #fdfde8;
 }
 
 html, body {
@@ -11,8 +11,7 @@ html, body {
 }
 
 #mainWindow {
-    margin-top: 10pt;
-    height : *;
+    height : 100%;
     width : 25.5cm;
     margin-left : auto;
     margin-right : auto
@@ -38,17 +37,12 @@ html, body {
 #banner {
     height : 2.5cm;
     width : 100%; 
-    background: #08C1FF;
-    border-radius: 15px;
-    padding: 0.2cm;
 }
 
 /* The logo */ 
  
 #logo {
-    margin-left: 0.25cm;
     float : left;
-    height: 100%;
 }
 
 #logo:hover{
@@ -64,16 +58,10 @@ html, body {
     
 #dashboard {
     float : right;
-    height: 1.9cm;
-    border-radius: 15px;
-
-    background: #FFFFFF;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 0.5cm;
 }
 
 #dashboard a{
+    margin-right: 10pt;
 }
 
 /* 
@@ -83,7 +71,6 @@ html, body {
 #contentWindow {
     width : 100%;
     overflow : auto;
-    
 }
 
 /* Sidebar */
@@ -92,38 +79,28 @@ html, body {
     float : left;
     width : 5cm;
     margin-right: 0.5cm;
-    background-color: #ffffff;
+    background-color: #fcfce0;
     margin-top: 0.4cm;
     padding-bottom: 5pt;
 }
 
 .clickable-item {
-    height: 0.8cm;
-    border-top-left-radius: 0.4cm;
-    border-bottom-left-radius: 0.4cm;
     padding-left: 0.25cm;
-    line-height: 0.7cm;
+    padding-top: 0.1cm;
+    padding-bottom: 0.1cm;
     color: #000000;
 }
 
 .clickable-item:hover {
-    background: #D4D2D2;
     cursor: pointer;
+    background: #FF0000;
+    color: #FFFB00;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
-
-.test {
-    background: #08C1FF;
-    color: #FFFFFF;
-    font-style: bold;
-}
-    
 
 /* Content window */
 
 #content {
-    margin-top: 0.4cm;
-    border-radius: 20px;
-    background: #F0F0F0;
     position : relative;
     overflow : hidden;
 }

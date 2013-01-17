@@ -31,7 +31,7 @@
     <div id="banner" class="vcenter-container">
 
         <div id="logo" onClick="window.open('/', '_self');">
-            <img src="images/logo/logo-sis.png" alt="Link to homepage" />
+            <img src="images/logo/logo-sis-beta.png" alt="Link to homepage" />
         </div>
 
         <div id="dashboard" class="vcenter">
