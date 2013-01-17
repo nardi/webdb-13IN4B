@@ -45,7 +45,7 @@
 <h1>Uw bestelling</h1>
 
 <?php
-    echo $ww->display(FALSE);
+    echo $ww->display(FALSE, $_GET['pag']);
 ?>
     
 <?php
