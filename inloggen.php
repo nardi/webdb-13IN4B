@@ -1,6 +1,6 @@
 
 <?php
-	require 'main.php';
+	
 
 	if (isset($_SESSION['logged-in'])) {
 		echo "Uitgelogd";
