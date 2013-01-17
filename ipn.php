@@ -1,4 +1,6 @@
 <?php
+    require 'main.php'
+
     function https_post($url, $data)
     {
         $ch = curl_init($url);
