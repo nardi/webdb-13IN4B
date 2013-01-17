@@ -21,7 +21,10 @@ setcookie("user", "sis_user", time()+3600);
 <body>
  
 <?php
-if (isset($_COOKIE["user"])){
+if (isset($_COOKIE["sis_user"])){
+
+}
+else
 ?>
   <script>
 window.onload = alert("Deze website maakt gebruik van functionele cookies, \
@@ -31,8 +34,7 @@ window.onload = alert("Deze website maakt gebruik van functionele cookies, \
 
   </script>
 <?php
-}
-
+  
 ?>
 
 
