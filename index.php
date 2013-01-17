@@ -55,10 +55,6 @@
                     include("frontpage.html");
                 }
                 
-                else if ($pag == "42.toad") {
-                    include("test.txt");
-                }
-                
                 else {
                     if (file_exists($pag)) {
                     //a legal file is requested, serve it up
@@ -76,7 +72,8 @@
 </div>
 
 
-<!-- Konami-code - source: http://snaptortoise.com/konami-js/ -->
+<!-- Konami-code - source: http://snaptortoise.com/konami-js/ 
+    up-up-down-down-left-right-left-right-B-A-Start     -->
 
 <script type="text/javascript" src="http://konami-js.googlecode.com/svn/trunk/konami.js"></script>
 <script type="text/javascript">
