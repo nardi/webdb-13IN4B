@@ -12,20 +12,10 @@ html, body {
 
 #mainWindow {
     margin-top: 10pt;
-    height : 90%;
+    height : auto;
     width : 25.5cm;
     margin-left : auto;
     margin-right : auto
-}
-
-#disclaimer {
-    width: auto;
-    margin-left: auto;
-    margin-right: auto;
-    background: #D4D2D2;
-    color: #FFFFFF;
-    font-style: bold;
-    float: bottom;
 }
 
 
@@ -130,6 +120,7 @@ html, body {
     background: #F0F0F0;
     position : relative;
     overflow : hidden;
+    padding: 10px;
 }
 
 #content h1 {

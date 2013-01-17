@@ -101,7 +101,7 @@ function check(field, divLabel, msg){
 }
 function checkMail(){
         //alert("derp");
-        var validMail=/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i
+        var validMail=/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
         var mailFieldVal = document.getElementById('email');
         var labelPos = document.getElementById('email-label');
         if(!validMail.test(mailFieldVal.value) || mailFieldVal.value=="" || !mailFieldVal.value){
