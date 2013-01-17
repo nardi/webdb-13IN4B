@@ -31,13 +31,39 @@
     {
         $bestelling = $_POST['custom'];
         
-        //haal bestelling uit db
+        $db = connect_to_db();
+        $sql = $db->prepare("SELECT prijs, hoeveelheid FROM Bestelling_Product JOIN Bestellingen ON Bestellingen.id = bestelling_id WHERE Bestellingen.id = ?");
+        $sql->bind_param('i', $bestelling);
+        if (!$sql->execute())
+            die("wrong query");
+        $sql->bind_result($prijs, $hoeveelheid);
+        $totaalprijs = 0;
+        while ($sql->fetch())
+            $totaalprijs += $prijs + $hoeveelheid;
+        $sql->free_result();
         
         $total_price = $_POST['mc_gross']; //moet gelijk zijn aan prijs bestelling
         $business = $_POST['business']; // moet gelijk zijn aan "paypal@superinternetshop.nl"
         $status = $_POST['payment_status']; // Pending of Completed
         
-        // Set status in db afhankelijk van status
+        error_log("totaalprijs: $totaalprijs, business: $business, status: $status");
+        
+        if ($total_price == $totaalprijs && $business == 'paypal_1358181822_biz@nardilam.nl')
+        {
+            if ($status == 'Pending')
+                $status = 'Betaling wordt verwerkt';
+            else if ($status == 'Completed')
+                $status = 'Betaald';
+            else
+                exit();
+            
+            $sql = $db->prepare("UPDATE Bestellingen SET betaalstatus = ? WHERE id = ?");
+            $sql->bind_param('si', $status, $bestelling);
+            if (!$sql->execute())
+                die("wrong query 2");
+        }
+        
+        $db->close();
     }
     else
         error_log("Unverified ipn request");

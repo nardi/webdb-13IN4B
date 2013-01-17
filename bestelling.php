@@ -45,7 +45,7 @@
 <h1>Uw bestelling</h1>
 
 <?php
-    echo $ww->display(FALSE, $_GET['pag']);
+    echo $ww->display(FALSE);
 ?>
     
 <?php
@@ -71,7 +71,7 @@
     {
         $hoeveelheid = $ww->get_amount($product_id);
         $prijs = $ww->get_price($product_id);
-        $titel = $ww->get_title($id);
+        $titel = $ww->get_title($product_id);
 ?>        
     <input type="hidden" name="item_number_<?php echo $count; ?>" value="<?php echo $product_id; ?>">
     <input type="hidden" name="item_name_<?php echo $count; ?>" value="<?php echo $titel; ?>">
