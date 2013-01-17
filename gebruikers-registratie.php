@@ -103,21 +103,28 @@
         $validMail='/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i';
         $validWachtwoord='/^[0-9a-zA-Z]{+}$/';
         
-        if(preg_match($validNaam, $voornaam )===1 &&
-           preg_match($validNaam, $achternaam )===1 &&
-           preg_match($validPostcode, $postcode )===1 &&
-           preg_match($validHuis, $huisnummer )===1 &&
-           preg_match($validTel1, $telefoonnummer )===1 &&
-           preg_match($validTel2, $telefoonnummer2 )===1 &&
-           preg_match($validMail, $emailadres )===1 &&
-           preg_match($validWachtwoord, $wachtwoord )===1){
+        if(preg_match($validNaam, $voornaam)&&
+           preg_match($validNaam, $achternaam)&&
+           preg_match($validPostcode, $postcode)&&
+           preg_match($validHuis, $huisnummer)&&
+           preg_match($validTel1, $telefoonnummer)&&
+           preg_match($validTel2, $telefoonnummer2)&&
+           preg_match($validMail, $emailadres)&&
+           preg_match($validWachtwoord, $wachtwoord)){
                 $telefoonnummerTot = $telefoonnummer . '-' . $telefoonnummer2;
                 sqlThatShit();
                 redirect_to("registratie-succesvol.html");
         }
         
         else
-            redirect_to("error.html?msg=Foei je mag niet via een URL hier komen.");
-           
+            redirect_to("error.php?msg=preg_match($validNaam, $voornaam)&&
+           preg_match($validNaam, $achternaam)&&
+           preg_match($validPostcode, $postcode)&&
+           preg_match($validHuis, $huisnummer)&&
+           preg_match($validTel1, $telefoonnummer)&&
+           preg_match($validTel2, $telefoonnummer2)&&
+           preg_match($validMail, $emailadres)&&
+           preg_match($validWachtwoord, $wachtwoord)");
+            
     }
 ?>
