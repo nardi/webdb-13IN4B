@@ -13,7 +13,7 @@ Whale, whale, whale. What do we have here?
 	</pre>
     
 <?php 
-if(isset($_GET["msg"]))
+if(!isset($_GET["msg"]))
     echo "Oeps! Iets ging fout!";
 
 else
