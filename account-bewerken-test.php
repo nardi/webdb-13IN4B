@@ -48,8 +48,8 @@
         $sqli_adressen->bind_param('sisss',$postcode , $huisnummer , $toevoeging , $plaats , $straat); */
     
     
-        $sqli_gebruikers = $db->prepare("UPDATE Gebruikers SET naam = "$voornaam", achternaam='$achternaam', telefoonnummer=$telefoonnummerTot, email=$emailadres WHERE id= '".$_SESSION['gebruiker-id']."' ");
-
+        $sqli_gebruikers = $db->prepare("UPDATE Gebruikers SET naam = ?, achternaam = ?, telefoonnummer = ?, email = ? WHERE id= '".$_SESSION['gebruiker-id']."' ");
+        $sqli_gebruikers->bind_param('ssss',$voornaam , $achternaam, $telefoonnummerTot, $email); 
 
         /*
             Zo moet error-handlen bij database-queries:
