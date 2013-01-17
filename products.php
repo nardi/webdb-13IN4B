@@ -19,6 +19,7 @@
         {
             $query .= " (genre_id = ";
             $genres = explode(',', $_GET['genres']);
+            echo print_r($genres, TRUE);
             array_walk($genres, 'check_array', $db);
             $query .= implode(" OR genre_id = ", array_filter($genres));
         }
