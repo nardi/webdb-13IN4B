@@ -11,7 +11,6 @@
 
 <body>
 <?php 
-    require 'main.php';
     $id=$_GET["id"];
     $db = connect_to_db();
     $sqli_product = $db->prepare("SELECT titel,platform_id,genre_id,beschrijving, prijs,
