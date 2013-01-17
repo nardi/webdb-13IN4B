@@ -5,8 +5,6 @@
 	if ((!isset($_SESSION['logged-in']))) {
 	?>
 	<pre>
-
-
 U bent niet ingelogd!
 	</pre>
 	<?php
@@ -15,9 +13,9 @@ U bent niet ingelogd!
         require 'main.php';
         $db = connect_to_db();
         
-    $sql = $db->prepare("SELECT naam, achternaam, telefoonnummer, email FROM Gebruikers WHERE id = 2 LIMIT 1");
+    $sql = $db->prepare("SELECT naam, achternaam, telefoonnummer FROM Gebruikers WHERE email = "a.j.aberkane@gmail.com" LIMIT 1");
 	$sql->execute();
-	$sql->bind_result($naam, $achternaam, $telefoonnummer, $email);
+	$sql->bind_result($naam, $achternaam, $telefoonnummer);
     
     echo $naam
         ?>
