@@ -44,7 +44,9 @@
     registratie_datum, status)
     VALUES ('$voornaam', '$achternaam', '$telefoonnummer', '$emailadres', '$saltww', '$registratiedatum', '1')";*/
     
-    function SqlThatShit(){
+    doesThisMakeSense();
+    
+    function sqlThatShit(){
         $sqli_gebruikers = $db->prepare("INSERT INTO Gebruikers (naam, achternaam, telefoonnummer, email, wachtwoord,
         registratie_datum, status)
         VALUES (?,?,?,?,?,?,'1')");
@@ -110,7 +112,7 @@
            preg_match($validMail, $emailadres )===1 &&
            preg_match($validWachtwoord, $wachtwoord )===1){
                 $telefoonnummerTot = $telefoonnummer . '-' . $telefoonnummer2;
-                SqlThatShit();
+                sqlThatShit();
                 redirect_to("registratie-succesvol.html");
         }
         
