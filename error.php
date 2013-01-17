@@ -12,11 +12,11 @@
 Whale, whale, whale. What do we have here?		
 	</pre>
     
-<?php $MSG= $_GET["msg"];
-if($MSG==null)
+<?php 
+if(!isset($_GET["msg"]))
     echo "Oeps! Iets ging fout!";
 
 else
-    echo $MSG;
+    echo htmlspecialchars($_GET["msg"]);
 ?>
     
