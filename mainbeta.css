@@ -83,6 +83,7 @@ html, body {
 #contentWindow {
     width : 100%;
     overflow : auto;
+    
 }
 
 /* Sidebar */
@@ -97,9 +98,11 @@ html, body {
 }
 
 .clickable-item {
+    height: 0.8cm;
+    border-top-left-radius: 0.4cm;
+    border-bottom-left-radius: 0.4cm;
     padding-left: 0.25cm;
-    padding-top: 0.1cm;
-    padding-bottom: 0.1cm;
+    line-height: 0.7cm;
     color: #000000;
 }
 
@@ -118,6 +121,9 @@ html, body {
 /* Content window */
 
 #content {
+    margin-top: 0.4cm;
+    border-radius: 20px;
+    background: #F0F0F0;
     position : relative;
     overflow : hidden;
 }

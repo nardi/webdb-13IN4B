@@ -30,14 +30,14 @@
         exit();
     }
     
-    if (!isset($_SESSION['winkelwagen']) || $_SESSION['winkelwagen']->is_empty())
+    $ww = Winkelwagen::try_load_from_session();
+    
+    if ($ww->is_empty())
     {
         echo 'Voeg eerst producten toe aan je winkelwagen voor je een bestelling plaatst.';
         $db->close();
         exit();
     }
-
-    $ww = $_SESSION['winkelwagen'];
 ?>
 
 <div id="bestelling">
