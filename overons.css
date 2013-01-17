@@ -1,6 +1,7 @@
 .center {text-align:center;}
 
-.line {outline:#FF0000 dotted thick;}
 
 .displayed {display:block; margin-left:auto; margin-right:auto; }
+
+.red_line {border-style: groove; border-color:red; border-width:10px; }
 
