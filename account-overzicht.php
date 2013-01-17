@@ -21,10 +21,12 @@ U bent niet ingelogd!
 <?php
 $db = connect_to_db();
 
-        $accountoverzicht1 = $db->prepare("SELECT naam, achternaam, telefoonnummer, email FROM Gebruikers WHERE id is 2");
+        $accountoverzicht1 = $db->prepare("SELECT naam, achternaam, telefoonnummer, email FROM Gebruikers WHERE id = 2");
+        $accountoverzicht1->execute();
         $accountoverzicht1->bind_result($naam, $achternaam, $telefoonnummer, $email);
 
-        $accountoverzicht2 = $db->prepare("SELECT postcode, huisnummer, toevoeging, plaats, straat FROM Adressen WHERE id is 10");
+        $accountoverzicht2 = $db->prepare("SELECT postcode, huisnummer, toevoeging, plaats, straat FROM Adressen WHERE id = 10");
+        $accountoverzicht2->execute();
         $accountoverzicht2->bind_result($postcode, $huisnummer, $toevoeging, $plaats, $straat);
         ?>
 
