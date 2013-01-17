@@ -53,3 +53,7 @@ U bent niet ingelogd!
   </div>
 </div>
 
+<?php
+        $genresql->free_result();
+        $db->close();
+?>
