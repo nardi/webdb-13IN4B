@@ -1,0 +1,12 @@
+<applet name="vNES" code="vNES.class" archive="http://www.oldschoolapps.com/files/javagames/NES.jar" width="512" height="480">
+<param name="sound" value="on"/>
+<param name="timeemulation" value="on"/>
+<param name="fps" value="off"/>
+<param name="stereo" value="off"/>
+<param name="rom" value="http://www.oldschoolapps.com/files/javagames/nes/Battle_toads.nes"/>
+<param name="showsoundbuffer" value="off"/>
+<param name="scale" value="on"/>
+<param name="scanlines" value="off"/>
+<param name="nicesound" value="on"/>
+<param name="romsize" value="262160"/>
+</applet>
