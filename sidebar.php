@@ -1,4 +1,4 @@
-<div class="clickable-item" onClick="window.open('/', '_self');">
+﻿<div class="clickable-item" onClick="window.open('/', '_self');">
     Beginpagina
 </div>
 
@@ -6,7 +6,7 @@
     Categoriën
 </div>
 
-<div class="clickable-item" onClick="window.open('overons.html', '_self');">
+<div class="clickable-item" onClick="window.open('overons.php', '_self');">
     Over ons
 </div>
 
