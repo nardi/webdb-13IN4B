@@ -32,11 +32,11 @@ U bent niet ingelogd!
     <center><b>Accountgegevens</b></center>
     <br>
     Voornaam: <input type="text" name="voornaam" disabled value = "<?php echo $naam; ?>" ><br>
-    Achternaam: <input type="text" name="achternaam" disabled value ="$achternaam"><br>
-    Postcode: <input type="text" name="postcode" disabled value ="leeg"><br>
-    Huisnummer: <input type="text" name="huisnummer" disabled value ="leeg"><br>
-    Telefoonnummer: <input type="tel" name="telefoonnummer" disabled value ="$telefoonnummer"><br>
-    E-mailadres: <input type="email" name="e-mailadres" disabled value ="$email"><br>
+    Achternaam: <input type="text" name="achternaam" disabled value = "<?php echo $achternaam; ?>"><br>
+    Postcode: <input type="text" name="postcode" disabled value = "<?php echo $postcode; ?>"><br>
+    Huisnummer: <input type="text" name="huisnummer" disabled value = "<?php echo $naam; ?>"><br>
+    Telefoonnummer: <input type="tel" name="telefoonnummer" disabled value = "<?php echo $telefoonnummer; ?>"><br>
+    E-mailadres: <input type="email" name="e-mailadres" disabled value = "<?php echo $naam; ?>"><br>
     <hr width="100%">
     <center><b>Bestellingen</b></center><br>
     <div align="center"> 
