@@ -21,6 +21,7 @@
     }
 
     $query .= ")";
+    echo $query;
     
     $result = $db->query($query);
 ?>
