@@ -17,8 +17,7 @@
     $sqli_titel = $db->prepare("SELECT titel,platform_id,genre_id,beschrijving, prijs,
     release_date, voorraad, datum_toegevoegd FROM Producten WHERE id=?");
     $sqli_titel->bind_param('s',$id);
-    $sqli_product->bind_result($titel,$platform,,$genre,$beschrijving.$prijs,$release,
-    $voorraad,$toegevoegd);
+    $sqli_product->bind_result($titel,$platform,,$genre,$beschrijving.$prijs,$release,$voorraad,$toegevoegd);
     (!$sqli_titel->execute())
         throw new Exception($sqli_titel->error);
         
