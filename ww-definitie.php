@@ -98,7 +98,7 @@ class Winkelwagen
         return count($this->producten) == 0;
     }
     
-    function display($editable)
+    function display($editable, $pagename)
     {
 ?>
 <?php if ($editable) echo '<form>'; ?>
@@ -133,7 +133,7 @@ class Winkelwagen
         }
 ?>
         <tr class="total-price">
-            <td class="update-button" colspan="3"><?php if ($editable) echo '<input type="submit" value="Update hoeveelheden" action="' . $pag . '" method="post" />'; ?></td>
+            <td class="update-button" colspan="3"><?php if ($editable) echo '<input type="submit" value="Update hoeveelheden" action="' . $pagename . '" method="post" />'; ?></td>
             <th colspan="2">Totale prijs:</td>
             <td><span class="price">&euro;<?php echo $totaalprijs; ?><span></td>
         </tr>
