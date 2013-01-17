@@ -10,7 +10,7 @@
         if (isset($_GET['genres']))
         {
             $query .= " (genre_id = ";
-            $query .= implode(explode($db->escape_string($_GET['genres']), ','), " OR genre_id = ");
+            $query .= implode(array_filter(explode(',', $db->escape_string($_GET['genres']))), " OR genre_id = ");
         }
         
         if (isset($_GET['platforms']))
@@ -18,7 +18,7 @@
             if (isset($_GET['genres']))
                 $query .= ") AND";
             $query .= " (platform_id = ";
-            $query .= implode(explode($db->escape_string($_GET['platforms']), ','), " OR platform_id = ");
+            $query .= implode(array_filter(explode(',', $db->escape_string($_GET['platforms']))), " OR platform_id = ");
         }
 
         $query .= ")";
