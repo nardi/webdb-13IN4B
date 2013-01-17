@@ -35,7 +35,7 @@ U bent niet ingelogd!
     Huisnummer en toevoeging:
         <div class="huisnummer"> 
             <input type="tekst" name="huisnummer" value = "<?php echo $huisnummer; ?>"> <input type="tekst" name="toevoeging" value = "<?php echo $toevoeging; ?>">
-        </div><br/>
+        </div>
     Telefoonnummer: <input type="text" name="telefoonnummer" disabled value = "<?php echo $telefoonnummer; ?>"><br>
     E-mailadres: <input type="email" name="e-mailadres" disabled value = "<?php echo $emailadres; ?>"><br>
     <hr width="100%">
