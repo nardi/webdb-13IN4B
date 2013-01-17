@@ -13,18 +13,20 @@ U bent niet ingelogd!
         
         $db = connect_to_db();
         
-        $sql = $db->prepare("SELECT naam, achternaam, telefoonnummer, email FROM Gebruikers WHERE id= '".$_SESSION['gebruiker-id']."' LIMIT 1 UNION SELECT postcode, huisnummer, toevoeging, straat, plaats FROM Adressen JOIN 'Adres_Gebruiker' ON Adressen.id = adres_id WHERE id= '".$_SESSION['gebruiker-id']."' LIMIT 1");
+        $sql = $db->prepare("SELECT naam, achternaam, telefoonnummer, email FROM Gebruikers WHERE id= '".$_SESSION['gebruiker-id']."' LIMIT 1");
         $sql->execute();  
-        $sql->bind_result($naam, $achternaam, $telefoonnummer, $email, $postcode, $huisnummer, $toevoeging, $straat, $plaats);
+        $sql->bind_result($naam, $achternaam, $telefoonnummer, $email);
+        
+        if (!$sql->fetch()) { print "Onverwachte fout: Geen data."; exit(); }
+        $sql->free_result();
+
+        $sql = $db->prepare("SELECT postcode, huisnummer, toevoeging, straat, plaats FROM Adressen JOIN 'Adres_Gebruiker' ON Adressen.id = adres_id WHERE id= '".$_SESSION['gebruiker-id']."' LIMIT 1");
+        $sql->execute();  
+        $sql->bind_result($postcode, $huisnummer, $toevoeging, $straat, $plaats); 
         
         if (!$sql->fetch()) { print "Onverwachte fout: Geen data."; exit(); }
         $sql->free_result();
         
-       /* $sql1 = $db->prepare("SELECT postcode, huisnummer, toevoeging, straat, plaats FROM Adressen JOIN 'Adres_Gebruiker' ON Adressen.id = adres_id WHERE id= '".$_SESSION['gebruiker-id']."' LIMIT 1");
-        $sql1->execute();
-        $sql1->bind_result($postcode, $huisnummer, $toevoeging, $straat, $plaats);  
-        if (!$sql1->fetch()) { print "Onverwachte fout: Geen data."; exit(); }
-        $sql1->free_result();*/
         ?>
 
 <div class="account-overzicht">
