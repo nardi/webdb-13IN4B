@@ -24,7 +24,7 @@
      
 </div>
 <div id="acc-mand">
-    <a href="account-overzicht.html">Mijn account</a><br />
+    <a href="account-overzicht.php">Mijn account</a><br />
     <!-- Link naar nieuwe winkelwagen hier -->
     <a href="cart.html">Winkelwagen (3)</a>
 </div>
