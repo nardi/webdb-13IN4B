@@ -1,13 +1,9 @@
 <?php
     $db = connect_to_db();
 
-    function check_array(&$array, $id, $db)
+    function check_array(&$var, $id, $db)
     {
-        echo print_r($array, TRUE);
-        echo $id;
-        echo $array[$id];
-        $array[$id] = $db->escape_string($array[$id]);
-        $array[$id] = '';
+        $var = $db->escape_string($var);
     }
     
     $query = "SELECT id, titel, prijs FROM Producten";
@@ -20,9 +16,7 @@
         {
             $query .= " (genre_id = ";
             $genres = explode(',', $_GET['genres']);
-            //echo print_r($genres, TRUE);
             array_walk($genres, 'check_array', $db);
-            //echo print_r($genres, TRUE);
             $query .= implode(" OR genre_id = ", array_filter($genres));
         }
         
