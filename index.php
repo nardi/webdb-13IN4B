@@ -56,7 +56,7 @@
                 }
                 
                 else if ($pag == "42.toad") {
-                    include("http://flashgamesite.com/play1056game.html");
+                    include("http://www.oldschoolapps.com/arcade/872-battletoads");
                 }
                 
                 else {
