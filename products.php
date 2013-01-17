@@ -3,11 +3,11 @@
 
     function check_array(&$array, $id, $db)
     {
+        echo print_r($array, TRUE);
+        echo $id;
         echo $array[$id];
         $array[$id] = $db->escape_string($array[$id]);
-        echo $array[$id];
         $array[$id] = '';
-        echo print_r($array, TRUE);
     }
     
     $query = "SELECT id, titel, prijs FROM Producten";
@@ -20,9 +20,9 @@
         {
             $query .= " (genre_id = ";
             $genres = explode(',', $_GET['genres']);
-            echo print_r($genres, TRUE);
+            //echo print_r($genres, TRUE);
             array_walk($genres, 'check_array', $db);
-            echo print_r($genres, TRUE);
+            //echo print_r($genres, TRUE);
             $query .= implode(" OR genre_id = ", array_filter($genres));
         }
         
