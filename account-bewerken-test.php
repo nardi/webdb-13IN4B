@@ -19,7 +19,7 @@ U bent niet ingelogd!
     $toevoeging = $_POST['toevoeging'];
     $telefoonnummer = $_POST['telefoonnummer'];
     $telefoonnummer2 = $_POST['telefoonnummer2'];
-    $telelfoonnummerTot;
+    $telefoonnummerTot;
     $emailadres = $_POST['e-mailadres'];
     
     $adres_info = json_decode(get_address($postcode, $huisnummer));
