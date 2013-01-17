@@ -41,7 +41,7 @@
 <div id="ItemCover">
 <h4>Game cover</h4>
     <?php
-        echo <img src="images/products/" .$id. ".jpg" alt="Game cover" />
+        <img src="images/products/" .$id. ".jpg" alt="Game cover" />
     ?>
 </div>
 
@@ -52,7 +52,7 @@
 <div id="ItemDescription">
 <h4>Game Description</h4>
 <?php
-        echo $bechrijving;
+        echo $beschrijving;
     ?>
 </div>
 
