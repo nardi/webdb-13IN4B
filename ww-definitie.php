@@ -42,7 +42,12 @@ class Winkelwagen
     function change_amount($id, $amount)
     {
         if (isset($this->producten[$id]))
-            $this->producten[$id] = $amount;
+        {
+            if ($amount == 0)
+                $this->remove($id);
+            else
+                $this->producten[$id] = $amount;
+        }
     }
     
     function get_amount($id)
@@ -128,7 +133,7 @@ class Winkelwagen
         }
 ?>
         <tr class="total-price">
-            <td class="update-button" colspan="3"><?php if ($editable) echo '<input type="submit" value="Update hoeveelheden" action="post" />'; ?></td>
+            <td class="update-button" colspan="3"><?php if ($editable) echo '<input type="submit" value="Update hoeveelheden" action="' . $pag . '" method="post" />'; ?></td>
             <th colspan="2">Totale prijs:</td>
             <td><span class="price">&euro;<?php echo $totaalprijs; ?><span></td>
         </tr>

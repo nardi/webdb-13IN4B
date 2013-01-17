@@ -13,9 +13,9 @@ U bent niet ingelogd!
         require 'main.php';
         $db = connect_to_db();
         
-        $sql = $db->prepare("SELECT naam, achternaam, telefoonnummer FROM Gebruikers WHERE email='a.j.aberkane@gmail.com' LIMIT 1");
-        $sql->execute();
-        $sql->bind_result($naam, $achternaam, $telefoonnummer);
+        $sql = $db->prepare("SELECT naam, achternaam, telefoonnummer, email FROM Gebruikers WHERE id= '".$_SESSION['gebruiker-id']."' LIMIT 1");
+        $sql->execute();  
+        $sql->bind_result($naam, $achternaam, $telefoonnummer, $email);
     
         if (!$sql->fetch()) { print "Onverwachte fout: Geen data."; exit(); }
         $sql->free_result();

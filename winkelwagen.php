@@ -3,8 +3,6 @@
 
     $ww = Winkelwagen::try_load_from_session();
     
-    echo print_r($ww, TRUE);
-    
     foreach ($ww->get_all() as $id)
     {
         if (isset($_POST["amount-$id"]))
@@ -22,16 +20,18 @@
 <h1>Winkelwagen</h1>
 
 <?php
-    if ($ww->is_empty()) { 
+    if ($ww->is_empty())
+    { 
 ?>
-<h2>Er bevinden zich geen producten in je winkelwagen.</h2>
+<p>Er bevinden zich geen producten in je winkelwagen.</p>
 <?php
     }
     else
     {
         echo $ww->display(TRUE);
 ?>
-<p>Voer uw wachtwoord opnieuw in ter controle:</p>
+<br/>
+<p>Voer uw wachtwoord opnieuw in ter controle voor u een bestelling plaatst:</p><br/>
 <form action="bestelling.php" method="post">
     <input type="password" name="wachtwoord">
     <input type="submit" value="Plaats bestelling"><br/>
