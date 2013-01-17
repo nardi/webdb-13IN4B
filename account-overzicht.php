@@ -17,6 +17,10 @@ U bent niet ingelogd!
 	$sql->execute();
 	$sql->bind_result($naam, $achternaam, $telefoonnummer);
     
+	if (!$sql->fetch()) { print "Onverwachte fout: Geen data."; exit(); }
+	$sql->free_result();
+	$db->close();
+    
     echo $naam
         ?>
 
