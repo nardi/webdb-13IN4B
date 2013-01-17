@@ -21,7 +21,6 @@ U bent niet ingelogd!
     $telefoonnummer2 = $_POST['telefoonnummer2'];
     $telelfoonnummerTot;
     $emailadres = $_POST['e-mailadres'];
-    $wachtwoord = $_POST['wachtwoord'];
     
     $adres_info = json_decode(get_address($postcode, $huisnummer));
     $straat = $adres_info->street;
