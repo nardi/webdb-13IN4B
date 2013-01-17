@@ -1,24 +1,18 @@
 <?php
     require 'ww-definitie.php';
 
-    if (!isset($_SESSION['winkelwagen']))
-    {
-        $_SESSION['winkelwagen'] = new Winkelwagen();
-        echo "nieuwe winkelwagen";
-    }
-    
-    echo print_r($_SESSION['winkelwagen'], TRUE);
+    $ww = Winkelwagen::try_load_from_session();
 
-    foreach ($_SESSION['winkelwagen']->get_all() as $id)
+    foreach ($ww->get_all() as $id)
     {
         if (isset($_POST["amount-$id"]))
-            $_SESSION['winkelwagen']->change_amount($id, $_POST["amount-$id"]);
+            $ww->change_amount($id, $_POST["amount-$id"]);
     }
     
     if (isset($_GET['add']))
-        $_SESSION['winkelwagen']->add($_GET['add']);
+        $ww->add($_GET['add']);
     
-    $ww = $_SESSION['winkelwagen'];
+    $ww->save_to_session();
 ?>
 
 <div id="cart">
