@@ -6,8 +6,8 @@
 	?>
 	<pre>
 
-U bent niet ingelogd!
 
+U bent niet ingelogd!
 	</pre>
 	<?php
 	}
@@ -15,6 +15,11 @@ U bent niet ingelogd!
         require 'main.php';
 
         $db = connect_to_db();
+?>
+
+
+<?php
+$db = connect_to_db();
 
         $accountoverzicht1 = $db->prepare("SELECT naam, achternaam, telefoonnummer, email FROM Gebruikers WHERE id is 2");
         $accountoverzicht1->execute();
@@ -23,7 +28,8 @@ U bent niet ingelogd!
         $accountoverzicht2 = $db->prepare("SELECT postcode, huisnummer, toevoeging, plaats, straat FROM Adressen WHERE id is 10");
         $accountoverzicht2->execute();
         $accountoverzicht2->bind_result($postcode, $huisnummer, $toevoeging, $plaats, $straat);
-?>
+        ?>
+
 
 <div class="account-overzicht">
   <div align="right"> 
@@ -53,7 +59,6 @@ U bent niet ingelogd!
   </div>
 </div>
 
-<?php
-        $genresql->free_result();
-        $db->close();
-?>
+		<?php
+		}
+		?>
