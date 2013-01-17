@@ -23,9 +23,7 @@
      ?>
      
 </div>
-<?php
-    require 'ww-definitie.php';
-    
+<?php    
     $ww = Winkelwagen::try_load_from_session();
     $aantal = '';
     if (!$ww->is_empty())

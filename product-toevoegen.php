@@ -20,7 +20,7 @@ Whale, whale, whale. What do we have here?
 	<?php
 	}
 	else {
-        require 'main.php';
+        
 
         $db = connect_to_db();
 ?>

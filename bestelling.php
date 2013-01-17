@@ -1,6 +1,4 @@
 <?php
-    require 'ww-definitie.php';
-    
     if (!isset($_SESSION['logged-in']))
     {
         echo 'Je moet ingelogd zijn om een bestelling te plaatsen.';

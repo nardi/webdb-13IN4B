@@ -1,6 +1,4 @@
 <?php
-require 'main.php';
-
 class Winkelwagen
 {
     private $producten;
