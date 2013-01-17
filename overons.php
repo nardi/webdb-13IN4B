@@ -9,17 +9,7 @@ setcookie("user", "sis_user", time()+3600);
   <title>Over ons</title>
   <link rel="stylesheet" type="text/css" href="overons.css">
 
-  <script>
 
-<?php
-if (isset($_COOKIE["user"]))
-    window.onload = alert("Deze website maakt gebruik van functionele cookies, \
-    bij het gebruik van de website gaat u hiermee akkoord.") ;
-else
-  echo "";
-?>
-
-  </script>
 
   <noscript>
     <div class = red_line>
@@ -28,8 +18,22 @@ else
   </noscript>
 </head>
 
-<body> 
+<body>
+ 
+<?php
+if (isset($_COOKIE["user"])){
+?>
+  <script>
+window.onload = alert("Deze website maakt gebruik van functionele cookies, \
+    bij het gebruik van de website gaat u hiermee akkoord.") ;
 
+
+
+  </script>
+<?php
+}
+
+?>
 
 
 
