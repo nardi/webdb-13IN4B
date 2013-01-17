@@ -63,10 +63,12 @@ function checkNaam(field, label){
 function checkTel(){
     var validTel1 = /^[0-9]{2,4}$/;
     var validTel2 = /^[0-9]{6,8}$/;
+    var validTelTot = /^[0-9]{10}$/;
     var fieldVal = document.getElementById('tel').value;
     var fieldVal2 = document.getElementById('tel2').value;
     var telLabel = document.getElementById('tel-label');
-    if(validTel1.test(fieldVal) && validTel2.test(fieldVal2)){
+    var telNummerTotaal = fieldVal + fieldVal2;
+    if(validTel1.test(fieldVal) && validTel2.test(fieldVal2) && validTelTot.test(telNummerTotaal)){
         ok(telLabel, 'Dit is geen geldig telefoon nummer');
     }
     else
@@ -157,9 +159,7 @@ function submitThisShit(){
     checkNaam('achternaam', 'achternaam-label');
     checkHuis();
     checkPostcode();
-    //document.getElementById('straatid').disabled=!document.getElementById('straatid').disabled;
     check('straatid', 'straat-label', 'Uw postcode-huisnummer combinatie bestaat niet.');
-    //document.getElementById('straatid').disabled=!document.getElementById('straatid').disabled;
     checkTel();
     checkMail();
     verify('email','email-bevestigen','email-bevestigen-label');
