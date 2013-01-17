@@ -26,16 +26,14 @@ U bent niet ingelogd!
     $straat = $adres_info->street;
     $plaats = $adres_info->city;
     
+    doesThisMakeSense();
+    
     
     function SqlThatShit(){
         $sqli_gebruikers = $db->prepare("UPDATE Gebruikers SET naam, achternaam, telefoonnummer, email WHERE id= '".$_SESSION['gebruiker-id']."' LIMIT 1 VALUES (?,?,?,?)");
         
         $sqli_gebruikers->bind_param('ssss',$voornaam, $achternaam, $telefoonnummerTot, $emailadres);
         
-        $sqli_adressen = $db->prepare("UPDATE Adressen (postcode, huisnummer, toevoeging, plaats, straat)
-        VALUES (?,?,?,?,?)");
-
-        $sqli_adressen->bind_param('sisss',$postcode , $huisnummer , $toevoeging , $plaats , $straat);
 
         if(!$sqli_gebruikers->execute())
             throw new Exception($sqli_gebruikers->error);
