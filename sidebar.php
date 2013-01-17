@@ -1,21 +1,20 @@
 <div class="clickable-item" onClick="window.open('/', '_self');">
     Beginpagina
 </div>
+
+<div class="clickable-item" onClick="window.open('category.php', '_self');">
+    Categoriën
+</div>
+
 <div class="clickable-item" onClick="window.open('overons.html', '_self');">
     Over ons
 </div>
+
 <div class="clickable-item" onClick="window.open('overons.html#contact', '_self');">
-    contact
+    Contact
 </div>
-<div class="clickable-item" onClick="window.open('wachtwoordvergeten.html', '_self');">
-    Wachtwoord vergeten
-</div>
-<div class="clickable-item" onClick="window.open('item-description.html', '_self');">
-    Productbeschrijving
-</div>
-<div class="clickable-item" onClick="window.open('category.php', '_self');">
-    Categorie
-</div>
+
+
 
 <?php
     if (isset($_SESSION['logged-in'])) {
