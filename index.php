@@ -55,7 +55,7 @@
                     include("frontpage.html");
                 }
                 
-                else if ($pag == "42") {
+                else if ($pag == "42.toad") {
                     include("http://flashgamesite.com/play1056game.html");
                 }
                 
@@ -81,7 +81,7 @@
 <script type="text/javascript" src="http://konami-js.googlecode.com/svn/trunk/konami.js"></script>
 <script type="text/javascript">
 	konami = new Konami()
-	konami.load("42");
+	konami.load("?pag=42.toad");
 </script>
 
 
