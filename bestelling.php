@@ -1,47 +1,62 @@
+<?php
+    require 'main.php';
+    require 'ww-definitie.php';
+    
+    if (!isset($_SESSION['logged-in']))
+    {
+        echo 'Je moet ingelogd zijn om een bestelling te plaatsen.';
+        exit();
+    }
+    if (!isset($_POST['wachtwoord']))
+    {
+        echo 'Deze pagina vereist wachtwoordverificatie.';
+        exit();
+    }
+    
+    $gebruiker_id = $_SESSION['gebruiker-id'];
+    $wachtwoord = $_POST['wachtwoord'];
+    
+    $db = connect_to_db();
+	$sql = $db->prepare("SELECT wachtwoord FROM Gebruikers WHERE id = ? LIMIT 1");
+	$sql->bind_param('i', $_SESSION['gebruiker-id']);
+	$sql->execute();
+	$sql->bind_result($wwdb);
+    $sql->fetch();
+	$sql->free_result();
+
+    if (!check_wachtwoord($wachtwoord, $wwdb))
+    {
+        echo 'Het opgegeven wachtwoord is niet juist.';
+        $db->close();
+        exit();
+    }
+    
+    if (!isset($_SESSION['winkelwagen']) || $_SESSION['winkelwagen']->is_empty())
+    {
+        echo 'Voeg eerst producten toe aan je winkelwagen voor je een bestelling plaatst.';
+        $db->close();
+        exit();
+    }
+
+    $ww = $_SESSION['winkelwagen'];
+?>
+
 <div id="bestelling">
 
 <h1>Uw bestelling</h1>
 
-<form>
-    <table class="product-list">
-        <tr>
-            <th>#</th>
-            <th colspan="2">Product</th>
-            <th>Prijs</th>
-            <th>Hoeveelheid</th>
-            <th>Totaal</th>
-        </tr>
-        <tr>
-            <td class="product-id"><a href="item-description.html">100</a></td>
-            <td class="product-image"><a href="item-description.html"><img src="images/products/1.jpg" /></a></td>
-            <td class="product-title"><a href="item-description.html">Battletoads 2</a></td>
-            <td>&euro;42,00</td>
-            <td><input type="text" name="amount-100" value="2" /></td>
-            <td>&euro;84,00</td>
-        </tr>
-        <tr>
-            <td class="product-id"><a href="item-description.html">2</a></td>
-            <td class="product-image"><a href="item-description.html"><img src="images/products/2.jpg" /></a></td>
-            <td class="product-title"><a href="item-description.html">SUPER Battletoads X Arcade Edition</a></td>
-            <td>&euro;84,00</td>
-            <td><input type="text" name="amount-2" value="1" /></td>
-            <td>&euro;84,00</td>
-        </tr>
-        <tr>
-            <td class="product-id"><a href="item-description.html">1</a></td>
-            <td class="product-image"><a href="item-description.html"><img src="images/products/1.jpg" /></a></td>
-            <td class="product-title"><a href="item-description.html">Battletoads</a></td>
-            <td>&euro;42,00</td>
-            <td><input type="text" name="amount-1" value="3" /></td>
-            <td>&euro;126,00</td>
-        </tr>
-        <tr class="total-price">
-            <td class="update-button" colspan="3"><input type="submit" value="Update hoeveelheden" /></td>
-            <th colspan="2">Totale prijs:</td>
-            <td><span class="price">&euro;294,00<span></td>
-        </tr>
-    </table>
-</form>
+<?php
+    echo $ww->display(FALSE);
+?>
+    
+<?php
+    $sqli_bestelling = $db->prepare("INSERT INTO Bestellingen (id, gebruiker_id, betaalstatus, timestamp) VALUES (NULL, ?, NULL, NULL)");
+    $sqli_bestelling->bind_param('i', $gebruiker_id);
+    if(!$sqli_bestelling->execute())
+        throw new Exception($sqli_bestelling->error);
+    $bestelling_id = $sqli_bestelling->insert_id;
+    $sqli_bestelling->free_result();
+?>
 
 <form action="https://www.paypal.com/us/cgi-bin/webscr" method="post">
     <input type="hidden" name="cmd" value="_cart">
@@ -49,22 +64,30 @@
     <input type="hidden" name="business" value="paypal@superinternetshop.nl">
     <input type="hidden" name="currency_code" value="EUR">
     <input type="hidden" name="notify_url" value="http://superinternetshop.nl/ipn.php">
+    <input type="hidden" name="custom" value="<?php echo $bestelling_id; ?>">
+
+<?php
+    $count = 1;
+    foreach ($ww->get_all() as $product_id)
+    {
+        $hoeveelheid = $ww->get_amount($product_id);
+        $prijs = $ww->get_price($product_id);
+        $titel = $ww->get_title($id);
+?>        
+    <input type="hidden" name="item_number_<?php echo $count; ?>" value="<?php echo $product_id; ?>">
+    <input type="hidden" name="item_name_<?php echo $count; ?>" value="<?php echo $titel; ?>">
+    <input type="hidden" name="amount_<?php echo $count; ?>" value="<?php echo $prijs; ?>">
+    <input type="hidden" name="quantity_<?php echo $count; ?>" value="<?php echo $hoeveelheid; ?>">
+<?php  
+        $sqli_product = $db->prepare("INSERT INTO Bestelling_Product (bestelling_id, product_id, prijs, hoeveelheid) VALUES (?,?,?,?)");
+        $sqli_product->bind_param('iidi', $bestelling_id, $product_id, $prijs, $hoeveelheid);
+        if(!$sqli_product->execute())
+            throw new Exception($sqli_product->error);
+        $count++;
+    }
     
-    <input type="hidden" name="item_number_1" value="100">
-    <input type="hidden" name="item_name_1" value="Battletoads 2">
-    <input type="hidden" name="amount_1" value="42.00">
-    <input type="hidden" name="quantity_1" value="2">
-    
-    <input type="hidden" name="item_number_2" value="2">
-    <input type="hidden" name="item_name_2" value="SUPER Battletoads X Arcade Edition">
-    <input type="hidden" name="amount_2" value="84.00">
-    <input type="hidden" name="quantity_2" value="1">
-    
-    <input type="hidden" name="item_number_3" value="1">
-    <input type="hidden" name="item_name_3" value="Battletoads">
-    <input type="hidden" name="amount_3" value="42.00">
-    <input type="hidden" name="quantity_3" value="3">
-    
+    $db->close();
+?>
     <input type="submit" value="Betalen met PayPal">
 </form>
 
