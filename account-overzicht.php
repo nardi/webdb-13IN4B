@@ -37,7 +37,7 @@ U bent niet ingelogd!
             <input type="tekst" name="huisnummer" disabled value = "<?php echo $huisnummer; ?>"> <input type="tekst" name="toevoeging" disabled value = "<?php echo $toevoeging; ?>">
         </div>
     Telefoonnummer: <input type="text" name="telefoonnummer" disabled value = "<?php echo $telefoonnummer; ?>"><br>
-    E-mailadres: <input type="email" name="e-mailadres" disabled value = "<?php echo $emailadres; ?>"><br>
+    E-mailadres: <input type="email" name="e-mailadres" disabled value = "<?php echo $email; ?>"><br>
     <hr width="100%">
     <center><b>Bestellingen</b></center><br>
     <div align="center"> 
