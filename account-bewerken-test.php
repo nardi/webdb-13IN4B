@@ -82,7 +82,7 @@
         redirect_to("registratie-succesvol.html");
     }
     
-    else
+    else{
        //redirect_to("error.php?msg=Foei je mag niet via een URL hier komen.");
        echo preg_match($validNaam, $voornaam).
        preg_match($validNaam, $achternaam).
@@ -91,6 +91,6 @@
        preg_match($validTel1, $telefoonnummer).
        preg_match($validTel2, $telefoonnummer2).
        preg_match($validMail, $emailadres).
-
+    }
     
 ?>
