@@ -101,8 +101,7 @@ html, body {
     border-top-left-radius: 0.4cm;
     border-bottom-left-radius: 0.4cm;
     padding-left: 0.25cm;
-    padding-top: 0.1cm;
-    padding-bottom: 0.1cm;
+    line-height: 0.8cm;
     color: #000000;
 }
 
