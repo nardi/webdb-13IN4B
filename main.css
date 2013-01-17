@@ -120,6 +120,7 @@ html, body {
     background: #F0F0F0;
     position : relative;
     overflow : hidden;
+    padding: 10px;
 }
 
 #content h1 {
