@@ -34,23 +34,8 @@ U bent niet ingelogd!
         
         $sqli_adressen = $db->prepare("UPDATE Adressen (postcode, huisnummer, toevoeging, plaats, straat)
         VALUES (?,?,?,?,?)");
-        
+        $sqli_gebruikers->execute();
         $sqli_adressen->bind_param('sisss',$postcode , $huisnummer , $toevoeging , $plaats , $straat);
-    
-
-        /*
-            Zo moet error-handlen bij database-queries:
-            if (!$db->query(...))
-                throw new Exception($db->error);
-
-            of met resultaat:
-            $res = $db->query(...)
-            if (!$res)
-                throw new Exception($db->error);
-            of: 
-            if (!$res = $db->query(...))
-                throw new Exception($db->error);
-        */
 
         if(!$sqli_gebruikers->execute())
             throw new Exception($sqli_gebruikers->error);
