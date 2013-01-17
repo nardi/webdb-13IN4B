@@ -21,11 +21,9 @@ U bent niet ingelogd!
 <?php
 $db = connect_to_db();
 
-        $accountoverzicht1 = $db->prepare("SELECT naam, achternaam, telefoonnummer, email FROM Gebruikers WHERE id is 2");
+        $accountoverzicht1 = $db->prepare("SELECT naam, achternaam, telefoonnummer, email FROM Gebruikers WHERE id = 2");
+        $accountoverzicht1->execute();
         $accountoverzicht1->bind_result($naam, $achternaam, $telefoonnummer, $email);
-
-        $accountoverzicht2 = $db->prepare("SELECT postcode, huisnummer, toevoeging, plaats, straat FROM Adressen WHERE id is 10");
-        $accountoverzicht2->bind_result($postcode, $huisnummer, $toevoeging, $plaats, $straat);
         ?>
 
 
@@ -35,10 +33,10 @@ $db = connect_to_db();
     <hr width="100%">
     <center><b>Accountgegevens</b></center>
     <br>
-    Voornaam: <input type="text" name="voornaam" disabled value ="$naam"><br>
+    Voornaam: <input type="text" name="voornaam" disabled value = $naam ><br>
     Achternaam: <input type="text" name="achternaam" disabled value ="$achternaam"><br>
-    Postcode: <input type="text" name="postcode" disabled value ="$postcode"><br>
-    Huisnummer: <input type="text" name="huisnummer" disabled value ="$huisnummer"><br>
+    Postcode: <input type="text" name="postcode" disabled value ="leeg"><br>
+    Huisnummer: <input type="text" name="huisnummer" disabled value ="leeg"><br>
     Telefoonnummer: <input type="tel" name="telefoonnummer" disabled value ="$telefoonnummer"><br>
     E-mailadres: <input type="email" name="e-mailadres" disabled value ="$email"><br>
     <hr width="100%">
