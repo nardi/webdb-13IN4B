@@ -29,7 +29,6 @@
 
 <div class="category">
 
-<h1><?php echo $genre; ?></h1>
 <?php
     while ($row = $result->fetch_assoc())
     {
