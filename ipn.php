@@ -25,13 +25,13 @@
     
     $post_data = file_get_contents('php://input');
     $verify_data = "cmd=_notify-validate&" . $post_data;
-    $result = https_post("https://www.paypal.com/nl/cgi-bin/webscr", $verify_data);
+    $result = https_post("https://www.sandbox.paypal.com/nl/cgi-bin/webscr", $verify_data);
     
-    if ($result === "VERIFIED" && $_POST['test_ipn'] != 1)
+    if ($result === "VERIFIED")// && $_POST['test_ipn'] != 1)
     {
         $bestelling = $_POST['custom'];
         
-        // bestelling halen uit db
+        //haal bestelling uit db
         
         $total_price = $_POST['mc_gross']; //moet gelijk zijn aan prijs bestelling
         $business = $_POST['business']; // moet gelijk zijn aan "paypal@superinternetshop.nl"
@@ -39,4 +39,6 @@
         
         // Set status in db afhankelijk van status
     }
+    else
+        error_log("Unverified ipn request");
 ?>
