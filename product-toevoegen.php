@@ -84,16 +84,16 @@ Whale, whale, whale. What do we have here?
 					  </div>
 					  <br/>
 					  <div align="right">
-					  
-					  </div>
-                      
-                      <!-- testcode voor plaatjes uploaden: -->
+					  <!-- testcode voor plaatjes uploaden: -->
                       
                       <label for="file">Filename:</label>
                       <input type="file" name="file" id="file"><br>
                       
                       <!-- -->
                       
+					  </div>
+                      
+
 					  <input type="submit" value="Voeg product toe">
 				  </div>
 				</form>
