@@ -27,16 +27,24 @@ class Winkelwagen
     
     function add($id)
     {
-        $db = connect_to_db();
-        
-        $sql = $db->prepare("SELECT * FROM Producten WHERE id = ? LIMIT 1");
-        $sql->bind_param('i', $id);
-        $sql->execute();
-        
-        if ($sql->fetch())
-            $this->producten[$id] = 1;
+        if (array_key_exists($id, $this->producten))
+        {
+            $this->producten[$id]++;
+        }
+        else
+        {    
+            $db = connect_to_db();
             
-        $sql->free_result();
+            $sql = $db->prepare("SELECT * FROM Producten WHERE id = ? LIMIT 1");
+            $sql->bind_param('i', $id);
+            $sql->execute();
+            
+            if ($sql->fetch())
+                $this->producten[$id] = 1;
+                
+            $sql->free_result();
+            $db->close();
+        }
     }
     
     function change_amount($id, $amount)
