@@ -16,9 +16,6 @@
 <div class="clickable-item" onClick="window.open('category.php', '_self');">
     Categorie
 </div>
-<div class="clickable-item" onClick="window.open('indexbeta.php', '_self');">
-    Beta-layout
-</div>
 
 <?php
     if (isset($_SESSION['logged-in'])) {
