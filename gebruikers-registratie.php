@@ -67,8 +67,8 @@
     }
     
     else
-       redirect_to("error.php?msg=Foei je mag niet via een URL hier komen.");
-       /* echo preg_match($validNaam, $voornaam).
+       //redirect_to("error.php?msg=Foei je mag niet via een URL hier komen.");
+       echo preg_match($validNaam, $voornaam).
        preg_match($validNaam, $achternaam).
        preg_match($validPostcode, $postcode).
        preg_match($validHuis, $huisnummer).
