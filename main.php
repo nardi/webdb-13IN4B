@@ -4,10 +4,10 @@
      */
     require 'ww-definitie.php';
 
-    function show_error_page($exception)
+    /*function show_error_page($exception)
     {
         echo "Er ging iets mis bij het laden van deze pagina:</br></br>" . $exception->getMessage();
-    }
+    }*/
     
     set_exception_handler('show_error_page');
     

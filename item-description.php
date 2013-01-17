@@ -18,8 +18,8 @@
     release_date, voorraad, datum_toegevoegd FROM Producten WHERE id=?");
     $sqli_product->bind_param('s',$id);
     $sqli_product->bind_result($titel,$platform,$genre,$beschrijving.$prijs,$release,$voorraad,$toegevoegd);
-    $sqli_product->execute();
-
+    if(!$sqli_product->execute())
+        throw new Exception($sqli_product->error);
     $sqli_quotes = $db->prepare("SELECT tekst FROM Reviews WHERE id=?");
     $sqli_quotes->bind_param('s',$id);
     $sqli_quotes->bind_result($reviews);
