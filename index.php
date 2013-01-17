@@ -70,9 +70,7 @@
     </div>
 </div>
 
-<div id="disclaimer">
-    &copy; 2012 - Bas, Abdel, Stefani, Nardi, Jordy
-</div>
+
 
 </body>
 </html>

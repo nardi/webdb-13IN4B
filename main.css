@@ -18,16 +18,6 @@ html, body {
     margin-right : auto
 }
 
-#disclaimer {
-    width: auto;
-    margin-left: auto;
-    margin-right: auto;
-    background: #D4D2D2;
-    color: #FFFFFF;
-    font-style: bold;
-    float: bottom;
-}
-
 
 /*
  *  Useful for vertical centering
