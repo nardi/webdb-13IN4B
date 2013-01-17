@@ -3,7 +3,12 @@ require 'main.php';
 
 class Winkelwagen
 {
-    private $producten = array();
+    private $producten;
+    
+    private function __construct()
+    {
+        $this->producten = array();
+    }
     
     public static function try_load_from_session()
     {
@@ -85,7 +90,7 @@ class Winkelwagen
     
     function is_empty()
     {
-        return count($this->producten) === 0;
+        return count($this->producten) == 0;
     }
     
     function display($editable)

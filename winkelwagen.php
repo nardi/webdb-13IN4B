@@ -2,7 +2,9 @@
     require 'ww-definitie.php';
 
     $ww = Winkelwagen::try_load_from_session();
-
+    
+    echo print_r($ww, TRUE);
+    
     foreach ($ww->get_all() as $id)
     {
         if (isset($_POST["amount-$id"]))
