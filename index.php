@@ -56,7 +56,7 @@
                 }
                 
                 else if ($pag == "42.toad") {
-                    include("http://www.oldschoolapps.com/arcade/872-battletoads");
+                    include("test.txt");
                 }
                 
                 else {
