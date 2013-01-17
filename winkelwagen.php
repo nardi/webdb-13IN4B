@@ -28,7 +28,7 @@
     }
     else
     {
-        echo $ww->display(TRUE);
+        echo $ww->display(TRUE, $_GET['pag']);
 ?>
 <br/>
 <p>Voer uw wachtwoord opnieuw in ter controle voor u een bestelling plaatst:</p><br/>
