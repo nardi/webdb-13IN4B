@@ -11,7 +11,12 @@
 </div>
 
 <div id="reg-log">
-    <a href="registratie.html">Registreren</a><br />
+    <?php
+        if(isset($_SESSION['logged-in']))
+            echo " "
+        else
+            echo '<a href="registratie.html">Registreren</a><br />'
+    ?>    
     
     <?php
         if (!isset($_SESSION['logged-in'])) {
