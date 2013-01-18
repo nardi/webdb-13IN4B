@@ -51,6 +51,7 @@ function checkPostcode(){
             ok(postcodeLabel, 'Dit is een geldige postcode.');
     }
     completeAddress(postcode);
+    alert("Boop");
 }
 function checkNaam(field, label){
     var validNaam = /^[a-z\s\-]{1,256}$/i
