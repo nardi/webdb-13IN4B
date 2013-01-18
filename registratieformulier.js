@@ -1,4 +1,3 @@
-// Code voor ophalen adres
 function getAddress(callback, postcode, nummer, toevoeging)
 {
     var xhr = new XMLHttpRequest();
