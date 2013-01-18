@@ -39,7 +39,7 @@
 
 <div class="center">
 
-U kunt ons een bericht sturen via <a href="http://www.superinternetshop.nl/contactformulier.php">dit contactformulier</a> 
+U kunt ons een bericht sturen via <a class="colored_link" href="http://www.superinternetshop.nl/contactformulier.php">dit contactformulier</a> 
 
 <br/>
 
