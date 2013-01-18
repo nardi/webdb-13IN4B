@@ -2,7 +2,7 @@
 <div id="reg-log">
     <?php
         if(isset($_SESSION['logged-in']))
-            echo $_SESSION['gebruiker-naam'];;
+            echo $_SESSION['gebruiker-naam'];
         else{
             echo '<a href="registratie.html">Registreren</a><br />';
             
