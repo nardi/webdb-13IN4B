@@ -49,11 +49,11 @@ echo $name;
 
 
 $userTest = 10361952;
-$passTest = "hoi"
+$passTest = "Labrador19";
 $conn = ssh2_connect('superinternetshop.nl', 22);
 ssh2_auth_password($conn, $userTest, $passTest); 
-$source = "‪C:\Users\Jordy\Documents\hoi2.tx"
-$dest = "/datastore/webdb13IN4B/test/"
+$source = "‪C:\Users\Jordy\Documents\hoi2.tx";
+$dest = "/datastore/webdb13IN4B/test/";
 ssh2_scp_send($conn , $source, $dest); 
 
   // Add this to flush buffers/close session 
