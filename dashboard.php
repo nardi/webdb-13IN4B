@@ -1,21 +1,12 @@
 
-<div id="inlog-status">
-    <?php 
-    if (isset($_SESSION['logged-in'])) {
-        echo $_SESSION['gebruiker-naam'];
-    }
-    else {
-        echo "Niet ingelogd";
-    }
-    ?>
-</div>
-
 <div id="reg-log">
     <?php
         if(isset($_SESSION['logged-in']))
-            echo " ";
-        else
+            echo $_SESSION['gebruiker-naam'];;
+        else{
             echo '<a href="registratie.html">Registreren</a><br />';
+            
+        }
     ?>    
     
     <?php
