@@ -13,9 +13,9 @@
 <div id="reg-log">
     <?php
         if(isset($_SESSION['logged-in']))
-            echo " "
+            echo " ";
         else
-            echo '<a href="registratie.html">Registreren</a><br />'
+            echo '<a href="registratie.html">Registreren</a><br />';
     ?>    
     
     <?php
