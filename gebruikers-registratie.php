@@ -44,7 +44,7 @@
     registratie_datum, status)
     VALUES ('$voornaam', '$achternaam', '$telefoonnummer', '$emailadres', '$saltww', '$registratiedatum', '1')";*/
     
-    $validNaam = '/^[a-z]{1,256}$/i';
+    $validNaam = '/^[a-z\s-]{1,256}$/i';
     $validPostcode = '/^[0-9]{4}[\s-]?[a-z]{2}$/i';
     $validTel1 = '/^[0-9]{2,4}$/';
     $validTel2 = '/^[0-9]{6,8}$/';
