@@ -39,6 +39,7 @@
         
     while($sqli_quotes->fetch()){
         $quotes.= $reviews."--".$reviewer."<br /><hr />";
+        echo "<script> alert("$quotes");";
     }
     //Free  results for de volgende query.
     $sqli_quotes->free_result();
@@ -101,16 +102,16 @@
 <th colspan="2"> Systeem Vereiste </th>
 </tr>
 <tr>
-<td>CPU</td><td> <?php $cpu ?></td>
+<td>CPU</td><td> <?php echo $cpu ?></td>
 </tr>
 <tr>
-<td>RAM</td><td> <?php $ram ?></td>
+<td>RAM</td><td> <?php echo $ram ?></td>
 </tr>
 <tr>
-<td>GPU</td> <td><?php $gpu ?></td>
+<td>GPU</td> <td><?php echo $gpu ?></td>
 </tr>
 <tr>
-<td>OS</td> <td><?php $os ?></td>
+<td>OS</td> <td><?php echo $os ?></td>
 </tr>
 </table>
 </div>
