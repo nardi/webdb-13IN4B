@@ -2,7 +2,7 @@
     if (is_admin())
     {
         $db = connect_to_db();
-
+    
     $titel = $_POST['titel'];
     $beschrijving = $_POST['beschrijving'];
     $prijs = $_POST['prijs'];
@@ -27,4 +27,5 @@
     
     
     redirect_to("product-toevoegen-succesvol.html");
+    }
 ?>
