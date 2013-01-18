@@ -84,6 +84,9 @@ Whale, whale, whale. What do we have here?
 					  </div>
 					  <br/>
 					  <div align="right">
+                            <!-- Uploading files - Test version -->
+                            <label for="file">Filename:</label>
+                            <input type="file" name="cover" id="cover"><br>
 					  </div>
                       
 
