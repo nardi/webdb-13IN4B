@@ -55,7 +55,6 @@ function checkPostcode(){
         }
     }
     completeAddress(postcode);
-    alert("Boop");
 }
 function checkNaam(field, label){
     var validNaam = /^[a-z\s\-]{1,256}$/i
