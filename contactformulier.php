@@ -1,5 +1,4 @@
-<link rel="stylesheet" type="text/css" href="inloggen-wachtwoord-registratie.css">
-<link rel="stylesheet" type="text/css" href="centering.css">
+<link rel="stylesheet" type="text/css" href="contactformulier.css">
     
 <div class="centered-container">
     <div class="registratieformulier">
@@ -22,7 +21,7 @@ if (isset($_REQUEST['email']))
 
 
   
-  echo "Thank you for using our mail form";
+  echo "Hartelijk dank voor uw reactie, wij streven er naar uw vraag binnen 1 werkdag te beantwoorden";
   }
 else
 //if "email" is not filled out, display the form
