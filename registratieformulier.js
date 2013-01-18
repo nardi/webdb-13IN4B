@@ -16,7 +16,6 @@ function getAddress(callback, postcode, nummer, toevoeging)
 
 function completeAddress(postcode)
 {
-    var postcode = postcode;
     var huisnummer = document.regform.huisnummer.value;
     var toevoeging = document.regform.toevoeging.value;
     
@@ -35,7 +34,6 @@ function completeAddress(postcode)
         }
     }, postcode, huisnummer, toevoeging);
 }
-
 
 //http://www.randomsnippets.com/2008/04/01/how-to-verify-email-format-via-javascript/
 
@@ -87,7 +85,7 @@ function checkHuis(){
     }
     else
         error(huisLabel, 'Geen geldig huisnummer.');
-        
+    checkPostcode();        
 }
 function check(field, divLabel, msg){
     //alert("started");

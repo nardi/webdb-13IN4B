@@ -15,9 +15,9 @@
     $id=$_GET["id"];
     $db = connect_to_db();
     $sqli_product = $db->prepare("SELECT titel,platform_id,genre_id,beschrijving, prijs,
-    release_date, voorraad, datum_toegevoegd FROM Producten WHERE id=?");
+    release_date, voorraad, datum_toegevoegd, cover FROM Producten WHERE id=?");
     $sqli_product->bind_param('i',$id);
-    $sqli_product->bind_result($titel,$platform,$genre,$beschrijving,$prijs,$release,$voorraad,$toegevoegd);
+    $sqli_product->bind_result($titel,$platform,$genre,$beschrijving,$prijs,$release,$voorraad,$toegevoegd, $cover);
     if(!$sqli_product->execute())
         throw new Exception($sqli_product->error);
     if(!$sqli_product->fetch())
@@ -67,7 +67,7 @@
     <div id="ItemCover">
     <h4>Game cover</h4>
         <?php
-            echo '<img src="images/products/' .$id. '.jpg" alt="Game cover" />';
+            echo '<img src="data:image/jpeg;base64,'.base64_encode($cover).'" />';
         ?>
     </div>
     <div id="ItemWWToevoegen">

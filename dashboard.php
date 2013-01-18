@@ -33,6 +33,8 @@
     <a href="account-overzicht.php">Mijn account</a><br />
     <a href="winkelwagen.php">Winkelwagen<?php echo $aantal; ?></a>
 </div>
+
+
     
     
     

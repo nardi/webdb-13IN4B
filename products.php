@@ -59,11 +59,11 @@
 <?php
     while ($sqli->fetch())
     {
-        $image = $cover;
+        $cover;
 ?>
 
 <div class="product-thumb">
-    <a href="product.php?id=<?php echo $id; ?>"> <?php echo '<img src="data:image/jpeg;base64,' . base64_encode( $cover ) . '" />'; ?></a>
+    <a href="item-description.php?id=<?php echo $id; ?>"> <?php echo '<img src="data:image/jpeg;base64,'.base64_encode($cover).'"/>'; ?></a>
     <p class="title"><a href="item-description.php?id=<?php echo $id; ?>"><?php echo $titel; ?></a></p>
     <p class="price"><a href="item-description.php?id=<?php echo $id; ?>">&euro;<?php echo $prijs; ?></a></p>
 </div>
