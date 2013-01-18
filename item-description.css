@@ -5,13 +5,21 @@
 	text-align:center;
 }
 #ItemCover{
-	margin-left:0.5cm;
-	width:20%;
-	float:left;
+	width:100%;
 }
 #ItemCover img{
 	width:90%;
 	border:10px solid black; 
+}
+
+#ItemCoverContainer{
+    margin-left:0.5cm;
+	width:20%;
+	float:left;
+}
+
+#ItemWWToevoegen{
+    background-image:url("images/labels/Add2Cart.png");
 }
 
 #ItemDescription{
@@ -41,6 +49,9 @@
 	width:25%;
 	float:left;
 }
+
+
+
 .SystemRequirementsTable{
 	border-collapse:collapse;
 }
@@ -52,3 +63,4 @@
 .ItemDescriptionContainer h4{
 	background-color:cyan;
 }
+
