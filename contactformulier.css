@@ -1,2 +1,6 @@
 @import "inloggen-wachtwoord-registratie.css";
 @import "centering.css";
+
+.right_allign{
+text-allign:right
+}

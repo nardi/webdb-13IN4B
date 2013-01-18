@@ -1,61 +1,84 @@
 <?php
-// the file name that should be uploaded
-$filep=$_FILES['userfile']['tmp_name']; 
-// ftp server
-$ftp_server=$_POST['server'];
-//ftp user name
-$ftp_user_name=$_POST['user'];
-//ftp username password
-$ftp_user_pass=$_POST['password'];
-//path to the folder on which you wanna upload the file
-$paths=$_POST['pathserver'];
-//the name of the file on the server after you upload the file
-$name=$_FILES['userfile']['name'];
 
-/*
 
-//connect to ftp
-$port = 21;
-$conn_id=ftp_connect($ftp_server, $port);
-
-// login with username and password
-$login_result = ftp_login($conn_id, $ftp_user_name, $ftp_user_pass);
-// check connection
-if ((!$conn_id) || (!$login_result)) {
-       echo "FTP connection has failed!";
-       echo "Attempted to connect to $ftp_server for user $ftp_user_name....";
-       exit;
-} else {
-       echo "Connected to $ftp_server, for user $ftp_user_name".".....";
-}
-
-// upload the file
-$upload = ftp_put($conn_id, $paths.'/'.$name, $filep, FTP_BINARY);
+    function assertValidUpload($code)
+    {
+        if ($code == UPLOAD_ERR_OK) {
+            return;
+        }
  
-// check upload status
-if (!$upload) {
-       echo "FTP upload has failed!";
-} else {
-       echo "Uploaded $name to $ftp_server ";
-}
+        switch ($code) {
+            case UPLOAD_ERR_INI_SIZE:
+            case UPLOAD_ERR_FORM_SIZE:
+                $msg = 'Image is too large';
+                break;
+ 
+            case UPLOAD_ERR_PARTIAL:
+                $msg = 'Image was only partially uploaded';
+                break;
+ 
+            case UPLOAD_ERR_NO_FILE:
+                $msg = 'No image was uploaded';
+                break;
+ 
+            case UPLOAD_ERR_NO_TMP_DIR:
+                $msg = 'Upload folder not found';
+                break;
+ 
+            case UPLOAD_ERR_CANT_WRITE:
+                $msg = 'Unable to write uploaded file';
+                break;
+ 
+            case UPLOAD_ERR_EXTENSION:
+                $msg = 'Upload failed due to extension';
+                break;
+ 
+            default:
+                $msg = 'Unknown error';
+        }
+ 
+        throw new Exception($msg);
+    }
+ 
+    $errors = array();
+ 
+    try {
+        if (!array_key_exists('image', $_FILES)) {
+            throw new Exception('Image not found in uploaded data');
+        }
+ 
+        $image = $_FILES['image'];
+ 
+        // ensure the file was successfully uploaded
+        assertValidUpload($image['error']);
+ 
+        if (!is_uploaded_file($image['tmp_name'])) {
+            throw new Exception('File is not an uploaded file');
+        }
+ 
+        $info = getImageSize($image['tmp_name']);
+ 
+        if (!$info) {
+            throw new Exception('File is not an image');
+        }
+    }
+    catch (Exception $ex) {
+        $errors[] = $ex->getMessage();
+    }
+ 
+    if (count($errors) == 0) {
+        $db = connect_to_db();
+        $sqli_producten = $db->prepare("INSERT INTO Producten (titel, cover)
+        VALUES (?,?)");
+        
+        $data = file_get_contents($image['tmp_name']);
+        
+        $sqli_producten->bind_param('ss', "Image test", $data);
 
-ftp_close($conn_id);
+            if(!$sqli_producten->execute())
+                throw new Exception($sqli_producten->error);
 
-?>
-*/
-
-echo $name;
-
-
-
-$userTest = 10361952;
-$passTest = "removed";
-$conn = ssh2_connect('superinternetshop.nl', 22);
-ssh2_auth_password($conn, $userTest, $passTest); 
-$source = "‪C:\Users\Jordy\Documents\hoi2.tx";
-$dest = "/datastore/webdb13IN4B/test/";
-ssh2_scp_send($conn , $source, $dest); 
-
-  // Add this to flush buffers/close session 
-
-  ssh2_exec($objConnection, 'exit'); 
+        $db->close();
+    }
+?> 
+ 

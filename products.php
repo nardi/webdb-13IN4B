@@ -63,7 +63,7 @@
 ?>
 
 <div class="product-thumb">
-    <a href="product.php?id=<?php echo $id; ?>"> <?php header("Content-type: image/jpeg"); echo $image; ?></a>
+    <a href="product.php?id=<?php echo $id; ?>"> <?php echo $image; ?></a>
     <p class="title"><a href="item-description.php?id=<?php echo $id; ?>"><?php echo $titel; ?></a></p>
     <p class="price"><a href="item-description.php?id=<?php echo $id; ?>">&euro;<?php echo $prijs; ?></a></p>
 </div>

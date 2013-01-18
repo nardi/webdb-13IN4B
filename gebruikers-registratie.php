@@ -69,14 +69,26 @@
         
         $sqli_gebruikers->bind_param('ssssss',$voornaam, $achternaam, $telefoonnummerTot, $emailadres, $saltww, $registratiedatum);
         
+        //id's aan AdresGebruiker toewijzen 
+        $gebruiker_id = $sqli_gebruikers->last_insert_id();
+        //
+        
         /*$sql_adressen = "INSERT INTO Adressen (postcode, huisnummer, toevoeging, plaats, straat)
         VALUES ('$postcode' , '$huisnummer' , '$toevoeging' , '$plaats' , '$straat')";*/
-        
+        //
         $sqli_adressen = $db->prepare("INSERT INTO Adressen (postcode, huisnummer, toevoeging, plaats, straat)
         VALUES (?,?,?,?,?)");
         
         $sqli_adressen->bind_param('sisss',$postcode , $huisnummer , $toevoeging , $plaats , $straat);
     
+
+        //
+        $adres_id = $sqli_adressen->last_insert_id();
+        
+        $sqli_adresgebr = $db->prepare("INSERT INTO AdresGebruiker (adres_id, gebruiker_id) VALUES (?,?)");
+        //
+        $sqli_adresgebr->bind_param('ii',$adres_id , $gebruiker_id);
+        //
 
         /*
             Zo moet error-handlen bij database-queries:
