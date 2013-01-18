@@ -71,8 +71,9 @@
     ?>
 </div>
 <div id="ItemWWToevoegen">
-    <form name="ActuallyAButton" id="AddToCartButton" action="winkelwagen.php" method="post">
-        <input type="submit>
+    <form name="ActuallyAButton" class="AddToCartButton" action="winkelwagen.php" method="post">
+        <input type="submit" class="AddToCartButton">
+    </form>
 </div>
 </div>
 
