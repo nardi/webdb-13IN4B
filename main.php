@@ -44,7 +44,7 @@
     
     function is_logged_in()
     {
-        return isset($_SESSION['logged-in']));
+        return isset($_SESSION['logged-in']);
     }
     
     function is_admin()
