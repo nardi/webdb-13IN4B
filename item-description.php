@@ -39,7 +39,6 @@
         
     while($sqli_quotes->fetch()){
         $quotes.= $reviews."--".$reviewer."<br /><hr />";
-        echo "<script> alert("$quotes");</script>";
     }
     //Free  results for de volgende query.
     $sqli_quotes->free_result();
@@ -48,7 +47,9 @@
     $sqli_sysreq = $db->prepare("SELECT cpu,gpu,ram,os FROM System_Requirements WHERE product_id=?");
     $sqli_sysreq->bind_param('i',$id);
     $sqli_sysreq->bind_result($cpu,$gpu,$ram,$os);
-    
+    if(!$sqli_sysreq->execute())
+        throw new Exception($sqli_sysreq->error);
+    $sqli_sysreq->fetch();
     $sqli_sysreq->free_result();
     
     $db->close();
