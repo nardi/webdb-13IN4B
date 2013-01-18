@@ -23,7 +23,7 @@
     
     $sqli_product->free_result();
     
-    $sqli_quotes = $db->prepare("SELECT tekst FROM Reviews WHERE product_id=1");
+    $sqli_quotes = $db->prepare("SELECT tekst FROM Reviews WHERE product_id=?");
     
     $sqli_quotes->bind_param('i',$id);
     $sqli_quotes->bind_result($reviews);
