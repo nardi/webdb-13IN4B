@@ -10,7 +10,7 @@
     Over ons
 </div>
 
-<div class="clickable-item" onClick="window.open('overons.html#contact', '_self');">
+<div class="clickable-item" onClick="window.open('overons.php#contact', '_self');">
     Contact
 </div>
 
@@ -24,7 +24,7 @@
             <div class="clickable-item" onClick="window.open('product-toevoegen.php', '_self');">
                 Product Toevoegen
             </div>
-            <div class="clickable-item" onClick="window.open('upload-test.php', '_self');">
+            <div class="clickable-item" onClick="window.open('upload-test.html', '_self');">
                 F-UP test
             </div>
             <?php
