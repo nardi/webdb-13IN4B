@@ -48,8 +48,11 @@ function checkPostcode(){
     var postcodeLabel = document.getElementById('postcode-label');
     if (!validPostcode.test(postcode))
         error(postcodeLabel, 'Dit is geen geldige postcode.');  
-    else
-        ok(postcodeLabel, 'Dit is een geldige postcode.');
+    else{
+        if(postcode.charAt(4)==" " || postcode.charAt(4)=="-"){
+            document.getElementById('postcode').value = postcode.substring(0,4)+postcode.substring(5);
+            ok(postcodeLabel, 'Dit is een geldige postcode.');
+    }
 }
 function checkNaam(field, label){
     var validNaam = /^[a-z\s\-]{1,256}$/i
