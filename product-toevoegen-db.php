@@ -42,5 +42,6 @@
     if (!$upload) {  // check upload status
         echo "<h2>FTP upload of $myFileName has failed!</h2> <br />";
     }
+    ftp_close($conn_id); // close the FTP stream
     
 ?>
