@@ -98,7 +98,7 @@ html, body {
     padding-bottom: 5pt;
 }
 
-.clickable-item {
+.sidebar div {
     height: 0.8cm;
     border-top-left-radius: 0.4cm;
     border-bottom-left-radius: 0.4cm;

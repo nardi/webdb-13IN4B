@@ -6,7 +6,7 @@
     Producten
 </div>
 
-<div class="clickable-item"></div>
+<div></div>
 
 <div class="clickable-item" onClick="window.open('overons.php', '_self');">
     Over ons
@@ -16,9 +16,9 @@
     Contact
 </div>
 
-<div class="clickable-item"></div>
+<div></div>
 
-<div class="clickable-item">
+<div>
     <form method="get" action="products.php">
         <input type="text" name="search"/>
     </form>

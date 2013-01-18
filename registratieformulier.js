@@ -3,7 +3,7 @@ function getAddress(callback, postcode, nummer, toevoeging)
     var xhr = new XMLHttpRequest();
     var url = 'adres.php?postcode=' + postcode + '&nummer=' + nummer;
     if (toevoeging && toevoeging != '')
-        url += '&toevoeging=' + toevoeging
+        url += '&toevoeging=' + toevoeging;
     xhr.open('GET', url);
     xhr.onreadystatechange = function()
     {
