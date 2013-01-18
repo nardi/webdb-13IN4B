@@ -17,8 +17,6 @@
     $straat = $adres_info->street;
     $plaats = $adres_info->city;
     
-    $registratiedatum = date('Y-m-d');
-    
     $validNaam = '/^[a-z]{1,256}$/i';
     $validPostcode = '/^[0-9]{4}[\s-]?[a-z]{2}$/i';
     $validTel1 = '/^[0-9]{2,4}$/';
@@ -26,6 +24,7 @@
     $validTelTot = '/^[0-9]{10}$/';
     $validHuis = '/^[0-9]{1,5}$/';
     $validMail='/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i';
+    $validWachtwoord='/^.+$/';
     
     if(preg_match($validNaam, $voornaam)&&
        preg_match($validNaam, $achternaam)&&
@@ -35,35 +34,20 @@
        preg_match($validTel2, $telefoonnummer2)&&
        preg_match($validMail, $emailadres)){
         $telefoonnummerTot = $telefoonnummer . '-' . $telefoonnummer2;
-        /*    
-        $sqli_gebruikers = $db->prepare("INSERT INTO Gebruikers (naam, achternaam, telefoonnummer, email, wachtwoord,
-        registratie_datum, status)
-        VALUES (?,?,?,?,?,?,'1')");
+            
+        $sqli_gebruikers = $db->prepare("UPDATE Gebruikers (naam, achternaam, telefoonnummer, email)
+        VALUES (?,?,?,?,?) WHERE id= '".$_SESSION['gebruiker-id']."' ");
+
+        $sqli_gebruikers->bind_param('ssss',$voornaam, $achternaam, $telefoonnummerTot, $emailadres);
         
-        $sqli_gebruikers->bind_param('ssssss',$voornaam, $achternaam, $telefoonnummerTot, $emailadres, $saltww, $registratiedatum);
-                
-        $sqli_adressen = $db->prepare("INSERT INTO Adressen (postcode, huisnummer, toevoeging, plaats, straat)
+        /*$sql_adressen = "INSERT INTO Adressen (postcode, huisnummer, toevoeging, plaats, straat)
+        VALUES ('$postcode' , '$huisnummer' , '$toevoeging' , '$plaats' , '$straat')";*/
+        /*
+        $sqli_adressen = $db->prepare("UPDATE Adressen (postcode, huisnummer, toevoeging, plaats, straat)
         VALUES (?,?,?,?,?)");
         
-        $sqli_adressen->bind_param('sisss',$postcode , $huisnummer , $toevoeging , $plaats , $straat); */
-    
-    
-        $sqli_gebruikers = $db->prepare("UPDATE Gebruikers SET naam = ?, achternaam = ?, telefoonnummer = ?, email = ? WHERE id= '".$_SESSION['gebruiker-id']."' ");
-        $sqli_gebruikers->bind_param('ssss',$voornaam , $achternaam, $telefoonnummerTot, $email); 
-
-        /*
-            Zo moet error-handlen bij database-queries:
-            if (!$db->query(...))
-                throw new Exception($db->error);
-
-            of met resultaat:
-            $res = $db->query(...)
-            if (!$res)
-                throw new Exception($db->error);
-            of: 
-            if (!$res = $db->query(...))
-                throw new Exception($db->error);
-        */
+        $sqli_adressen->bind_param('sisss',$postcode , $huisnummer , $toevoeging , $plaats , $straat);
+    */
 
         if(!$sqli_gebruikers->execute())
             throw new Exception($sqli_gebruikers->error);
@@ -91,4 +75,5 @@
        preg_match($validTel1, $telefoonnummer).
        preg_match($validTel2, $telefoonnummer2).
        preg_match($validMail, $emailadres);
+    
 ?>
