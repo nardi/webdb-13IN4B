@@ -71,7 +71,9 @@
         $sqli_producten = $db->prepare("INSERT INTO Producten (titel, cover)
         VALUES (?,?)");
         
-        $sqli_producten->bind_param('ss', "Image test", $image);
+        $data = file_get_contents($image['tmp_name']);
+        
+        $sqli_producten->bind_param('ss', "Image test", $data);
 
             if(!$sqli_producten->execute())
                 throw new Exception($sqli_producten->error);
