@@ -3,14 +3,7 @@
 <html>
 <head> 
   <title>Over ons</title>
-  <link rel="stylesheet" type="text/css" href="overons.css">
-
-<style>
-  a:link {color:#628BC4;}    /* unvisited link */
-  a:visited {color:#C42B69;} /* visited link */
-  a:hover {color:#62C481;}   /* mouse over link */
-  a:active {color:#0000FF;}  /* selected link */
-</style>
+  <link rel="stylesheet" type="text/css" href="overons.css"
 
   
 </head>
@@ -20,7 +13,7 @@
   <div>
     <h1 class="center"> Wie zijn wij? </h1>
 
-      <p>Wij zijn een groepje van 5 informatica studenten die studeren aan de <a href="http://www.uva.nl">Universiteit van Amsterdam</a>.
+      <p>Wij zijn een groepje van 5 informatica studenten die studeren aan de <a href="http://www.uva.nl"><u>Universiteit van Amsterdam</u></a>.
         Wij hebben als opdracht in onze projectmaand gekozen een website voor een webshop te maken.
         Wij hebben ervoor gekozen om een webshop met games te maken.</p>
 
@@ -44,7 +37,7 @@
 
 <div class="center">
 
-U kunt ons een bericht sturen via <a href="http://www.superinternetshop.nl/contactformulier.php">dit contactformulier</a> 
+U kunt ons een bericht sturen via <a href="http://www.superinternetshop.nl/contactformulier.php"><u>dit contactformulier</u></a> 
 
 <br/>
 
@@ -61,5 +54,3 @@ Science Park 904<br/>
 </div>
 </body>
 </html>
-
-
