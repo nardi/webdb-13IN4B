@@ -39,7 +39,7 @@
         
     while($sqli_quotes->fetch()){
         $quotes.= $reviews."--".$reviewer."<br /><hr />";
-        echo "<script> alert("$quotes");</script>";
+        echo "<script> alert('$quotes');</script>";
     }
     //Free  results for de volgende query.
     $sqli_quotes->free_result();
