@@ -2,7 +2,7 @@
 <link rel="stylesheet" type="text/css" href="centering.css">
  
 <?php
-	if ((!isset($_SESSION['logged-in'])) || ($_SESSION['gebruiker-status'] < 3)) {
+	if (!is_admin()) {
 	?>
 	<pre>
 
@@ -26,7 +26,7 @@ Whale, whale, whale. What do we have here?
 ?>
 		<div class="centered-container">
 			<div class="product-toevoegen">
-				<form action="product-toevoegen-db.php" method="post">
+				<form action="product-toevoegen-db.php" method="post" enctype="multipart/form-data">
 				  <div align="right"> 
 				  <h1><center><b>Product toevoegen</b></center></h1>
 					  <hr width="100%">
@@ -83,7 +83,12 @@ Whale, whale, whale. What do we have here?
 
 					  </div>
 					  <br/>
-					  <div align="right">
+                      
+                      <!-- Image upload to db test -->
+                      Cover: 
+                      <input type="file" name="image" />
+					  
+                      <div align="right">
 					  </div>
                       
 
