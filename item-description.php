@@ -73,7 +73,7 @@
 <div id="Quotes">
 <h4>Wat vonden reviewers van dit spel?</h4>
     <?php
-        //echo $quotes;
+        echo $quotes;
     ?>
 </div>
 
