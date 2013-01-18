@@ -14,9 +14,9 @@ function getAddress(callback, postcode, nummer, toevoeging)
     xhr.send();
 }
 
-function completeAddress()
+function completeAddress(postcode)
 {
-    var postcode = document.regform.postcode.value;
+    var postcode = postcode;
     var huisnummer = document.regform.huisnummer.value;
     var toevoeging = document.regform.toevoeging.value;
     
@@ -50,9 +50,10 @@ function checkPostcode(){
         error(postcodeLabel, 'Dit is geen geldige postcode.');  
     else{
         if(postcode.charAt(4)==" " || postcode.charAt(4)=="-"){
-            document.getElementById('postcode').value = postcode.substring(0,4)+postcode.substring(5);
+            postcode = postcode.substring(0,4)+postcode.substring(5);
             ok(postcodeLabel, 'Dit is een geldige postcode.');
     }
+    completeAddress(postcode);
 }
 function checkNaam(field, label){
     var validNaam = /^[a-z\s\-]{1,256}$/i
