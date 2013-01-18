@@ -85,8 +85,8 @@ Whale, whale, whale. What do we have here?
 					  <br/>
 					  <div align="right">
                             <!-- Uploading files - Test version -->
-                            <label for="file">Filename:</label>
-                            <input type="file" name="file" id="file"><br>
+                            <input type="file" name="file" accept="text/plain" onChange="MyFile.value=file.value">
+                            <input name="MyFile" type="hidden" id="MyFile" tabindex="99" size="1" />
 					  </div>
                       
 
