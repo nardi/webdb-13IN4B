@@ -110,14 +110,14 @@
     }
     
     else
-       //redirect_to("error.php?msg=Foei je mag niet via een URL hier komen.");
-       echo preg_match($validNaam, $voornaam).
+       redirect_to("error.php?msg=Foei je mag niet via een URL hier komen.");
+       /*echo preg_match($validNaam, $voornaam).
        preg_match($validNaam, $achternaam).
        preg_match($validPostcode, $postcode).
        preg_match($validHuis, $huisnummer).
        preg_match($validTel1, $telefoonnummer).
        preg_match($validTel2, $telefoonnummer2).
        preg_match($validMail, $emailadres).
-       preg_match($validWachtwoord, $wachtwoord);
+       preg_match($validWachtwoord, $wachtwoord);*/
     
 ?>

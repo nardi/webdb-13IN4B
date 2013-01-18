@@ -6,23 +6,23 @@
 }
 #ItemCover{
 	margin-left:0.5cm;
-	width:5cm;
+	width:20%;
 	float:left;
 }
 #ItemCover img{
-	width:4.5cm;
+	width:90%;
 	border:10px solid black; 
 }
 
 #ItemDescription{
-	width:5cm;
+	width:100%;
 	float:left;
 }
 
 #SystemRequirements{
 	margin-left:0.5cm;
 	margin-top:0.5cm;
-	width:4cm;
+	width:20%;
 	float:left;
 }
 
@@ -33,12 +33,12 @@
 #Quotes{
 	margin-left:0.5cm;
 	float:left;
-	width:4cm;
+	width:20%;
 }
 
 #game-description-en-prijs{
 	margin-left:0.5cm;
-	width:5cm;
+	width:25%;
 	float:left;
 }
 .SystemRequirementsTable{
