@@ -12,6 +12,8 @@ $paths=$_POST['pathserver'];
 //the name of the file on the server after you upload the file
 $name=$_FILES['userfile']['name'];
 
+/*
+
 //connect to ftp
 $port = 21;
 $conn_id=ftp_connect($ftp_server, $port);
@@ -40,3 +42,20 @@ if (!$upload) {
 ftp_close($conn_id);
 
 ?>
+*/
+
+echo $name;
+
+
+
+$userTest = 10361952;
+$passTest = "Labrador19"
+$conn = ssh2_connect('superinternetshop.nl', 22);
+ssh2_auth_password($conn, $userTest, $passTest); 
+$source = "‪C:\Users\Jordy\Documents\hoi2.tx"
+$dest = "/datastore/webdb13IN4B/test/"
+ssh2_scp_send($conn , $source, $dest); 
+
+  // Add this to flush buffers/close session 
+
+  ssh2_exec($objConnection, 'exit'); 
