@@ -68,12 +68,11 @@
  
     if (count($errors) == 0) {
         $db = connect_to_db();
-        $sqli_producten = $db->prepare("INSERT INTO Producten (titel, cover)
-        VALUES (?,?)");
+        $sqli_producten = $db->prepare("INSERT INTO Producten (cover)
+        VALUES (?)");
         
         $data = file_get_contents($image['tmp_name']);
-        
-        $sqli_producten->bind_param('ss', "Image test", $data);
+        $sqli_producten->bind_param('s', $data);
 
             if(!$sqli_producten->execute())
                 throw new Exception($sqli_producten->error);
