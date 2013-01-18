@@ -38,7 +38,7 @@
         throw new Exception($sqli_quotes->error);
         
     while($sqli_quotes->fetch()){
-        $quotes.= $reviews."--".$reviewer."<br /><hr />".;
+        $quotes.= $reviews."--".$reviewer."<br /><hr />";
     }
     //Free  results for de volgende query.
     $sqli_quotes->free_results();
