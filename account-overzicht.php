@@ -24,7 +24,7 @@ U bent niet ingelogd!
         $sql1->execute();  
         $sql1->bind_result($postcode, $huisnummer, $toevoeging, $plaats, $straat); 
         
-        if (!$sql->fetch()) { print "Onverwachte fout: Geen data."; exit(); }
+        //if (!$sql->fetch()) { print "Onverwachte fout: Geen data."; exit(); }
         $sql1->free_result();
         
         ?>
