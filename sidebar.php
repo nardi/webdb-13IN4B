@@ -1,4 +1,6 @@
-﻿<div class="clickable-item" onClick="window.open('/', '_self');">
+﻿<div class="sidebar">
+
+<div class="clickable-item" onClick="window.open('/', '_self');">
     Beginpagina
 </div>
 
@@ -41,3 +43,5 @@
         }
     }
 ?>
+
+</div>
