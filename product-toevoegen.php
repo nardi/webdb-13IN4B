@@ -85,9 +85,11 @@ Whale, whale, whale. What do we have here?
 					  <br/>
                       
                       <!-- Image upload to db test -->
+                      <div>
                       Cover: 
                       <input type="file" name="image" />
-					  
+					  </div>
+                      
                       <div align="right">
 					  </div>
                       

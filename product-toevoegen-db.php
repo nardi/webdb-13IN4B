@@ -85,13 +85,14 @@
         $platform = $_POST['platform'];
         $genre = $_POST['genre'];
         $image = $_FILES['image'];
+        $data = file_get_contents($image['tmp_name']);
         
            
         
         $sqli_producten = $db->prepare("INSERT INTO Producten (titel, beschrijving, prijs, release_date, voorraad, platform_id, genre_id, cover)
         VALUES (?,?,?,?,?,?,?,?)");
         
-        $sqli_producten->bind_param('ssssssss', $titel, $beschrijving, $prijs, $release_date, $voorraad, $platform, $genre, $image);
+        $sqli_producten->bind_param('ssssssss', $titel, $beschrijving, $prijs, $release_date, $voorraad, $platform, $genre, $data);
 
             if(!$sqli_producten->execute())
                 throw new Exception($sqli_producten->error);
