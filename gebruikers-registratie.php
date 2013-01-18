@@ -70,7 +70,7 @@
         $sqli_gebruikers->bind_param('ssssss',$voornaam, $achternaam, $telefoonnummerTot, $emailadres, $saltww, $registratiedatum);
         
         //id's aan AdresGebruiker toewijzen 
-        $gebruiker_id = $sqli_gebruikers->insert_id();
+        $gebruiker_id = $sqli_gebruikers->last_insert_id();
         //
         
         /*$sql_adressen = "INSERT INTO Adressen (postcode, huisnummer, toevoeging, plaats, straat)
@@ -83,7 +83,7 @@
     
 
         //
-        $adres_id = $sqli_adressen->insert_id();
+        $adres_id = $sqli_adressen->last_insert_id();
         
         $sqli_adresgebr = $db->prepare("INSERT INTO AdresGebruiker (adres_id, gebruiker_id) VALUES (?,?)");
         //
