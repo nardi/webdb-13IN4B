@@ -1,9 +1,5 @@
 <!DOCTYPE html>
 
-<?php
-setcookie("user", "sis_user", time()+3600);
-?>
-
 <html>
 <head> 
   <title>Over ons</title>
@@ -20,23 +16,6 @@ setcookie("user", "sis_user", time()+3600);
 
 <body>
  
-<?php
-if (isset($_COOKIE["user"])){
-?>
-  <script>
-window.onload = alert("Deze website maakt gebruik van functionele cookies, \
-    bij het gebruik van de website gaat u hiermee akkoord.") ;
-
-
-
-  </script>
-<?php
-}
-
-?>
-
-
-
   <div>
     <h1 class="center"> Wie zijn wij? </h1>
 

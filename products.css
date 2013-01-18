@@ -1,0 +1,7 @@
+@import url("product.css");
+@import url("category.css");
+
+#category {
+    width: 100%;
+    text-align: center;
+}

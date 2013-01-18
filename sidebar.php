@@ -1,12 +1,12 @@
-<div class="clickable-item" onClick="window.open('/', '_self');">
+﻿<div class="clickable-item" onClick="window.open('/', '_self');">
     Beginpagina
 </div>
 
-<div class="clickable-item" onClick="window.open('category.php', '_self');">
-    Categoriën
+<div class="clickable-item" onClick="window.open('products.php', '_self');">
+    Producten
 </div>
 
-<div class="clickable-item" onClick="window.open('overons.html', '_self');">
+<div class="clickable-item" onClick="window.open('overons.php', '_self');">
     Over ons
 </div>
 

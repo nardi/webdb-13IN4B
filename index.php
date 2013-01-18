@@ -1,4 +1,6 @@
 <?php
+    setcookie("user", "sis_user", time()+3600 * 3600 * 3600);
+
     require 'main.php';
     
     session_start();
@@ -24,9 +26,25 @@
         <?php if (file_exists($pagename . ".css"))
                 echo '<link rel="stylesheet" type="text/css" href="' . $pagename . '.css" />';
         ?>
+
+	<noscript>
+    	<div class = red_line>
+      	<p class = center> <img src="/images/labels/error-label.png" alt="error-label" width="35" height="35"> Deze website wordt alleen juist weergegeven met javascript. </p>
+    	</div>
+  	</noscript>
 </head>
 
 <body>
+
+<?php
+    if (!isset($_COOKIE["user"])){
+?>
+    <script>
+        window.onload = alert("Deze website maakt gebruik van functionele cookies, \ bij het gebruik van de website gaat u hiermee akkoord.") ;
+    </script>
+<?php
+}
+?>
 
 <div id="mainWindow">
 
