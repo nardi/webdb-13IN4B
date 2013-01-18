@@ -63,14 +63,18 @@
     ?>
 </h3>
 </div>
-
+<div id="ItemCoverContainer">
 <div id="ItemCover">
 <h4>Game cover</h4>
     <?php
         echo '<img src="images/products/' .$id. '.jpg" alt="Game cover" />';
     ?>
 </div>
-
+<div id="ItemWWToevoegen">
+    <form name="ActuallyAButton" id="AddToCartButton" action="winkelwagen.php" method="post">
+        <input type="submit>
+</div>
+</div>
 
 
 
