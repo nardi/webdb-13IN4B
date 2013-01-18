@@ -34,8 +34,22 @@
         $query .= ")";
     }
     
-    if (!$result = $db->query($query))
-        throw new Exception("Er zijn foutieve parameters opgegeven.");
+    if (isset($_GET['search']))
+    {
+        $search = $db->escape_string($_GET['search']);
+        if (isset($_GET['genres']) || isset($_GET['platforms']))
+            $query .= " AND";
+        else
+            $query .= " WHERE";
+        $query .= " MATCH (titel, beschrijving) AGAINST (? IN BOOLEAN MODE)";
+    }
+    
+    $sqli = $db->prepare($query);
+    if (isset($search))
+        $sqli->bind_param('s', $search);
+    $sqli->bind_result($id, $titel, $prijs, $cover);
+    if (!$sqli->execute())
+            throw new Exception("Er zijn foutieve parameters opgegeven.");
 ?>
 
 <div id="products">
@@ -43,15 +57,15 @@
 <div class="category">
 
 <?php
-    while ($row = $result->fetch_assoc())
+    while ($sqli->fetch())
     {
-        $image = $row['cover'];
+        $image = $cover;
 ?>
 
 <div class="product-thumb">
-    <a href="product.php?id=<?php echo $row['id']; ?>"> <?php header("Content-type: image/jpeg"); echo $image;?></a>
-    <p class="title"><a href="product.php?id=<?php echo $row['id']; ?>"><?php echo $row['titel']; ?></a></p>
-    <p class="price"><a href="product.php?id=<?php echo $row['id']; ?>">&euro;<?php echo $row['prijs']; ?></a></p>
+    <a href="product.php?id=<?php echo $id; ?>"> <?php header("Content-type: image/jpeg"); echo $image; ?></a>
+    <p class="title"><a href="item-description.php?id=<?php echo $id; ?>"><?php echo $titel; ?></a></p>
+    <p class="price"><a href="item-description.php?id=<?php echo $id; ?>">&euro;<?php echo $prijs; ?></a></p>
 </div>
 <?php
     }
