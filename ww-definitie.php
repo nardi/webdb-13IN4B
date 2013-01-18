@@ -143,7 +143,7 @@ class Winkelwagen
 ?>
         <tr>
             <td class="product-id"><a href="item-description.php?id=<?php echo $id; ?>"><?php echo $id; ?></a></td>
-            <td class="product-image"><a href="item-description.php?id=<?php echo $id; ?>"><img src="data:image/jpeg;base64,"<?php echo base64_encode($cover); ?>" /></a></td>
+            <td class="product-image"><a href="item-description.php?id=<?php echo $id; ?>"><?php echo '<img src="data:image/jpeg;base64,'.base64_encode($cover).'" />';?></a></td>
             <td class="product-title"><a href="item-description.php?id=<?php echo $id; ?>"><?php echo $titel; ?></a></td>
             <td>&euro;<?php echo $prijs; ?></td>
             <td><input type="text" name="amount-<?php echo $id; ?>" value="<?php echo $hoeveelheid; ?>" <?php if (!$editable) echo 'disabled="disabled"'; ?>/></td>
