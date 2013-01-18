@@ -7,11 +7,7 @@
 
 
 
-  <noscript>
-    <div class = red_line>
-      <p class = center> <img src="/images/labels/error-label.png" alt="error-label" width="35" height="35"> Deze website wordt alleen juist weergegeven met javascript. </p>
-    </div>
-  </noscript>
+  
 </head>
 
 <body>

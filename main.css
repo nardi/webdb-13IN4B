@@ -140,3 +140,11 @@ html, body {
 	float:left;
     margin-left:0.1cm;
 }
+
+.center{
+  text-align:center;
+}
+
+.red_line{
+  border-style: groove; border-color:red; border-width:7px; 
+}
