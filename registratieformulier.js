@@ -49,6 +49,10 @@ function checkPostcode(){
         if(postcode.charAt(4)==" " || postcode.charAt(4)=="-"){
             postcode = postcode.substring(0,4)+postcode.substring(5);
             ok(postcodeLabel, 'Dit is een geldige postcode.');
+        }
+        else{
+            ok(postcodeLabel, 'Dit is een geldige postcode.');
+        }
     }
     completeAddress(postcode);
     alert("Boop");
