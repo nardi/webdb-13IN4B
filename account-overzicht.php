@@ -35,16 +35,16 @@ U bent niet ingelogd!
         <hr width="100%">
         <center><b>Accountgegevens</b></center>
         <br>
-        Voornaam: <input type="text" name="voornaam" disabled value = "<?php echo $naam; ?>" ><br>
-        Achternaam: <input type="text" name="achternaam" disabled value = "<?php echo $achternaam; ?>"><br>
-        Postcode: <input type="text" name="postcode" disabled value = "<?php echo $postcode; ?>"><br>
+        Voornaam: <input type="text" name="voornaam" disabled="disabled" value = "<?php echo $naam; ?>" ><br>
+        Achternaam: <input type="text" name="achternaam" disabled="disabled" value = "<?php echo $achternaam; ?>"><br>
+        Postcode: <input type="text" name="postcode" disabled="disabled" value = "<?php echo $postcode; ?>"><br>
         Huisnummer en toevoeging:
         <div class="huisnummer"> 
-          <input type="tekst" name="huisnummer" disabled value = "<?php echo $huisnummer; ?>"> <input type="tekst" name="toevoeging" disabled value = "<?php echo $toevoeging; ?>">
+          <input type="tekst" name="huisnummer" disabled="disabled" value = "<?php echo $huisnummer; ?>"> <input type="tekst" name="toevoeging" disabled value = "<?php echo $toevoeging; ?>">
         </div>
-        Plaats: <input type="text" name="plaats" disabled value = "<?php echo $plaats; ?>"><br>
-        Telefoonnummer: <input type="text" name="telefoonnummer" disabled value = "<?php echo $telefoonnummer; ?>"><br>
-        E-mailadres: <input type="email" name="e-mailadres" disabled value = "<?php echo $email; ?>"><br>
+        Plaats: <input type="text" name="plaats" disabled="disabled" value = "<?php echo $plaats; ?>"><br>
+        Telefoonnummer: <input type="text" name="telefoonnummer" disabled="disabled" value = "<?php echo $telefoonnummer; ?>"><br>
+        E-mailadres: <input type="email" name="e-mailadres" disabled="disabled" value = "<?php echo $email; ?>"><br>
         <hr width="100%">
         <center><b>Bestellingen</b></center><br>
         <div align="center"> 
