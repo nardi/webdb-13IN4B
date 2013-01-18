@@ -19,17 +19,18 @@
     $sqli_product->bind_result($titel,$platform,$genre,$beschrijving,$prijs,$release,$voorraad,$toegevoegd);
     if(!$sqli_product->execute())
         throw new Exception($sqli_product->error);
+    $sqli_product->fetch();
+    //$sqli_quotes = $db->prepare("SELECT tekst FROM Reviews WHERE product_id=1");
     
-    $sqli_quotes = $db->prepare("SELECT tekst FROM Reviews WHERE product_id=1");
-    //$sqli_quotes->bind_param('i',$id);
-    //$sqli_quotes->bind_result($reviews);
+    /*$sqli_quotes->bind_param('i',$id);
+    $sqli_quotes->bind_result($reviews);
     $quotes="";
     if(!$sqli_quotes->execute())
         throw new Exception($sqli_quotes->error);
         
     while($sqli_quotes->fetch()){
         $quotes.= "<br /><hr />".$reviews;
-    }
+    }*/
     ?>
 <div class="ItemDescriptionContainer">
 <div id="ItemName">
@@ -69,7 +70,7 @@
 <div id="Quotes">
 <h4>Wat vonden reviewers van dit spel?</h4>
     <?php
-        echo $quotes;
+        //echo $quotes;
     ?>
 </div>
 

@@ -10,7 +10,7 @@
     Over ons
 </div>
 
-<div class="clickable-item" onClick="window.open('overons.html#contact', '_self');">
+<div class="clickable-item" onClick="window.open('overons.php#contact', '_self');">
     Contact
 </div>
 
