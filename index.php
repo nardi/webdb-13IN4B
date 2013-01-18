@@ -92,8 +92,7 @@
 </div>
 
 
-<!-- Konami-code - source: http://snaptortoise.com/konami-js/ 
-    up-up-down-down-left-right-left-right-B-A-Start     -->
+<!-- source:http://snaptortoise.com/konami-js/ -->
 
 <script type="text/javascript" src="http://konami-js.googlecode.com/svn/trunk/konami.js"></script>
 <script type="text/javascript">
