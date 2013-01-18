@@ -49,7 +49,7 @@ echo $name;
 
 
 $userTest = 10361952;
-$passTest = "Labrador19"
+$passTest = "hoi"
 $conn = ssh2_connect('superinternetshop.nl', 22);
 ssh2_auth_password($conn, $userTest, $passTest); 
 $source = "‪C:\Users\Jordy\Documents\hoi2.tx"
