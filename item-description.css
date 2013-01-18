@@ -20,6 +20,8 @@
 
 #AddSubmitButton{
     background-image:url("images/labels/Add2Cart.png");
+    height:53px;
+    width:161px;
 }
 
 #ItemDescription{

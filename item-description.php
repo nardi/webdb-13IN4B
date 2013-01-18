@@ -73,7 +73,7 @@
     <div id="ItemWWToevoegen">
         <form name="ActuallyAButton" id="AddToCartButton" action="winkelwagen.php" method="post">
             <input type="hidden" name="add" value="<?php echo $_GET['id'] ?>">
-            <input type="submit" name="submitButton" id="AddSubmitButton">
+            <input type="submit" value="" name="submitButton" id="AddSubmitButton">
         </form>
     </div>
 </div>
