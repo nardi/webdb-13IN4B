@@ -40,7 +40,7 @@ U bent niet ingelogd!
         Postcode: <input type="text" name="postcode" disabled="disabled" value = "<?php echo $postcode; ?>"><br>
         Huisnummer en toevoeging:
         <div class="huisnummer"> 
-          <input type="tekst" name="huisnummer" disabled="disabled" value = "<?php echo $huisnummer; ?>"> <input type="tekst" name="toevoeging" disabled value = "<?php echo $toevoeging; ?>">
+          <input type="tekst" name="huisnummer" disabled="disabled" value = "<?php echo $huisnummer; ?>"> <input type="tekst" name="toevoeging" disabled="disabled" value = "<?php echo $toevoeging; ?>">
         </div>
         Plaats: <input type="text" name="plaats" disabled="disabled" value = "<?php echo $plaats; ?>"><br>
         Telefoonnummer: <input type="text" name="telefoonnummer" disabled="disabled" value = "<?php echo $telefoonnummer; ?>"><br>
