@@ -24,7 +24,7 @@
             <div class="clickable-item" onClick="window.open('product-toevoegen.php', '_self');">
                 Product Toevoegen
             </div>
-            <div class="clickable-item" onClick="window.open('filetest.html', '_self');">
+            <div class="clickable-item" onClick="window.open('upload-test.php', '_self');">
                 F-UP test
             </div>
             <?php
