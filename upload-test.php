@@ -25,7 +25,7 @@ $myFile = $_FILES['file']; // This will make an array out of the file informatio
     }
 */
 ftp_close($conn_id); // close the FTP stream
-}
+
 ?>
 <form name="form" enctype="multipart/form-data" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" >
 Please choose a file: <input type="file" name="file" accept="text/plain" onChange="MyFile.value=file.value">
