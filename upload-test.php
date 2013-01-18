@@ -27,7 +27,7 @@ if ((!$conn_id) || (!$login_result)) {
 }
 
 // upload the file
-$upload = ftp_put($conn_id, 'public_html/'.$paths.'/'.$name, $filep, FTP_BINARY);
+$upload = ftp_put($conn_id, $paths.'/'.$name, $filep, FTP_BINARY);
  
 // check upload status
 if (!$upload) {
