@@ -1,5 +1,7 @@
 <?php
-    $db = connect_to_db();
+    if (is_admin())
+    {
+        $db = connect_to_db();
 
     $titel = $_POST['titel'];
     $beschrijving = $_POST['beschrijving'];
@@ -17,13 +19,12 @@
     
     $sqli_producten->bind_param('sssssss', $titel, $beschrijving, $prijs, $release_date, $voorraad, $platform, $genre, $image);
 
-    if(!$sqli_producten->execute())
-        throw new Exception($sqli_producten->error);
+        if(!$sqli_producten->execute())
+            throw new Exception($sqli_producten->error);
 
     $db->close();
     
     
     
     redirect_to("product-toevoegen-succesvol.html");
-    
 ?>

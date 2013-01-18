@@ -41,4 +41,14 @@
         $saltedwwhash = hash('sha256', $salt . $wwhash);
         return $saltedwwhash === $salthash[1];
     }
+    
+    function is_logged_in()
+    {
+        return isset($_SESSION['logged-in']);
+    }
+    
+    function is_admin()
+    {
+        return is_logged_in() && ($_SESSION['gebruiker-status'] < 3);
+    }
 ?>

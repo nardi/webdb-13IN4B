@@ -44,7 +44,7 @@
     registratie_datum, status)
     VALUES ('$voornaam', '$achternaam', '$telefoonnummer', '$emailadres', '$saltww', '$registratiedatum', '1')";*/
     
-    $validNaam = '/^[a-z]{1,256}$/i';
+    $validNaam = '/^[a-z\s-\']{1,256}$/i';
     $validPostcode = '/^[0-9]{4}[\s-]?[a-z]{2}$/i';
     $validTel1 = '/^[0-9]{2,4}$/';
     $validTel2 = '/^[0-9]{6,8}$/';
@@ -110,14 +110,14 @@
     }
     
     else
-       redirect_to("error.php?msg=Foei je mag niet via een URL hier komen.");
-       /*echo preg_match($validNaam, $voornaam).
+       //redirect_to("error.php?msg=Foei je mag niet via een URL hier komen.");
+       echo preg_match($validNaam, $voornaam).
        preg_match($validNaam, $achternaam).
        preg_match($validPostcode, $postcode).
        preg_match($validHuis, $huisnummer).
        preg_match($validTel1, $telefoonnummer).
        preg_match($validTel2, $telefoonnummer2).
        preg_match($validMail, $emailadres).
-       preg_match($validWachtwoord, $wachtwoord);*/
+       preg_match($validWachtwoord, $wachtwoord);
     
 ?>

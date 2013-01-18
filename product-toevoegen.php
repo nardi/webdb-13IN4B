@@ -2,7 +2,7 @@
 <link rel="stylesheet" type="text/css" href="centering.css">
  
 <?php
-	if ((!isset($_SESSION['logged-in'])) || ($_SESSION['gebruiker-status'] < 3)) {
+	if (!is_admin()) {
 	?>
 	<pre>
 
