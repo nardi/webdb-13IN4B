@@ -7,7 +7,7 @@
         $var = intval($var);
     }
     
-    $query = "SELECT id, titel, prijs FROM Producten";
+    $query = "SELECT id, titel, prijs, cover FROM Producten";
     
     if(isset($_GET['genres']) || isset($_GET['platforms']))
     {
@@ -45,10 +45,11 @@
 <?php
     while ($row = $result->fetch_assoc())
     {
+        $image = $row['cover'];
 ?>
 
 <div class="product-thumb">
-    <a href="product.php?id=<?php echo $row['id']; ?>"><img src="images/products/<?php echo $row['id']; ?>.jpg" /></a>
+    <a href="product.php?id=<?php echo $row['id']; ?>"> <?php header("Content-type: image/jpeg"); echo $image;?></a>
     <p class="title"><a href="product.php?id=<?php echo $row['id']; ?>"><?php echo $row['titel']; ?></a></p>
     <p class="price"><a href="product.php?id=<?php echo $row['id']; ?>">&euro;<?php echo $row['prijs']; ?></a></p>
 </div>
