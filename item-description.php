@@ -29,7 +29,7 @@
     /*Hieronder wordt de mening van de reviewers weergegeven. Als de gebruiker id 
     NULL is, dan is de review geschreven door een professionele reviewer en bevat hij 
     alleen quotes.*/
-    $sqli_quotes = $db->prepare("SELECT tekst,reviewer FROM Reviews WHERE product_id=? AND gebruiker_id=NULL");
+    $sqli_quotes = $db->prepare("SELECT tekst,reviewer FROM Reviews WHERE product_id=? AND gebruiker_id is NULL");
     
     $sqli_quotes->bind_param('i',$id);
     $sqli_quotes->bind_result($reviews, $reviewer);
@@ -65,7 +65,7 @@
 <div id="ItemCover">
 <h4>Game cover</h4>
     <?php
-        echo '<img src="images/products/"' .$id. '".jpg" alt="Game cover" />';
+        echo '<img src="images/products/' .$id. '.jpg" alt="Game cover" />';
     ?>
 </div>
 
