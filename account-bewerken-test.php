@@ -47,6 +47,20 @@
         
         $sqli_adressen->bind_param('sisss',$postcode , $huisnummer , $toevoeging , $plaats , $straat); */
     
+
+        $sql = $db->prepare("SELECT naam, achternaam, telefoonnummer, email FROM Gebruikers WHERE id= '".$_SESSION['gebruiker-id']."' LIMIT 1");
+        $sql->execute();  
+        $sql->bind_result($naam, $achternaam, $telefoonnummer, $email);
+        
+        if (!$sql->fetch()) { print "Onverwachte fout: Geen data."; exit(); }
+        $sql->free_result();
+
+        $sql = $db->prepare("SELECT postcode, huisnummer, toevoeging, plaats, straat FROM Adressen JOIN AdresGebruiker ON Adressen.id = adres_id WHERE gebruiker_id= '".$_SESSION['gebruiker-id']."' LIMIT 1");
+        $sql->execute();  
+        $sql->bind_result($postcode, $huisnummer, $toevoeging, $plaats, $straat); 
+        
+        if (!$sql->fetch()) { print "Onverwachte fout: Geen data."; exit(); }
+        $sql->free_result();
     
         $sqli_gebruikers = $db->prepare("UPDATE Gebruikers SET naam = ?, achternaam = ?, telefoonnummer = ?, email = ? WHERE id= '".$_SESSION['gebruiker-id']."' ");
         $sqli_gebruikers->bind_param('ssss',$voornaam , $achternaam, $telefoonnummerTot, $email); 
