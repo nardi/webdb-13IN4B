@@ -20,9 +20,9 @@ U bent niet ingelogd!
         if (!$sql->fetch()) { print "Onverwachte fout: Geen data."; exit(); }
         $sql->free_result();
 
-        $sql1 = $db->prepare("SELECT postcode, huisnummer, plaats, straat FROM Adressen WHERE id= '".$_SESSION['gebruiker-id']."' LIMIT 1");
+        $sql1 = $db->prepare("SELECT postcode, huisnummer, plaats, straat FROM Adressen WHERE id= '2' LIMIT 1");
         $sql1->execute();  
-        $sql1->bind_result($postcode, $huisnummer, $plaats, $straat); 
+        $sql1->bind_result($postcode, $huisnummer, $toevoeging, $plaats, $straat); 
         
         if (!$sql->fetch()) { print "Onverwachte fout: Geen data."; exit(); }
         $sql1->free_result();
