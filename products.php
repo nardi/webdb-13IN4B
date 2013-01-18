@@ -49,7 +49,7 @@
 ?>
 
 <div class="product-thumb">
-    <a href="product.php?id=<?php echo $row['id']; ?>"> <?php header("Content-type: image/jpeg"); echo $image;?></a>
+    <a href="product.php?id=<?php echo $row['id']; ?>"> <?php echo $image;?></a>
     <p class="title"><a href="product.php?id=<?php echo $row['id']; ?>"><?php echo $row['titel']; ?></a></p>
     <p class="price"><a href="product.php?id=<?php echo $row['id']; ?>">&euro;<?php echo $row['prijs']; ?></a></p>
 </div>
