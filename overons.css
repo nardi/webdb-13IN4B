@@ -1,7 +1,9 @@
-.center {text-align:center;}
+.center{
+  text-align:center;
+}
 
+.displayed{
+  display:block; margin-left:auto; margin-right:auto;
+}
 
-.displayed {display:block; margin-left:auto; margin-right:auto; }
-
-.red_line {border-style: groove; border-color:red; border-width:7px; }
 
