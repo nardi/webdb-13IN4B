@@ -41,7 +41,7 @@
         $quotes.= $reviews."--".$reviewer."<br /><hr />";
     }
     //Free  results for de volgende query.
-    $sqli_quotes->free_results();
+    $sqli_quotes->free_result();
     
     /*Haal systeem vereiste op uit de database.*/
     $sqli_sysreq = $db->prepare("SELECT cpu,gpu,ram,os FROM System_Requirements WHERE product_id=?");
