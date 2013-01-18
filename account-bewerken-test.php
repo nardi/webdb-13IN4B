@@ -35,8 +35,7 @@
        preg_match($validMail, $emailadres)){
         $telefoonnummerTot = $telefoonnummer . '-' . $telefoonnummer2;
             
-        $sqli_gebruikers = $db->prepare("UPDATE Gebruikers (naam, achternaam, telefoonnummer, email)
-        VALUES (?,?,?,?) WHERE id= '".$_SESSION['gebruiker-id']."' ");
+        $sqli_gebruikers = $db->prepare("UPDATE Gebruikers naam = ?, achternaam = ?, telefoonnummer = ?, email = ? WHERE id= '".$_SESSION['gebruiker-id']."' ");
 
         $sqli_gebruikers->bind_param('ssss',$voornaam, $achternaam, $telefoonnummerTot, $emailadres);
         
