@@ -157,7 +157,7 @@ class Winkelwagen
         <tr class="total-price">
             <td class="update-button" colspan="3"><?php if (false) echo '<input type="submit" value="Update hoeveelheden"/>'; ?></td>
             <th colspan="2">Totale prijs:</td>
-            <td><span id="total-price" class="price">&euro;<?php echo $totaalprijs; ?><span></td>
+            <td>&euro;<span id="total-price" class="price"><?php echo $totaalprijs; ?><span></td>
         </tr>
     </table>
 <?php if ($editable) echo '</form>'; ?>
