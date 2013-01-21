@@ -34,7 +34,7 @@
 
       $email = $_REQUEST['email'] ;
       $onderwerp = "Nieuw wachtwoord aanvragen" ;
-      $bericht = "Geachte heer / mevrouw,\ Hierbij ontvangt u een email om uw wachtwoord opnieuw in te stellen.\ ;
+      $bericht = "Geachte heer / mevrouw,\ Hierbij ontvangt u een email om uw wachtwoord opnieuw in te stellen.\ etc etc" ;
       $from = "noreply@superinternetshop.nl";
       $headers = "From:" . $from;
       mail($email, $onderwerp, $bericht, $headers);
