@@ -7,8 +7,9 @@
     function show_error_page($exception)
     {
 ?>
+    <h4><strong>FAIL WHALE</strong></h4><br />
+    <h5>Oeps, er ging iets vaudt.</h5><br />
     <pre>
-
 
             _.._
            (_.-.\
