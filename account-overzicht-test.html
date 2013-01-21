@@ -1,0 +1,71 @@
+<link rel="stylesheet" type="text/css" href="inloggen-wachtwoord-registratie.css">
+<link rel="stylesheet" type="text/css" href="centering.css">
+ 
+<?php
+	if ((!isset($_SESSION['logged-in']))) {
+	?>
+	<pre>
+U bent niet ingelogd!
+	</pre>
+	<?php
+	}
+	else {
+        
+        $db = connect_to_db();
+        
+        $sql = $db->prepare("SELECT naam, achternaam, telefoonnummer, email FROM Gebruikers WHERE id= '".$_SESSION['gebruiker-id']."' LIMIT 1");
+        $sql->execute();  
+        $sql->bind_result($naam, $achternaam, $telefoonnummer, $email);
+        
+        if (!$sql->fetch()) { print "Onverwachte fout: Geen data."; exit(); }
+        $sql->free_result();
+
+        $sql = $db->prepare("SELECT postcode, huisnummer, toevoeging, plaats, straat FROM Adressen JOIN AdresGebruiker ON Adressen.id = adres_id WHERE gebruiker_id= '".$_SESSION['gebruiker-id']."' LIMIT 1");
+        $sql->execute();  
+        $sql->bind_result($postcode, $huisnummer, $toevoeging, $plaats, $straat); 
+        
+        if (!$sql->fetch()) { print "Onverwachte fout: Geen data."; exit(); }
+        $sql->free_result();
+        
+        $db->close();
+    ?>
+
+<div class="centered-container">
+    <div class="registratieformulier">
+        <form name="regform" id="regformid" method="post">
+          <div align="right"> 
+          <h1><center><b>Mijn account</b></center></h1>
+              <hr width="100%">
+              <center><b>Accountgegevens</b></center>
+              <br>
+              Voornaam: <input type="text" id="voornaam" disabled name="voornaam" onblur="checkNaam('voornaam', 'voornaam-label')" value = "<?php echo $naam; ?>"><div id="voornaam-label" class="label-div"></div><br>
+              Achternaam: <input type="text" id="achternaam" disabled name="achternaam" onblur="checkNaam('achternaam', 'achternaam-label')" value = "<?php echo $achternaam; ?>"><div id="achternaam-label" class="label-div"></div><br>
+              Huisnummer en toevoeging:
+              <div class="huisnummer"> 
+                <input type="tekst" id="huisnummer" disabled name="huisnummer" onchange="completeAddress()" onblur="checkHuis()" value = "<?php echo $huisnummer; ?>"> <input type="tekst" name="toevoeging" disabled value = "<?php echo $toevoeging; ?>"><div id="huisnummer-label" class="label-div"></div>
+              </div><br/>
+              Postcode: <input type="text" id="postcode" disabled name="postcode" value = "<?php echo $postcode; ?>"><div id="postcode-label" class="label-div"></div><br>
+              Straat: <input type="text" id="straatid" disabled name="straat"><div id="straat-label" class="label-div" value = "<?php echo $straat; ?>"></div><br>
+              Plaats: <input type="text" name="plaats" disabled><div id="plaats-label" class="label-div" value = "<?php echo $plaats; ?>"></div><br>
+              Telefoonnummer: <input type="text" name="telefoonnummer" disabled="disabled" value = "<?php echo $telefoonnummer; ?>"><br>
+              E-mailadres: <input type="text" id="email" name="e-mailadres" value = "<?php echo $email; ?>"><div id="email-label" class="label-div"></div><br>
+              <hr width="100%">
+              <center><b>Bestellingen</b></center><br>
+              <div align="center"> 
+              <a href="bestellingen-geschiedenis.html"><input type="submit"  value="Bestelgeschiedenis"></a>
+              </div>
+              <hr width="100%">
+              <center><b>Bewerken</b></center><br>
+              <div align="center"> 
+              <a href="account-wachtwoord-veranderen.html"><input type="submit"  value="Wachtwoord veranderen"></a><br>
+              <a href="account-bewerken.html"><input type="submit"  value="Accountgegevens veranderen"></a>
+              </div>
+              <hr width="100%">
+          </div>
+        </form>
+    </div>
+</div>
+
+<?php
+    }
+?>
