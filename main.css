@@ -13,6 +13,7 @@ html, body {
 a {
     color: black;
     text-decoration: none;
+    font-weight:bold;
 }
 
 #mainWindow {
@@ -132,11 +133,6 @@ a {
   font-size: 1.8em;
 }
 
-#content a {
-  color: #0204A6;
-  text-decoration: none;
-}
-
 #reg-log{
 	float:left;
 }
@@ -176,5 +172,9 @@ a {
 
 .displayed{
   display:block; margin-left:auto; margin-right:auto;
+}
+
+.text a {
+  color: #0204A6;
 }
 
