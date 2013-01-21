@@ -33,11 +33,9 @@
     	</div>
   	</noscript>
     
-    <script>function test(){alert("Werken kreng! " + location.pathname);}
-    </script>
 </head>
 
-<body onload="test()">
+<body>
 
 <?php
     if (!isset($_COOKIE["user"])){
