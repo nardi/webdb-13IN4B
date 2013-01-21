@@ -105,8 +105,8 @@
         */
 
         if(!$sqli_gebruikers->execute())
-            if($sqli_gebruikers->error == "Duplicate entry 'MetalPinguinInc@gmail.com' for key 'email'"){
-                throw new Exception("Dit e-mail adres bestaat al, probeer in te loggen.");
+            if($sqli_gebruikers->error == "Duplicate entry '$email' for key 'email'"){
+                throw new Exception("Dit e-mail adres bestaat al, probeer '<a href=inloggen.php>in te loggen.</a>'");
             }
             else
                 throw new Exception($sqli_gebruikers->error);
