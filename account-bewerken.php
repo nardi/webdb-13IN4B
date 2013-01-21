@@ -74,7 +74,7 @@
             
         $db->close();
         
-        redirect_to("registratie-succesvol.html");
+        redirect_to("wijzigingen-succesvol.html");
     }
     
     else
