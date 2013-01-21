@@ -43,7 +43,7 @@ else {
       Email: <input name='email' type='text'><br>
       </textarea><br>
       <input type='submit'>
-      </form>;"
+      </form>";
 }
 ?>
      
