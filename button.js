@@ -1,5 +1,5 @@
 function setButtonColor(button) {
-    if(window.location.hash) && (button == "/overons.php") {
+    if(window.location.hash) {
         //button = button + window.location.hash;
         alert(button);
     //
