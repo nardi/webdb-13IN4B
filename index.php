@@ -33,9 +33,11 @@
     	</div>
   	</noscript>
     
+    <script type="text/javascript" language="javascript" src="button.js"></script>
+    
 </head>
 
-<body>
+<body onload = "setButtonColor(location.pathname)">
 
 <?php
     if (!isset($_COOKIE["user"])){
