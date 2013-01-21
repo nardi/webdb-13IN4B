@@ -1,10 +1,9 @@
-// Code voor ophalen adres
 function getAddress(callback, postcode, nummer, toevoeging)
 {
     var xhr = new XMLHttpRequest();
     var url = 'adres.php?postcode=' + postcode + '&nummer=' + nummer;
     if (toevoeging && toevoeging != '')
-        url += '&toevoeging=' + toevoeging
+        url += '&toevoeging=' + toevoeging;
     xhr.open('GET', url);
     xhr.onreadystatechange = function()
     {
@@ -50,6 +49,10 @@ function checkPostcode(){
         if(postcode.charAt(4)==" " || postcode.charAt(4)=="-"){
             postcode = postcode.substring(0,4)+postcode.substring(5);
             ok(postcodeLabel, 'Dit is een geldige postcode.');
+        }
+        else{
+            ok(postcodeLabel, 'Dit is een geldige postcode.');
+        }
     }
     completeAddress(postcode);
 }

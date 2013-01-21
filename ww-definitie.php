@@ -89,6 +89,20 @@ class Winkelwagen
         return $prijs;
     }
     
+    function get_cover($id)
+    {
+        $db = connect_to_db();
+        
+        $sql = $db->prepare("SELECT cover FROM Producten WHERE id = ? LIMIT 1");
+        $sql->bind_param('i', $id);
+        $sql->execute();
+        $sql->bind_result($cover);
+        $sql->fetch();
+        $sql->free_result();
+    
+        return $cover;
+    }
+    
     function get_all()
     {
         return array_keys($this->producten);
@@ -123,13 +137,14 @@ class Winkelwagen
             $hoeveelheid = $this->get_amount($id);
             $titel = $this->get_title($id);
             $prijs = $this->get_price($id);
+            $cover = $this->get_cover($id);
             
             $productprijs = $hoeveelheid * $prijs;
 ?>
         <tr>
-            <td class="product-id"><a href="product.php?id=<?php echo $id; ?>"><?php echo $id; ?></a></td>
-            <td class="product-image"><a href="product.php?id=<?php echo $id; ?>"><img src="images/products/<?php echo $id; ?>.jpg" /></a></td>
-            <td class="product-title"><a href="product.php?id=<?php echo $id; ?>"><?php echo $titel; ?></a></td>
+            <td class="product-id"><a href="item-description.php?id=<?php echo $id; ?>"><?php echo $id; ?></a></td>
+            <td class="product-image"><a href="item-description.php?id=<?php echo $id; ?>"><?php echo '<img src="data:image/jpeg;base64,'.base64_encode($cover).'" />';?></a></td>
+            <td class="product-title"><a href="item-description.php?id=<?php echo $id; ?>"><?php echo $titel; ?></a></td>
             <td>&euro;<?php echo $prijs; ?></td>
             <td><input type="text" name="amount-<?php echo $id; ?>" value="<?php echo $hoeveelheid; ?>" <?php if (!$editable) echo 'disabled="disabled"'; ?>/></td>
             <td>&euro;<?php echo $productprijs; ?></td>

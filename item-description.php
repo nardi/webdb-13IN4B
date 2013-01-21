@@ -64,17 +64,18 @@
 </h3>
 </div>
 <div id="ItemCoverContainer">
-<div id="ItemCover">
-<h4>Game cover</h4>
-    <?php
-        echo '<img src="data:image/jpeg;base64,'.base64_encode($cover).'" />';
-    ?>
-</div>
-<div id="ItemWWToevoegen">
-    <form name="ActuallyAButton" class="AddToCartButton" action="winkelwagen.php" method="post">
-        <input type="submit" class="AddToCartButton">
-    </form>
-</div>
+    <div id="ItemCover">
+    <h4>Game cover</h4>
+        <?php
+            echo '<img src="data:image/jpeg;base64,'.base64_encode($cover).'" />';
+        ?>
+    </div>
+    <div id="ItemWWToevoegen">
+        <form name="ActuallyAButton" id="AddToCartButton" action="winkelwagen.php" method="post">
+            <input type="hidden" name="add" value="<?php echo $_GET['id'] ?>">
+            <input type="submit" value="" name="submitButton" id="AddSubmitButton">
+        </form>
+    </div>
 </div>
 
 
