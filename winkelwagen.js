@@ -2,7 +2,7 @@ function changeAmount(id)
 {
     var xhr = new XMLHttpRequest();
     var amountElem = document.getElementById('amount-' + id);
-    var amount = amountElem.value;
+    var amount = parseInt(amountElem.value);
     var url = 'backend/hoeveelheden.php';
     var params = 'amount-' + id + '=' + amount;
     xhr.open('POST', url);
@@ -26,9 +26,11 @@ function recalculateTotalPrice()
     for (var id in ids)
     {
         id = id.innerHTML;
-        var amount = parseFloat(document.getElementById('amount-' + id).innerHTML);
+        var amount = parseInt(document.getElementById('amount-' + id).innerHTML);
         var price = parseFloat(document.getElementById('price-' + id).innerHTML);
-        totalPrice += amount * price;
+        var productPrice = amount * price;
+        document.getElementById('productprice-' + id).innerHTML = productPrice.toString();
+        totalPrice += productPrice;
     }
     document.getElementById('total-price').innerHTML = totalPrice.toString();
 } 
