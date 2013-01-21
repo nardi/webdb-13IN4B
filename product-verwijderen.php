@@ -8,7 +8,7 @@
             $sqli_preserved_products->bind_result($useless,$titel,$platform_id,$genre_id,$beschrijving,$prijs,$release_date,$voorraad,$datum_toegevoegd,$cover);
         }
         
-        $sqli_preserved_product = $db->prepare("INSERT INTO Producten_Prullenbak VALUES ($useless,$titel,$platform_id,$genre_id,$beschrijving,$prijs,$release_date,$voorraad,$datum_toegevoegd,$cover)"
+        $sqli_preserved_product = $db->prepare("INSERT INTO Producten_Prullenbak VALUES ($useless,$titel,$platform_id,$genre_id,$beschrijving,$prijs,$release_date,$voorraad,$datum_toegevoegd,$cover)");
         $sqli_preserved_product->execute();
         
         $sqli_preserved_product->free_result();
