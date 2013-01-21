@@ -1,6 +1,6 @@
 <?php
     if(is_admin()){
-        $id=$_GET["id"];
+        $id=$_POST['voornaam'];
         $db = connect_to_db();
         $sqli_preserved_product = $db->prepare("SELECT * FROM Producten WHERE id=?");
         $sqli_preserved_product->bind_param('i',$id);
