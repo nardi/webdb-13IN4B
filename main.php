@@ -6,7 +6,19 @@
 
     function show_error_page($exception)
     {
-        echo "Er ging iets mis bij het laden van deze pagina:</br></br>" . $exception->getMessage();
+        ?><pre>
+
+
+            _.._
+           (_.-.\
+       .-,       `
+  .--./ /     _.-""-.
+   '-. (__..-"       \
+      \          a    |
+       ',.__.   ,__.-'/
+         '--/_.'----'`
+Whale, whale, whale. What do we have here?		
+	</pre> <?php. $exception->getMessage();
     }
     
     set_exception_handler('show_error_page');
