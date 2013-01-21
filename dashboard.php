@@ -26,7 +26,7 @@
         $aantal = ' (' . count($ww->get_all()) . ')';
 ?>
 <div id="acc-mand">
-    <a href="account-overzicht.php">Mijn account</a><br />
+    <a href="account-overzicht.html">Mijn account</a><br />
     <a href="winkelwagen.php">Winkelwagen<?php echo $aantal; ?></a>
 </div>
 
