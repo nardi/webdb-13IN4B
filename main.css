@@ -13,7 +13,6 @@ html, body {
 a {
     color: black;
     text-decoration: none;
-    font-weight:bold;
 }
 
 #mainWindow {
@@ -167,7 +166,7 @@ a {
 }
 
 .center{
-  text-align:center;
+  text-align: center;
 }
 
 .displayed{
@@ -175,6 +174,7 @@ a {
 }
 
 .text a {
-  color: #0204A6;
+    color: #0204A6;
+    font-weight: bold;
 }
 
