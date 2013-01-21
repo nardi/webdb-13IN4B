@@ -18,7 +18,7 @@
         $sqli_destroy_product->execute();
         
     
-        echo "<img src='placeholder' /> <br /> <strong> $titel is succesvol verwijderd uit de database.</strong>"
+        echo "<img src='placeholder' /> <br /> <strong> $titel is succesvol verwijderd uit de database.</strong>";
     }
     else
         throw new Exception("Foei, stoute hacker. Je mag hier niet komen.");
