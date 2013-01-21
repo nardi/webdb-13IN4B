@@ -18,6 +18,11 @@ html, body {
     margin-right : auto
 }
 
+#mainWindow a {
+    text-decoration: none;
+    color: black;
+}
+
 
 /*
  *  Useful for vertical centering
@@ -74,7 +79,7 @@ html, body {
     padding-top: 0.5cm;
 }
 
-#dashboard a{
+#dashboard{
     /*margin-right: 10pt; */
 }
 
@@ -129,7 +134,7 @@ html, body {
 
 #content a {
   text-decoration: none;
-  color: black;
+  color: 0204A6;
 }
 
 #reg-log{
