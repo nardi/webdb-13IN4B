@@ -103,7 +103,7 @@
         */
 
         if(!$sqli_gebruikers->execute())
-            if($sqli_gebruikers->error == "Duplicate entry '$email' for key 'email'"){
+            if($sqli_gebruikers->error == "Duplicate entry '$emailadres' for key 'email'"){
                 throw new Exception("Dit e-mail adres bestaat al, probeer '<a href=inloggen.php>in te loggen.</a>'");
             }
             else
