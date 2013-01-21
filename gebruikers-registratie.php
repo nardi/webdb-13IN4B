@@ -108,6 +108,7 @@
             }
             else
                 throw new Exception($sqli_gebruikers->error);
+                
         if(!$sqli_adressen->execute())
             throw new Exception($sqli_adressen->error);
         
