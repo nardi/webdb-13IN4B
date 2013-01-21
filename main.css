@@ -153,3 +153,28 @@ a {
 .red_line{
   border-style: groove; border-color:red; border-width:7px; 
 }
+
+/*
+ * Contactformulier en Over Ons:
+ */
+.right_allign{
+    text-allign:right
+}
+
+.centered-container {
+    width: 100%;
+    text-align: center;
+}
+
+.centered-container div {
+    display: inline-block;
+}
+
+.center{
+  text-align:center;
+}
+
+.displayed{
+  display:block; margin-left:auto; margin-right:auto;
+}
+
