@@ -69,10 +69,6 @@
         
         $sqli_gebruikers->bind_param('ssssss',$voornaam, $achternaam, $telefoonnummerTot, $emailadres, $saltww, $registratiedatum);
         
-        //id gebruiker aan AdresGebruiker toewijzen 
-        $gebruiker_id = $sqli_gebruikers->insert_id();
-        echo $gebruiker_id;
-        
         /*$sql_adressen = "INSERT INTO Adressen (postcode, huisnummer, toevoeging, plaats, straat)
         VALUES ('$postcode' , '$huisnummer' , '$toevoeging' , '$plaats' , '$straat')";*/
 
@@ -81,12 +77,6 @@
         
         $sqli_adressen->bind_param('sisss',$postcode , $huisnummer , $toevoeging , $plaats , $straat);
     
-
-        //id adres aan AdresGebruiker toewijzen
-        $adres_id = $sqli_adressen->insert_id;
-        $sqli_adresgebr = $db->prepare("INSERT INTO AdresGebruiker (adres_id, gebruiker_id) VALUES (?,?)");
-        $sqli_adresgebr->bind_param('ii',$adres_id , $gebruiker_id);
-
 
         /*
             Zo moet error-handlen bij database-queries:
@@ -118,7 +108,17 @@
         om je registratie te bevestigen. <br />
         Ik heb het erg druk dus <br />
         je kunt niet reageren. Veel plezier op school vandaag.', 'From:JeMoeder.' . "\r\n" . 'Content-type: text/html');
-            
+        
+        //id gebruiker aan AdresGebruiker toewijzen 
+        $gebruiker_id = $sqli_gebruikers->insert_id;
+        echo $gebruiker_id;
+        
+        //id adres aan AdresGebruiker toewijzen
+        $adres_id = $sqli_adressen->insert_id;
+        $sqli_adresgebr = $db->prepare("INSERT INTO AdresGebruiker (adres_id, gebruiker_id) VALUES (?,?)");
+        $sqli_adresgebr->bind_param('ii',$adres_id , $gebruiker_id);
+        $sqli_adresgebr->execute();
+        
         $db->close();
         
         redirect_to("registratie-succesvol.html");

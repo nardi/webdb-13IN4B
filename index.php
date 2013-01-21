@@ -33,11 +33,11 @@
     	</div>
   	</noscript>
     
-    <script>function test(){alert("Werken kreng! " + location.pathname);}
-    </script>
+    <script type="text/javascript" language="javascript" src="button.js"></script>
+    
 </head>
 
-<body onload="test()">
+<body onload = "setButtonColor(location.pathname)">
 
 <?php
     if (!isset($_COOKIE["user"])){
