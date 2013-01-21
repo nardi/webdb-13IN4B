@@ -4,19 +4,19 @@
 </div>
 
 <!-- <div id="producten" class="clickable-item" onClick="window.open('products.php', '_self');"> -->
-<div id="products.php" class="clickable-item" onClick="onButtonClick(this.id);">
+<div id="/products.php" class="clickable-item" onClick="onButtonClick(this.id);">
     Producten
 </div>
 
 <div></div>
 
 <!-- <div id="overons" class="clickable-item" onClick="window.open('overons.php', '_self');"> -->
-<div id="overons.html" class="clickable-item" onClick="onButtonClick(this.id);">
+<div id="/overons.html" class="clickable-item" onClick="onButtonClick(this.id);">
     Over ons
 </div>
 
 <!-- <div id="contact" class="clickable-item" onClick="window.open('overons.php#contact', '_self');"> -->
-<div id="contact.html" class="clickable-item" onClick="onButtonClick(this.id);">
+<div id="/contact.html" class="clickable-item" onClick="onButtonClick(this.id);">
     Contact
 </div>
 
@@ -36,11 +36,11 @@
             ?>
             <hr>
             <!-- <div id="producttoevoegen" class="clickable-item" onClick="window.open('product-toevoegen.php', '_self');"> -->
-            <div id="product-toevoegen.php" class="clickable-item" onClick="onButtonClick(this.id);">
+            <div id="/product-toevoegen.php" class="clickable-item" onClick="onButtonClick(this.id);">
                 Product Toevoegen
             </div>
             <!-- <div id="f-up" class="clickable-item" onClick="window.open('upload-test.html', '_self');"> -->
-            <div id="upload-test.html" class="clickable-item" onClick="onButtonClick(this.id);">
+            <div id="/upload-test.html" class="clickable-item" onClick="onButtonClick(this.id);">
                 F-UP test
             </div>
             <?php
