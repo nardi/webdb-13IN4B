@@ -42,9 +42,9 @@
         */
         
         //**********************************************************************************************
-        $sqli_gebruikers = $db->prepare("UPDATE Gebruikers SET naam = ?, achternaam = ?, telefoonnummer = ?, email = ?) WHERE id= '".$_SESSION['gebruiker-id']."'");
+        $sqli_gebruikers = $db->prepare("UPDATE Gebruikers SET naam = ?, achternaam = ?, telefoonnummer = ?, email = ? WHERE id= '".$_SESSION['gebruiker-id']."'");
         
-        $sqli_gebruikers->bind_param('ssssss',$voornaam, $achternaam, $telefoonnummerTot, $emailadres);
+        $sqli_gebruikers->bind_param('ssss',$voornaam, $achternaam, $telefoonnummerTot, $emailadres);
 
         $sqli_adressen = $db->prepare("UPDATE Adressen Set postcode = ?, huisnummer = ?, toevoeging = ?, plaats = ?, straat = ? JOIN AdresGebruiker ON Adressen.id = adres_id WHERE gebruiker_id= '".$_SESSION['gebruiker-id']."' ");
         
