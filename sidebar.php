@@ -11,12 +11,12 @@
 <div></div>
 
 <!-- <div id="overons" class="clickable-item" onClick="window.open('overons.php', '_self');"> -->
-<div id="overons.php" class="clickable-item" onClick="onButtonClick(this.id);">
+<div id="overons.html" class="clickable-item" onClick="onButtonClick(this.id);">
     Over ons
 </div>
 
 <!-- <div id="contact" class="clickable-item" onClick="window.open('overons.php#contact', '_self');"> -->
-<div id="overons.php#contact" class="clickable-item" onClick="onButtonClick(this.id);">
+<div id="contact.html" class="clickable-item" onClick="onButtonClick(this.id);">
     Contact
 </div>
 
