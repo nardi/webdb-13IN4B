@@ -6,7 +6,8 @@
 
     function show_error_page($exception)
     {
-        ?><pre>
+?>
+    <pre>
 
 
             _.._
@@ -18,7 +19,9 @@
        ',.__.   ,__.-'/
          '--/_.'----'`
 Whale, whale, whale. What do we have here?		
-	</pre> <?php. $exception->getMessage();
+	</pre>
+<?php 
+        echo $exception->getMessage();
     }
     
     set_exception_handler('show_error_page');
