@@ -10,7 +10,7 @@
 	$sql->bind_param("s", $emailadres);
 	$sql->execute();
 	$sql->bind_result($id, $wwdb, $naam, $status);
-
+    sleep(2);
 	if (!$sql->fetch()) { 
         print "Er is geen account gevonden met dit email-adres."; exit(); 
     }
@@ -26,7 +26,7 @@
 		?>
 		
 		<script type="text/JavaScript">
-			setTimeout("location.href = '/';",1337);
+			setTimeout("location.href = '/';",1500);
 		</script>
 		
 		<?php
@@ -35,7 +35,7 @@
 		echo "Fout wachtwoord ingevuld. Probeer het opnieuw ";
         ?>
         <script type="text/JavaScript">
-            setTimeout("location.href = '/inloggen.php';",1337);
+            setTimeout("location.href = '/inloggen.php';",1500);
         </script>
         <?php
 	}
