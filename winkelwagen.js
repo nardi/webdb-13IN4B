@@ -23,9 +23,9 @@ function recalculateTotalPrice()
 {
     var ids = document.getElementsByName('product-id');
     var totalPrice = 0.0;
-    for (var id in ids)
+    for (int i; i < ids.length; i++)
     {
-        id = id.innerHTML;
+        var id = ids[i].innerHTML;
         var amount = parseInt(document.getElementById('amount-' + id).innerHTML);
         var price = parseFloat(document.getElementById('price-' + id).innerHTML);
         var productPrice = amount * price;
