@@ -10,17 +10,17 @@ html, body {
     width : 100%;
 }
 
+a {
+    text-decoration: none;
+    color: black;
+}
+
 #mainWindow {
     margin-top: 10pt;
     height : auto;
     width : 25.5cm;
     margin-left : auto;
     margin-right : auto
-}
-
-#mainWindow a {
-    text-decoration: none;
-    color: black;
 }
 
 
