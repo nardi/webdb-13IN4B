@@ -34,10 +34,13 @@
 
       $email = $_REQUEST['email'] ;
       $onderwerp = "Nieuw wachtwoord aanvragen" ;
-      $bericht = "Geachte heer / mevrouw,\ Hierbij ontvangt u een email om uw wachtwoord opnieuw in te stellen.\ ;
-      mail($email, $onderwerp,
-      $message, "From:" . "noreply@superinternetshop.nl" );
+      $bericht = "Geachte heer / mevrouw,\ Hierbij ontvangt u een email om uw wachtwoord opnieuw in te stellen.\ etc etc" ;
+      $from = "noreply@superinternetshop.nl";
+      $headers = "From:" . $from;
+      mail($email, $onderwerp, $bericht, $headers);
+     
       echo "U krijgt zo spoedig mogelijk een email toegestuurd met een link om uw wachtwoord opnieuw in te stellen.";
+      }
     }
     else {
       echo "<form method='post' action='wachtwoordvergeten.php'>
