@@ -1,10 +1,9 @@
-// Code voor ophalen adres
 function getAddress(callback, postcode, nummer, toevoeging)
 {
     var xhr = new XMLHttpRequest();
     var url = 'adres.php?postcode=' + postcode + '&nummer=' + nummer;
     if (toevoeging && toevoeging != '')
-        url += '&toevoeging=' + toevoeging
+        url += '&toevoeging=' + toevoeging;
     xhr.open('GET', url);
     xhr.onreadystatechange = function()
     {
@@ -14,9 +13,8 @@ function getAddress(callback, postcode, nummer, toevoeging)
     xhr.send();
 }
 
-function completeAddress()
+function completeAddress(postcode)
 {
-    var postcode = document.regform.postcode.value;
     var huisnummer = document.regform.huisnummer.value;
     var toevoeging = document.regform.toevoeging.value;
     
@@ -36,7 +34,6 @@ function completeAddress()
     }, postcode, huisnummer, toevoeging);
 }
 
-
 //http://www.randomsnippets.com/2008/04/01/how-to-verify-email-format-via-javascript/
 
 // Ik heb even je code gecomment omdat de mijne anders ook helemaal niet geladen wordt :)
@@ -48,8 +45,16 @@ function checkPostcode(){
     var postcodeLabel = document.getElementById('postcode-label');
     if (!validPostcode.test(postcode))
         error(postcodeLabel, 'Dit is geen geldige postcode.');  
-    else
-        ok(postcodeLabel, 'Dit is een geldige postcode.');
+    else{
+        if(postcode.charAt(4)==" " || postcode.charAt(4)=="-"){
+            postcode = postcode.substring(0,4)+postcode.substring(5);
+            ok(postcodeLabel, 'Dit is een geldige postcode.');
+        }
+        else{
+            ok(postcodeLabel, 'Dit is een geldige postcode.');
+        }
+    }
+    completeAddress(postcode);  
 }
 function checkNaam(field, label){
     var validNaam = /^[a-z\s\-]{1,256}$/i
@@ -83,7 +88,7 @@ function checkHuis(){
     }
     else
         error(huisLabel, 'Geen geldig huisnummer.');
-        
+    checkPostcode();        
 }
 function check(field, divLabel, msg){
     //alert("started");
@@ -163,11 +168,9 @@ function submitThisShit(){
     checkTel();
     checkMail();
     verify('email','email-bevestigen','email-bevestigen-label');
-    check('wachtwoord','wachtwoord-label');
-    verify('wachtwoord','wachtwoord-bevestigen','wachtwoord-bevestigen-label');
     
     if(isValidForm){
-        document.regform.action="account-bewerken-test.php";
+        document.regform.action="account-bewerken.php";
         return true;
     }
     else{
