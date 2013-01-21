@@ -24,6 +24,12 @@
     width:161px;
 }
 
+#DeleteItem{    
+    background-image:url("images/labels/delete.png");
+    height:167;
+    width:171;
+}
+
 #ItemDescription{
 	width:100%;
 	float:left;

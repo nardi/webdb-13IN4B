@@ -132,11 +132,6 @@ a {
   font-size: 1.8em;
 }
 
-#content a {
-  color: #0204A6;
-  text-decoration: none;
-}
-
 #reg-log{
 	float:left;
 }
@@ -171,10 +166,15 @@ a {
 }
 
 .center{
-  text-align:center;
+  text-align: center;
 }
 
 .displayed{
   display:block; margin-left:auto; margin-right:auto;
+}
+
+.text a {
+    color: #0204A6;
+    font-weight: bold;
 }
 
