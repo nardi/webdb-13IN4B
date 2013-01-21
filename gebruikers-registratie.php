@@ -70,7 +70,7 @@
         $sqli_gebruikers->bind_param('ssssss',$voornaam, $achternaam, $telefoonnummerTot, $emailadres, $saltww, $registratiedatum);
         
         //id gebruiker aan AdresGebruiker toewijzen 
-        $gebruiker_id = $sqli_gebruikers->insert_id();
+        $gebruiker_id = $sqli_gebruikers->mysql_insert_id;
         echo $gebruiker_id;
         
         /*$sql_adressen = "INSERT INTO Adressen (postcode, huisnummer, toevoeging, plaats, straat)
