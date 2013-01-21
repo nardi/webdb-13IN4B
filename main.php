@@ -1,8 +1,5 @@
 <?php
-    /*
-     * Gebruik met: 
-     */
-    require 'ww-definitie.php';
+    require 'winkelwagen.class.php';
 
     function show_error_page($exception)
     {
