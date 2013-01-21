@@ -68,10 +68,11 @@
         </form>
     </div>
     <?php
+        $id = $_GET['id'];
         if(is_admin()){echo "
             <div id='ItemVerwijderen'>
                 <form name='ActuallyAButton' id='DeleteItem' action='product-verwijderen.php' method='post'>
-                    <input type='hidden' name='delete' value='$_GET['id']'>
+                    <input type='hidden' name='delete' value='$id'>
                     <input type='submit' value='' name='submitButton' id='DeleteSubmitButton'>
                 </form>
             </div>";
