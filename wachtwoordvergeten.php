@@ -35,8 +35,8 @@
       $email = $_REQUEST['email'] ;
       $onderwerp = "Nieuw wachtwoord aanvragen" ;
       $bericht = "Geachte heer / mevrouw,\ Hierbij ontvangt u een email om uw wachtwoord opnieuw in te stellen.\ ;
-      mail("someone@example.com", "Subject: $subject",
-      $message, "From: $email" );
+      mail($email, "Subject: $onderwerp",
+      $message, "From: "noreply@superinternetshop.nl" );
       echo "U krijgt zo spoedig mogelijk een email toegestuurd met een link om uw wachtwoord opnieuw in te stellen.";
     }
     else {
