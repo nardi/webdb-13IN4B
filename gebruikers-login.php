@@ -11,7 +11,9 @@
 	$sql->execute();
 	$sql->bind_result($id, $wwdb, $naam, $status);
 
-	if (!$sql->fetch()) { print "Onverwachte fout: Geen data."; exit(); }
+	if (!$sql->fetch()) { 
+        print "Er is geen account gevonden met dit email-adres."; exit(); 
+    }
 	$sql->free_result();
 	$db->close();
 	
@@ -24,13 +26,18 @@
 		?>
 		
 		<script type="text/JavaScript">
-			setTimeout("location.href = '/';",2000);
+			setTimeout("location.href = '/';",1337);
 		</script>
 		
 		<?php
 	}
 	else {
-		echo "Fail";
+		echo "Fout wachtwoord ingevuld. Probeer het opnieuw ";
+        ?>
+        <script type="text/JavaScript">
+            setTimeout("location.href = '/inloggen.php';",1337);
+        </script>
+        <?php
 	}
 	
 ?>
