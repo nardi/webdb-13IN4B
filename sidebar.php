@@ -32,7 +32,7 @@
 
 <?php
     if (isset($_SESSION['logged-in'])) {
-        if ($_SESSION['gebruiker-status'] == 3) {
+        if ($_SESSION['gebruiker-status'] >= 3) {
             ?>
             <hr>
             <!-- <div id="producttoevoegen" class="clickable-item" onClick="window.open('product-toevoegen.php', '_self');"> -->

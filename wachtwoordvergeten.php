@@ -11,10 +11,11 @@
    
 <?php
 
-if (isset($_REQUEST['email'])) {
+if (isset($_POST['email'])) {
+	  $email = $_POST['email'] ;
       $db = connect_to_db();
       // $email //adres = $_POST['e-mailadres']; // db_prepare // bind param ... /fetch
-      $sql = $db->prepare("SELECT id, naam, FROM Gebruikers WHERE email = ? LIMIT 1");
+      $sql = $db->prepare("SELECT naam FROM Gebruikers WHERE email = ? LIMIT 1");
       $sql->bind_param("s", $email) ;
       $sql->execute();
 
@@ -22,7 +23,7 @@ if (isset($_REQUEST['email'])) {
         echo "Dit emailadres is niet bij ons geregistreerd." ;
       } else {
 
-      $email = $_REQUEST['email'] ;
+      
       $onderwerp = "Nieuw wachtwoord aanvragen" ;
       $bericht = "Geachte heer / mevrouw,\ Hierbij ontvangt u een email om uw wachtwoord opnieuw in te stellen.\ etc etc" ;
       $from = "noreply@superinternetshop.nl";
