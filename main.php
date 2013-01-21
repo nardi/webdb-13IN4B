@@ -62,6 +62,6 @@ Whale, whale, whale. What do we have here?
     
     function is_admin()
     {
-        return is_logged_in() && ($_SESSION['gebruiker-status'] == 3);
+        return is_logged_in() && ($_SESSION['gebruiker-status'] >= 3);
     }
 ?>
