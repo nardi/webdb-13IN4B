@@ -34,11 +34,23 @@
        preg_match($validTel2, $telefoonnummer2)&&
        preg_match($validMail, $emailadres)){
         $telefoonnummerTot = $telefoonnummer . '-' . $telefoonnummer2;
-            
+        
+        /*
         $sqli_gebruikers = $db->prepare("UPDATE Gebruikers naam = ?, achternaam = ?, telefoonnummer = ?, email = ? WHERE id= '".$_SESSION['gebruiker-id']."' ");
 
         $sqli_gebruikers->bind_param('ssss',$voornaam, $achternaam, $telefoonnummerTot, $emailadres);
+        */
         
+        //**********************************************************************************************
+        $sqli_gebruikers = $db->prepare("UPDATE Gebruikers SET naam = ?, achternaam = ?, telefoonnummer = ?, email = ?) WHERE id= '".$_SESSION['gebruiker-id']."'");
+        
+        $sqli_gebruikers->bind_param('ssssss',$voornaam, $achternaam, $telefoonnummerTot, $emailadres);
+
+        $sqli_adressen = $db->prepare("UPDATE Adressen Set postcode = ?, huisnummer = ?, toevoeging = ?, plaats = ?, straat = ? JOIN AdresGebruiker ON Adressen.id = adres_id WHERE gebruiker_id= '".$_SESSION['gebruiker-id']."' ");
+        
+        $sqli_adressen->bind_param('sisss',$postcode , $huisnummer , $toevoeging , $plaats , $straat);
+        
+        //***********************************************************************************************
         /*$sql_adressen = "INSERT INTO Adressen (postcode, huisnummer, toevoeging, plaats, straat)
         VALUES ('$postcode' , '$huisnummer' , '$toevoeging' , '$plaats' , '$straat')";*/
         /*
