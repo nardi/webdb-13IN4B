@@ -1,6 +1,6 @@
 function setButtonColor(button) {
     if(window.location.hash) && (button == "/overons.php") {
-        button = button + window.location.hash;
+        //button = button + window.location.hash;
         alert(button);
     }
     document.getElementById(button).style.background = '#08C1FF';
