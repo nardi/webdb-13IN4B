@@ -14,7 +14,7 @@
 if (isset($_REQUEST['email'])) {
       $db = connect_to_db();
       // $email //adres = $_POST['e-mailadres']; // db_prepare // bind param ... /fetch
-      $sql = $db->prepare("SELECT id, naam, FROM Gebruikers WHERE email = ? LIMIT 1");
+      $sql = $db->prepare("SELECT naam FROM Gebruikers WHERE email = ? LIMIT 1");
       $sql->bind_param("s", $email) ;
       $sql->execute();
 
