@@ -120,7 +120,7 @@ width: 28.5%;
 width: 25%;
 }
 .huisnummer{
-width: 130pt;
+width: 152pt;
 }
 
 .telnr{
@@ -152,4 +152,8 @@ width: 129pt;
 
 .bes{
  float: left;
+}
+
+.account-bewerken{
+width: 100%;
 }

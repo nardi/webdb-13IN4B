@@ -1,6 +1,6 @@
 <link rel="stylesheet" type="text/css" href="inloggen-wachtwoord-registratie.css">
 <link rel="stylesheet" type="text/css" href="centering.css">
-<script src="account-bewerken-test.js"></script>
+<script src="account-bewerken.js"></script>
 
 <?php
 	if ((!isset($_SESSION['logged-in']))) {
@@ -32,7 +32,7 @@ U bent niet ingelogd!
     ?>
 
 <div class="centered-container">
-    <div class="registratieformulier">
+    <div class="account-bewerken">
         <form name="regform" id="regformid"  onsubmit="submitThisShit()" action="javascript: void(0)" method="post">
           <div align="right"> 
           <h1><center><b>Mijn account</b></center></h1>
