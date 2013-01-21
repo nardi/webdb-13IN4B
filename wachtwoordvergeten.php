@@ -40,6 +40,7 @@
       mail($email, $onderwerp, $bericht, $headers);
      
       echo "U krijgt zo spoedig mogelijk een email toegestuurd met een link om uw wachtwoord opnieuw in te stellen.";
+      }
     }
     else {
       echo "<form method='post' action='wachtwoordvergeten.php'>
