@@ -1,4 +1,6 @@
 <?php
+    require '../main.php';
+
     $ww = Winkelwagen::try_load_from_session();
     
     foreach ($ww->get_all() as $id)
