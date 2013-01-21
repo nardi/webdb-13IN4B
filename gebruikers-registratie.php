@@ -82,7 +82,7 @@
         $sqli_adressen->bind_param('sisss',$postcode , $huisnummer , $toevoeging , $plaats , $straat);
     
 
-        //
+        // 
         $adres_id = $sqli_adressen->insert_id;
         
         $sqli_adresgebr = $db->prepare("INSERT INTO AdresGebruiker (adres_id, gebruiker_id) VALUES (?,?)");
@@ -105,7 +105,12 @@
         */
 
         if(!$sqli_gebruikers->execute())
-            throw new Exception($sqli_gebruikers->error);
+            if($sqli_gebruikers->error == "Duplicate entry 'MetalPinguinInc@gmail.com' for key 'email'"){
+                throw new Exception("Dit e-mail adres bestaat al, probeer in te loggen.");
+            }
+            else
+                throw new Exception($sqli_gebruikers->error);
+                
         if(!$sqli_adressen->execute())
             throw new Exception($sqli_adressen->error);
         
