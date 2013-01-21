@@ -32,9 +32,12 @@
       	<p class = center> <img src="/images/labels/error-label.png" alt="error-label" width="35" height="35"> Deze website wordt alleen juist weergegeven met javascript. </p>
     	</div>
   	</noscript>
+    
+    <script>function test(){alert("Werken kreng! " + location.pathname);}
+    </script>
 </head>
 
-<body>
+<body onload="test()">
 
 <?php
     if (!isset($_COOKIE["user"])){
