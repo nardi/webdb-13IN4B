@@ -1,31 +1,12 @@
 <?php
-if ($_FILES["image"]["error"] > 0)
-  {
-  echo "Error: " . $_FILES["image"]["error"] . "<br>";
-  }
-else
-  {
-  echo "Upload: " . $_FILES["image"]["name"] . "<br>";
-  echo "Type: " . $_FILES["image"]["type"] . "<br>";
-  echo "Size: " . ($_FILES["image"]["size"] / 1024) . " kB<br>";
-  echo "Stored in: " . $_FILES["image"]["tmp_name"];
-  }
-  
-  
-  if (file_exists("uploads/" . $_FILES["image"]["name"])) 
-      {
-      echo $_FILES["image"]["name"] . " already exists. ";
-      }
-    else
-      {
-      file_put_contents('/uploads/' . $_FILES["image"]["name"], file_get_contents($_FILES["image"]['tmp_name']) );
-      }
-      /*
-      move_uploaded_file($_FILES["image"]["tmp_name"],
-      "uploads/" . $_FILES["image"]["name"]);
-      echo "Stored in: " . "uploads/" . $_FILES["image"]["name"];
-    */
-      
-   
-?> 
- 
+$folder = "/htdocs/uploads/";
+if (is_uploaded_file($HTTP_POST_FILES['filename']['tmp_name']))  {   
+    if (move_uploaded_file($HTTP_POST_FILES['filename']['tmp_name'], $folder.$HTTP_POST_FILES['filename']['name'])) {
+         Echo "File uploaded";
+    } else {
+         Echo "File not moved to destination folder. Check permissions";
+    };
+} else {
+     Echo "File is not uploaded.";
+}; 
+?>
