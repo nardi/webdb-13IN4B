@@ -34,7 +34,7 @@
     text-align: left;
 }
 
-.product-list input[name^="amount"] {
+.product-list .product-amount {
     text-align: center;
     width: 20pt;
 }
