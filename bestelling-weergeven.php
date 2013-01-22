@@ -1,5 +1,4 @@
 <?php
-
     function bestelling_weergeven($id)
     {
         $db = connect_to_db();

@@ -52,7 +52,7 @@
             throw new Exception("Er zijn foutieve parameters opgegeven.");
 ?>
 
-<div id="products">
+<div class="centering-container">
 
 <div class="category">
 

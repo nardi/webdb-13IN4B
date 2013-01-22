@@ -17,7 +17,8 @@
 }
 
 .product-list .remove-button {
-    width: 20pt;
+    width: 18pt;
+    height: 18pt;
     background-image: url("images/labels/error-label.png");
     background-repeat: no-repeat;
     background-size: 100%;
