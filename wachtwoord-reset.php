@@ -13,9 +13,9 @@
 
 if (isset($_POST['wachtwoord'])&&
     isset($_POST['wachtwoord_nogmaals'])) {
-	  $email = $_POST['email'] ;
+	  
 	  $wachtwoord = $_POST['wachtwoord'] ;
-	  $token = $_GET['token'] ;
+	  $token = isset($_GET['token']) ? $_GET['token'] : null;
 	  
 	  //Random getal voor salt genereren
       $saltbytes = openssl_random_pseudo_bytes(32);
