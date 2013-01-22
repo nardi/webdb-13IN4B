@@ -1,83 +1,38 @@
 <?php
-
-
-    function assertValidUpload($code)
+$allowedExts = array("jpg", "jpeg", "gif", "png");
+$extension = end(explode(".", $_FILES["file"]["name"]));
+if ((($_FILES["file"]["type"] == "image/gif")
+|| ($_FILES["file"]["type"] == "image/jpeg")
+|| ($_FILES["file"]["type"] == "image/png")
+|| ($_FILES["file"]["type"] == "image/pjpeg"))
+&& ($_FILES["file"]["size"] < 20000)
+&& in_array($extension, $allowedExts))
+  {
+  if ($_FILES["file"]["error"] > 0)
     {
-        if ($code == UPLOAD_ERR_OK) {
-            return;
-        }
- 
-        switch ($code) {
-            case UPLOAD_ERR_INI_SIZE:
-            case UPLOAD_ERR_FORM_SIZE:
-                $msg = 'Image is too large';
-                break;
- 
-            case UPLOAD_ERR_PARTIAL:
-                $msg = 'Image was only partially uploaded';
-                break;
- 
-            case UPLOAD_ERR_NO_FILE:
-                $msg = 'No image was uploaded';
-                break;
- 
-            case UPLOAD_ERR_NO_TMP_DIR:
-                $msg = 'Upload folder not found';
-                break;
- 
-            case UPLOAD_ERR_CANT_WRITE:
-                $msg = 'Unable to write uploaded file';
-                break;
- 
-            case UPLOAD_ERR_EXTENSION:
-                $msg = 'Upload failed due to extension';
-                break;
- 
-            default:
-                $msg = 'Unknown error';
-        }
- 
-        throw new Exception($msg);
+    echo "Return Code: " . $_FILES["file"]["error"] . "<br>";
     }
- 
-    $errors = array();
- 
-    try {
-        if (!array_key_exists('image', $_FILES)) {
-            throw new Exception('Image not found in uploaded data');
-        }
- 
-        $image = $_FILES['image'];
- 
-        // ensure the file was successfully uploaded
-        assertValidUpload($image['error']);
- 
-        if (!is_uploaded_file($image['tmp_name'])) {
-            throw new Exception('File is not an uploaded file');
-        }
- 
-        $info = getImageSize($image['tmp_name']);
- 
-        if (!$info) {
-            throw new Exception('File is not an image');
-        }
-    }
-    catch (Exception $ex) {
-        $errors[] = $ex->getMessage();
-    }
- 
-    if (count($errors) == 0) {
-        $db = connect_to_db();
-        $sqli_producten = $db->prepare("INSERT INTO Producten (cover)
-        VALUES (?)");
-        
-        $data = file_get_contents($image['tmp_name']);
-        $sqli_producten->bind_param('s', $data);
+  else
+    {
+    echo "Upload: " . $_FILES["file"]["name"] . "<br>";
+    echo "Type: " . $_FILES["file"]["type"] . "<br>";
+    echo "Size: " . ($_FILES["file"]["size"] / 1024) . " kB<br>";
+    echo "Temp file: " . $_FILES["file"]["tmp_name"] . "<br>";
 
-            if(!$sqli_producten->execute())
-                throw new Exception($sqli_producten->error);
-
-        $db->close();
+    if (file_exists("/uploads/" . $_FILES["file"]["name"]))
+      {
+      echo $_FILES["file"]["name"] . " already exists. ";
+      }
+    else
+      {
+      move_uploaded_file($_FILES["file"]["tmp_name"],
+      "/uploads/" . $_FILES["file"]["name"]);
+      echo "Stored in: " . "/uploads/" . $_FILES["file"]["name"];
+      }
     }
-?> 
- 
+  }
+else
+  {
+  echo "Invalid file";
+  }
+?>
