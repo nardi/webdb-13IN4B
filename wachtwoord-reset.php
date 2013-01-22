@@ -14,7 +14,7 @@
 if (isset($_GET['token'])) {
 	  $token = $_GET['token'] ; 
 } else {
-      echo "Dit is geen geldige url!"
+      echo "Dit is geen geldige url!" ;
 }
 
 if (isset($_POST['wachtwoord'])&&
