@@ -163,7 +163,7 @@ class Winkelwagen
             $totaalprijs += $productprijs;
         }
 ?>
-        <tr class="total-price">
+        <tr class="bottom-row">
             <th colspan="<?php if ($editable) echo '6'; else echo '5'; ?>">Totale prijs:</th>
             <td>&euro;<span id="total-price" class="price"><?php echo $totaalprijs; ?><span></td>
         </tr>

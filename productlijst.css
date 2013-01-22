@@ -1,7 +1,7 @@
 .product-list {
-    width: 85%;
-    margin-left: 7.5%;
-    margin-right: 7.5%;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
     border-collapse: collapse;
 }
 
@@ -17,7 +17,8 @@
 }
 
 .product-list .remove-button {
-    width: 20pt;
+    width: 18pt;
+    height: 18pt;
     background-image: url("images/labels/error-label.png");
     background-repeat: no-repeat;
     background-size: 100%;
