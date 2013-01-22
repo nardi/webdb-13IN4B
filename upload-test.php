@@ -26,13 +26,11 @@ if ((($_FILES["file"]["type"] == "image/gif")
       }
     else
       {
-      $destination = "\\datastore\\webdb13IN4B\\uploads\\";
-      echo "$destination <br />";
       move_uploaded_file($tmpdir . $_FILES["file"]["tmp_name"],
-      "\\datastore\\webdb13IN4B\\uploads\\" . $_FILES["file"]["name"]);
-     // echo "Stored in: /datastore/webdb13IN4B/uploads/" . $_FILES["file"]["name"];
-      echo "<img src='$destination" . $_FILES["file"]["name"] . " />";
-      echo "<br /> $destination";
+      "../uploads/" . $_FILES["file"]["name"]);
+      
+      echo file_exists("/uploads/" . $_FILES["file"]["name"]);
+     
       }
     }
   }
