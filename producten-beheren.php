@@ -3,10 +3,10 @@
 <?php
     $db = connect_to_db();
     
-    $sqli_product_lijst = $db->prepare("SELECT * FROM Producten");
+   /* $sqli_product_lijst = $db->prepare("SELECT * FROM Producten");
     $sqli_product_lijst->bind_result($id,$titel,$platform_id,$genre_id,$beschrijving,$prijs,$release_date,$voorraad,$datum_toegevoegd,$cover);
     $sqli_product_lijst->execute();
-    
+    */
     
 ?>
 <table id="Producten">
