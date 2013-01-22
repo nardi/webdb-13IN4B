@@ -63,7 +63,7 @@
 
         $db->close();
     
-    }
+    
     
     redirect_to("product-toevoegen-succesvol.html");
     }
