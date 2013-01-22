@@ -21,6 +21,7 @@ if (isset($_POST['email'])) {
       if (!$sql->fetch()) {
         echo "Dit emailadres is niet bij ons geregistreerd." ;
       } else {
+	    $sql->free_result();
 	    $token = md5($_POST['email'].time()) ;
 		$upw = $db->prepare("UPDATE Gebruikers SET wachtwood_token='$token' WHERE email= ? LIMIT 1");
 		$upw->bind_param("s", $email);
