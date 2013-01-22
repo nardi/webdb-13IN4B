@@ -1,3 +1,5 @@
+<link rel="stylesheet" type="text/css" href="main.css">
+
 <?php
     $db = connect_to_db();
     
@@ -22,6 +24,8 @@
         $sqli_genre_naam->bind_param('i',$id);
         $sqli_genre_naam->bind_result($genrenaam);
         
-        echo "<tr><td>$id</td><td>$titel</td><td>$cover</td><td>$platformnaam</td><td>$genrenaam</td><td>$prijs</td><td>$voorraad</td></tr>";
+        $cover_var = '<img src="data:image/jpeg;base64,'.base64_encode($cover).'"/>';
+        
+        echo "<tr><td>$id</td><td>$titel</td><td><div id='cover'>$cover_var</td></div><td>$platformnaam</td><td>$genrenaam</td><td>$prijs</td><td>$voorraad</td></tr>";
     }
 ?>
