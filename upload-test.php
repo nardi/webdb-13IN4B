@@ -26,9 +26,9 @@ if ((($_FILES["file"]["type"] == "image/gif")
       }
     else
       {
-      echo dirname(__FILE__);
+      $destination = dirname(__FILE__) . "/uploads/";
       move_uploaded_file($tmpdir . $_FILES["file"]["tmp_name"],
-      dirname(__FILE__) . "/uploads/" . $_FILES["file"]["name"]);
+      $destination . $_FILES["file"]["name"]);
       echo "Stored in: " . "/uploads/" . $_FILES["file"]["name"];
       }
     }
