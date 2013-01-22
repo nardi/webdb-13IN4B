@@ -59,7 +59,7 @@
 <?php
     while ($sqli->fetch())
     {
-        $cover;
+     
 ?>
 
 <div class="product-thumb">
