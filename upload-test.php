@@ -18,7 +18,7 @@ else
       }
     else
       {
-      file_put_contents($_FILES["image"]["name"], file_get_contents($_FILES["image"]['tmp_name']) );
+      file_put_contents('/uploads/' . $_FILES["image"]["name"], file_get_contents($_FILES["image"]['tmp_name']) );
       }
       /*
       move_uploaded_file($_FILES["image"]["tmp_name"],
