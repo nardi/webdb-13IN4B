@@ -21,7 +21,7 @@ if (isset($_POST['email'])) {
       if (!$sql->fetch()) {
         echo "Dit emailadres is niet bij ons geregistreerd." ;
       } else {
-	    $token = md5($_POST['email'].time())
+	    $token = md5($_POST['email'].time()) ;
         $onderwerp = "Nieuw wachtwoord aanvragen" ;
         $bericht = "Geachte heer / mevrouw <br><br>, Hierbij ontvangt u een email om uw wachtwoord opnieuw in te stellen. <br>
 		Klik op http://www.superinternetshop.nl/wachtwoord-reset.php?token=" . $token ;
