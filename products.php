@@ -69,12 +69,6 @@
 </div>
 <?php
     }
-
-
-
-//Testcode!! 
-echo '<img src="' .$imagedir.'test.jpg" /> <br />';
-echo $imagedir . 'test.jpg';
  ?>
 </div>
 
