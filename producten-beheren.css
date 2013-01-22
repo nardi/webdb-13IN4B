@@ -1,7 +1,12 @@
-#cover{
+.cover{
     width:80pt;
+    
 }
 
-#cover img{
+.cover img{
     width:100%;
+}
+
+.column{
+    text-align:center;
 }
