@@ -30,7 +30,7 @@
                         throw new Exception("Het uploaden van het bestand is mislukt");
                     }  
                             
-                    $image = $_FILES["image"]["naam"];
+                    $image = $_FILES["image"]["name"];
                 }
             }
         }
