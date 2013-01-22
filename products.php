@@ -73,7 +73,7 @@
 
 
 <!-- Testcode!! -->
-<img src="/datastore/webdb13IN4B/uploads/test.jpg">
+<img src="/uploads/test.jpg">
 
 </div>
 
