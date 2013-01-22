@@ -14,7 +14,6 @@
 if (isset($_POST['email'])) {
 	  $email = $_POST['email'] ;
       $db = connect_to_db();
-      // $email //adres = $_POST['e-mailadres']; // db_prepare // bind param ... /fetch
       $sql = $db->prepare("SELECT naam FROM Gebruikers WHERE email = ? LIMIT 1");
       $sql->bind_param("s", $email) ;
       $sql->execute();
@@ -22,18 +21,18 @@ if (isset($_POST['email'])) {
       if (!$sql->fetch()) {
         echo "Dit emailadres is niet bij ons geregistreerd." ;
       } else {
-
-      
-      $onderwerp = "Nieuw wachtwoord aanvragen" ;
-      $bericht = "Geachte heer / mevrouw,\ Hierbij ontvangt u een email om uw wachtwoord opnieuw in te stellen.\ etc etc" ;
-      $from = "noreply@superinternetshop.nl";
-      $headers = "From:" . $from;
-      mail($email, $onderwerp, $bericht, $headers);
+	    $token = md5($_POST['email'].time())
+        $onderwerp = "Nieuw wachtwoord aanvragen" ;
+        $bericht = "Geachte heer / mevrouw <br><br>, Hierbij ontvangt u een email om uw wachtwoord opnieuw in te stellen. <br>
+		Klik op http://www.superinternetshop.nl/wachtwoord-reset.php?token=" . $token ;
+        $from = "noreply@superinternetshop.nl";
+        $headers = "From:" . $from;
+        mail($email, $onderwerp, $bericht, $headers);
      
-      echo "U krijgt zo spoedig mogelijk een email toegestuurd met een link om uw wachtwoord opnieuw in te stellen.";
+        echo "U krijgt zo spoedig mogelijk een email toegestuurd met een link om uw wachtwoord opnieuw in te stellen.";
       }
-    }
-else {
+    
+} else {
       
     echo "<div align='justify'>
     Als u uw wachtwoord bent vergeten, vul dan hieronder uw e-mailadres in. 
