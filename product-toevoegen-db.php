@@ -30,7 +30,7 @@
                         throw new Exception("Het uploaden van het bestand is mislukt");
                     }  
                             
-                    $image = $_FILES["image"]["naam"];
+                    $image = $_FILES["image"]["name"];
                 }
             }
         }
@@ -51,7 +51,7 @@
 
         
         
-           
+        echo "$image <br /> <br />";   
         
         $sqli_producten = $db->prepare("INSERT INTO Producten (titel, beschrijving, prijs, release_date, voorraad, platform_id, genre_id, cover)
         VALUES (?,?,?,?,?,?,?,?)");
@@ -65,6 +65,6 @@
     
     
     
-    redirect_to("product-toevoegen-succesvol.html");
+    //redirect_to("product-toevoegen-succesvol.html");
     }
 ?>
