@@ -40,10 +40,10 @@ U bent niet ingelogd!
         Postcode: <input type="text" name="postcode" disabled="disabled" value = "<?php echo $postcode; ?>"><div id="postcode-label" class="label-div"></div>
         Huisnummer en toevoeging:
         <div class="huisnummer"> 
-          <input type="tekst" name="huisnummer" disabled="disabled" value = "<?php echo $huisnummer; ?>"> <input type="tekst" name="toevoeging" disabled="disabled" value = "<?php echo $toevoeging; ?>"><div id="huisnummer-label" class="label-div"></div>
+          <input type="tekst" id="huisnummer" name="huisnummer" value = "<?php echo $huisnummer; ?>"> <input type="tekst" name="toevoeging" value = "<?php echo $toevoeging; ?>"><div id="huisnummer-label" class="label-div"></div>
         </div>
-        Straat: <input type="text" name="straat" disabled="disabled" value = "<?php echo $straat; ?>"><div id="straat-label" class="label-div" "></div>
-        Plaats: <input type="text" name="plaats" disabled="disabled" value = "<?php echo $plaats; ?>"><div id="plaats-label" class="label-div" "></div>
+        Straat: <input type="text" name="straat" disabled="disabled" value = "<?php echo $straat; ?>"><div id="straat-label" class="label-div"></div>
+        Plaats: <input type="text" name="plaats" disabled="disabled" value = "<?php echo $plaats; ?>"><div id="plaats-label" class="label-div"></div>
         Telefoonnummer: <input type="text" name="telefoonnummer" disabled="disabled" value = "<?php echo $telefoonnummer; ?>"><br/>
         E-mailadres: <input type="email" name="e-mailadres" disabled="disabled" value = "<?php echo $email; ?>"><div id="email-label" class="label-div"></div>
         <hr width="100%">
