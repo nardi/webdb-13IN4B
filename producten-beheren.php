@@ -1,3 +1,5 @@
+<link rel="stylesheet" type="text/css" href="main.css">
+
 <?php
     $db = connect_to_db();
     
