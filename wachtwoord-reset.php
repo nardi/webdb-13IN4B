@@ -11,14 +11,13 @@
    
 <?php
 
-if (isset($_GET['token'])) {
-	  $token = $_GET['token'] ; 
-	  if (isset($_POST['wachtwoord'])&&
-          isset($_POST['wachtwoord_nogmaals'])) {
+	   
+if (isset($_POST['wachtwoord'])&&
+    isset($_POST['wachtwoord_nogmaals'])) {
 	  
-	      $wachtwoord = $_POST['wachtwoord_nogmaals'] ;
+	  $wachtwoord = $_POST['wachtwoord_nogmaals'] ;
 	  
-	      //Random getal voor salt genereren
+	  //Random getal voor salt genereren
       $saltbytes = openssl_random_pseudo_bytes(32);
       $salt = bin2hex($saltbytes);
     
@@ -36,8 +35,8 @@ if (isset($_GET['token'])) {
 	  echo "Uw wachtwoord is aangepast, hartelijk dank!" ;
 	  
     
-      } else {
-      
+} else {
+    $token = $_GET['token'] ;  
     echo "<div align='justify'>
     Vul hieronder het door u nieuwe gekozen wachtwoord in. 
     </div><br /><br />";
@@ -48,9 +47,7 @@ if (isset($_GET['token'])) {
       </textarea><br>
       <input type='submit'>
       </form>";
-}
-} else {
-      echo "Dit is geen geldige url!" ;
+
 }
 
 
