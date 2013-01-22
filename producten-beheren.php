@@ -22,6 +22,8 @@
         $sqli_genre_naam->bind_param('i',$id);
         $sqli_genre_naam->bind_result($genrenaam);
         
-        echo "<tr><td>$id</td><td>$titel</td><td>$cover</td><td>$platformnaam</td><td>$genrenaam</td><td>$prijs</td><td>$voorraad</td></tr>";
+        $cover_var = '<img src="data:image/jpeg;base64,'.base64_encode($cover).'"/>'
+        
+        echo "<tr><td>$id</td><td>$titel</td><td>$cover_var</td><td>$platformnaam</td><td>$genrenaam</td><td>$prijs</td><td>$voorraad</td></tr>";
     }
 ?>
