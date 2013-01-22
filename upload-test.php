@@ -26,10 +26,15 @@ if ((($_FILES["file"]["type"] == "image/gif")
       }
     else
       {
-      move_uploaded_file($tmpdir . $_FILES["file"]["tmp_name"],
-      "../uploads/" . $_FILES["file"]["name"]);
+      if(!move_uploaded_file($tmpdir . $_FILES["file"]["tmp_name"],
+      "/datastore/webdb13IN4B/uploads/" . $_FILES["file"]["name"])) {
+        throw new Exception("Faal");
+      }
       
-      if(file_exists("../uploads/" . $_FILES["file"]["name"])) {
+      
+      
+      
+      if(file_exists("/datastore/webdb13IN4B/uploads/" . $_FILES["file"]["name"])) {
         echo "true";
       }
       else {
