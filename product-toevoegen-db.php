@@ -1,80 +1,44 @@
 <?php
     if (is_admin())
     {
-        function assertValidUpload($code)
-    {
-        if ($code == UPLOAD_ERR_OK) {
-            return;
+      
+        /* Code voor het uplaoden van afvbeeldingen gebasseerd op het voorbeeld van w3.
+         * URL: http://www.w3schools.com/php/php_file_upload.asp
+         */
+      
+        $allowedExts = array("jpg", "jpeg", "gif", "png");
+        $extension = end(explode(".", $_FILES["image"]["name"]));
+        if ((($_FILES["image"]["type"] == "image/gif")
+        || ($_FILES["image"]["type"] == "image/jpeg")
+        || ($_FILES["image"]["type"] == "image/png")
+        || ($_FILES["image"]["type"] == "image/pjpeg"))
+        && in_array($extension, $allowedExts)) {
+            if ($_FILES["image"]["error"] > 0)
+            {
+                echo "Return Code: " . $_FILES["image"]["error"] . "<br>";
+            }
+            else
+            {
+                if (file_exists("../uploads/" . $_FILES["image"]["name"]))
+                {
+                    echo $_FILES["image"]["name"] . " already exists. ";
+                }
+                else
+                {
+                    if(!move_uploaded_file($_FILES["image"]["tmp_name"],
+                    "/datastore/webdb13IN4B/uploads/" . $_FILES["image"]["name"])) {
+                        throw new Exception("Het uploaden van het bestand is mislukt");
+                    }  
+                            
+                    $image = $_FILES["image"]["naam"];
+                }
+            }
         }
- 
-        switch ($code) {
-            case UPLOAD_ERR_INI_SIZE:
-            case UPLOAD_ERR_FORM_SIZE:
-                $msg = 'Image is too large';
-                break;
- 
-            case UPLOAD_ERR_PARTIAL:
-                $msg = 'Image was only partially uploaded';
-                break;
- 
-            case UPLOAD_ERR_NO_FILE:
-                $msg = 'No image was uploaded';
-                break;
- 
-            case UPLOAD_ERR_NO_TMP_DIR:
-                $msg = 'Upload folder not found';
-                break;
- 
-            case UPLOAD_ERR_CANT_WRITE:
-                $msg = 'Unable to write uploaded file';
-                break;
- 
-            case UPLOAD_ERR_EXTENSION:
-                $msg = 'Upload failed due to extension';
-                break;
- 
-            default:
-                $msg = 'Unknown error';
+        else
+        {
+            echo "Ongeldig bestand. Bestand moet .jpg, .jpeg, .png of .gif zijn";
         }
- 
-        throw new Exception($msg);
-    }
- 
-    $errors = array();
- 
-    try {
-        if (!array_key_exists('image', $_FILES)) {
-            throw new Exception('Image not found in uploaded data');
-        }
- 
-        $image = $_FILES['image'];
- 
-        // ensure the file was successfully uploaded
-        assertValidUpload($image['error']);
- 
-        if (!is_uploaded_file($image['tmp_name'])) {
-            throw new Exception('File is not an uploaded file');
-        }
- 
-        $info = getImageSize($image['tmp_name']);
- 
-        if (!$info) {
-            throw new Exception('File is not an image');
-        }
-    }
-    catch (Exception $ex) {
-        $errors[] = $ex->getMessage();
-    }
- 
-    if (count($errors) == 0) {
-        // no errors, so insert the image
-    
-    
-    
-    
-    
-    
-    
+  
         $db = connect_to_db();
         
         $titel = $_POST['titel'];
@@ -84,15 +48,15 @@
         $voorraad = $_POST['voorraad'];
         $platform = $_POST['platform'];
         $genre = $_POST['genre'];
-        $image = $_FILES['image'];
-        $data = file_get_contents($image['tmp_name']);
+
+        
         
            
         
         $sqli_producten = $db->prepare("INSERT INTO Producten (titel, beschrijving, prijs, release_date, voorraad, platform_id, genre_id, cover)
         VALUES (?,?,?,?,?,?,?,?)");
         
-        $sqli_producten->bind_param('ssssssss', $titel, $beschrijving, $prijs, $release_date, $voorraad, $platform, $genre, $data);
+        $sqli_producten->bind_param('ssssssss', $titel, $beschrijving, $prijs, $release_date, $voorraad, $platform, $genre, $image);
 
             if(!$sqli_producten->execute())
                 throw new Exception($sqli_producten->error);
