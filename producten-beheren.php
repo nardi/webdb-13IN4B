@@ -18,7 +18,7 @@
         $sqli_platform_naam->bind_param('i',$id);
         $sqli_platform_naam->bind_result($platformnaam);
         
-        $sqli_genre_naam = $db3->prepare("SELECT naam FROM Genre WHERE id=?");
+        $sqli_genre_naam = $db3->prepare("SELECT naam FROM Genres WHERE id=?");
         $sqli_genre_naam->bind_param('i',$id);
         $sqli_genre_naam->bind_result($genrenaam);
         
