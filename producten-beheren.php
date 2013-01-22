@@ -18,10 +18,12 @@
         $sqli_platform_naam->bind_param('i',$id);
         $sqli_platform_naam->bind_result($platformnaam);
         
-        $sqli_genre_naam = $db3->prepare("SELECT naam FROM Genre WHERE id=?");
+        $sqli_genre_naam = $db3->prepare("SELECT naam FROM Genres WHERE id=?");
         $sqli_genre_naam->bind_param('i',$id);
         $sqli_genre_naam->bind_result($genrenaam);
         
-        echo "<tr><td>$id</td><td>$titel</td><td>$cover</td><td>$platformnaam</td><td>$genrenaam</td><td>$prijs</td><td>$voorraad</td></tr>";
+        $cover_var = '<img src="data:image/jpeg;base64,'.base64_encode($cover).'"/>'
+        
+        echo "<tr><td>$id</td><td>$titel</td><td>$cover_var</td><td>$platformnaam</td><td>$genrenaam</td><td>$prijs</td><td>$voorraad</td></tr>";
     }
 ?>
