@@ -29,7 +29,12 @@ if ((($_FILES["file"]["type"] == "image/gif")
       move_uploaded_file($tmpdir . $_FILES["file"]["tmp_name"],
       "../uploads/" . $_FILES["file"]["name"]);
       
-      echo file_exists("/uploads/" . $_FILES["file"]["name"]);
+      if(file_exists("/uploads/" . $_FILES["file"]["name"])) {
+        echo "true";
+      }
+      else {
+        echo "false";
+      }
      
       }
     }
