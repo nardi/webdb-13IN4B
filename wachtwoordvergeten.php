@@ -21,11 +21,12 @@ if (isset($_POST['email'])) {
       if (!$sql->fetch()) {
         echo "Dit emailadres is niet bij ons geregistreerd." ;
       } else {
-	    $sql->free_result();
+	    $db = connect_to_db();
+	    
 	    $token = md5($_POST['email'].time()) ;
-		$sql = $db->prepare("UPDATE Gebruikers SET wachtwood_token='$token' WHERE email= ? LIMIT 1");
-		$sql->bind_param("s", $email);
-		$sql->execute();
+		$pwu = $db->prepare("UPDATE Gebruikers SET wachtwood_token = '$token' WHERE email = ? LIMIT 1");
+		$pwu->bind_param("s", $email);
+		$pwu->execute();
 		
         $onderwerp = "Nieuw wachtwoord aanvragen" ;
         $bericht = "Geachte heer / mevrouw \n\n, Hierbij ontvangt u een email om uw wachtwoord opnieuw in te stellen. \n
