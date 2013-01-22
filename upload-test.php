@@ -1,26 +1,26 @@
 <?php
-if ($_FILES["file"]["error"] > 0)
+if ($_FILES["image"]["error"] > 0)
   {
-  echo "Error: " . $_FILES["file"]["error"] . "<br>";
+  echo "Error: " . $_FILES["image"]["error"] . "<br>";
   }
 else
   {
-  echo "Upload: " . $_FILES["file"]["name"] . "<br>";
-  echo "Type: " . $_FILES["file"]["type"] . "<br>";
-  echo "Size: " . ($_FILES["file"]["size"] / 1024) . " kB<br>";
-  echo "Stored in: " . $_FILES["file"]["tmp_name"];
+  echo "Upload: " . $_FILES["image"]["name"] . "<br>";
+  echo "Type: " . $_FILES["image"]["type"] . "<br>";
+  echo "Size: " . ($_FILES["image"]["size"] / 1024) . " kB<br>";
+  echo "Stored in: " . $_FILES["image"]["tmp_name"];
   }
   
   
-  if (file_exists("uploads/" . $_FILES["file"]["name"])) 
+  if (file_exists("uploads/" . $_FILES["image"]["name"])) 
       {
-      echo $_FILES["file"]["name"] . " already exists. ";
+      echo $_FILES["image"]["name"] . " already exists. ";
       }
     else
       {
-      move_uploaded_file($_FILES["file"]["tmp_name"],
-      "uploads/" . $_FILES["file"]["name"]);
-      echo "Stored in: " . "uploads/" . $_FILES["file"]["name"];
+      move_uploaded_file($_FILES["image"]["tmp_name"],
+      "uploads/" . $_FILES["image"]["name"]);
+      echo "Stored in: " . "uploads/" . $_FILES["image"]["name"];
       }
    
 ?> 
