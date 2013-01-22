@@ -23,8 +23,8 @@ if (isset($_POST['email'])) {
       } else {
 	    $sql->free_result();
 	    $token = md5($_POST['email'].time()) ;
-		$sql = $db->prepare("UPDATE Gebruikers SET wachtwood_token='$token' WHERE email= ? LIMIT 1");
-		$sql->bind_param("s", $email);
+		$sql = $db->prepare("UPDATE Gebruikers SET wachtwood_token = '$token' WHERE email = '$email' LIMIT 1");
+		//$sql->bind_param("s", $email);
 		$sql->execute();
 		
         $onderwerp = "Nieuw wachtwoord aanvragen" ;

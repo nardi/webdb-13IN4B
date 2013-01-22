@@ -26,6 +26,6 @@
         
         $cover_var = '<img src="data:image/jpeg;base64,'.base64_encode($cover).'"/>';
         
-        echo "<tr><td class=column>$id</td><td class=column>$titel</td><td class=column><div class='cover'>$cover_var</td></div><td class=column>$platformnaam</td><td class=column>$genre_id</td><td class=column>$prijs</td><td class=column>$voorraad</td></tr>";
+        echo "<tr><td class=column>$id</td><td class=column>$titel</td><td class=column><div class='cover'>$cover_var</td></div><td class=column>$platformnaam</td><td class=column>$genrenaam</td><td class=column>$prijs</td><td class=column>$voorraad</td></tr>";
     }
 ?>
