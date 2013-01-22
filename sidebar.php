@@ -39,6 +39,12 @@
             <div id="/product-toevoegen.php" class="clickable-item" onClick="onButtonClick(this.id);">
                 Product Toevoegen
             </div>
+            
+            <!-- <div id="producttoevoegen" class="clickable-item" onClick="window.open('product-toevoegen.php', '_self');"> -->
+            <div id="/producten-beheren.php" class="clickable-item" onClick="onButtonClick(this.id);">
+                Producten Beheren
+            </div>
+            
             <!-- <div id="f-up" class="clickable-item" onClick="window.open('upload-test.html', '_self');"> -->
             <div id="/upload-test.html" class="clickable-item" onClick="onButtonClick(this.id);">
                 F-UP test

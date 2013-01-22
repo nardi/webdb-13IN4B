@@ -23,6 +23,6 @@
         echo "<img src='placeholder' /> <br /> <strong> $titel is succesvol verwijderd uit de database.</strong>";
     }
     else
-        throw new Exception("Foei, stoute hacker. Je mag hier niet komen.");
+        throw new Exception("U heeft niet de juiste privileges om deze pagina te zien.");
     
 ?>
