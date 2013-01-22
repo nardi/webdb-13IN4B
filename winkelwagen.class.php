@@ -139,6 +139,7 @@ class Winkelwagen
             $titel = $this->get_title($id);
             $prijs = $this->get_price($id);
             $cover = $this->get_cover($id);
+            global $imagedir;
             
             $productprijs = $hoeveelheid * $prijs;
 ?>
