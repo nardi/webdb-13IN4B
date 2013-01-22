@@ -3,10 +3,10 @@
 <?php
     $db = connect_to_db();
     
-   /* $sqli_product_lijst = $db->prepare("SELECT * FROM Producten");
+    $sqli_product_lijst = $db->prepare("SELECT * FROM Producten");
     $sqli_product_lijst->bind_result($id,$titel,$platform_id,$genre_id,$beschrijving,$prijs,$release_date,$voorraad,$datum_toegevoegd,$cover);
     $sqli_product_lijst->execute();
-    */
+    
     
 ?>
 <table id="Producten">
@@ -20,7 +20,9 @@
         $sqli_platform_naam->bind_param('i',$platform_id);
         $sqli_platform_naam->bind_result($platformnaam);
         echo "$platformnaam . FAILED! . $platform_id";
-        $sqli_platform_naam->execute();
+        
+        if(!$sqli_platform_naam->execute())
+            $db2->error;
         
         
         $sqli_genre_naam = $db3->prepare("SELECT naam FROM Genres WHERE id=?");
