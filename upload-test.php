@@ -1,83 +1,31 @@
 <?php
-
-
-    function assertValidUpload($code)
-    {
-        if ($code == UPLOAD_ERR_OK) {
-            return;
-        }
- 
-        switch ($code) {
-            case UPLOAD_ERR_INI_SIZE:
-            case UPLOAD_ERR_FORM_SIZE:
-                $msg = 'Image is too large';
-                break;
- 
-            case UPLOAD_ERR_PARTIAL:
-                $msg = 'Image was only partially uploaded';
-                break;
- 
-            case UPLOAD_ERR_NO_FILE:
-                $msg = 'No image was uploaded';
-                break;
- 
-            case UPLOAD_ERR_NO_TMP_DIR:
-                $msg = 'Upload folder not found';
-                break;
- 
-            case UPLOAD_ERR_CANT_WRITE:
-                $msg = 'Unable to write uploaded file';
-                break;
- 
-            case UPLOAD_ERR_EXTENSION:
-                $msg = 'Upload failed due to extension';
-                break;
- 
-            default:
-                $msg = 'Unknown error';
-        }
- 
-        throw new Exception($msg);
-    }
- 
-    $errors = array();
- 
-    try {
-        if (!array_key_exists('image', $_FILES)) {
-            throw new Exception('Image not found in uploaded data');
-        }
- 
-        $image = $_FILES['image'];
- 
-        // ensure the file was successfully uploaded
-        assertValidUpload($image['error']);
- 
-        if (!is_uploaded_file($image['tmp_name'])) {
-            throw new Exception('File is not an uploaded file');
-        }
- 
-        $info = getImageSize($image['tmp_name']);
- 
-        if (!$info) {
-            throw new Exception('File is not an image');
-        }
-    }
-    catch (Exception $ex) {
-        $errors[] = $ex->getMessage();
-    }
- 
-    if (count($errors) == 0) {
-        $db = connect_to_db();
-        $sqli_producten = $db->prepare("INSERT INTO Producten (cover)
-        VALUES (?)");
-        
-        $data = file_get_contents($image['tmp_name']);
-        $sqli_producten->bind_param('s', $data);
-
-            if(!$sqli_producten->execute())
-                throw new Exception($sqli_producten->error);
-
-        $db->close();
-    }
+if ($_FILES["image"]["error"] > 0)
+  {
+  echo "Error: " . $_FILES["image"]["error"] . "<br>";
+  }
+else
+  {
+  echo "Upload: " . $_FILES["image"]["name"] . "<br>";
+  echo "Type: " . $_FILES["image"]["type"] . "<br>";
+  echo "Size: " . ($_FILES["image"]["size"] / 1024) . " kB<br>";
+  echo "Stored in: " . $_FILES["image"]["tmp_name"];
+  }
+  
+  
+  if (file_exists("uploads/" . $_FILES["image"]["name"])) 
+      {
+      echo $_FILES["image"]["name"] . " already exists. ";
+      }
+    else
+      {
+      file_put_contents($_FILES["image"]["name"], file_get_contents($_FILES["image"]['tmp_name']) );
+      }
+      /*
+      move_uploaded_file($_FILES["image"]["tmp_name"],
+      "uploads/" . $_FILES["image"]["name"]);
+      echo "Stored in: " . "uploads/" . $_FILES["image"]["name"];
+    */
+      
+   
 ?> 
  
