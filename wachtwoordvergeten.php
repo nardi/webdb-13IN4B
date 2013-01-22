@@ -22,7 +22,7 @@ if (isset($_POST['email'])) {
         echo "Dit emailadres is niet bij ons geregistreerd." ;
       } else {
 	    
-	    
+	    $sql->free_result();
 	    $token = md5($_POST['email'].time()) ;
 		$pwu = $db->prepare("UPDATE Gebruikers SET wachtwoord_token = '$token' WHERE email = ? LIMIT 1");
 		$pwu->bind_param("s", $email);
