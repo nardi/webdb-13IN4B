@@ -19,7 +19,8 @@
     $db3 = connect_to_db();
     
     while($sqli_product_lijst->fetch()){        
-        $cover_var = '<img src="$imagedir.$cover."/>';
+<<<<<<< HEAD
+        $cover_var = '<img src="'.$imagedir.$cover.'"/>';
         echo "<tr id=$id>
             <td><input type='checkbox' name='selected'></td>
             <td class='column'><input type='text' id='product_id'.$id name='product_nummer' disabled='disabled' value=$id></td>
@@ -39,7 +40,6 @@
                         <input type='submit' value='' name='submitButton' class='DeleteSubmitButton'.$id>
                 </div>
             </td>
-            ";
         </tr>";
     }
 ?>

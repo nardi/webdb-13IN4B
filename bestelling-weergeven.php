@@ -28,7 +28,7 @@
 ?>
         <tr>
             <td class="product-id"><a href="item-description.php?id=<?php echo $id; ?>"><span name="product-id"><?php echo $id; ?></span></a></td>
-            <td class="product-image"><a href="item-description.php?id=<?php echo $id; ?>"><?php echo '<img src="data:image/jpeg;base64,'.base64_encode($cover).'" />';?></a></td>
+            <td class="product-image"><a href="item-description.php?id=<?php echo $id; ?>"><?php echo '<img src="'.$imagedir . $cover .'" />';?></a></td>
             <td class="product-title"><a href="item-description.php?id=<?php echo $id; ?>"><?php echo $titel; ?></a></td>
             <td>&euro;<span id="price-<?php echo $id; ?>"><?php echo $prijs; ?></span></td>
             <td><input type="text" class="product-amount" value="<?php echo $hoeveelheid; ?>" disabled="disabled" /></td>
