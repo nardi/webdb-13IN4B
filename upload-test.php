@@ -26,8 +26,12 @@ if ((($_FILES["file"]["type"] == "image/gif")
       }
     else
       {
+      
+      $status = $_FILES["file"]["error"];
+      echo "Status: $status <br /> <br />";
+      
       if(!move_uploaded_file($tmpdir . $_FILES["file"]["tmp_name"],
-      "/datastore/webdb13IN4B/uploads/" . $_FILES["file"]["name"])) {
+      "/datastore/webdb13IN4B/uploads/test.jpg")) {
         throw new Exception("Faal");
       }
       
