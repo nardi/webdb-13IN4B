@@ -20,19 +20,22 @@ if ((($_FILES["file"]["type"] == "image/gif")
     echo "Size: " . ($_FILES["file"]["size"] / 1024) . " kB<br>";
     echo "Temp file: " . $_FILES["file"]["tmp_name"] . "<br>";
 
-    if (file_exists("/uploads/" . $_FILES["file"]["name"]))
+    if (file_exists("../uploads/" . $_FILES["file"]["name"]))
       {
       echo $_FILES["file"]["name"] . " already exists. ";
       }
     else
       {
-      $destination = "\\datastore\\webdb13IN4B\\uploads\\";
-      echo "$destination <br />";
       move_uploaded_file($tmpdir . $_FILES["file"]["tmp_name"],
-      "\\datastore\\webdb13IN4B\\uploads\\" . $_FILES["file"]["name"]);
-     // echo "Stored in: /datastore/webdb13IN4B/uploads/" . $_FILES["file"]["name"];
-      echo "<img src='$destination" . $_FILES["file"]["name"] . " />";
-      echo "<br /> $destination";
+      "../uploads/" . $_FILES["file"]["name"]);
+      
+      if(file_exists("../uploads/" . $_FILES["file"]["name"])) {
+        echo "true";
+      }
+      else {
+        echo "false";
+      }
+     
       }
     }
   }
