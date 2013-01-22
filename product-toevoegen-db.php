@@ -51,7 +51,7 @@
 
         
         
-           
+        echo "$image <br /> <br />";   
         
         $sqli_producten = $db->prepare("INSERT INTO Producten (titel, beschrijving, prijs, release_date, voorraad, platform_id, genre_id, cover)
         VALUES (?,?,?,?,?,?,?,?)");
