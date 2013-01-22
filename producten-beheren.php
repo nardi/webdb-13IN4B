@@ -1,3 +1,5 @@
+<link rel="stylesheet" type="text/css" href="main.css">
+
 <?php
     $db = connect_to_db();
     
@@ -24,6 +26,6 @@
         
         $cover_var = '<img src="data:image/jpeg;base64,'.base64_encode($cover).'"/>';
         
-        echo "<tr><td>$id</td><td>$titel</td><td>$cover_var</td><td>$platformnaam</td><td>$genrenaam</td><td>$prijs</td><td>$voorraad</td></tr>";
+        echo "<tr><td>$id</td><td>$titel</td><td><div id='cover'>$cover_var</td></div><td>$platformnaam</td><td>$genrenaam</td><td>$prijs</td><td>$voorraad</td></tr>";
     }
 ?>
