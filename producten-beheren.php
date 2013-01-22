@@ -19,10 +19,16 @@
         $sqli_platform_naam = $db2->prepare("SELECT naam FROM Platforms WHERE id=?");
         $sqli_platform_naam->bind_param('i',$platform_id);
         $sqli_platform_naam->bind_result($platformnaam);
+        echo "$platformnaam . FAILED! . $platform_id";
+        
+        if(!$sqli_platform_naam->execute())
+            $db2->error;
+        
         
         $sqli_genre_naam = $db3->prepare("SELECT naam FROM Genres WHERE id=?");
         $sqli_genre_naam->bind_param('i',$genre_id);
         $sqli_genre_naam->bind_result($genrenaam);
+        $sqli_genre_naam->execute();
         
         $cover_var = '<img src="data:image/jpeg;base64,'.base64_encode($cover).'"/>';
         
