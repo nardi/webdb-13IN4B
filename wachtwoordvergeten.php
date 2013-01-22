@@ -23,9 +23,9 @@ if (isset($_POST['email'])) {
       } else {
 	    $sql->free_result();
 	    $token = md5($_POST['email'].time()) ;
-		$upw = $db->prepare("UPDATE Gebruikers SET wachtwood_token='$token' WHERE email= ? LIMIT 1");
-		$upw->bind_param("s", $email);
-		$upw->execute();
+		$sql = $db->prepare("UPDATE Gebruikers SET wachtwood_token='$token' WHERE email= ? LIMIT 1");
+		$sql->bind_param("s", $email);
+		$sql->execute();
 		
         $onderwerp = "Nieuw wachtwoord aanvragen" ;
         $bericht = "Geachte heer / mevrouw \n\n, Hierbij ontvangt u een email om uw wachtwoord opnieuw in te stellen. \n
