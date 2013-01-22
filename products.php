@@ -69,13 +69,13 @@
 </div>
 <?php
     }
-?>
 
 
-<!-- Testcode!! -->
-<img src="../uploads/test.jpg"> <br />
-<?php echo "$_SERVER['SCRIPT_FILENAME']" ?>
 
+//Testcode!! 
+echo '<img src="' .$imagedir.'test.jpg" /> <br />';
+echo $imagedir . 'test.jpg';
+ ?>
 </div>
 
 </div>

@@ -1,6 +1,6 @@
 <?php
     require 'winkelwagen.class.php';
-    $imagedir = "/datastore/webdb13IN4B/uploads/";
+    $imagedir = "uploads/";
     
     function show_error_page($exception)
     {

@@ -2,7 +2,7 @@
     if (is_admin())
     {
       
-        /* Code voor het uplaoden van afvbeeldingen gebasseerd op het voorbeeld van w3.
+        /* Code voor het uplaoden van afbeeldingen gebasseerd op het voorbeeld van w3.
          * URL: http://www.w3schools.com/php/php_file_upload.asp
          */
       
@@ -19,14 +19,14 @@
             }
             else
             {
-                if (file_exists("../uploads/" . $_FILES["image"]["name"]))
+                if (file_exists("uploads/" . $_FILES["image"]["name"]))
                 {
                     echo $_FILES["image"]["name"] . " already exists. ";
                 }
                 else
                 {
                     if(!move_uploaded_file($_FILES["image"]["tmp_name"],
-                    "/datastore/webdb13IN4B/uploads/" . $_FILES["image"]["name"])) {
+                    "uploads/" . $_FILES["image"]["name"])) {
                         throw new Exception("Het uploaden van het bestand is mislukt");
                     }  
                             
