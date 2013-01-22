@@ -74,7 +74,7 @@
 
 <!-- Testcode!! -->
 <img src="../uploads/test.jpg"> <br />
-<?php echo "$_SERVER['SCRIPT_FILENAME']"; ?>
+<?php echo $_SERVER['SCRIPT_FILENAME']; ?>
 
 </div>
 
