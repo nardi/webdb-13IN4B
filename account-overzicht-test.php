@@ -44,7 +44,7 @@ U bent niet ingelogd!
         </div>
         Straat: <input type="text" name="straat" disabled="disabled" value = "<?php echo $straat; ?>"><div id="straat-label" class="label-div"></div>
         Plaats: <input type="text" name="plaats" disabled="disabled" value = "<?php echo $plaats; ?>"><div id="plaats-label" class="label-div"></div>
-        Telefoonnummer: <input type="text" name="telefoonnummer" disabled="disabled" value = "<?php echo $telefoonnummer; ?>"><br/>
+        Telefoonnummer: <input type="text" name="telefoonnummer" disabled="disabled" value = "<?php echo $telefoonnummer; ?>"><br>
         E-mailadres: <input type="email" name="e-mailadres" disabled="disabled" value = "<?php echo $email; ?>"><div id="email-label" class="label-div"></div>
         <hr width="100%">
         <center><b>Bestellingen</b></center><br>
