@@ -1,12 +1,10 @@
 <?php
-$tmpdir = "/tmp/";
 $allowedExts = array("jpg", "jpeg", "gif", "png");
 $extension = end(explode(".", $_FILES["file"]["name"]));
 if ((($_FILES["file"]["type"] == "image/gif")
 || ($_FILES["file"]["type"] == "image/jpeg")
 || ($_FILES["file"]["type"] == "image/png")
 || ($_FILES["file"]["type"] == "image/pjpeg"))
-&& ($_FILES["file"]["size"] < 20000)
 && in_array($extension, $allowedExts))
   {
   if ($_FILES["file"]["error"] > 0)
