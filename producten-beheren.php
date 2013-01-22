@@ -19,7 +19,7 @@
         $sqli_platform_naam = $db2->prepare("SELECT naam FROM Platforms WHERE id=?");
         $sqli_platform_naam->bind_param('i',$platform_id);
         $sqli_platform_naam->bind_result($platformnaam);
-        echo "$platformnaam . FAILED!";
+        echo "$platformnaam . FAILED! . $platform_id";
         $sqli_platform_naam->execute();
         
         
