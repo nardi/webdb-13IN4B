@@ -45,6 +45,12 @@ class Winkelwagen
         }
     }
     
+    function remove($id)
+    {
+        if (array_key_exists($id, $this->producten))
+            unset($this->producten[$id]);
+    }
+    
     function change_amount($id, $amount)
     {
         if (isset($this->producten[$id]))
@@ -121,10 +127,10 @@ class Winkelwagen
     function display($editable)
     {
 ?>
-<script src="winkelwagen.js"></script>
-<?php if ($editable) echo '<form method="post">'; ?>
+<?php if ($editable) echo '<script src="winkelwagen.js"></script>'; ?>
     <table class="product-list">
         <tr>
+            <?php if ($editable) echo '<th></th>'; ?>
             <th>#</th>
             <th colspan="2">Product</th>
             <th>Prijs</th>
@@ -143,6 +149,15 @@ class Winkelwagen
             $productprijs = $hoeveelheid * $prijs;
 ?>
         <tr>
+        <?php
+            if ($editable)
+            {
+                echo '<th><form method="post">';
+                echo '<input type="hidden" name="remove" value="' . $id . '" />';
+                echo '<input type="submit" value="" class="remove-button" />';
+                echo '</form></th>';
+            }
+        ?>
             <td class="product-id"><a href="item-description.php?id=<?php echo $id; ?>"><span name="product-id"><?php echo $id; ?></span></a></td>
             <td class="product-image"><a href="item-description.php?id=<?php echo $id; ?>"><?php echo '<img src="data:image/jpeg;base64,'.base64_encode($cover).'" />';?></a></td>
             <td class="product-title"><a href="item-description.php?id=<?php echo $id; ?>"><?php echo $titel; ?></a></td>
@@ -155,12 +170,10 @@ class Winkelwagen
         }
 ?>
         <tr class="total-price">
-            <td class="update-button" colspan="3"><?php if (false) echo '<input type="submit" value="Update hoeveelheden"/>'; ?></td>
-            <th colspan="2">Totale prijs:</td>
+            <th colspan="<?php if ($editable) echo '6'; else echo '5'; ?>">Totale prijs:</th>
             <td>&euro;<span id="total-price" class="price"><?php echo $totaalprijs; ?><span></td>
         </tr>
     </table>
-<?php if ($editable) echo '</form>'; ?>
 <?php
     }
 }
