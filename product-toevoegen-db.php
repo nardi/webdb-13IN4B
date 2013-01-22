@@ -65,6 +65,6 @@
     
     
     
-    redirect_to("product-toevoegen-succesvol.html");
+    //redirect_to("product-toevoegen-succesvol.html");
     }
 ?>
