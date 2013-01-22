@@ -75,7 +75,7 @@
     <input type="hidden" name="item_name_<?php echo $count; ?>" value="<?php echo $titel; ?>">
     <input type="hidden" name="amount_<?php echo $count; ?>" value="<?php echo $prijs; ?>">
     <input type="hidden" name="quantity_<?php echo $count; ?>" value="<?php echo $hoeveelheid; ?>">
-<?php  
+<?php
         $sqli_product = $db->prepare("INSERT INTO Bestelling_Product (bestelling_id, product_id, prijs, hoeveelheid) VALUES (?,?,?,?)");
         $sqli_product->bind_param('iidi', $bestelling_id, $product_id, $prijs, $hoeveelheid);
         if(!$sqli_product->execute())

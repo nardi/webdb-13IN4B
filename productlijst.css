@@ -11,9 +11,16 @@
     padding: 4pt;
 }
 
-.product-list td:not(.update-button) {
+.product-list td:not(.payment-status) {
     border: 1px solid black;
     background-color: #fefefe;
+}
+
+.product-list .remove-button {
+    width: 20pt;
+    background-image: url("images/labels/error-label.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
 }
 
 .product-list .product-id {
@@ -39,15 +46,19 @@
     width: 20pt;
 }
 
-.product-list .update-button {
+.product-list .payment-status {
     text-align: left;
 }
 
-.product-list .total-price th {
+.product-list .bottom-row td, th {
+    vertical-align: top;
+}
+
+.product-list .bottom-row th {
     text-align: right;
 }
 
-.product-list .total-price td span {
+.product-list .bottom-row td span {
     text-decoration: underline;
     border-bottom: 1px solid black;
 }
