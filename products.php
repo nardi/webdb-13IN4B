@@ -73,7 +73,7 @@
 
 
 //Testcode!! 
-echo '<img src="' .$imagedir.'test.jpg" /> <br />'
+echo '<img src="' .$imagedir.'test.jpg" /> <br />';
 echo $imagedir . 'test.jpg';
  ?>
 </div>
