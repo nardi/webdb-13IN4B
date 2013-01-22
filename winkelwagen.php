@@ -3,6 +3,9 @@
     
     if (isset($_POST['add']))
         $ww->add($_POST['add']);
+        
+    if (isset($_POST['remove']))
+        $ww->remove($_POST['remove']);
     
     $ww->save_to_session();
 ?>
@@ -28,7 +31,7 @@
         {
 ?>
 <p>Voer uw wachtwoord opnieuw in ter controle voor u een bestelling plaatst:</p>
-<form action="bestelling.php" method="post">
+<form action="bestelling-afronden.php" method="post">
     <input type="password" name="wachtwoord">
     <input type="submit" value="Plaats bestelling"><br/>
 </form>
