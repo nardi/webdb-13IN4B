@@ -45,12 +45,6 @@ class Winkelwagen
         }
     }
     
-    function remove($id)
-    {
-        if (array_key_exists($id, $this->producten))
-            unset($this->producten[$id]);
-    }
-    
     function change_amount($id, $amount)
     {
         if (isset($this->producten[$id]))
