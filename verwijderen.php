@@ -34,11 +34,11 @@
         if (!$sql->fetch()) { print "Onverwachte fout: Geen data."; exit(); }
         $sql->free_result();
 
-        $sql = $db->prepare("DELETE FROM Adressen JOIN AdresGebruiker ON Adressen.id = adres_id WHERE gebruiker_id= '".$_SESSION['gebruiker-id']."' LIMIT 1");
-        $sql->execute();   
+        $sql1 = $db->prepare("DELETE FROM Adressen JOIN AdresGebruiker ON Adressen.id = adres_id WHERE gebruiker_id= '".$_SESSION['gebruiker-id']."' LIMIT 1");
+        $sql1->execute();   
 
-        if (!$sql->fetch()) { print "Onverwachte fout: Geen data."; exit(); }
-        $sql->free_result();
+        if (!$sql1->fetch()) { print "Onverwachte fout: Geen data."; exit(); }
+        $sql1->free_result();
         
         echo 'U heeft succesvol uw account verwijderd.';
         $db->close();
