@@ -28,10 +28,10 @@
         exit();
     }
     else {        
-        $sql = $db->prepare("DELETE FROM Gebruikers WHERE id= '".$_SESSION['gebruiker-id']."' LIMIT 1");
+        $sql = $db->prepare("DELETE * FROM Gebruikers WHERE id= '".$_SESSION['gebruiker-id']."' LIMIT 1");
         $sql->execute();  
         
-        if (!$sql->fetch()) { print "Onverwachte fout: Geen data."; exit(); }
+        if (!$sql->fetch()) { print "Onverwachte fout: Geen data 1e deel."; exit(); }
         $sql->free_result();
 
         $sql = $db->prepare("DELETE * FROM Adressen JOIN AdresGebruiker ON Adressen.id = adres_id WHERE gebruiker_id= '".$_SESSION['gebruiker-id']."' LIMIT 1");
