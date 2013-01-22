@@ -1,12 +1,10 @@
 <?php
-$tmpdir = "/tmp/";
 $allowedExts = array("jpg", "jpeg", "gif", "png");
 $extension = end(explode(".", $_FILES["file"]["name"]));
 if ((($_FILES["file"]["type"] == "image/gif")
 || ($_FILES["file"]["type"] == "image/jpeg")
 || ($_FILES["file"]["type"] == "image/png")
 || ($_FILES["file"]["type"] == "image/pjpeg"))
-&& ($_FILES["file"]["size"] < 20000)
 && in_array($extension, $allowedExts))
   {
   if ($_FILES["file"]["error"] > 0)
@@ -30,7 +28,7 @@ if ((($_FILES["file"]["type"] == "image/gif")
       $status = $_FILES["file"]["error"];
       echo "Status: $status <br /> <br />";
       
-      if(!move_uploaded_file($$_FILES["file"]["tmp_name"],
+      if(!move_uploaded_file($_FILES["file"]["tmp_name"],
       "/datastore/webdb13IN4B/uploads/" . $_FILES["file"]["name"])) {
         throw new Exception("Faal");
       }
