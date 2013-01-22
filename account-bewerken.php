@@ -1,6 +1,4 @@
 <?php
-    
-
     $db = connect_to_db();
     
     $voornaam = $_POST['voornaam'];
@@ -33,15 +31,9 @@
        preg_match($validTel1, $telefoonnummer)&&
        preg_match($validTel2, $telefoonnummer2)&&
        preg_match($validMail, $emailadres)){
+        
         $telefoonnummerTot = $telefoonnummer . '-' . $telefoonnummer2;
         
-        /*
-        $sqli_gebruikers = $db->prepare("UPDATE Gebruikers naam = ?, achternaam = ?, telefoonnummer = ?, email = ? WHERE id= '".$_SESSION['gebruiker-id']."' ");
-
-        $sqli_gebruikers->bind_param('ssss',$voornaam, $achternaam, $telefoonnummerTot, $emailadres);
-        */
-        
-        //**********************************************************************************************
         $sqli_gebruikers = $db->prepare("UPDATE Gebruikers SET naam = ?, achternaam = ?, telefoonnummer = ?, email = ? WHERE id= '".$_SESSION['gebruiker-id']."'");
         
         $sqli_gebruikers->bind_param('ssss',$voornaam, $achternaam, $telefoonnummerTot, $emailadres);
@@ -50,16 +42,6 @@
         
         $sqli_adressen->bind_param('sisss',$postcode , $huisnummer , $toevoeging , $plaats , $straat);
         
-        //***********************************************************************************************
-        /*$sql_adressen = "INSERT INTO Adressen (postcode, huisnummer, toevoeging, plaats, straat)
-        VALUES ('$postcode' , '$huisnummer' , '$toevoeging' , '$plaats' , '$straat')";*/
-        /*
-        $sqli_adressen = $db->prepare("UPDATE Adressen (postcode, huisnummer, toevoeging, plaats, straat)
-        VALUES (?,?,?,?,?)");
-        
-        $sqli_adressen->bind_param('sisss',$postcode , $huisnummer , $toevoeging , $plaats , $straat);
-    */
-
         if(!$sqli_gebruikers->execute())
             throw new Exception($sqli_gebruikers->error);
         if(!$sqli_adressen->execute())
@@ -71,7 +53,6 @@
     }
     
     else
-       //redirect_to("error.php?msg=Foei je mag niet via een URL hier komen.");
        echo preg_match($validNaam, $voornaam).
        preg_match($validNaam, $achternaam).
        preg_match($validPostcode, $postcode).
@@ -79,5 +60,4 @@
        preg_match($validTel1, $telefoonnummer).
        preg_match($validTel2, $telefoonnummer2).
        preg_match($validMail, $emailadres);
-    
 ?>
