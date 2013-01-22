@@ -58,7 +58,7 @@
     <div id="ItemCover">
     <h4>Game cover</h4>
         <?php
-            echo '<img src="'.$imagedir . $cover).'" />';
+            echo '<img src="'.$imagedir . $cover .'" />';
         ?>
     </div>
     <div id="ItemWWToevoegen">
