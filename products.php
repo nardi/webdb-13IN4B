@@ -52,7 +52,7 @@
             throw new Exception("Er zijn foutieve parameters opgegeven.");
 ?>
 
-<div class="centering-container">
+<div class="centered-container">
 
 <div class="category">
 
