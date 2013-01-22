@@ -31,7 +31,7 @@
         $sql = $db->prepare("DELETE FROM Gebruikers WHERE id= '".$_SESSION['gebruiker-id']."' LIMIT 1");
         $sql->execute();  
         
-        if (!$sql->fetch()) { echo "Onverwachte fout: Geen data 1e deel."; exit(); }
+        if (!$sql->fetch()) { echo "Onverwachte fout: Geen data 1e deel.";}
         $sql->free_result();
 
         $sql = $db->prepare("DELETE FROM Adressen JOIN AdresGebruiker ON Adressen.id = adres_id WHERE gebruiker_id= '".$_SESSION['gebruiker-id']."' LIMIT 1");
