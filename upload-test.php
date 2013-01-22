@@ -12,7 +12,7 @@ else
   }
   
   
-  if (file_exists("uploads/" . $_FILES["file"]["name"])) {
+  if (file_exists("uploads/" . $_FILES["file"]["name"])) 
       {
       echo $_FILES["file"]["name"] . " already exists. ";
       }
@@ -22,6 +22,6 @@ else
       "uploads/" . $_FILES["file"]["name"]);
       echo "Stored in: " . "uploads/" . $_FILES["file"]["name"];
       }
-   }
+   
 ?> 
  
