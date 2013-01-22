@@ -11,9 +11,15 @@
    
 <?php
 
+if (isset($_GET['token'])) {
+	  $token = $_GET['token'] ; 
+} else {
+      echo "Dit is geen geldige url!"
+}
+
 if (isset($_POST['wachtwoord'])&&
     isset($_POST['wachtwoord_nogmaals'])) {
-	  $token = $_GET['token'];
+	  
 	  $wachtwoord = $_POST['wachtwoord_nogmaals'] ;
 	  
 	  //Random getal voor salt genereren
@@ -33,6 +39,7 @@ if (isset($_POST['wachtwoord'])&&
       $sql->execute();
 	  
 	  echo "Uw wachtwoord is aangepast, hartelijk dank!" ;
+	  
     
 } else {
       
