@@ -18,8 +18,7 @@
     $db2 = connect_to_db();
     $db3 = connect_to_db();
     
-    while($sqli_product_lijst->fetch()){        
-<<<<<<< HEAD
+    while($sqli_product_lijst->fetch()){
         $cover_var = '<img src="'.$imagedir.$cover.'"/>';
         echo "<tr id=$id>
             <td><input type='checkbox' name='selected'></td>
