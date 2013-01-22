@@ -22,8 +22,12 @@ if (isset($_POST['email'])) {
         echo "Dit emailadres is niet bij ons geregistreerd." ;
       } else {
 	    $token = md5($_POST['email'].time()) ;
+		$upw = $db->prepare("UPDATE Gebruikers SET wachtwood_token=$token WHERE email= ? LIMIT 1");
+		$upw->bind_param("s", $email);
+		$upw->execute();
+		
         $onderwerp = "Nieuw wachtwoord aanvragen" ;
-        $bericht = "Geachte heer / mevrouw <br><br>, Hierbij ontvangt u een email om uw wachtwoord opnieuw in te stellen. <br>
+        $bericht = "Geachte heer / mevrouw \n\n, Hierbij ontvangt u een email om uw wachtwoord opnieuw in te stellen. \n
 		Klik op http://www.superinternetshop.nl/wachtwoord-reset.php?token=" . $token ;
         $from = "noreply@superinternetshop.nl";
         $headers = "From:" . $from;

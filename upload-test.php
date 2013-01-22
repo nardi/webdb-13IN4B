@@ -1,4 +1,5 @@
 <?php
+$tmpdir = "/tmp/";
 $allowedExts = array("jpg", "jpeg", "gif", "png");
 $extension = end(explode(".", $_FILES["file"]["name"]));
 if ((($_FILES["file"]["type"] == "image/gif")
@@ -19,15 +20,22 @@ if ((($_FILES["file"]["type"] == "image/gif")
     echo "Size: " . ($_FILES["file"]["size"] / 1024) . " kB<br>";
     echo "Temp file: " . $_FILES["file"]["tmp_name"] . "<br>";
 
-    if (file_exists("/uploads/" . $_FILES["file"]["name"]))
+    if (file_exists("../uploads/" . $_FILES["file"]["name"]))
       {
       echo $_FILES["file"]["name"] . " already exists. ";
       }
     else
       {
-      move_uploaded_file($_FILES["file"]["tmp_name"],
-      "/uploads/" . $_FILES["file"]["name"]);
-      echo "Stored in: " . "/uploads/" . $_FILES["file"]["name"];
+      move_uploaded_file($tmpdir . $_FILES["file"]["tmp_name"],
+      "../uploads/" . $_FILES["file"]["name"]);
+      
+      if(file_exists("../uploads/" . $_FILES["file"]["name"])) {
+        echo "true";
+      }
+      else {
+        echo "false";
+      }
+     
       }
     }
   }

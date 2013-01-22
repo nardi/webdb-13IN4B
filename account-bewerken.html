@@ -38,17 +38,17 @@ U bent niet ingelogd!
           <h1><center><b>Mijn account</b></center></h1>
               <hr width="100%">
               <center><b>Accountgegevens bewerken</b></center>
-              <br>
-              Voornaam: <input type="text" id="voornaam" name="voornaam" onblur="checkNaam('voornaam', 'voornaam-label')" value = "<?php echo $naam; ?>"><div id="voornaam-label" class="label-div"></div><br>
-              Achternaam: <input type="text" id="achternaam" name="achternaam" onblur="checkNaam('achternaam', 'achternaam-label')" value = "<?php echo $achternaam; ?>"><div id="achternaam-label" class="label-div"></div><br>
+              <br/>
+              Voornaam: <input type="text" id="voornaam" name="voornaam" onblur="checkNaam('voornaam', 'voornaam-label')" value = "<?php echo $naam; ?>"><div id="voornaam-label" class="label-div"></div><br/>
+              Achternaam: <input type="text" id="achternaam" name="achternaam" onblur="checkNaam('achternaam', 'achternaam-label')" value = "<?php echo $achternaam; ?>"><div id="achternaam-label" class="label-div"></div><br/>
               Huisnummer en toevoeging:
               <div class="huisnummer"> 
                 <input type="tekst" id="huisnummer" name="huisnummer" onchange="completeAddress()" onblur="checkHuis()" value = "<?php echo $huisnummer; ?>"> <input type="tekst" name="toevoeging" value = "<?php echo $toevoeging; ?>"><div id="huisnummer-label" class="label-div"></div>
               </div><br/>
 
-              Postcode: <input type="text" id="postcode" name="postcode" onchange="completeAddress()" onblur="checkPostcode()" value = "<?php echo $postcode; ?>"><div id="postcode-label" class="label-div"></div><br>
-              Straat: <input type="text" id="straatid" name="straat"><div id="straat-label" class="label-div" value = "<?php echo $straat; ?>"></div><br>
-              Plaats: <input type="text" name="plaats"><div id="plaats-label" class="label-div" value = "<?php echo $plaats; ?>"></div><br>
+              Postcode: <input type="text" id="postcode" name="postcode" onchange="completeAddress()" onblur="checkPostcode()" value = "<?php echo $postcode; ?>"><div id="postcode-label" class="label-div"></div><br/>
+              Straat: <input type="text" id="straatid" name="straat"><div id="straat-label" class="label-div" value = "<?php echo $straat; ?>"></div><br/>
+              Plaats: <input type="text" name="plaats"><div id="plaats-label" class="label-div" value = "<?php echo $plaats; ?>"></div><br/>
 
               Telefoonnummer: 
               <div class="telnr"> 
@@ -61,9 +61,9 @@ U bent niet ingelogd!
               </div>  
               <div id="tel-label" class="label-div" class="label-div"></div>
               <hr width="100%">
-              <center><b>Inloggegevens</b></center><br>
-              E-mailadres: <input type="text" id="email" name="e-mailadres" onblur="checkMail()" value = "<?php echo $email; ?>"><div id="email-label" class="label-div"></div><br>
-              E-mailadres bevestigen: <input type="text" id="email-bevestigen" name="e-mailadres-conf" onblur="verify('email','email-bevestigen', 'email-bevestigen-label')"><div id="email-bevestigen-label" class="label-div"></div><br>
+              <center><b>Inloggegevens</b></center><br/>
+              E-mailadres: <input type="text" id="email" name="e-mailadres" onblur="checkMail()" value = "<?php echo $email; ?>"><div id="email-label" class="label-div"></div><br/>
+              E-mailadres bevestigen: <input type="text" id="email-bevestigen" name="e-mailadres-conf" onblur="verify('email','email-bevestigen', 'email-bevestigen-label')"><div id="email-bevestigen-label" class="label-div"></div><br/>
               <input type="submit" value="Wijzigingen bevestigen">
           </div>
         </form>
