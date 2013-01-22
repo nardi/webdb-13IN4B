@@ -73,7 +73,7 @@
 
 
 <!-- Testcode!! -->
-<img src="uploads/test.jpg">
+<img src="../uploads/test.jpg">
 
 </div>
 
