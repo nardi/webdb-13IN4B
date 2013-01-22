@@ -10,7 +10,7 @@
     $ww->save_to_session();
 ?>
 
-<div id="cart">
+<div id="winkelwagen">
 
 <h1>Winkelwagen</h1>
 

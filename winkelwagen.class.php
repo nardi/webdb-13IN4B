@@ -148,7 +148,7 @@ class Winkelwagen
             {
                 echo '<th><form method="post">';
                 echo '<input type="hidden" name="remove" value="' . $id . '" />';
-                echo '<input type="submit" value="" class="remove-button" />';
+                echo '<img src="images/labels/error-label.png" class="remove-button" />';
                 echo '</form></th>';
             }
         ?>

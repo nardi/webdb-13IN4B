@@ -38,7 +38,7 @@
     }
 ?>
 
-<div id="bestelling">
+<div id="bestelling-afronden">
 
 <h1>Uw bestelling</h1>
 
