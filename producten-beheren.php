@@ -5,16 +5,20 @@
     $sqli_product_lijst->bind_result($id,$titel,$platform_id,$genre_id,$beschrijving,$prijs,$release_date,$voorraad,$datum_toegevoegd,$cover);
     $sqli_product_lijst->execute();
     
+    
 ?>
 <table id="Producten">
 <tr><th>id</th><th>Titel</th><th>Cover</th><th>Platform</th><th>Genre</th><th>Prijs</th><th>Voorraad</th>
+
 <?php
+    $db2 = connect_to_db();
+    $db3 = connect_to_db();
     while($sqli_product_lijst->fetch()){
-        $sqli_platform_naam = $db->prepare("SELECT naam FROM Platforms WHERE id=?");
+        $sqli_platform_naam = $db2->prepare("SELECT naam FROM Platforms WHERE id=?");
         $sqli_platform_naam->bind_param('i',$id);
         $sqli_platform_naam->bind_result($platformnaam);
         
-        $sqli_genre_naam = $db->prepare("SELECT naam FROM Genre WHERE id=?");
+        $sqli_genre_naam = $db3->prepare("SELECT naam FROM Genre WHERE id=?");
         $sqli_genre_naam->bind_param('i',$id);
         $sqli_genre_naam->bind_result($genrenaam);
         
