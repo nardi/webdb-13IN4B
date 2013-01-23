@@ -1,33 +1,34 @@
+<div class="centered-container">
 <?php
     if (!isset($_SESSION['logged-in']))
     {
         echo 'Je moet ingelogd zijn om een bestelling te plaatsen.';
     }
-    if (isset($_POST['wachtwoord']))
-    {
-        $gebruiker_id = $_SESSION['gebruiker-id'];
-        $wachtwoord = $_POST['wachtwoord'];
+    
+    $ww = Winkelwagen::try_load_from_session();
         
-        $db = connect_to_db();
-        $sql = $db->prepare("SELECT wachtwoord FROM Gebruikers WHERE id = ? LIMIT 1");
-        $sql->bind_param('i', $_SESSION['gebruiker-id']);
-        $sql->execute();
-        $sql->bind_result($wwdb);
-        $sql->fetch();
-        $sql->free_result();
-
-        if (!check_wachtwoord($wachtwoord, $wwdb))
+    if ($ww->is_empty())
+    {
+        echo 'Voeg eerst producten toe aan je winkelwagen voor je een bestelling plaatst.';
+    }
+    else
+    {
+        if (isset($_POST['wachtwoord']))
         {
-            echo 'Het opgegeven wachtwoord is niet juist.';
-            $db->close();
-        }
-        else
-        {
-            $ww = Winkelwagen::try_load_from_session();
+            $gebruiker_id = $_SESSION['gebruiker-id'];
+            $wachtwoord = $_POST['wachtwoord'];
             
-            if ($ww->is_empty())
+            $db = connect_to_db();
+            $sql = $db->prepare("SELECT wachtwoord FROM Gebruikers WHERE id = ? LIMIT 1");
+            $sql->bind_param('i', $_SESSION['gebruiker-id']);
+            $sql->execute();
+            $sql->bind_result($wwdb);
+            $sql->fetch();
+            $sql->free_result();
+
+            if (!check_wachtwoord($wachtwoord, $wwdb))
             {
-                echo 'Voeg eerst producten toe aan je winkelwagen voor je een bestelling plaatst.';
+                echo 'Het opgegeven wachtwoord is niet juist.';
                 $db->close();
             }
             else
@@ -54,21 +55,12 @@
 ?>
 
 <h1>Bestelling geplaatst!</h1>
-
+<p>Klik onderaan op de knop "Betalen met Paypal" om voor de bestelling te betalen.<br/>
+Dit kan ook op een later moment via uw accountoverzicht, maar tot dan wordt uw bestelling nog niet verstuurd!</p>
 <?php
                 require 'bestelling-weergeven.php';
                 bestelling_weergeven($bestelling_id);
             }
-        }
-    }
-    else
-    {
-        $ww = Winkelwagen::try_load_from_session();
-        
-        if ($ww->is_empty())
-        {
-            echo 'Voeg eerst producten toe aan je winkelwagen voor je een bestelling plaatst.';
-            $db->close();
         }
         else
         {
@@ -81,7 +73,7 @@
 ?>
 <br/>
 <p>Voer uw wachtwoord opnieuw in ter controle voor u een bestelling plaatst:</p>
-<form action="bestelling.php" method="post">
+<form method="post">
     <input type="password" name="wachtwoord">
     <input type="submit" value="Plaats bestelling"><br/>
 </form>

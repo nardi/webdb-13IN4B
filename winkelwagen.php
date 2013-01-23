@@ -30,7 +30,7 @@
         if (isset($_SESSION['logged-in']))
         {
 ?>
-<form action="bestelling.php">
+<form action="bestellen.php">
     <input type="submit" value="Naar de kassa"><br/>
 </form>
 <?php
