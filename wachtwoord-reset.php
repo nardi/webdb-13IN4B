@@ -12,12 +12,12 @@
 <?php
 
 if (isset($_GET['token'])) {
-    
+    $token = ($_GET['token']);
 
     if (!isset($_POST['wachtwoord'])&&
 	    !isset($_POST['wachtwoord'])) {
 
-    $token = ($_GET['token']);  
+      
     echo "<div align='justify'>
     Vul hieronder het door u nieuwe gekozen wachtwoord in. 
     </div><br /><br />";
@@ -56,7 +56,8 @@ if (isset($_GET['token'])) {
     
 
 }
-}
+} else {
+   echo "url is incorrect" ;
 
 	  
 	  
