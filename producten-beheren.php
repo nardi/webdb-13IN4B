@@ -36,14 +36,14 @@
                             </form>
                     </div>
                 </td>
-                <td><input type='checkbox' name='selected'></td>
+                <td><input type='checkbox' name='selected$id'></td>
                 <td class='column'>$id</td>
-                <td class='column'><input type='text' class='inputfield' name='titel' disabled='disabled' value='$titel' size=$titelwidth></td>
+                <td class='column'><input type='text' class='inputfield' name='titel$id' disabled='disabled' value='$titel' size=$titelwidth></td>
                 <td class='column'><div class='cover' value=$cover_var></td></div>
-                <td class='column'><input type='text' class='inputfield' name='platform' disabled='disabled' value=$platformnaam size='13'></td>
-                <td class='column'><input type='text' class='inputfield' name='genre' disabled='disabled' value=$genrenaam size='10'></td>
-                <td class='column'><input type='text' class='inputfield' name='prijs' disabled='disabled' value=$prijs size='6'></td>
-                <td class='column'><input type='text' class='inputfield' name='voorraad' disabled='disabled' value=$voorraad size='5'></td>
+                <td class='column'><input type='text' class='inputfield' name='platform$id' disabled='disabled' value=$platformnaam size='13'></td>
+                <td class='column'><input type='text' class='inputfield' name='genre$id' disabled='disabled' value=$genrenaam size='10'></td>
+                <td class='column'><input type='text' class='inputfield' name='prijs$id' disabled='disabled' value=$prijs size='6'></td>
+                <td class='column'><input type='text' class='inputfield' name='voorraad$id' disabled='disabled' value=$voorraad size='5'></td>
                 
             </tr>";
         }
