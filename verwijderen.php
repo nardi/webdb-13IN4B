@@ -32,10 +32,10 @@
         $sql->execute();  
         
         $sql->free_result();
-
+/*      Adres van de verwijderde wordt niet verwijderd, onderstaande code werkt nog niet.
         $sql = $db->prepare("DELETE FROM Adressen JOIN AdresGebruiker ON Adressen.id = adres_id WHERE gebruiker_id= '".$_SESSION['gebruiker-id']."' LIMIT 1");
         $sql->execute();   
-
+*/
         $sql->free_result();
         
         echo 'U heeft succesvol uw account verwijderd.';

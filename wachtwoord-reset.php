@@ -11,6 +11,16 @@
    
 <?php
 
+$db = connect_to_db();
+$token = ($_GET['token']);
+$sql3 = $db->prepare("SELECT id FROM Gebruikers WHERE wachtwoord_token = ? LIMIT 1");
+$sql3->bind_param("s", $token) ;
+$sql3->bind_result($token_valid);
+$sql3->execute();
+
+if (!is_null($token_valid)) {
+
+
 if (!isset($_POST['wachtwoord'])&&
 	!isset($_POST['wachtwoord'])) {
 	
@@ -39,24 +49,24 @@ if (!isset($_POST['wachtwoord'])&&
 	  $wachtwoord = $_POST['wachtwoord_nogmaals'] ;
 	  
 	  //Random getal voor salt genereren
-      $saltbytes = openssl_random_pseudo_bytes(32);
-      $salt = bin2hex($saltbytes);
-    
-      //Hashen met SHA-256
-      $wwhash = hash('sha256', $wachtwoord);
-      $saltedwwhash = hash('sha256', $salt . $wwhash);
-    
-      //Combinatie salt en wachtwoordhash voor database
-      $saltww = $salt . $saltedwwhash;
+	  $saltbytes = openssl_random_pseudo_bytes(32);
+	  $salt = bin2hex($saltbytes);
+	
+	  //Hashen met SHA-256
+	  $wwhash = hash('sha256', $wachtwoord);
+	  $saltedwwhash = hash('sha256', $salt . $wwhash);
+	
+	  //Combinatie salt en wachtwoordhash voor database
+	  $saltww = $salt . $saltedwwhash;
 	
 	  //Hier wordt het wachtwoord naar de database geschreven
 	  $db = connect_to_db();
-      $sql = $db->prepare("UPDATE Gebruikers SET wachtwoord = '$saltww' WHERE wachtwoord_token = ? LIMIT 1");
+	  $sql = $db->prepare("UPDATE Gebruikers SET wachtwoord = '$saltww' WHERE wachtwoord_token = ? LIMIT 1");
 	  $sql->bind_param("s", $token) ;
-      $sql->execute();
+	  $sql->execute();
 	  
 	  //Hier wordt de token verwijderd uit de database
-	  $sql2 = $db->prepare("UPDATE Gebruikers SET wachtwoord_token = '' WHERE wachtwoord_token = ? LIMIT 1");
+	  $sql2 = $db->prepare("UPDATE Gebruikers SET wachtwoord_token = NULL WHERE wachtwoord_token = ? LIMIT 1");
 	  $sql2->bind_param("s", $token) ;
 	  $sql2->execute();
 	  echo "Uw wachtwoord is aangepast, hartelijk dank!" ;
@@ -78,6 +88,9 @@ if (!isset($_POST['wachtwoord'])&&
 	  }
 	  
 } 
+} else {
+	throw new Exception("Deze link is verlopen") ;
+}
 	  
 
 	  	  
