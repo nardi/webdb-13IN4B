@@ -60,7 +60,7 @@
     while ($sqli->fetch())
     {
     
-        if ((!file_exists($imgdir . $cover)) || (is_null(cover))) {
+        if ((!file_exists($imagedir . $cover)) || (is_null(cover))) {
             $cover = "nocover.png";
         }
 ?>
