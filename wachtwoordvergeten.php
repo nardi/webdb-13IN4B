@@ -11,6 +11,8 @@
    
 <?php
 
+
+
 if (isset($_POST['email'])) {
 	  $email = $_POST['email'] ;
       $db = connect_to_db();
@@ -30,7 +32,7 @@ if (isset($_POST['email'])) {
 		
         $onderwerp = "Nieuw wachtwoord aanvragen" ;
         $bericht = "Geachte heer / mevrouw \n\n, Hierbij ontvangt u een email om uw wachtwoord opnieuw in te stellen. \n
-		Klik op http://www.superinternetshop.nl/wachtwoord-reset.php?token=" . $token ;
+		Klik op https://www.superinternetshop.nl/wachtwoord-reset.php?token=" . $token ;
         $from = "noreply@superinternetshop.nl";
         $headers = "From:" . $from;
         mail($email, $onderwerp, $bericht, $headers);
@@ -51,6 +53,9 @@ if (isset($_POST['email'])) {
       <input type='submit'>
       </form>";
 }
+
+
+
 ?>
      
 

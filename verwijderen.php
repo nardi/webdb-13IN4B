@@ -33,10 +33,10 @@
         
         $sql->free_result();
 
-        $sql1 = $db->prepare("DELETE FROM Adressen JOIN AdresGebruiker ON Adressen.id = adres_id WHERE gebruiker_id= '".$_SESSION['gebruiker-id']."' LIMIT 1");
-        $sql1->execute();   
+        $sql = $db->prepare("DELETE FROM Adressen JOIN AdresGebruiker ON Adressen.id = adres_id WHERE gebruiker_id= '".$_SESSION['gebruiker-id']."' LIMIT 1");
+        $sql->execute();   
 
-        $sql1->free_result();
+        $sql->free_result();
         
         echo 'U heeft succesvol uw account verwijderd.';
         $db->close();
