@@ -31,7 +31,7 @@ if (!isset($_POST['wachtwoord'])&&
 	  
     } else {
 	
-	  $token2 = $_POST['token']
+	  $token2 = $_POST['token'] ;
 	  $wachtwoord = $_POST['wachtwoord_nogmaals'] ;
 	  
 	  //Random getal voor salt genereren
