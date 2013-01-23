@@ -46,7 +46,7 @@ U bent niet ingelogd!
                 <input type="tekst" id="huisnummer" name="huisnummer" onchange="completeAddress()" onblur="checkHuis(); checkPostcode();" value = "<?php echo $huisnummer; ?>"> <input type="tekst" name="toevoeging" value = "<?php echo $toevoeging; ?>"><div id="huisnummer-label" class="label-div"></div>
               </div><br/>
 
-              Postcode: <input type="text" id="postcode" name="postcode" onblur="checkPostcode()" value = "<?php echo $postcode; ?>"><div id="postcode-label" class="label-div"></div><br/>
+              Postcode: <input type="text" id="postcode" name="postcode" onblur="checkHuis(); checkPostcode()" value = "<?php echo $postcode; ?>"><div id="postcode-label" class="label-div"></div><br/>
               Straat: <input type="text" id="straatid" name="straat" disabled="disabled" value = "<?php echo $straat; ?>"><div id="straat-label" class="label-div"></div><br>
               Plaats: <input type="text" name="plaats" disabled="disabled" value = "<?php echo $plaats; ?>"><div id="plaats-label" class="label-div"></div><br>
         
