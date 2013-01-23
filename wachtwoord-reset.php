@@ -36,6 +36,7 @@ if (isset($_POST['wachtwoord'])&&
 	  
     
 } else {
+    $db = connect_to_db();
     $token = mysql_real_escape_string($_GET['token']);  
     echo "<div align='justify'>
     Vul hieronder het door u nieuwe gekozen wachtwoord in. 
