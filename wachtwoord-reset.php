@@ -60,8 +60,8 @@ if (!isset($_POST['wachtwoord'])&&
 	  
 	  } else {
 	  $token = $_POST['token'] ;
-	  echo "Beide wachtwoorden dienen gelijk te zijn. Probeer het nogmaals" ;
-	  GOTO https://www.superinternetshop.nl/wachtwoord-reset.php?token= . '$token' ;
+	  echo "Beide wachtwoorden dienen gelijk te zijn. Probeer het nogmaals op https://www.superinternetshop.nl/wachtwoord-reset.php?token=" . $token ; 
+	  
 	  }
 	  
 	  

@@ -11,6 +11,8 @@
    
 <?php
 
+if (isset($_GET['token'])) {
+
 if (isset($_POST['email'])) {
 	  $email = $_POST['email'] ;
       $db = connect_to_db();
@@ -51,6 +53,11 @@ if (isset($_POST['email'])) {
       <input type='submit'>
       </form>";
 }
+
+} else {
+    echo "Helaas, deze link bestaat niet meer." ;
+}
+
 ?>
      
 
