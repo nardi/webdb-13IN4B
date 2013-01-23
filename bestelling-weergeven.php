@@ -1,6 +1,7 @@
 <?php
     function bestelling_weergeven($id)
     {
+        global $imagedir;
         $db = connect_to_db();
         $sql = $db->prepare("SELECT Producten.id, titel, hoeveelheid, Bestelling_Product.prijs, cover, betaalstatus
                              FROM Producten JOIN Bestelling_Product ON product_id = Producten.id
