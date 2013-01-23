@@ -11,9 +11,10 @@
    
 <?php
 
+
 if (isset($_POST['wachtwoord'])&&
     isset($_POST['wachtwoord_nogmaals'])) {
-	  $token = $_GET['token'];
+	  
 	  $wachtwoord = $_POST['wachtwoord_nogmaals'] ;
 	  
 	  //Random getal voor salt genereren
@@ -31,11 +32,12 @@ if (isset($_POST['wachtwoord'])&&
       $sql = $db->prepare("UPDATE Gebruikers SET wachtwoord = '$saltww' WHERE wachtwoord_token = ? LIMIT 1");
       $sql->bind_param("s", $token) ;
       $sql->execute();
-	  
 	  echo "Uw wachtwoord is aangepast, hartelijk dank!" ;
+	  
     
 } else {
-      
+    $db = connect_to_db();
+    $token = mysql_real_escape_string($_GET['token']);  
     echo "<div align='justify'>
     Vul hieronder het door u nieuwe gekozen wachtwoord in. 
     </div><br /><br />";
@@ -46,11 +48,14 @@ if (isset($_POST['wachtwoord'])&&
       </textarea><br>
       <input type='submit'>
       </form>";
+
 }
+
+
+	  
+	  
 ?>
-     
-
-
+    
       </div>
     </div>
 </div>
