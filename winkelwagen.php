@@ -26,10 +26,21 @@
         echo $ww->display(TRUE);
 ?>
 <br/>
-<form action="bestelling-afronden.php">
+<?php
+        if (isset($_SESSION['logged-in']))
+        {
+?>
+<form action="bestellen.php">
     <input type="submit" value="Naar de kassa"><br/>
 </form>
 <?php
+        }
+        else
+        {
+?>
+<p><a href="inloggen.php">U moet ingelogd zijn om een bestelling te kunnen plaatsen. Klik hier om in te loggen.</a></p>
+<?php
+        }
     }
 ?>
 </div>
