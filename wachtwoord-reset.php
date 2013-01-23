@@ -11,11 +11,10 @@
    
 <?php
 
-if (isset($_GET['token'])) {
-    
-
 if (!isset($_POST['wachtwoord'])&&
 	!isset($_POST['wachtwoord'])) {
+	
+	if (isset($_GET['token'])) {
 
     $token = ($_GET['token']);  
     echo "<div align='justify'>
@@ -25,11 +24,15 @@ if (!isset($_POST['wachtwoord'])&&
 	  <input name='token' type='hidden' value='$token'>
       Wachtwoord: <input name='wachtwoord' type='text'><br />
 	  Wachtwoord nogmaals: <input name='wachtwoord_nogmaals' type='text'><br />
-      </textarea><br>
+      </textarea><br />
       <input type='submit'>
       </form>";
+	
+	} else {
+      echo "Helaas, deze link bestaat niet." ;
+	}
 	  
-    } else {
+} else {
 	
 	if ($_POST['wachtwoord'] === $_POST['wachtwoord_nogmaals']) {
 	  $token = $_POST['token'] ;
@@ -60,21 +63,24 @@ if (!isset($_POST['wachtwoord'])&&
 	  
 	  } else {
 	  $token = $_POST['token'] ;
-	  echo "Beide wachtwoorden dienen gelijk te zijn. Probeer het nogmaals op https://www.superinternetshop.nl/wachtwoord-reset.php?token=" . $token ; 
+	  
+      echo "<div align='justify'>
+    Vul hieronder nogmaals het door u nieuwe gekozen wachtwoord in. 
+    </div><br /><br />";
+	echo "<form method='post' action='wachtwoord-reset.php'>
+	  <input name='token' type='hidden' value='$token'>
+      Wachtwoord: <input name='wachtwoord' type='text'><br />
+	  Wachtwoord nogmaals: <input name='wachtwoord_nogmaals' type='text'><br />
+      </textarea><br />
+      <input type='submit'>
+      </form>"; 
 	  
 	  }
 	  
-	  } 
-	  } else {
-    echo "Helaas, deze link bestaat niet meer." ;
-}
+} 
 	  
 
-
-
-
-
-	  
+	  	  
 	  
 ?>
     

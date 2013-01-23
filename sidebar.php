@@ -45,6 +45,10 @@
                 Producten Beheren
             </div>
             
+            <div id="/aanbieding-toevoegen.php" class="clickable-item" onClick="onButtonClick(this.id);">
+                Aanbieding toevoegen
+            </div>
+            
             <!-- <div id="f-up" class="clickable-item" onClick="window.open('upload-test.html', '_self');"> -->
             <div id="/upload-test.html" class="clickable-item" onClick="onButtonClick(this.id);">
                 F-UP test
