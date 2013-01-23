@@ -104,7 +104,7 @@
 
 <!-- source:http://snaptortoise.com/konami-js/ -->
 
-<script type="text/javascript" src="http://konami-js.googlecode.com/svn/trunk/konami.js"></script>
+<script type="text/javascript" src="//konami-js.googlecode.com/svn/trunk/konami.js"></script>
 <script type="text/javascript">
 	konami = new Konami()
 	konami.load("?pag=42.toad");
