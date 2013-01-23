@@ -1,4 +1,4 @@
-<div class="bestellingen-geschiedenis">
+<div class="bestellingen-geschiedenis centered-container">
 <?php
     if (!isset($_SESSION['gebruiker-id']))
     {
@@ -7,7 +7,7 @@
     else
     {
 ?>
-  <div align="right"> 
+  <div align="left"> 
   <h1><center><b>Bestellingen</b></center></h1>
     <hr width="100%">
     <center><b>Bestelgeschiedenis</b></center><br/>
