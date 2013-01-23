@@ -43,7 +43,7 @@ $sql3->execute();
 	} else {
 	throw new Exception("Deze link is verlopen") ;
 }
-	}
+	
 	  
 } else {
 	
