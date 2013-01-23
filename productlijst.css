@@ -11,7 +11,7 @@
     padding: 4pt;
 }
 
-.product-list td {
+.product-list td :not(.left):not(.right) {
     border: 1px solid black;
     background-color: #fefefe;
 }
@@ -50,12 +50,10 @@
 
 .product-list .bottom-row .left {
     text-align: left;
-    border: 0;
 }
 
 .product-list .bottom-row .right {
     text-align: right;
-    border: 0;
 }
 
 .product-list .bottom-row #total-price {

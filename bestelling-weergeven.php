@@ -3,7 +3,8 @@
     {
         global $imagedir;
         $db = connect_to_db();
-        $sql = $db->prepare("SELECT Producten.id, titel, hoeveelheid, Bestelling_Product.prijs, cover, betaalstatus
+        $sql = $db->prepare("SELECT Producten.id, titel, hoeveelheid, Bestelling_Product.prijs,
+                                cover, betaalstatus, verzendkosten, verzendstatus
                              FROM Producten JOIN Bestelling_Product ON product_id = Producten.id
                              JOIN Bestellingen ON Bestellingen.id = bestelling_id
                              WHERE bestelling_id = ?");
@@ -77,7 +78,7 @@
         }
 ?>
             </td>
-            <th colspan="2">Totale prijs:</th>
+            <th colspan="2" class="right">Totale prijs:</th>
             <td>&euro;<span id="total-price"><?php echo $totaalprijs; ?><span></td>
         </tr>
     </table>
