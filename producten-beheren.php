@@ -10,10 +10,11 @@
     
     
 ?>
+<div id="BeheerContainer">
 <table id="Producten">
 <tr><th>Geslecteerd</th><th>Product Nummer</th><th>Titel</th><th>Cover</th><th>Platform</th><th>Genre</th><th>Prijs</th><th>Voorraad</th>
 
-<div id="BeheerContainer">
+
     <form name='EditProduct' id='EditProductId' onsubtmit='verander-product.php' method='post'>
     <?php
         $db2 = connect_to_db();
@@ -44,4 +45,5 @@
         }
     ?>
     </form>
+    </table>
 </div>
