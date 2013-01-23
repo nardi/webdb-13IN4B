@@ -92,7 +92,7 @@ Dit kan ook op een later moment via uw accountoverzicht, maar tot dan wordt uw b
 <br/>
 <p>Voer uw wachtwoord opnieuw in ter controle voor u een bestelling plaatst:</p>
 <form method="post">
-    <input type="password" name="wachtwoord">
+    <input type="password" name="wachtwoord"><br/>
     <input type="submit" value="Plaats bestelling"><br/>
 </form>
 <?php
