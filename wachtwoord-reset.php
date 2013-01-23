@@ -11,6 +11,7 @@
    
 <?php
 
+$db = connect_to_db();
 $token = ($_GET['token']);
 $sql3 = $db->prepare("SELECT id FROM Gebruikers WHERE wachtwoord_token = ? LIMIT 1");
 $sql3->bind_param("s", $token) ;
