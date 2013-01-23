@@ -1,4 +1,4 @@
-<link rel="stylesheet" type="text/css" href="main.css">
+<link rel="stylesheet" type="text/css" href="producten-beheren.css">
 <script src="productenBeheren.js"></script>
 
 <?php
@@ -22,13 +22,13 @@
         $cover_var = '<img src="'.$imagedir.$cover.'"/>';
         echo "<tr id=$id>
             <td><input type='checkbox' name='selected'></td>
-            <td class='column'><input type='text' id='product_id'.$id name='product_nummer' disabled='disabled' value=$id></td>
-            <td class='column'><input type='text' id='titel_id'.$id name='titel' disabled='disabled' value=$titel></td>
+            <td class='column'><input type='text' class='inputfield' name='product_nummer' disabled='disabled' value=$id></td>
+            <td class='column'><input type='text' class='inputfield' name='titel' disabled='disabled' value=$titel rows='3'></td>
             <td class='column'><div class='cover' value=$cover_var></td></div>
-            <td class='column'><input type='text' id='platform_id'.$id name='platform' disabled='disabled' value=$platformnaam></td>
-            <td class='column'><input type='text' id='genre_id'.$id name='genre' disabled='disabled' value=$genrenaam></td>
-            <td class='column'><input type='text' id='prijs_id'.$id name='prijs' disabled='disabled' value=$prijs></td>
-            <td class='column'><input type='text' id='voorraad_id'.$id name='voorraad' disabled='disabled' value=$voorraad></td>
+            <td class='column'><input type='text' class='inputfield' name='platform' disabled='disabled' value=$platformnaam></td>
+            <td class='column'><input type='text' class='inputfield' name='genre' disabled='disabled' value=$genrenaam></td>
+            <td class='column'><input type='text' class='inputfield' name='prijs' disabled='disabled' value=$prijs></td>
+            <td class='column'><input type='text' class='inputfield' name='voorraad' disabled='disabled' value=$voorraad></td>
             <td>
                 <div class='ProductEdit' onclick='EnableEdit($id)'>
                 </div>
