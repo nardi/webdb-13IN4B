@@ -30,7 +30,8 @@ if (!isset($_POST['wachtwoord'])&&
       </form>";
 	  
     } else {
-	  
+	
+	  $token2 = $_POST['token']
 	  $wachtwoord = $_POST['wachtwoord_nogmaals'] ;
 	  
 	  //Random getal voor salt genereren
@@ -46,7 +47,7 @@ if (!isset($_POST['wachtwoord'])&&
 	
 	  $db = connect_to_db();
       $sql = $db->prepare("UPDATE Gebruikers SET wachtwoord = '$saltww' WHERE wachtwoord_token = ? LIMIT 1");
-      $sql->bind_param("s", $token) ;
+      $sql->bind_param("s", $token2) ;
       $sql->execute();
 	  echo "Uw wachtwoord is aangepast, hartelijk dank!" ;
 	  
