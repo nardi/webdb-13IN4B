@@ -69,7 +69,7 @@ if (!isset($_POST['wachtwoord'])&&
     echo "Helaas, deze link bestaat niet meer." ;
 }
 	  
-}
+
 
 
 
