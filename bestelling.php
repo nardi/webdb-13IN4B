@@ -3,11 +3,7 @@
     {
         echo 'Je moet ingelogd zijn om een bestelling te plaatsen.';
     }
-    else if (!isset($_POST['wachtwoord']))
-    {
-        echo 'Deze pagina vereist wachtwoordverificatie.';
-    }
-    else
+    if (isset($_POST['wachtwoord']))
     {
         $gebruiker_id = $_SESSION['gebruiker-id'];
         $wachtwoord = $_POST['wachtwoord'];
@@ -55,16 +51,41 @@
                 
                 $db->close();
 ?>
-<div class="centered-container">
 
 <h1>Bestelling geplaatst!</h1>
 
 <?php
-                require 'bestelling_weergeven.php';
+                require 'bestelling-weergeven.php';
                 bestelling_weergeven($bestelling_id);
             }
         }
     }
+    else
+    {
+        $ww = Winkelwagen::try_load_from_session();
+        
+        if ($ww->is_empty())
+        {
+            echo 'Voeg eerst producten toe aan je winkelwagen voor je een bestelling plaatst.';
+            $db->close();
+        }
+        else
+        {
 ?>
 
+<h1>Uw huidige bestelling</h1>
+
+<?php
+            echo $ww->display(FALSE);
+?>
+<br/>
+<p>Voer uw wachtwoord opnieuw in ter controle voor u een bestelling plaatst:</p>
+<form action="bestelling.php" method="post">
+    <input type="password" name="wachtwoord">
+    <input type="submit" value="Plaats bestelling"><br/>
+</form>
+<?php
+        }
+    }
+?>
 </div>
