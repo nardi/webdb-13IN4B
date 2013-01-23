@@ -24,8 +24,8 @@
             $cover_var = '<img src="'.$imagedir.$cover.'"/>';
             echo "<tr id=$id>
                 <td><input type='checkbox' name='selected'></td>
-                <td class='column'><input type='text' class='inputfield' name='product_nummer' disabled='disabled' value=$id size='2'></td>
-                <td class='column'><input type='text' class='inputfield' name='titel' disabled='disabled' value=$titel size=$titelwidth></td>
+                <td class='column'>$id</td>
+                <td class='column'><input type='text' class='inputfield' name='titel' disabled='disabled' value='$titel' size=$titelwidth></td>
                 <td class='column'><div class='cover' value=$cover_var></td></div>
                 <td class='column'><input type='text' class='inputfield' name='platform' disabled='disabled' value=$platformnaam size='13'></td>
                 <td class='column'><input type='text' class='inputfield' name='genre' disabled='disabled' value=$genrenaam size='10'></td>
