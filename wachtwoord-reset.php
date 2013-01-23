@@ -11,9 +11,6 @@
    
 <?php
 
-
-    
-
 if (!isset($_POST['wachtwoord'])&&
 	!isset($_POST['wachtwoord'])) {
 	
@@ -32,10 +29,10 @@ if (!isset($_POST['wachtwoord'])&&
       </form>";
 	
 	} else {
-    echo "Helaas, deze link bestaat niet meer." ;
+      echo "Helaas, deze link bestaat niet." ;
 	}
 	  
-    } else {
+} else {
 	
 	if ($_POST['wachtwoord'] === $_POST['wachtwoord_nogmaals']) {
 	  $token = $_POST['token'] ;
@@ -66,11 +63,11 @@ if (!isset($_POST['wachtwoord'])&&
 	  
 	  } else {
 	  $token = $_POST['token'] ;
-	  echo "Beide wachtwoorden dienen gelijk te zijn. Probeer het nogmaals op: " . https://www.superinternetshop.nl/wachtwoord-reset.php?token=" . $token ; 
+	  GOTO https://www.superinternetshop.nl/wachtwoord-reset.php?token=" . $token ; 
 	  
 	  }
 	  
-	  } 
+} 
 	  
 
 	  	  
