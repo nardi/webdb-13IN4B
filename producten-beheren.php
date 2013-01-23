@@ -12,10 +12,11 @@
 ?>
 <div id="BeheerContainer">
 <table id="Producten">
-<tr><th>Geslecteerd</th><th>Aanpassen</th><th>Verwijderen</th><th>Product Nummer</th><th>Titel</th><th>Cover</th><th>Platform</th><th>Genre</th><th>Prijs</th><th>Voorraad</th>
+<tr><th>Geslecteerd</th><th>Aanpassen</th><th colspan="2">Verwijderen</th><th>Product Nummer</th><th>Titel</th><th>Cover</th><th>Platform</th><th>Genre</th><th>Prijs</th><th>Voorraad</th>
 
 
     <form name='EditProduct' id='EditProductId' onsubtmit='verander-product.php' method='post'>
+    <input type='submit' value='wijzigingen aanbrengen'>
     <?php
         $db2 = connect_to_db();
         $db3 = connect_to_db();
@@ -23,17 +24,19 @@
         while($sqli_product_lijst->fetch()){
             $cover_var = '<img src="'.$imagedir.$cover.'"/>';
             echo "<tr id=$id>
-                <td><input type='checkbox' name='selected'></td>
                 <td>
                     <div class='ProductEdit' onclick='enableEdit($id)'>
                     </div>
                 </td>
                 <td>
                     <div class='ProductDelete>
+                            <form name='ActuallyAButton' id='DeleteItem' action='product-verwijderen.php' method='post'>
                             <input type='hidden' name='delete' value='$id'>
-                            <input type='submit' value='' name='submitButton' class='DeleteSubmitButton'.$id>
+                            <input type='submit' value='' name='submitButton' class='DeleteSubmitButton'>
+                            </form>
                     </div>
                 </td>
+                <td><input type='checkbox' name='selected'></td>
                 <td class='column'>$id</td>
                 <td class='column'><input type='text' class='inputfield' name='titel' disabled='disabled' value='$titel' size=$titelwidth></td>
                 <td class='column'><div class='cover' value=$cover_var></td></div>
@@ -47,4 +50,5 @@
     ?>
     </form>
     </table>
+    <input type='submit' value='wijzigingen aanbrengen'>
 </div>
