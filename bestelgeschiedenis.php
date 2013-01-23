@@ -20,7 +20,7 @@
         $bestellingen->store_result();
         while ($bestellingen->fetch())
         {
-            $producten = $db->prepare("SELECT hoeveelheid, prijs FROM Bestelling_Product WHERE bestelling_id = ?")
+            $producten = $db->prepare("SELECT hoeveelheid, prijs FROM Bestelling_Product WHERE bestelling_id = ?");
             $producten->bind_param('i', $bestelling_id);
             $producten->bind_result($hoeveelheid, $prijs);
             $producten->execute();
