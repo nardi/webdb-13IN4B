@@ -48,7 +48,7 @@
         <tr class="bottom-row">
             <td class="left" colspan="3"><?php echo "Betaalstatus: $betaalstatus"; ?></td>
             <td class="right" colspan="2">Verzendkosten:</td>
-            <td>&euro;<span id="total-price" class="price"><?php echo $verzendkosten; ?><span></td>
+            <td>&euro;<?php echo $verzendkosten; ?></td>
         </tr>
         <tr class="bottom-row">
             <td class="left" colspan="3">
@@ -66,7 +66,7 @@
     <input type="hidden" name="custom" value="<?php echo $id; ?>">
     <input type="hidden" name="no_shipping" value="1">
     <input type="hidden" name="no_note" value="1">
-    <input type="hidden" name="shipping" value="<?=$verzendkosten ?>">
+    <input type="hidden" name="handling_cart" value="<?php echo $verzendkosten; ?>">
     <?php echo $paypal_info; ?>        
     <input type="submit" value="Betalen via PayPal">
 </form>
@@ -79,7 +79,7 @@
 ?>
             </td>
             <th colspan="2" class="right">Totale prijs:</th>
-            <td>&euro;<span id="total-price"><?php echo $totaalprijs; ?><span></td>
+            <td>&euro;<span id="total-price"><?php echo $totaalprijs; ?></span></td>
         </tr>
     </table>
 <?php
