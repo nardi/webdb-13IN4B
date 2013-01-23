@@ -21,7 +21,7 @@
             {
                 if (file_exists("uploads/" . $_FILES["image"]["name"]))
                 {
-                    throw new Exception("Het uploaden van de afbeelding is mislukt omdat er al een afbeelding bestaat met dezelfde naam. Deze afbeelding is nu aan het product gekoppeld.");
+                    $errormsg = "Het uploaden van de afbeelding is mislukt omdat er al een afbeelding bestaat met dezelfde naam. Deze afbeelding is nu aan het product gekoppeld.";
                 }
                 else
                 {
@@ -50,9 +50,6 @@
         $genre = $_POST['genre'];
 
         
-        
-        echo "$image <br /> <br />";   
-        
         $sqli_producten = $db->prepare("INSERT INTO Producten (titel, beschrijving, prijs, release_date, voorraad, platform_id, genre_id, cover)
         VALUES (?,?,?,?,?,?,?,?)");
         
@@ -77,7 +74,14 @@
     </div>
     
     <div class="bedankje">
-        <p class="bedankje"> U heeft succesvol een product toegevoegd! <br/></p>
+        <?php
+        if(isset($errormsg)) {
+            echo $errormsg;
+        }
+        else {
+            echo '<p class="bedankje"> U heeft succesvol een product toegevoegd! <br/></p>';
+        }
+        ?>
         <a href="frontpage.html">
         <p class="bedankje">Klik hier om terug te keren naar het hoofdmenu</p>
    
