@@ -45,7 +45,12 @@
         }
 ?>
         <tr class="bottom-row">
-            <td class="payment-status" colspan="3">
+            
+            <th colspan="5">Totale prijs:</td>
+            <td>&euro;<span id="total-price" class="price"><?php echo $totaalprijs; ?><span></td>
+        </tr>
+        <tr>
+            <td class="payment-status" colspan="6">
             <?php
         echo "Betaalstatus: $betaalstatus";
         if ($betaalstatus == 'Niet betaald')
@@ -56,19 +61,16 @@
     <input type="hidden" name="upload" value="1">
     <input type="hidden" name="business" value="paypal_1358181822_biz@nardilam.nl">
     <input type="hidden" name="currency_code" value="EUR">
+    <input type="hidden" name="return" value="http://superinternetshop.nl/betaald.php">
     <input type="hidden" name="notify_url" value="http://superinternetshop.nl/ipn.php">
     <input type="hidden" name="custom" value="<?php echo $id; ?>">
-<?php
-            echo $paypal_info;
-?>        
-    <input type="submit" value="Betalen met PayPal">
+    <?php echo $paypal_info; ?>        
+    <input type="submit" value="Betalen via PayPal">
 </form>
 <?php
         }
 ?>
             </td>
-            <th colspan="2">Totale prijs:</td>
-            <td>&euro;<span id="total-price" class="price"><?php echo $totaalprijs; ?><span></td>
         </tr>
     </table>
 <?php
