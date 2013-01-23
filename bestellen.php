@@ -1,5 +1,7 @@
 <div class="centered-container">
 <?php
+    require 'bestelling-weergeven.php';
+    
     if (!isset($_SESSION['logged-in']))
     {
         echo 'Je moet ingelogd zijn om een bestelling te plaatsen.';
@@ -33,8 +35,8 @@
             }
             else
             {
-                $sqli_bestelling = $db->prepare("INSERT INTO Bestellingen (gebruiker_id) VALUES (?)");
-                $sqli_bestelling->bind_param('i', $gebruiker_id);
+                $sqli_bestelling = $db->prepare("INSERT INTO Bestellingen (gebruiker_id, verzendkosten) VALUES (?, ?)");
+                $sqli_bestelling->bind_param('id', $gebruiker_id, 6.75);
                 if(!$sqli_bestelling->execute())
                     throw new Exception($sqli_bestelling->error);
                 $bestelling_id = $sqli_bestelling->insert_id;
@@ -50,6 +52,21 @@
                         throw new Exception($sqli_product->error);
                 }
                 
+                $email_sql = $db->prepare("SELECT email FROM Gebruikers WHERE id = ?");
+                $email_sql->bind_param('i', $gebruiker_id);
+                $email_sql->bind_result($email);
+                $email_sql->execute();
+                if ($email_sql->fetch())
+                {
+                    mail($email,
+                         'Uw bestelling bij Super Internet Shop', 
+                         "Bedankt voor uw bestelling bij Super Internet Shop!<br/>
+                         Hier is nogmaals te zien wat u precies besteld heeft:<br/>
+                         {bestelling_weergeven($bestelling_id)}",
+                         'From: Super Internet Shop\r\nContent-type: text/html');
+                }
+                $email_sql->free_result();
+                
                 $db->close();
                 $ww->remove_all();
                 $ww->save_to_session();
@@ -59,7 +76,6 @@
 <p>Klik onderaan op de knop "Betalen via Paypal" om voor de bestelling te betalen.<br/>
 Dit kan ook op een later moment via uw accountoverzicht, maar tot dan wordt uw bestelling nog niet verstuurd!</p>
 <?php
-                require 'bestelling-weergeven.php';
                 bestelling_weergeven($bestelling_id);
             }
         }
