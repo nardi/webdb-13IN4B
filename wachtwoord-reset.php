@@ -11,7 +11,7 @@
    
 <?php
 
-if (isset($_GET['token']) {
+if (isset($_GET['token'])) {
     
 
     if (!isset($_POST['wachtwoord'])&&
