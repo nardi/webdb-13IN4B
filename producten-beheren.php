@@ -24,13 +24,6 @@
             $cover_var = '<img src="'.$imagedir.$cover.'"/>';
             echo "<tr id=$id>
                 <td><input type='checkbox' name='selected'></td>
-                <td class='column'>$id</td>
-                <td class='column'><input type='text' class='inputfield' name='titel' disabled='disabled' value='$titel' size=$titelwidth></td>
-                <td class='column'><div class='cover' value=$cover_var></td></div>
-                <td class='column'><input type='text' class='inputfield' name='platform' disabled='disabled' value=$platformnaam size='13'></td>
-                <td class='column'><input type='text' class='inputfield' name='genre' disabled='disabled' value=$genrenaam size='10'></td>
-                <td class='column'><input type='text' class='inputfield' name='prijs' disabled='disabled' value=$prijs size='6'></td>
-                <td class='column'><input type='text' class='inputfield' name='voorraad' disabled='disabled' value=$voorraad size='5'></td>
                 <td>
                     <div class='ProductEdit' onclick='EnableEdit($id)'>
                     </div>
@@ -41,6 +34,14 @@
                             <input type='submit' value='' name='submitButton' class='DeleteSubmitButton'.$id>
                     </div>
                 </td>
+                <td class='column'>$id</td>
+                <td class='column'><input type='text' class='inputfield' name='titel' disabled='disabled' value='$titel' size=$titelwidth></td>
+                <td class='column'><div class='cover' value=$cover_var></td></div>
+                <td class='column'><input type='text' class='inputfield' name='platform' disabled='disabled' value=$platformnaam size='13'></td>
+                <td class='column'><input type='text' class='inputfield' name='genre' disabled='disabled' value=$genrenaam size='10'></td>
+                <td class='column'><input type='text' class='inputfield' name='prijs' disabled='disabled' value=$prijs size='6'></td>
+                <td class='column'><input type='text' class='inputfield' name='voorraad' disabled='disabled' value=$voorraad size='5'></td>
+                
             </tr>";
         }
     ?>

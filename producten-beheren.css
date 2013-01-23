@@ -1,15 +1,15 @@
 .DeleteSubmitButton{    
     background-image:url("images/labels/delete.png");
-    height:83px;
-    width:85px;
+    height:20px;
+    width:21px;
     background-repeat:no-repeat;
     background-size:100%;
 }
 
 .ProductEdit{    
     background-image:url("images/labels/edit.png");
-    height:83px;
-    width:85px;
+    height:20px;
+    width:21px;
     background-repeat:no-repeat;
     background-size:100%;
 }
@@ -29,4 +29,8 @@
 
 .column{
     text-align:center;
+}
+
+.column > input:last-of-type{
+    margin-right:20px;
 }
