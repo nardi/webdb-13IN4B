@@ -52,10 +52,11 @@
                 
                 $db->close();
                 $ww->remove_all();
+                $ww->save_to_session();
 ?>
 
 <h1>Bestelling geplaatst!</h1>
-<p>Klik onderaan op de knop "Betalen met Paypal" om voor de bestelling te betalen.<br/>
+<p>Klik onderaan op de knop "Betalen via Paypal" om voor de bestelling te betalen.<br/>
 Dit kan ook op een later moment via uw accountoverzicht, maar tot dan wordt uw bestelling nog niet verstuurd!</p>
 <?php
                 require 'bestelling-weergeven.php';
