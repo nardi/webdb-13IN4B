@@ -11,13 +11,13 @@
 				<center><b>Aanbiedings-gegevens</b></center>
 				<br />
                 Product: 
-                <select name="platform">
+                <select name="producten">
                 <?php
                     $productensql = $db->prepare("SELECT id, titel FROM Producten");
                     $productensql->bind_result($productid, $product);
                     $productensql->execute();
                     
-                    while ($platformsql->fetch()) {
+                    while ($productensql->fetch()) {
                 ?>
                         <option value="<?php echo $productid; ?>"><?php echo $product; ?></option>
                 <?php
