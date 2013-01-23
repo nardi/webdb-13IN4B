@@ -21,7 +21,7 @@
             <th>Totaal</th>
         </tr>
 <?php
-        $totaalprijs = $verzendkosten;
+        $totaalprijs = 0;
         $count = 1;
         $paypal_info = '';
         while ($sql->fetch())
@@ -44,6 +44,7 @@
             $totaalprijs += $productprijs;
             $count++;
         }
+        $totaalprijs += $verzendkosten;
 ?>
         <tr class="bottom-row">
             <td class="left" colspan="3"><?php echo "Betaalstatus: $betaalstatus"; ?></td>
