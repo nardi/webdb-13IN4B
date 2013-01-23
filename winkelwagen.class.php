@@ -149,7 +149,7 @@ class Winkelwagen
             {
                 echo '<th><form method="post">';
                 echo '<input type="hidden" name="remove" value="' . $id . '" />';
-                echo '<img src="images/labels/error-label.png" class="remove-button" />';
+                echo '<img src="images/labels/error-label.png" class="remove-button" onclick="this.parentNode.submit();" />';
                 echo '</form></th>';
             }
         ?>
