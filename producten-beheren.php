@@ -25,7 +25,7 @@
             echo "<tr id=$id>
                 <td><input type='checkbox' name='selected'></td>
                 <td>
-                    <div class='ProductEdit' onclick='EnableEdit($id)'>
+                    <div class='ProductEdit' onclick='enableEdit($id)'>
                     </div>
                 </td>
                 <td>
