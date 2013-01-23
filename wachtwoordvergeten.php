@@ -55,8 +55,9 @@ if (isset($_POST['email'])) {
 }
 
 } else {
-    echo "Helaas, deze link bestaat niet meer."
+    echo "Helaas, deze link bestaat niet meer." ;
 }
+
 ?>
      
 
