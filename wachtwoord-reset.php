@@ -58,6 +58,7 @@ if (isset($_GET['token'])) {
 }
 } else {
    echo "url is incorrect" ;
+}
 
 	  
 	  
