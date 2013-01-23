@@ -11,11 +11,13 @@
    
 <?php
 
-if (isset($_GET['token'])) {
+
     
 
 if (!isset($_POST['wachtwoord'])&&
 	!isset($_POST['wachtwoord'])) {
+	
+	if (isset($_GET['token'])) {
 
     $token = ($_GET['token']);  
     echo "<div align='justify'>
@@ -25,9 +27,13 @@ if (!isset($_POST['wachtwoord'])&&
 	  <input name='token' type='hidden' value='$token'>
       Wachtwoord: <input name='wachtwoord' type='text'><br />
 	  Wachtwoord nogmaals: <input name='wachtwoord_nogmaals' type='text'><br />
-      </textarea><br>
+      </textarea><br />
       <input type='submit'>
       </form>";
+	
+	} else {
+    echo "Helaas, deze link bestaat niet meer." ;
+	}
 	  
     } else {
 	
@@ -65,16 +71,9 @@ if (!isset($_POST['wachtwoord'])&&
 	  }
 	  
 	  } 
-	  } else {
-    echo "Helaas, deze link bestaat niet meer." ;
-}
 	  
 
-
-
-
-
-	  
+	  	  
 	  
 ?>
     
