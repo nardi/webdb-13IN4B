@@ -31,7 +31,8 @@ if (!isset($_POST['wachtwoord'])&&
 	  
     } else {
 	
-	  $token2 = $_POST['token'] ;
+	if ($_POST['wachtwoord'] === $_POST['wachtwoord_nogmaals']) {
+	  $token = $_POST['token'] ;
 	  $wachtwoord = $_POST['wachtwoord_nogmaals'] ;
 	  
 	  //Random getal voor salt genereren
@@ -47,9 +48,16 @@ if (!isset($_POST['wachtwoord'])&&
 	
 	  $db = connect_to_db();
       $sql = $db->prepare("UPDATE Gebruikers SET wachtwoord = '$saltww' WHERE wachtwoord_token = ? LIMIT 1");
-      $sql->bind_param("s", $token2) ;
+      $sql->bind_param("s", $token) ;
       $sql->execute();
 	  echo "Uw wachtwoord is aangepast, hartelijk dank!" ;
+	  
+	  } else {
+	  $token = $_POST['token'] ;
+	  echo "Beide wachtwoorden dienen gelijk te zijn. Probeer het nogmaals" ;
+	  GOTO(http://www.superinternetshop.nl/wachtwoord-reset.php?token= . '$token');
+	  }
+	  
 	  
 }
 
