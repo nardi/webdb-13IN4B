@@ -11,18 +11,18 @@
    
 <?php
 
-if (isset($_GET['token'])) {
-    $token = ($_GET['token']);
 
-    if (!isset($_POST['wachtwoord'])&&
-	    !isset($_POST['wachtwoord'])) {
+    
 
-      
+if (!isset($_POST['wachtwoord'])&&
+	!isset($_POST['wachtwoord'])) {
+
+    $token = ($_GET['token']);  
     echo "<div align='justify'>
     Vul hieronder het door u nieuwe gekozen wachtwoord in. 
     </div><br /><br />";
 	echo "<form method='post' action='wachtwoord-reset.php'>
-	  
+	  <input name='token' type='hidden' value='$token'>
       Wachtwoord: <input name='wachtwoord' type='text'><br />
 	  Wachtwoord nogmaals: <input name='wachtwoord_nogmaals' type='text'><br />
       </textarea><br>
@@ -30,7 +30,8 @@ if (isset($_GET['token'])) {
       </form>";
 	  
     } else {
-	  
+	
+	  $token2 = $_POST['token'] ;
 	  $wachtwoord = $_POST['wachtwoord_nogmaals'] ;
 	  
 	  //Random getal voor salt genereren
@@ -46,19 +47,14 @@ if (isset($_GET['token'])) {
 	
 	  $db = connect_to_db();
       $sql = $db->prepare("UPDATE Gebruikers SET wachtwoord = '$saltww' WHERE wachtwoord_token = ? LIMIT 1");
-      $sql->bind_param("s", $token) ;
+      $sql->bind_param("s", $token2) ;
       $sql->execute();
 	  echo "Uw wachtwoord is aangepast, hartelijk dank!" ;
 	  
-    
-
-   
-    
-
 }
-} else {
-   echo "url is incorrect" ;
-}
+
+
+
 
 	  
 	  
