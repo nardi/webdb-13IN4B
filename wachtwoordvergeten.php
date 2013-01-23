@@ -11,7 +11,7 @@
    
 <?php
 
-if (isset($_GET['token'])) {
+
 
 if (isset($_POST['email'])) {
 	  $email = $_POST['email'] ;
@@ -54,9 +54,7 @@ if (isset($_POST['email'])) {
       </form>";
 }
 
-} else {
-    echo "Helaas, deze link bestaat niet meer." ;
-}
+
 
 ?>
      
