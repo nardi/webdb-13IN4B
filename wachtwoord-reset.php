@@ -11,7 +11,7 @@
    
 <?php
 
-
+if (isset($_GET['token'])) {
     
 
 if (!isset($_POST['wachtwoord'])&&
@@ -64,6 +64,10 @@ if (!isset($_POST['wachtwoord'])&&
 	  
 	  }
 	  
+	  } 
+	  } else {
+    echo "Helaas, deze link bestaat niet meer." ;
+}
 	  
 }
 
