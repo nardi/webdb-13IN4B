@@ -43,12 +43,12 @@ U bent niet ingelogd!
               Achternaam: <input type="text" id="achternaam" name="achternaam" onblur="checkNaam('achternaam', 'achternaam-label')" value = "<?php echo $achternaam; ?>"><div id="achternaam-label" class="label-div"></div><br/>
               Huisnummer en toevoeging:
               <div class="huisnummer"> 
-                <input type="tekst" id="huisnummer" name="huisnummer" onchange="completeAddress()" onblur="checkHuis()" value = "<?php echo $huisnummer; ?>"> <input type="tekst" name="toevoeging" value = "<?php echo $toevoeging; ?>"><div id="huisnummer-label" class="label-div"></div>
+                <input type="tekst" id="huisnummer" name="huisnummer" onchange="completeAddress()" onblur="checkHuis();completeAddress();" value = "<?php echo $huisnummer; ?>"> <input type="tekst" name="toevoeging" value = "<?php echo $toevoeging; ?>"><div id="huisnummer-label" class="label-div"></div>
               </div><br/>
 
-              Postcode: <input type="text" id="postcode" name="postcode" onchange="completeAddress()" onblur="checkPostcode()" value = "<?php echo $postcode; ?>"><div id="postcode-label" class="label-div"></div><br/>
-              Straat: <input type="text" id="straatid" name="straat" disabled="disabled"><div id="straat-label" class="label-div"></div><br>
-              Plaats: <input type="text" name="plaats" disabled="disabled"><div id="plaats-label" class="label-div"></div><br>
+              Postcode: <input type="text" id="postcode" name="postcode" onchange="completeAddress()" onblur="checkPostcode();completeAddress();" value = "<?php echo $postcode; ?>"><div id="postcode-label" class="label-div"></div><br/>
+              Straat: <input type="text" id="straatid" name="straat" disabled="disabled" value = "<?php echo $straat; ?>"><div id="straat-label" class="label-div"></div><br>
+              Plaats: <input type="text" name="plaats" disabled="disabled" value = "<?php echo $plaats; ?>"><div id="plaats-label" class="label-div"></div><br>
         
         <!--  Straat: <input type="text" id="straatid" disabled name="straat" value = "<?php echo $straat; ?>"><div id="straat-label" class="label-div"></div><br/>
               Plaats: <input type="text" disabled name="plaats" value = "<?php echo $plaats; ?>"><div id="plaats-label" class="label-div" ></div><br/>
