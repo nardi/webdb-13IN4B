@@ -11,9 +11,25 @@
    
 <?php
 
+if (isset($_GET['token'])) {
+    $token = ($_GET['token']);
 
-if (isset($_POST['wachtwoord'])&&
-    isset($_POST['wachtwoord_nogmaals'])) {
+    if (!isset($_POST['wachtwoord'])&&
+	    !isset($_POST['wachtwoord'])) {
+
+      
+    echo "<div align='justify'>
+    Vul hieronder het door u nieuwe gekozen wachtwoord in. 
+    </div><br /><br />";
+	echo "<form method='post' action='wachtwoord-reset.php'>
+	  
+      Wachtwoord: <input name='wachtwoord' type='text'><br />
+	  Wachtwoord nogmaals: <input name='wachtwoord_nogmaals' type='text'><br />
+      </textarea><br>
+      <input type='submit'>
+      </form>";
+	  
+    } else {
 	  
 	  $wachtwoord = $_POST['wachtwoord_nogmaals'] ;
 	  
@@ -35,22 +51,14 @@ if (isset($_POST['wachtwoord'])&&
 	  echo "Uw wachtwoord is aangepast, hartelijk dank!" ;
 	  
     
-} else {
-    $db = connect_to_db();
-    $token = mysql_real_escape_string($_GET['token']);  
-    echo "<div align='justify'>
-    Vul hieronder het door u nieuwe gekozen wachtwoord in. 
-    </div><br /><br />";
-	echo "<form method='post' action='wachtwoord-reset.php'>
-	  
-      Wachtwoord: <input name='wachtwoord' type='text'><br />
-	  Wachtwoord nogmaals: <input name='wachtwoord_nogmaals' type='text'><br />
-      </textarea><br>
-      <input type='submit'>
-      </form>";
+
+   
+    
 
 }
-
+} else {
+   echo "url is incorrect" ;
+}
 
 	  
 	  
