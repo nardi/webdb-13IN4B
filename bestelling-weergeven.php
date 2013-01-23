@@ -28,12 +28,12 @@
             $productprijs = $hoeveelheid * $prijs;
 ?>
         <tr>
-            <td class="product-id"><a href="item-description.php?id=<?php echo $id; ?>"><span name="product-id"><?php echo $id; ?></span></a></td>
-            <td class="product-image"><a href="item-description.php?id=<?php echo $id; ?>"><?php echo '<img src="'.$imagedir . $cover .'" />';?></a></td>
-            <td class="product-title"><a href="item-description.php?id=<?php echo $id; ?>"><?php echo $titel; ?></a></td>
-            <td>&euro;<span id="price-<?php echo $id; ?>"><?php echo $prijs; ?></span></td>
+            <td class="product-id"><a href="item-description.php?id=<?php echo $product_id; ?>"><span name="product-id"><?php echo $product_id; ?></span></a></td>
+            <td class="product-image"><a href="item-description.php?id=<?php echo $product_id; ?>"><?php echo '<img src="'.$imagedir . $cover .'" />';?></a></td>
+            <td class="product-title"><a href="item-description.php?id=<?php echo $product_id; ?>"><?php echo $titel; ?></a></td>
+            <td>&euro;<span id="price-<?php echo $product_id; ?>"><?php echo $prijs; ?></span></td>
             <td><input type="text" class="product-amount" value="<?php echo $hoeveelheid; ?>" disabled="disabled" /></td>
-            <td>&euro;<span id="productprice-<?php echo $id; ?>"><?php echo $productprijs; ?></span></td>
+            <td>&euro;<span id="productprice-<?php echo $product_id; ?>"><?php echo $productprijs; ?></span></td>
         </tr>
 <?php
             $paypal_info .= '<input type="hidden" name="item_number_' . $count . '" value="' . $product_id . '">
@@ -45,14 +45,13 @@
         }
 ?>
         <tr class="bottom-row">
-            
-            <th colspan="5">Totale prijs:</td>
+            <td class="payment-status" colspan="3"><?php echo "Betaalstatus: $betaalstatus"; ?></td>
+            <th colspan="2">Totale prijs:</th>
             <td>&euro;<span id="total-price" class="price"><?php echo $totaalprijs; ?><span></td>
         </tr>
         <tr>
-            <td class="payment-status" colspan="6">
-            <?php
-        echo "Betaalstatus: $betaalstatus";
+            <td class="payment-status" colspan="3">
+<?php
         if ($betaalstatus == 'Niet betaald')
         {
 ?>

@@ -11,7 +11,7 @@
    
 <?php
 
-
+if (isset($_GET['token'])) {
     
 
 if (!isset($_POST['wachtwoord'])&&
@@ -60,12 +60,16 @@ if (!isset($_POST['wachtwoord'])&&
 	  
 	  } else {
 	  $token = $_POST['token'] ;
-	  echo "Beide wachtwoorden dienen gelijk te zijn. Probeer het nogmaals" ;
-	  GOTO(https://www.superinternetshop.nl/wachtwoord-reset.php?token= . '$token');
+	  echo "Beide wachtwoorden dienen gelijk te zijn. Probeer het nogmaals op https://www.superinternetshop.nl/wachtwoord-reset.php?token=" . $token ; 
+	  
 	  }
 	  
-	  
+	  } 
+	  } else {
+    echo "Helaas, deze link bestaat niet meer." ;
 }
+	  
+
 
 
 

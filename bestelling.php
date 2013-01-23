@@ -31,7 +31,7 @@
 <h1>Bestelling #<?php echo $id; ?></h1>
 <?php
             require 'bestelling-weergeven.php';
-            bestelling_weergeven($bestelling_id);
+            bestelling_weergeven($id);
         }
     }
 ?>

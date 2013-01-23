@@ -1,4 +1,4 @@
-<div class="bestellingen-geschiedenis">
+<div class="bestellingen-geschiedenis centered-container">
 <?php
     if (!isset($_SESSION['gebruiker-id']))
     {
@@ -7,10 +7,10 @@
     else
     {
 ?>
-  <div align="right"> 
   <h1><center><b>Bestellingen</b></center></h1>
     <hr width="100%">
     <center><b>Bestelgeschiedenis</b></center><br/>
+    <div align="left"> 
 <?php
         $db = connect_to_db();
         $bestellingen = $db->prepare("SELECT id FROM Bestellingen WHERE gebruiker_id = ?");
@@ -35,10 +35,9 @@
         $bestellingen->free_result();
         $db->close();
 ?>
-    <hr width="100%">
-    <div align="center"> 
-    <a href="bestellingen-lopende.html"><input type="submit" value="Lopende bestellingen"></a><br>
     </div>
+    <hr width="100%">
+    <a href="bestellingen-lopende.html"><input type="submit" value="Lopende bestellingen"></a><br>
 <?php
     }
 ?>

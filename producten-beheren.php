@@ -12,7 +12,7 @@
 ?>
 <div id="BeheerContainer">
 <table id="Producten">
-<tr><th>Geslecteerd</th><th>Product Nummer</th><th>Titel</th><th>Cover</th><th>Platform</th><th>Genre</th><th>Prijs</th><th>Voorraad</th>
+<tr><th>Geslecteerd</th><th>Aanpassen</th><th>Verwijderen</th><th>Product Nummer</th><th>Titel</th><th>Cover</th><th>Platform</th><th>Genre</th><th>Prijs</th><th>Voorraad</th>
 
 
     <form name='EditProduct' id='EditProductId' onsubtmit='verander-product.php' method='post'>
@@ -25,7 +25,7 @@
             echo "<tr id=$id>
                 <td><input type='checkbox' name='selected'></td>
                 <td>
-                    <div class='ProductEdit' onclick='EnableEdit($id)'>
+                    <div class='ProductEdit' onclick='enableEdit($id)'>
                     </div>
                 </td>
                 <td>
