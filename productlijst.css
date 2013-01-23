@@ -11,7 +11,7 @@
     padding: 4pt;
 }
 
-.product-list td :not(.left):not(.right) {
+.product-list td:not(.left):not(.right) {
     border: 1px solid black;
     background-color: #fefefe;
 }

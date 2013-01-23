@@ -36,7 +36,8 @@
             else
             {
                 $sqli_bestelling = $db->prepare("INSERT INTO Bestellingen (gebruiker_id, verzendkosten) VALUES (?, ?)");
-                $sqli_bestelling->bind_param('id', $gebruiker_id, 6.75);
+                $verzendkosten = 6.75;
+                $sqli_bestelling->bind_param('id', $gebruiker_id, $verzendkosten);
                 if(!$sqli_bestelling->execute())
                     throw new Exception($sqli_bestelling->error);
                 $bestelling_id = $sqli_bestelling->insert_id;
