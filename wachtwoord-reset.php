@@ -11,20 +11,22 @@
    
 <?php
 
-$db = connect_to_db();
+
+
+
+if (!isset($_POST['wachtwoord'])&&
+	!isset($_POST['wachtwoord'])) {
+	
+	$db = connect_to_db();
 $token = ($_GET['token']);
 $sql3 = $db->prepare("SELECT id FROM Gebruikers WHERE wachtwoord_token = ? LIMIT 1");
 $sql3->bind_param("s", $token) ;
 $sql3->bind_result($token_valid);
 $sql3->execute();
 
-if (!is_null($token_valid)) {
-
-
-if (!isset($_POST['wachtwoord'])&&
-	!isset($_POST['wachtwoord'])) {
+ if (!is_null($token_valid)) {
 	
-	if (isset($_GET['token'])) {
+	
 
     $token = ($_GET['token']);  
     echo "<div align='justify'>
@@ -39,7 +41,8 @@ if (!isset($_POST['wachtwoord'])&&
       </form>";
 	
 	} else {
-      echo "Helaas, deze link bestaat niet." ;
+	throw new Exception("Deze link is verlopen") ;
+}
 	}
 	  
 } else {
@@ -88,9 +91,7 @@ if (!isset($_POST['wachtwoord'])&&
 	  }
 	  
 } 
-} else {
-	throw new Exception("Deze link is verlopen") ;
-}
+
 	  
 
 	  	  
