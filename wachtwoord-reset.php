@@ -11,6 +11,7 @@
    
 <?php
 
+$token = $_GET['token'] ;  
 	   
 if (isset($_POST['wachtwoord'])&&
     isset($_POST['wachtwoord_nogmaals'])) {
@@ -36,7 +37,7 @@ if (isset($_POST['wachtwoord'])&&
 	  
     
 } else {
-    $token = $_GET['token'] ;  
+    
     echo "<div align='justify'>
     Vul hieronder het door u nieuwe gekozen wachtwoord in. 
     </div><br /><br />";
