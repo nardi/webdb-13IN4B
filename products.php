@@ -59,7 +59,10 @@
 <?php
     while ($sqli->fetch())
     {
-     
+    
+        if ((!file_exists($imgdir . $cover)) || (is_null(cover))) {
+            $cover = "nocover.png";
+        }
 ?>
 
 <div class="product-thumb">
