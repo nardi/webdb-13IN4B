@@ -113,6 +113,11 @@ class Winkelwagen
         unset($this->producten[$id]);
     }
     
+    function remove_all()
+    {
+        $this->producten = array();
+    }
+    
     function is_empty()
     {
         return count($this->producten) == 0;
@@ -149,7 +154,7 @@ class Winkelwagen
             {
                 echo '<th><form method="post">';
                 echo '<input type="hidden" name="remove" value="' . $id . '" />';
-                echo '<img src="images/labels/error-label.png" class="remove-button" onclick="this.parentNode.submit();" />';
+                echo '<img src="images/labels/error-label.png" class="remove-button clickable-item" onclick="this.parentNode.submit();" />';
                 echo '</form></th>';
             }
         ?>

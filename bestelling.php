@@ -50,6 +50,7 @@
                 }
                 
                 $db->close();
+                $ww->remove_all();
 ?>
 
 <h1>Bestelling geplaatst!</h1>
