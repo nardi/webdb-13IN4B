@@ -46,10 +46,16 @@ if (!isset($_POST['wachtwoord'])&&
       //Combinatie salt en wachtwoordhash voor database
       $saltww = $salt . $saltedwwhash;
 	
+	  //Hier wordt het wachtwoord naar de database geschreven
 	  $db = connect_to_db();
       $sql = $db->prepare("UPDATE Gebruikers SET wachtwoord = '$saltww' WHERE wachtwoord_token = ? LIMIT 1");
-      $sql->bind_param("s", $token) ;
+	  $sql->bind_param("s", $token) ;
       $sql->execute();
+	  
+	  //Hier wordt de token verwijderd uit de database
+	  $sql2 = $db->prepare("UPDATE Gebruikers SET wachtwoord_token = '' WHERE wachtwoord_token = ? LIMIT 1");
+	  $sql2->bind_param("s", $token) ;
+	  $sql2->execute();
 	  echo "Uw wachtwoord is aangepast, hartelijk dank!" ;
 	  
 	  } else {
