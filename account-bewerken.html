@@ -43,7 +43,7 @@ U bent niet ingelogd!
               Achternaam: <input type="text" id="achternaam" name="achternaam" onblur="checkNaam('achternaam', 'achternaam-label')" value = "<?php echo $achternaam; ?>"><div id="achternaam-label" class="label-div"></div><br/>
               Huisnummer en toevoeging:
               <div class="huisnummer"> 
-                <input type="tekst" id="huisnummer" name="huisnummer" onchange="completeAddress()" onblur="checkHuis()" value = "<?php echo $huisnummer; ?>"> <input type="tekst" name="toevoeging" value = "<?php echo $toevoeging; ?>"><div id="huisnummer-label" class="label-div"></div>
+                <input type="tekst" id="huisnummer" name="huisnummer" onchange="completeAddress()" onblur="checkHuis(); checkPostcode();" value = "<?php echo $huisnummer; ?>"> <input type="tekst" name="toevoeging" value = "<?php echo $toevoeging; ?>"><div id="huisnummer-label" class="label-div"></div>
               </div><br/>
 
               Postcode: <input type="text" id="postcode" name="postcode" onblur="checkPostcode()" value = "<?php echo $postcode; ?>"><div id="postcode-label" class="label-div"></div><br/>
