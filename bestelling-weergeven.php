@@ -45,14 +45,13 @@
         }
 ?>
         <tr class="bottom-row">
-            
-            <th colspan="5">Totale prijs:</td>
+            <th colspan="3"><?php echo "Betaalstatus: $betaalstatus"; ?></th>
+            <th colspan="2">Totale prijs:</th>
             <td>&euro;<span id="total-price" class="price"><?php echo $totaalprijs; ?><span></td>
         </tr>
         <tr>
-            <td class="payment-status" colspan="6">
-            <?php
-        echo "Betaalstatus: $betaalstatus";
+            <td class="payment-status" colspan="3">
+<?php
         if ($betaalstatus == 'Niet betaald')
         {
 ?>
