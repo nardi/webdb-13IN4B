@@ -21,7 +21,7 @@
             {
                 if (file_exists("uploads/" . $_FILES["image"]["name"]))
                 {
-                    echo $_FILES["image"]["name"] . " already exists. ";
+                    $errormsg = "Het uploaden van de afbeelding is mislukt omdat er al een afbeelding bestaat met dezelfde naam. Deze afbeelding is nu aan het product gekoppeld.";
                 }
                 else
                 {
@@ -30,13 +30,15 @@
                         throw new Exception("Het uploaden van het bestand is mislukt");
                     }  
                             
-                    $image = $_FILES["image"]["name"];
+                    
                 }
             }
+            
+            $image = $_FILES["image"]["name"];
         }
         else
         {
-            echo "Ongeldig bestand. Bestand moet .jpg, .jpeg, .png of .gif zijn";
+            throw new Exception("Ongeldig bestand. Bestand moet .jpg, .jpeg, .png of .gif zijn");
         }
   
         $db = connect_to_db();
@@ -49,9 +51,6 @@
         $platform = $_POST['platform'];
         $genre = $_POST['genre'];
 
-        
-        
-        echo "$image <br /> <br />";   
         
         $sqli_producten = $db->prepare("INSERT INTO Producten (titel, beschrijving, prijs, release_date, voorraad, platform_id, genre_id, cover)
         VALUES (?,?,?,?,?,?,?,?)");
@@ -68,3 +67,27 @@
     //redirect_to("product-toevoegen-succesvol.html");
     }
 ?>
+
+<link rel="stylesheet" type="text/css" href="registratie-succesvol.css" />
+<link rel="stylesheet" type="text/css" href="registratie-succesvol-classic-theme.css" />
+
+<div class="product-toevoegen-succesvol-container">
+    <div id="logo-registratie-succesvol" title="Super Internet Shop">
+    </div>
+    
+    <div class="bedankje">
+        <?php
+        if(isset($errormsg)) {
+            echo $errormsg;
+        }
+        else {
+            echo '<p class="bedankje"> U heeft succesvol een product toegevoegd! <br/></p>';
+        }
+        ?>
+        <a href="frontpage.html">
+        <p class="bedankje">Klik hier om terug te keren naar het hoofdmenu</p>
+   
+        </a>
+    </div>
+    
+</div>
