@@ -10,7 +10,7 @@
     $ww->save_to_session();
 ?>
 
-<div id="cart">
+<div id="winkelwagen">
 
 <h1>Winkelwagen</h1>
 
@@ -26,23 +26,10 @@
         echo $ww->display(TRUE);
 ?>
 <br/>
-<?php
-        if (isset($_SESSION['logged-in']))
-        {
-?>
-<p>Voer uw wachtwoord opnieuw in ter controle voor u een bestelling plaatst:</p>
-<form action="bestelling-afronden.php" method="post">
-    <input type="password" name="wachtwoord">
-    <input type="submit" value="Plaats bestelling"><br/>
+<form action="bestelling-afronden.php">
+    <input type="submit" value="Naar de kassa"><br/>
 </form>
 <?php
-        }
-        else
-        {
-?>
-<p><a href="inloggen.php">U moet ingelogd zijn om een bestelling te kunnen plaatsen. Klik hier om in te loggen.</a></p>
-<?php
-        }
     }
 ?>
 </div>
