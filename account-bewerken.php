@@ -32,6 +32,14 @@
     $validMail='/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i';
     //$validWachtwoord='/^.+$/';
     
+        if (!check_wachtwoord($wachtwoord, $wwdb))
+    {
+        echo 'Het opgegeven wachtwoord is niet juist.';
+        $db->close();
+        exit();
+    }
+    else {
+    
     if(preg_match($validNaam, $voornaam)&&
        preg_match($validNaam, $achternaam)&&
        preg_match($validPostcode, $postcode)&&
@@ -40,13 +48,6 @@
        preg_match($validTel2, $telefoonnummer2)&&
        preg_match($validMail, $emailadres)){
         
-        if (!check_wachtwoord($wachtwoord, $wwdb))
-        {
-            echo 'Het opgegeven wachtwoord is niet juist.';
-            $db->close();
-            exit();
-        }
-        else {
         $telefoonnummerTot = $telefoonnummer . '-' . $telefoonnummer2;
         
         $sqli_gebruikers = $db->prepare("UPDATE Gebruikers SET naam = ?, achternaam = ?, telefoonnummer = ?, email = ? WHERE id= '".$_SESSION['gebruiker-id']."'");
@@ -65,15 +66,16 @@
         $db->close();
         
         redirect_to("wijzigingen-succesvol.html");
-        }
     }
     
-    else
+    else{
        echo preg_match($validNaam, $voornaam).
        preg_match($validNaam, $achternaam).
        preg_match($validPostcode, $postcode).
        preg_match($validHuis, $huisnummer).
        preg_match($validTel1, $telefoonnummer).
        preg_match($validTel2, $telefoonnummer2).
-       preg_match($validMail, $emailadres);
+       preg_match($validMail, $emailadres);}
+       
+     }
 ?>
