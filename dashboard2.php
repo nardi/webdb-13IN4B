@@ -5,8 +5,8 @@
         ?>
         
         <form action="gebruikers-login.php" method="post">
-            <input type="text" name="e-mailadres" value="E-mail adres"><br />
-            <input type="password" name="wachtwoord" value="wachtwoord"><br />
+            <input type="text" name="e-mailadres" value="E-mail adres" onclick="value=''";><br />
+            <input type="password" name="wachtwoord" value="wachtwoord" onclick="value=''";><br />
             <input type="submit" value="Log in"> 
         
             <a href='wachtwoordvergeten.html'><SMALL> Wachtwoord vergeten </SMALL></a>

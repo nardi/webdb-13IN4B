@@ -4,7 +4,7 @@
         global $imagedir;
         $abs = '';
         if ($email)
-            $abs = 'https://' . $_SERVER['SERVER_NAME'];
+            $abs = 'https://' . $_SERVER['SERVER_NAME'] . '/';
         $html = '';
         $db = connect_to_db();
         $sql = $db->prepare("SELECT Producten.id, titel, hoeveelheid, Bestelling_Product.prijs,
@@ -15,14 +15,6 @@
         $sql->bind_param('i', $id);
         $sql->bind_result($product_id, $titel, $hoeveelheid, $prijs, $cover, $betaalstatus, $verzendkosten, $verzendstatus);
         $sql->execute();
-        if ($email)
-        {
-            $html += '<style>
-                          .product-list {
-                              width: 85%;
-                          }
-                      </style>';
-        }
         $html .= '    <table class="product-list">
         <tr>
             <th>#</th>
@@ -39,7 +31,7 @@
             $productprijs = $hoeveelheid * $prijs;
             $html .= '        <tr>
             <td class="product-id"><a href="' . $abs . 'item-description.php?id=' . $product_id . '"><span name="product-id">' . $product_id . '</span></a></td>
-            <td class="product-image"><a href="' . $abs . 'item-description.php?id=' . $product_id . '"><img src="'. $imagedir . $cover . '" /></a></td>
+            <td class="product-image"><a href="' . $abs . 'item-description.php?id=' . $product_id . '"><img src="' . $abs . $imagedir . $cover . '" /></a></td>
             <td class="product-title"><a href="' . $abs . 'item-description.php?id=' . $product_id . '">' . $titel . '</a></td>
             <td>&euro;<span id="price-' . $product_id . '">' . $prijs . '</span></td>
             <td><input type="text" class="product-amount" value="' . $hoeveelheid . '" disabled="disabled" /></td>
