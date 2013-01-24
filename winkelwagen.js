@@ -32,5 +32,6 @@ function recalculateTotalPrice()
         document.getElementById('productprice-' + id).innerHTML = productPrice.toString().replace('.', ',');
         totalPrice += productPrice;
     }
+    totalPrice = Math.round(totalPrice * 100) / 100;
     document.getElementById('total-price').innerHTML = totalPrice.toString().replace('.', ',');
 } 
