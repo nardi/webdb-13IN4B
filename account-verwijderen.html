@@ -13,3 +13,10 @@
         </form>
       </div>
     </div>
+
+<?php
+if (isset($_SESSION['logged-in'])) {
+    echo "Uitgelogd";
+    session_destroy();
+    }
+?>

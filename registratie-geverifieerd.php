@@ -7,7 +7,7 @@
 	
 <?php
 
-$token = $_POST['token'] ;
+$token = $_GET['token'] ;
 $db = connect_to_db();
 $sql = $db->prepare("UPDATE Gebruikers SET status = 2 WHERE activatie_token = ? LIMIT 1");
 $sql->bind_param("s", $token) ;
