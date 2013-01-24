@@ -54,9 +54,8 @@
 
 <div class="centered-container">
 <div id="filters">
-    <form method="get" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+    <form method="get" action="products.php">
         <?php
-        $db = connect_to_db();
         $platformsql = $db->prepare("SELECT id, naam FROM Platforms");
         $platformsql->execute();
         $platformsql->bind_result($platformid, $platform);
