@@ -8,7 +8,7 @@ function enableEdit(id){
         array[i].disabled = false;
     }
     
-    coverId.onclick="uploadCover(coverId)";
+    coverId.onclick=function(){uploadCover(coverId)};
 }
 
 function uploadCover(coverId){
