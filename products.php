@@ -1,7 +1,10 @@
 <div class="centered-container">
 <div id="filters">
     <form method="get" action="products.php">
-        <?php
+        <div class="platform">
+        <select name="platform">
+
+       <?php
         $db = connect_to_db();
         $platformsql = $db->prepare("SELECT id, naam FROM Platforms");
         $platformsql->execute();
