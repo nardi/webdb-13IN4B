@@ -61,10 +61,8 @@
                 {
                     mail($email,
                          'Uw bestelling bij Super Internet Shop', 
-                         "Bedankt voor uw bestelling bij Super Internet Shop!<br/>
-                         Hier is nogmaals te zien wat u precies besteld heeft:<br/>
-                         {bestelling_weergeven($bestelling_id)}",
-                         'From: Super Internet Shop\r\nContent-type: text/html');
+                         "Bedankt voor uw bestelling bij Super Internet Shop!<br/>Hier is nogmaals te zien wat u precies besteld heeft:<br/>" . bestelling_weergeven($bestelling_id),
+                         'From: contact@superinternetshop.nl\r\nContent-type: text/html');
                 }
                 $email_sql->free_result();
                 
