@@ -1,0 +1,88 @@
+<link rel="stylesheet" type="text/css" href="inloggen-wachtwoord-registratie.css">
+<link rel="stylesheet" type="text/css" href="centering.css">
+<script src="registratieformulier.js"></script>
+
+<!--<script>function test(para){alert("Werken kreng!" + para);}
+
+function check(field){
+    alert("test started")
+    //var labelPos = getElementById('divLabel');
+    //var testy = field;
+    var testx = document.getElementsByName(""+field).value;
+    //document.getElementById(field).value;
+   alert(testx);
+   alert("test closed");
+        
+   }   
+</script>-->
+<script language="JavaScript">
+<!--
+
+function enable_text(status)
+{
+status=!status;	
+document.regform.huisnummerextra.disabled = status;
+document.regform.toevoegingextra.disabled = status;
+document.regform.postcodeextra.disabled = status;
+}
+//-->
+</script>
+
+<div class="centered-container">
+    <div class="registratieformulier">
+        <form name="regform" id="regformid"  onsubmit="submitThisShit()" action="javascript:void(0)" method="post">
+          <div align="right"> 
+          <h1><center><b>Registreren</b></center></h1>
+              <hr width="100%">
+              <center><b>Accountgegevens</b></center>
+              <br>
+              Voornaam: <input type="text" id="voornaam" name="voornaam" onblur="checkNaam('voornaam', 'voornaam-label')"><div id="voornaam-label" class="label-div"></div><br>
+              Achternaam: <input type="text" id="achternaam" name="achternaam" onblur="checkNaam('achternaam', 'achternaam-label')"><div id="achternaam-label" class="label-div"></div><br>
+              Huisnummer en toevoeging:
+              <div class="huisnummer"> 
+                <input type="tekst" id="huisnummer" name="huisnummer" onchange="completeAddress()" onblur="checkHuis()"> <input type="tekst" name="toevoeging"><div id="huisnummer-label" class="label-div"></div>
+              </div><br/>
+
+              Postcode: <input type="text" id="postcode" name="postcode" onblur="checkPostcode()"><div id="postcode-label" class="label-div"></div><br>
+              Straat: <input type="text" id="straatid" name="straat" disabled="disabled"><div id="straat-label" class="label-div"></div><br>
+              Plaats: <input type="text" name="plaats" disabled="disabled"><div id="plaats-label" class="label-div"></div><br>
+              
+              <!--Co&#246;rdinaten: <input type="text" name="co" disabled="disabled"><br>
+              Woonoppervlak: <input type="text" name="wo" disabled="disabled"><br> -->
+
+              Telefoonnummer: 
+              <div class="telnr"> 
+                <div class="telnr1"> 
+                    <input type="tel" name="telefoonnummer" id="tel" onblur="checkTel()"> -
+                </div> 
+                <div class="telnr2"> 
+                    <input type="tel" id="tel2" name="telefoonnummer2" onblur="checkTel()">
+                </div>
+              </div>  
+              <div id="tel-label" class="label-div" class="label-div"></div>
+              <div align="right"> 
+                <hr width="100%">
+                <center><b>Adres numero dos</b></center><br>
+                Vink het vakje aan als u nog een adres wilt toevoegen.<br/>
+                <input type="checkbox" name=others onclick="enable_text(this.checked)" ><br/>
+                Huisnummer en toevoeging:
+                <div class="huisnummer"> 
+                    <input type="tekst" id="huisnummer" name="huisnummerextra" onchange="completeAddress()" onblur="checkHuis()"> <input type="tekst" name="toevoegingextra"><div id="huisnummer-label" class="label-div"></div>
+                </div><br/>
+
+                Postcode: <input type="text" id="postcode" name="postcodeextra" onblur="checkPostcode()"><div id="postcode-label" class="label-div"></div><br>
+                Straat: <input type="text" id="straatid" name="straat" disabled="disabled"><div id="straat-label" class="label-div"></div><br>
+                Plaats: <input type="text" name="plaats" disabled="disabled"><div id="plaats-label" class="label-div"></div><br>
+            </div>
+              <hr width="100%">
+              <center><b>Inloggegevens</b></center><br>
+              E-mailadres: <input type="text" id="email" name="e-mailadres" onblur="checkMail()"><div id="email-label" class="label-div"></div><br>
+              E-mailadres bevestigen: <input type="text" id="email-bevestigen" name="e-mailadres-conf" onblur="verify('email','email-bevestigen', 'email-bevestigen-label')"><div id="email-bevestigen-label" class="label-div"></div><br>
+              Wachtwoord: <input type="password" id="wachtwoord" name="wachtwoord" onblur="check('wachtwoord', 'wachtwoord-label')"><div id="wachtwoord-label" class="label-div"></div><br>
+              Wachtwoord bevestigen: <input type="password" id="wachtwoord-bevestigen" name="wachtwoord-conf" onblur="verify('wachtwoord', 'wachtwoord-bevestigen', 'wachtwoord-bevestigen-label')"><div id="wachtwoord-bevestigen-label" class="label-div"></div><br>
+              <input type="submit" value="Maak account aan">
+          </div>
+        </form>
+    </div>
+</div>
+
