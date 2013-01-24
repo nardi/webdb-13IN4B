@@ -70,13 +70,13 @@ a {
     
 #dashboard {
     float : right;
-    height: 1.9cm;
     border-radius: 15px;
 
     background: #FFFFFF;
     margin-left: auto;
     margin-right: auto;
-    padding-top: 18pt;
+    padding-top: 2pt;
+    padding-bottom: 2pt;
     padding-left: 6pt;
     padding-right: 6pt;
     /*margin-right: 10pt; */
