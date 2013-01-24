@@ -31,7 +31,7 @@
             $productprijs = $hoeveelheid * $prijs;
             $html .= '        <tr>
             <td class="product-id"><a href="' . $abs . 'item-description.php?id=' . $product_id . '"><span name="product-id">' . $product_id . '</span></a></td>
-            <td class="product-image"><a href="' . $abs . 'item-description.php?id=' . $product_id . '"><img src="'. $imagedir . $cover . '" /></a></td>
+            <td class="product-image"><a href="' . $abs . 'item-description.php?id=' . $product_id . '"><img src="' . $abs . $imagedir . $cover . '" /></a></td>
             <td class="product-title"><a href="' . $abs . 'item-description.php?id=' . $product_id . '">' . $titel . '</a></td>
             <td>&euro;<span id="price-' . $product_id . '">' . $prijs . '</span></td>
             <td><input type="text" class="product-amount" value="' . $hoeveelheid . '" disabled="disabled" /></td>
