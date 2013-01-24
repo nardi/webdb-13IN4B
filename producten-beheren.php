@@ -40,8 +40,8 @@
                 <td class='column'>$id</td>
                 <td class='column'><input type='text' class='inputfield' name='titel$id' disabled='disabled' value='$titel' size=$titelwidth></td>
                 <td class='column'><div class='cover' value=$cover_var></div></td>
-                <div class='platform'>
-                          <select name='platform'>";
+                <td><div class='platform'>
+                    <select name='platform'>";
 
         $platformsql = $db->prepare("SELECT id, naam FROM Platforms");
         $platformsql->execute();
