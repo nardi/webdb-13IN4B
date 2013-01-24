@@ -36,7 +36,7 @@
 							<input type="submit" value="Log in"><br>
 						</form>
 						
-						<a href='wachtwoordvergeten.html'><SMALL> Uw wachtwoord vergeten? </SMALL></a>
+						<a href='wachtwoordvergeten.php'><SMALL> Uw wachtwoord vergeten? </SMALL></a>
 					</div>
 				</div>
 			</div>
