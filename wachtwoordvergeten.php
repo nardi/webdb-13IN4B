@@ -18,6 +18,7 @@ if (isset($_POST['email'])) {
       $db = connect_to_db();
       $sql = $db->prepare("SELECT naam FROM Gebruikers WHERE email = ? LIMIT 1");
       $sql->bind_param("s", $email) ;
+	  $sql->bind_result($naam) ;
       $sql->execute();
 
       if (!$sql->fetch()) {
@@ -31,8 +32,13 @@ if (isset($_POST['email'])) {
 		$pwu->execute();
 		
         $onderwerp = "Nieuw wachtwoord aanvragen" ;
-        $bericht = "Geachte heer / mevrouw \n\n, Hierbij ontvangt u een email om uw wachtwoord opnieuw in te stellen. \n
-		Klik op https://www.superinternetshop.nl/wachtwoord-reset.php?token=" . $token ;
+        $bericht = "Geachte heer / mevrouw '$naam',\n\n Hierbij ontvangt u een email om uw wachtwoord opnieuw in te stellen. \n
+		Klik op https://www.superinternetshop.nl/wachtwoord-reset.php?token=" . $token . "\n
+		via deze link kunt u eenmalig uw wachtwoord aanpassen.\n\n
+		Met vriendelijke groet,\n\n
+		Stefani Koetsier\n
+		Customer Care Agent\n
+		Super Internet Shop\n";
         $from = "noreply@superinternetshop.nl";
         $headers = "From:" . $from;
         mail($email, $onderwerp, $bericht, $headers);
