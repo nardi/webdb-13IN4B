@@ -59,18 +59,3 @@
 .product-hilite .price {
     font-size: 1.7em; 
 }
-
-/*
-Dit is voor een mogelijke aanbiedingenwisselaar
-.product-hilite .previews {
-    text-align: center;
-    background-color: black;
-    float: left;
-}
-
-.product-hilite .previews img {
-    height: 25%;
-    float: left;
-    clear: right;
-} */
-

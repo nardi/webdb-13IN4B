@@ -27,10 +27,10 @@ function recalculateTotalPrice()
     {
         var id = ids[i].innerHTML;
         var amount = parseInt(document.getElementById('amount-' + id).value);
-        var price = parseFloat(document.getElementById('price-' + id).innerHTML);
+        var price = parseFloat(document.getElementById('price-' + id).innerHTML.replace(',', '.'));
         var productPrice = Math.round(amount * price * 100) / 100;
-        document.getElementById('productprice-' + id).innerHTML = productPrice.toString();
+        document.getElementById('productprice-' + id).innerHTML = productPrice.toString().replace('.', ',');
         totalPrice += productPrice;
     }
-    document.getElementById('total-price').innerHTML = totalPrice.toString();
+    document.getElementById('total-price').innerHTML = totalPrice.toString().replace('.', ',');
 } 
