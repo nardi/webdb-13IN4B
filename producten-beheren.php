@@ -64,7 +64,8 @@
             </tr>";
         }
     ?>
-    </form>
+    
     </table>
     <input type='submit' value='wijzigingen aanbrengen'>
+    </form>
 </div>
