@@ -32,7 +32,7 @@
             <td>&euro;<span id="price-' . $product_id . '">' . $prijs . '</span></td>
             <td><input type="text" class="product-amount" value="' . $hoeveelheid . '" disabled="disabled" /></td>
             <td>&euro;<span id="productprice-' . $product_id . '">' . $productprijs . '</span></td>
-        </tr>'
+        </tr>';
             $paypal_info .= '<input type="hidden" name="item_number_' . $count . '" value="' . $product_id . '">
                              <input type="hidden" name="item_name_' . $count . '" value="' . $titel . '">
                              <input type="hidden" name="amount_' . $count . '" value="' . $prijs . '">
