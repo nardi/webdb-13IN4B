@@ -1,5 +1,5 @@
 <?php
-    $imagedir = "uploads/";
+    
     $verzendkosten = 6.75;
     require 'winkelwagen.class.php';
     
@@ -111,7 +111,7 @@ Whale, whale, whale. What do we have here?
         if ((!file_exists($imagedir . $cover)) || (is_null($cover))) {
             $cover = "nocover.png";
         }
-        
+        $cover = "uploads/" . $cover;
         return $cover;
     }
      
