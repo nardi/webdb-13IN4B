@@ -49,7 +49,7 @@
 
             while ($platformsql->fetch()) {
                             ?>
-                              
+                              <option value=<?php echo"'$platformid'";?> <?php if($platformid==$platform_id){ echo "selected='selected'";}?>><?php echo "$platform";?> </option>
 
             <?php }
         
