@@ -40,7 +40,23 @@
                 <td class='column'>$id</td>
                 <td class='column'><input type='text' class='inputfield' name='titel$id' disabled='disabled' value='$titel' size=$titelwidth></td>
                 <td class='column'><div class='cover' value=$cover_var></td></div>
-                <td class='column'><input type='text' class='inputfield' name='platform$id' disabled='disabled' value=$platformnaam size='13'></td>
+                <div class='platform'>
+                          <select name='platform'>"
+
+        $platformsql = $db->prepare("SELECT id, naam FROM Platforms");
+        $platformsql->execute();
+        $platformsql->bind_result($platformid, $platform);
+
+        while ($platformsql->fetch()) {
+?>
+						  <option value="<?php echo $platformid; ?>"><?php echo $platform; ?></option>
+<?php
+        }
+        
+        $platformsql->free_result();
+                echo "
+						  </select>
+					  </div></td>
                 <td class='column'><input type='text' class='inputfield' name='genre$id' disabled='disabled' value=$genrenaam size='10'></td>
                 <td class='column'><input type='text' class='inputfield' name='prijs$id' disabled='disabled' value=$prijs size='6'></td>
                 <td class='column'><input type='text' class='inputfield' name='voorraad$id' disabled='disabled' value=$voorraad size='5'></td>
