@@ -108,10 +108,11 @@ Whale, whale, whale. What do we have here?
     
     function is_valid_cover($cover) 
     {
-        if ((!file_exists($imagedir . $cover)) || (is_null($cover))) {
+        $imgdir = "uploads/";
+        if ((!file_exists($imgdir . $cover)) || (is_null($cover))) {
             $cover = "nocover.png";
         }
-        $cover = "uploads/" . $cover;
+        $cover = $imgdir . $cover;
         return $cover;
     }
      
