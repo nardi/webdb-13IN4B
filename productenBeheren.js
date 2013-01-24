@@ -2,7 +2,7 @@ function enableEdit(id){
     var trId = document.getElementById(id);
     var array = trId.getElementsByTagName("input")
     var arrayLength = array.length;
-    var coverId = document.getElementsById("cover"+id);
+    var coverId = document.getElementById("cover"+id);
     
     for(i=0;i<arrayLength;i++){
         array[i].disabled = false;
