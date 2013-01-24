@@ -1,5 +1,51 @@
+<div class="centered-container">
+<div id="filters">
+    <form method="get" action="products.php">
+        <?php
+        $db = connect_to_db();
+        $platformsql = $db->prepare("SELECT id, naam FROM Platforms");
+        $platformsql->execute();
+        $platformsql->bind_result($platformid, $platform);
+
+        while ($platformsql->fetch()) {
+?>
+						  <option value="<?php echo $platformid; ?>"><?php echo $platform; ?></option>
 <?php
-    $db = connect_to_db();
+        }
+        
+        $platformsql->free_result();
+?>
+						  </select>
+					  </div>
+					  <br/>              
+					  Genre:
+					  <div class="genre">
+
+						  <select name="genre">
+<?php
+        $genresql = $db->prepare("SELECT id, naam FROM Genres");
+        $genresql->execute();
+        $genresql->bind_result($genreid, $genre);
+
+        while ($genresql->fetch()) {
+?>
+						  <option value="<?php echo $genreid; ?>"><?php echo $genre; ?></option>
+<?php
+        }
+        
+        $genresql->free_result();
+        
+?>
+    <br />
+    
+    <input type="submit" value="Pas filters toe">
+    </form>
+</div>
+<hr>
+
+
+<?php
+   
 
     function check_array(&$var, $id, $db)
     {
@@ -52,49 +98,6 @@
             throw new Exception("Er zijn foutieve parameters opgegeven.");
 ?>
 
-<div class="centered-container">
-<div id="filters">
-    <form method="get" action="products.php">
-        <?php
-        $platformsql = $db->prepare("SELECT id, naam FROM Platforms");
-        $platformsql->execute();
-        $platformsql->bind_result($platformid, $platform);
-
-        while ($platformsql->fetch()) {
-?>
-						  <option value="<?php echo $platformid; ?>"><?php echo $platform; ?></option>
-<?php
-        }
-        
-        $platformsql->free_result();
-?>
-						  </select>
-					  </div>
-					  <br/>              
-					  Genre:
-					  <div class="genre">
-
-						  <select name="genre">
-<?php
-        $genresql = $db->prepare("SELECT id, naam FROM Genres");
-        $genresql->execute();
-        $genresql->bind_result($genreid, $genre);
-
-        while ($genresql->fetch()) {
-?>
-						  <option value="<?php echo $genreid; ?>"><?php echo $genre; ?></option>
-<?php
-        }
-        
-        $genresql->free_result();
-        $db->close();
-?>
-    <br />
-    
-    <input type="submit" value="Pas filters toe">
-    </form>
-</div>
-<hr>
 
 <div class="category">
 
