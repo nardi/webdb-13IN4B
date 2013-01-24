@@ -15,7 +15,7 @@
     $wachtwoord = $_POST['wachtwoord'];
     
     
-    nonStrictPostcode = '/^[0-9]{4}[\s-][a-z]{2}$/i';
+    $nonStrictPostcode = '/^[0-9]{4}[\s-][a-z]{2}$/i';
     
     if(preg_match($nonStrictPostcode, $postcode)){
         $postcode=substr($postcode,0,4).substr($postcode,5);
