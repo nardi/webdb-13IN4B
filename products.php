@@ -11,7 +11,9 @@
         $platformsql = $db->prepare("SELECT id, naam FROM Platforms");
         $platformsql->execute();
         $platformsql->bind_result($platformid, $platform);
-
+        
+        echo "<option value=null>--- Geen ---</option>";
+        
         while ($platformsql->fetch()) {
 ?>
 						  <option value="<?php echo $platformid; ?>"><?php echo $platform; ?></option>
@@ -25,12 +27,14 @@
 					  Genre:
 					  <div class="genre">
 
-						  <select name="genre">
+						  <select name="genres">
 <?php
         $genresql = $db->prepare("SELECT id, naam FROM Genres");
         $genresql->execute();
         $genresql->bind_result($genreid, $genre);
 
+        echo "<option value=null>--- Geen ---</option>";
+        
         while ($genresql->fetch()) {
 ?>
 						  <option value="<?php echo $genreid; ?>"><?php echo $genre; ?></option>
