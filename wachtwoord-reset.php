@@ -11,38 +11,34 @@
    
 <?php
 
-
-
-
 if (!isset($_POST['wachtwoord'])&&
-	!isset($_POST['wachtwoord'])) {
+	!isset($_POST['wachtwoord_nogmaals'])) {
 	
 	$db = connect_to_db();
-$token = ($_GET['token']);
-$sql3 = $db->prepare("SELECT id FROM Gebruikers WHERE wachtwoord_token = ? LIMIT 1");
-$sql3->bind_param("s", $token) ;
-$sql3->bind_result($token_valid);
-$sql3->execute();
+    $token = ($_GET['token']);
+    $sql3 = $db->prepare("SELECT id FROM Gebruikers WHERE wachtwoord_token = ? LIMIT 1");
+	$sql3->bind_param("s", $token) ;
+	$sql3->bind_result($token_valid);
+	$sql3->execute();
 
- if (!is_null($token_valid)) {
+	if (!$token_valid == 0) {
 	
-	
-
-    $token = ($_GET['token']);  
-    echo "<div align='justify'>
-    Vul hieronder het door u nieuwe gekozen wachtwoord in. 
-    </div><br /><br />";
-	echo "<form method='post' action='wachtwoord-reset.php'>
-	  <input name='token' type='hidden' value='$token'>
-      Wachtwoord: <input name='wachtwoord' type='text'><br />
-	  Wachtwoord nogmaals: <input name='wachtwoord_nogmaals' type='text'><br />
-      </textarea><br />
-      <input type='submit'>
-      </form>";
+		$token = ($_GET['token']);  
+		echo "<div align='justify'>
+		Vul hieronder het door u nieuwe gekozen wachtwoord in. 
+		</div><br /><br />";
+		echo "<form method='post' action='wachtwoord-reset.php'>
+		  <input name='token' type='hidden' value='$token'>
+		  Wachtwoord: <input name='wachtwoord' type='text'><br />
+		  Wachtwoord nogmaals: <input name='wachtwoord_nogmaals' type='text'><br />
+		  </textarea><br />
+		  <input type='submit'>
+		  </form>";
 	
 	} else {
-	throw new Exception("Deze link is verlopen") ;
-}
+		
+		throw new Exception("Deze link is verlopen") ;
+	}
 	
 	  
 } else {
@@ -69,32 +65,28 @@ $sql3->execute();
 	  $sql->execute();
 	  
 	  //Hier wordt de token verwijderd uit de database
-	  $sql2 = $db->prepare("UPDATE Gebruikers SET wachtwoord_token = NULL WHERE wachtwoord_token = ? LIMIT 1");
+	  $sql2 = $db->prepare("UPDATE Gebruikers SET wachtwoord_token = '0' WHERE wachtwoord_token = ? LIMIT 1");
 	  $sql2->bind_param("s", $token) ;
 	  $sql2->execute();
 	  echo "Uw wachtwoord is aangepast, hartelijk dank!" ;
 	  
-	  } else {
-	  $token = $_POST['token'] ;
+	} else {
+		$token = $_POST['token'] ;
+		  
+		echo "<div align='justify'>
+		Vul hieronder nogmaals het door u nieuwe gekozen wachtwoord in. 
+		</div><br /><br />";
+		echo "<form method='post' action='wachtwoord-reset.php'>
+		  <input name='token' type='hidden' value='$token'>
+		  Wachtwoord: <input name='wachtwoord' type='text'><br />
+		  Wachtwoord nogmaals: <input name='wachtwoord_nogmaals' type='text'><br />
+		  </textarea><br />
+		  <input type='submit'>
+		  </form>"; 
 	  
-      echo "<div align='justify'>
-    Vul hieronder nogmaals het door u nieuwe gekozen wachtwoord in. 
-    </div><br /><br />";
-	echo "<form method='post' action='wachtwoord-reset.php'>
-	  <input name='token' type='hidden' value='$token'>
-      Wachtwoord: <input name='wachtwoord' type='text'><br />
-	  Wachtwoord nogmaals: <input name='wachtwoord_nogmaals' type='text'><br />
-      </textarea><br />
-      <input type='submit'>
-      </form>"; 
-	  
-	  }
+	}
 	  
 } 
-
-	  
-
-	  	  
 	  
 ?>
     

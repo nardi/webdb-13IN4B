@@ -35,8 +35,8 @@
             }
             else
             {
+                $verzendkosten = $ww->get_shipping();
                 $sqli_bestelling = $db->prepare("INSERT INTO Bestellingen (gebruiker_id, verzendkosten) VALUES (?, ?)");
-                $verzendkosten = 6.75;
                 $sqli_bestelling->bind_param('id', $gebruiker_id, $verzendkosten);
                 if(!$sqli_bestelling->execute())
                     throw new Exception($sqli_bestelling->error);
