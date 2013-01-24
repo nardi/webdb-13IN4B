@@ -5,21 +5,24 @@
         ?>
         
         <form action="gebruikers-login.php" method="post">
-            <input type="text" name="e-mailadres" value="E-mail adres" onclick="value=''";><br />
-            <input type="password" name="wachtwoord" value="wachtwoord" onclick="value=''";><br />
+            <input type="text" name="e-mailadres" value="E-mail adres" onfocus="value=''";><br />
+            <input type="password" name="wachtwoord" value="wachtwoord" onfocus="value=''";><br />
             <input type="submit" value="Log in"> 
         
-            <a href='wachtwoordvergeten.html'><SMALL> Wachtwoord vergeten </SMALL></a>
+            <a href='wachtwoordvergeten.php'><SMALL> Wachtwoord vergeten </SMALL></a>
              - 
             <a href="registratie.html"><SMALL>Registreren</SMALL></a>
         </form>
         <?php
     }
+    
+    
     else {
         echo $_SESSION['gebruiker-naam']."<br />";
         ?>
         
         <a href="account-overzicht.php">Mijn account</a><br />
+        <a href='inloggen.php'>Uitloggen</a>
         <?php
         
     }
