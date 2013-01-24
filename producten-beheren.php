@@ -7,7 +7,7 @@
     $sqli_product_lijst = $db->prepare("SELECT Producten.id,titel,platform_id,genre_id,beschrijving,prijs,release_date,voorraad,datum_toegevoegd,cover,Platforms.naam,Genres.naam FROM Producten JOIN Platforms ON platform_id=Platforms.id JOIN Genres ON genre_id=Genres.id");
     $sqli_product_lijst->bind_result($id,$titel,$platform_id,$genre_id,$beschrijving,$prijs,$release_date,$voorraad,$datum_toegevoegd,$cover,$platformnaam,$genrenaam);
     $sqli_product_lijst->execute();
-    $sqli_product_lijst->free_result();
+    $sqli_product_lijst->store_result();
     
 ?>
 <div id="BeheerContainer">
@@ -39,19 +39,19 @@
                 <td><input type='checkbox' name='selected$id'></td>
                 <td class='column'>$id</td>
                 <td class='column'><input type='text' class='inputfield' name='titel$id' disabled='disabled' value='$titel' size=$titelwidth></td>
-                <td class='column'><div class='cover' value=$cover_var></td></div>
-                <div class='platform'>
-                          <select name='platform'>";
+                <td class='column'><div class='cover' value=$cover_var></div></td>
+                <td><div class='platform'>
+                    <select name='platform'>";
 
         $platformsql = $db->prepare("SELECT id, naam FROM Platforms");
         $platformsql->execute();
         $platformsql->bind_result($platformid, $platform);
 
         while ($platformsql->fetch()) {
-                        echo "
-						  <option value='$platformid'; ?>><?php echo $platform; ?></option>";
+                        ?>
+						  <option value='$platformid' <?php if($platformid==$platform_id) echo "selected='selected'";?>  ><?php echo "$platform";?> </option>;
 
-        }
+        <?php}
         
         $platformsql->free_result();
                 echo "
