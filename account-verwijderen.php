@@ -23,7 +23,7 @@
 
     if (!check_wachtwoord($wachtwoord, $wwdb))
     {
-        echo 'Het opgegeven wachtwoord is niet juist.';
+        redirect_to("wachtwoord-onjuist.html");
         $db->close();
         exit();
     }
@@ -38,7 +38,7 @@
 */
         $sql->free_result();
         
-        echo 'U heeft succesvol uw account verwijderd.';
+        redirect_to("verwijderen-succesvol.html");
         $db->close();
         exit();
     }
