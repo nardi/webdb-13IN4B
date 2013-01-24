@@ -5,9 +5,7 @@ if(!isset($_SESSION['logged-in'])) {
     <input type="password" name="wachtwoord"><br />
     <a href='wachtwoordvergeten.html'><SMALL> Wachtwoord vergeten </SMALL></a>
      - 
-    <a href='wachtwoordvergeten.html'><SMALL> Wachtwoord vergeten </SMALL></a>
-    <a href="registratie.html">Registreren</a>
-    
+    <a href="registratie.html"><SMALL>Registreren<SMALL></a>
     <?php
 }
 else {
