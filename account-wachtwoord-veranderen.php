@@ -32,14 +32,15 @@ U bent niet ingelogd!
 		
 			$db = connect_to_db();
 			
+			$id = $_SESSION['gebruiker-id'] ;
 			$wachtwoord = $_POST['oud_wachtwoord'];
 			$nieuw_wachtwoord = $_POST['nieuw_wachtwoord'];
 			$nieuw_wachtwoord_nogmaals = $_POST['nieuw_wachtwoord_nogmaals'];
 			
-			$sql = $db->prepare("SELECT wachtwoord, naam, status FROM Gebruikers WHERE id = ? LIMIT 1");
+			$sql = $db->prepare("SELECT wachtwoord FROM Gebruikers WHERE id = ? LIMIT 1");
 			$sql->bind_param("s", $id);
 			$sql->execute();
-			$sql->bind_result($wwdb, $naam, $status);
+			$sql->bind_result($wwdb);
 			$sql->fetch();
 			sleep(2);
 			echo "'$wwdb'";
