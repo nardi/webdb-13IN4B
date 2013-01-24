@@ -41,7 +41,7 @@
                 <td class='column'><input type='text' class='inputfield' name='titel$id' disabled='disabled' value='$titel' size=$titelwidth></td>
                 <td class='column'><div class='cover' value=$cover_var></div></td>
                 <td><div class='platform'>
-                    <select name='platform'>";
+                    <select name='platform' value='$platform_id'>";
 
         $platformsql = $db->prepare("SELECT id, naam FROM Platforms");
         $platformsql->execute();
