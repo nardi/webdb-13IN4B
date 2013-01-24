@@ -22,7 +22,7 @@ function changeAmount(id)
 function recalculateTotalPrice()
 {
     var ids = document.getElementsByName('product-id');
-    var totalPrice = parseFloat(document.getElementById('shipping').innerHTML);
+    var totalPrice = parseFloat(document.getElementById('shipping').innerHTML.replace(',', '.'));
     for (var i = 0; i < ids.length; i++)
     {
         var id = ids[i].innerHTML;
