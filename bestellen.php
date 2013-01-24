@@ -64,9 +64,9 @@
                          'Uw bestelling bij Super Internet Shop',
                          '<html>
                           <head>
-                            <style type="text/css">' .
+                            <style type="text/css">' . "\n" .
                                file_get_contents('productlijst.css') . "\n" .
-                               file_get_contents('centering.css') .
+                               file_get_contents('centering.css') . "\n" .
                            '</style>
                           </head>
                           <body>
