@@ -104,4 +104,5 @@ Whale, whale, whale. What do we have here?
         {
             throw new Exception("Ongeldig bestand. Bestand moet .jpg, .jpeg, .png of .gif zijn");
         }
+    }
 ?>
