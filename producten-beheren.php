@@ -23,7 +23,8 @@
         $titelwidth = strlen($titel);    
         while($sqli_product_lijst->fetch()){
             $cover_var = '<img src="'.$imagedir.$cover.'"/>';
-            echo "<tr id=$id>
+            ?>
+            <tr id=$id>
                 <td>
                     <div class='ProductEdit' onclick='enableEdit($id)'>
                     </div>
@@ -41,28 +42,28 @@
                 <td class='column'><input type='text' class='inputfield' name='titel$id' disabled='disabled' value='$titel' size=$titelwidth></td>
                 <td class='column'><div class='cover' value=$cover_var></td></div>
                 <div class='platform'>
-                          <select name='platform'>";
-
+                          <select name='platform'>
+        <?php
         $platformsql = $db->prepare("SELECT id, naam FROM Platforms");
         $platformsql->execute();
         $platformsql->bind_result($platformid, $platform);
 
         while ($platformsql->fetch()) {
-                        echo "
-						  <option value='$platformid'; ?>><?php echo $platform; ?></option>"
-
+                        ?>"
+						  <option value='$platformid'; ?>><?php echo $platform; ?></option>";
+        <?php
         }
         
         $platformsql->free_result();
-                echo "
+                ?>
 						  </select>
 					  </div></td>
                 <td class='column'><input type='text' class='inputfield' name='genre$id' disabled='disabled' value=$genrenaam size='10'></td>
                 <td class='column'><input type='text' class='inputfield' name='prijs$id' disabled='disabled' value=$prijs size='6'></td>
                 <td class='column'><input type='text' class='inputfield' name='voorraad$id' disabled='disabled' value=$voorraad size='5'></td>
                 
-            </tr>";
-        }
+            </tr>
+        <?php}
     ?>
     </form>
     </table>

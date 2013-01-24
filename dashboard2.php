@@ -32,6 +32,7 @@
     if (!$ww->is_empty())
         $aantal = ' (' . count($ww->get_all()) . ')';
     ?>
-    
-    <?php echo $aantal; ?>
+    <div id="ww-content">
+        <?php echo $aantal; ?>
+    </div>
 </div>
