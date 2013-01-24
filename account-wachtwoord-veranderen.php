@@ -1,6 +1,18 @@
 <link rel="stylesheet" type="text/css" href="inloggen-wachtwoord-registratie.css">
 
 <?php
+function show_form()
+{
+echo "<form method='post' action='account-wachtwoord-veranderen.php'>
+Oud wachtwoord: <input type='password' name='oud_wachtwoord'><br />
+Nieuw wachtwoord: <input type='password' name='nieuw_wachtwoord'><br />
+Nieuw wachtwoord bevestigen: <input type='password' name='nieuw_wachtwoord_nogmaals'><br />
+<input type='submit' value='Wachtwoord veranderen'>
+</form>";
+}
+?>
+
+<?php
 	if ((!isset($_SESSION['logged-in']))) {
 	?>
 	<pre>
@@ -21,12 +33,7 @@ U bent niet ingelogd!
 			!isset($_POST['nieuw_wachtwoord'])&&
 			!isset($_POST['nieuw_wachtwoord_nogmaals'])) {
 			
-			echo "<form method='post' action='account-wachtwoord-veranderen.php'>
-			Oud wachtwoord: <input type='password' name='oud_wachtwoord'><br />
-			Nieuw wachtwoord: <input type='password' name='nieuw_wachtwoord'><br />
-			Nieuw wachtwoord bevestigen: <input type='password' name='nieuw_wachtwoord_nogmaals'><br />
-			<input type='submit' value='Wachtwoord veranderen'>
-			</form>";
+			show_form();
 			
 		} else {
 		
@@ -69,15 +76,11 @@ U bent niet ingelogd!
 				} else {
 					
 					echo "U heeft niet 2 maal hetzelfde wachtwoord ingevoerd. Probeer het nogmaals!" ;
-					echo "<form method='post' action='account-wachtwoord-veranderen.php'>
-					Oud wachtwoord: <input type='password' name='oud_wachtwoord'><br />
-					Nieuw wachtwoord: <input type='password' name='nieuw_wachtwoord'><br />
-					Nieuw wachtwoord bevestigen: <input type='password' name='nieuw_wachtwoord_nogmaals'><br />
-					<input type='submit' value='Wachtwoord veranderen'>
-					</form>";
+					show_form();
 				}
 			} else {
 				echo "Fout wachtwoord ingevuld. Probeer het opnieuw ";
+				show_form();
 				
 			}
 		}

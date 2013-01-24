@@ -1,5 +1,5 @@
 <?php
-    $imagedir = "uploads/";
+    
     $verzendkosten = 6.75;
     require 'winkelwagen.class.php';
     
@@ -105,4 +105,14 @@ Whale, whale, whale. What do we have here?
             throw new Exception("Ongeldig bestand. Bestand moet .jpg, .jpeg, .png of .gif zijn");
         }
     }
+    
+    function is_valid_cover($cover) 
+    {
+        if ((!file_exists($imagedir . $cover)) || (is_null($cover))) {
+            $cover = "nocover.png";
+        }
+        $cover = "uploads/" . $cover;
+        return $cover;
+    }
+     
 ?>
