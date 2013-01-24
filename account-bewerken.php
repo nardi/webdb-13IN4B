@@ -18,6 +18,12 @@
     $telelfoonnummerTot;
     $emailadres = $_POST['e-mailadres'];
     
+    $nonStrictPostcode = '/^[0-9]{4}[\s-][a-z]{2}$/i';
+    
+    if(preg_match($nonStrictPostcode, $postcode)){
+        $postcode=substr($postcode,0,4).substr($postcode,5);
+    }
+    
     $adres_info = json_decode(get_address($postcode, $huisnummer));
     $straat = $adres_info->street;
     $plaats = $adres_info->city;

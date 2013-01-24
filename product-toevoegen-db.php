@@ -5,7 +5,7 @@
         /* Code voor het uplaoden van afbeeldingen gebasseerd op het voorbeeld van w3.
          * URL: http://www.w3schools.com/php/php_file_upload.asp
          */
-        $image = upload_image();
+        $image = upload_image("image");
   
         $db = connect_to_db();
         
