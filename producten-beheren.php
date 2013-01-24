@@ -57,6 +57,24 @@
                 echo "
 						  </select>
 					  </div></td>
+                      
+                      <td><div class='genre'>
+                    <select name='genre'>";
+
+        $genresql = $db->prepare("SELECT id, naam FROM Genres");
+        $genresql->execute();
+        $genresql->bind_result($genreid, $genre);
+
+            while ($genresql->fetch()) {
+                            ?>
+                              <option value=<?php echo"'$genreid'";?> <?php if($genreid==$genre_id){ echo "selected='selected'";}?>><?php echo "$genre";?> </option>
+
+            <?php }
+        
+        $genresql->free_result();
+                echo "
+						  </select>
+					  </div></td>
                 <td class='column'><input type='text' class='inputfield' name='genre$id' disabled='disabled' value=$genrenaam size='10'></td>
                 <td class='column'><input type='text' class='inputfield' name='prijs$id' disabled='disabled' value=$prijs size='6'></td>
                 <td class='column'><input type='text' class='inputfield' name='voorraad$id' disabled='disabled' value=$voorraad size='5'></td>
