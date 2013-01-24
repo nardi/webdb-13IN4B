@@ -179,3 +179,9 @@ function submitThisShit(){
        return false;
     }
 }
+
+function enable_text(status)
+{
+status=!status;	
+document.f1.other_text.disabled = status;
+}

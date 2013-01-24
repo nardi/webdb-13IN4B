@@ -1,27 +1,15 @@
-<html>
-<head>
-<title>(Type a title for your page here)</title>
-<script language="JavaScript">
-<!--
+<script src="registratieformulier.js"></script>
 
-function enable_text(status)
-{
-status=!status;	
-document.f1.other_text.disabled = status;
-}
-//-->
-</script>
-</head>
+
 <body onload=enable_text(false);>
 
 <form name=f1 method=post>
 Wilt u nog een adres toevoegen? <br/>
 <input type="checkbox" name=others onclick="enable_text(this.checked)" ><br/>
-<input type=text name=other_text1>
-<input type=text name=other_text1>
-<input type=text name=other_text1>
-<input type=text name=other_text1>
+<input type=text name=other_text1><br/>
+<input type=text name=other_text1><br/>
+<input type=text name=other_text1><br/> 
+<input type=text name=other_text1><br/>
 </form>
 
 </body>
-</html>
