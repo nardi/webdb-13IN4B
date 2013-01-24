@@ -2,7 +2,7 @@
 <?php
     $db = connect_to_db();
     
-    $on_sale = $db->prepare('SELECT id, titel, Producten.prijs, Aanbiedingen.prijs, cover FROM Producten JOIN Aanbiedingen ON product_id = Producten.id WHERE start_datum <= CURRENT_DATE AND eind_datum >= CURRENT_DATE LIMIT 8');
+    $on_sale = $db->prepare('SELECT Producten.id, titel, Producten.prijs, Aanbiedingen.prijs, cover FROM Producten JOIN Aanbiedingen ON product_id = Producten.id WHERE start_datum <= CURRENT_DATE AND eind_datum >= CURRENT_DATE LIMIT 8');
     $on_sale->bind_result($id, $titel, $oude_prijs, $prijs, $cover);
     $on_sale->execute();
     if ($on_sale->fetch())

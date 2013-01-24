@@ -95,7 +95,7 @@
             $query .= " AND";
         else
             $query .= " WHERE";
-        $query .= " MATCH (titel, beschrijving) AGAINST (? IN BOOLEAN MODE)";
+        $query .= " WHERE titel LIKE %?%";
     }
     
     $sqli = $db->prepare($query);
