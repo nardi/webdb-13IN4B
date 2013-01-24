@@ -9,19 +9,20 @@
        
         $sql = $db->prepare("INSERT INTO Aanbiedingen (product_id, prijs, start_datum, eind_datum)
         VALUES (?,?,?,?)");
-        var_dump($sql);
         $sql->bind_param('isss', $productid, $prijs, $startdatum, $einddatum);
         if(!$sql->execute())
             throw new Exception($sql->error);
 
         $db->close();
         
-        redirect_to("aanbieding-toevoegen.php");
+        
         ?>
         
-        <script type="text/javascript">
-            alert("Aanbieding succesvol toegevoegd");
-        </script>    
+        De aanbieding is toegevoegd.
+        
+        <script type="text/JavaScript">
+			setTimeout("location.href = 'aanbieding-toevoegen.php';",2000);
+		</script>    
      <?php
      }
 ?>
