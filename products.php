@@ -99,7 +99,7 @@
     }
     
     $sqli = $db->prepare($query);
-    echo $sqli;
+    var_dump($sqli);
     if (isset($search))
         $sqli->bind_param('s', $search);
     $sqli->bind_result($id, $titel, $prijs, $cover);
