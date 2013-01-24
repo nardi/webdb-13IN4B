@@ -1,6 +1,4 @@
 <?php
-    setlocale(LC_NUMERIC, 'nl_NL');
-    
     $verzendkosten = 6.75;
     require 'winkelwagen.class.php';
     
@@ -116,5 +114,11 @@ Whale, whale, whale. What do we have here?
         $cover = $imgdir . $cover;
         return $cover;
     }
-     
+    
+    function price($num)
+    {
+        if (intval($num) == $num)
+            return intval($num) . ',-';
+        return number_format($num, 2, ',', '');
+    }
 ?>

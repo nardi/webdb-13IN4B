@@ -24,9 +24,9 @@
         <div class="vcenter">
             <p class="title"><?php echo $titel; ?></p>
             <p>van</p>
-            <p class="old-price">&euro;<?php echo $oude_prijs; ?></p>
+            <p class="old-price">&euro;<?php echo price($oude_prijs); ?></p>
             <p>voor</p>
-            <p class="price">&euro;<?php echo $prijs; ?></p>
+            <p class="price">&euro;<?php echo price($prijs); ?></p>
         </div>
     </div>
     </a>
@@ -58,7 +58,7 @@
     <a href="item-description.php?id=<?php echo $id; ?>">
     <img src="<?php echo is_valid_cover($cover); ?>" />
     <p class="title"><?php echo $titel; ?></p>
-    <p class="price">&euro;<?php echo $prijs; ?></p>
+    <p class="price">&euro;<?php echo price($prijs); ?></p>
     </a>
 </div>
 <?php
@@ -89,7 +89,7 @@
     <a href="item-description.php?id=<?php echo $id; ?>">
     <img src="<?php echo is_valid_cover($cover); ?>" />
     <p class="title"><?php echo $titel; ?></p>
-    <p class="price">&euro;<?php echo $prijs; ?></p>
+    <p class="price">&euro;<?php echo price($prijs); ?></p>
     <p class="date"><?php echo $datum; ?></p>
     </a>
 </div>

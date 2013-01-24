@@ -93,7 +93,7 @@
 <div id="Prijs">
 <hr />
     <?php
-        echo "&euro;".$prijs;
+        echo "&euro;".price($prijs);
     ?>
 </div>
 </div>

@@ -33,9 +33,9 @@
             <td class="product-id"><a href="' . $abs . 'item-description.php?id=' . $product_id . '"><span name="product-id">' . $product_id . '</span></a></td>
             <td class="product-image" width="80pt"><a href="' . $abs . 'item-description.php?id=' . $product_id . '"><img src="' . $abs . is_valid_cover($cover) . '" width="100%" /></a></td>
             <td class="product-title"><a href="' . $abs . 'item-description.php?id=' . $product_id . '">' . $titel . '</a></td>
-            <td>&euro;<span id="price-' . $product_id . '">' . $prijs . '</span></td>
+            <td>&euro;<span id="price-' . $product_id . '">' . price($prijs) . '</span></td>
             <td><input type="text" class="product-amount" value="' . $hoeveelheid . '" disabled="disabled" /></td>
-            <td>&euro;<span id="productprice-' . $product_id . '">' . $productprijs . '</span></td>
+            <td>&euro;<span id="productprice-' . $product_id . '">' . price($productprijs) . '</span></td>
         </tr>';
             $paypal_info .= '<input type="hidden" name="item_number_' . $count . '" value="' . $product_id . '">
                              <input type="hidden" name="item_name_' . $count . '" value="' . $titel . '">
@@ -48,7 +48,7 @@
         $html .= '        <tr class="bottom-row">
             <td class="left" colspan="3">Betaalstatus: ' . $betaalstatus . '</td>
             <td class="right" colspan="2">Verzendkosten:</td>
-            <td>&euro;' . $verzendkosten . '</td>
+            <td>&euro;' . price($verzendkosten) . '</td>
         </tr>
         <tr class="bottom-row">
             <td class="left" colspan="3">';
@@ -75,7 +75,7 @@
         }
         $html .= '            </td>
             <th colspan="2" class="right">Totale prijs:</th>
-            <td>&euro;<span id="total-price">' . $totaalprijs . '</span></td>
+            <td>&euro;<span id="total-price">' . price($totaalprijs) . '</span></td>
         </tr>
     </table>';
         return $html;
