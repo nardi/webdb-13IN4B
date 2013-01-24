@@ -32,7 +32,7 @@ U bent niet ingelogd!
 		
 			$db = connect_to_db();
 			
-			$oud_wachtwoord = $_POST['oud_wachtwoord'];
+			$wachtwoord = $_POST['oud_wachtwoord'];
 			$nieuw_wachtwoord = $_POST['nieuw_wachtwoord'];
 			$nieuw_wachtwoord_nogmaals = $_POST['nieuw_wachtwoord_nogmaals'];
 			
@@ -40,9 +40,10 @@ U bent niet ingelogd!
 			$sql->bind_param("s", $id);
 			$sql->execute();
 			$sql->bind_result($wwdb, $naam, $status);
+			$sql->fetch();
 			sleep(2);
 			
-			if (check_wachtwoord($oud_wachtwoord, $wwdb)) {
+			if (check_wachtwoord($wachtwoord, $wwdb)) {
 				
 				if ($nieuw_wachtwoord === $nieuw_wachtwoord_nogmaals) {
 					
@@ -76,11 +77,7 @@ U bent niet ingelogd!
 				}
 			} else {
 				echo "Fout wachtwoord ingevuld. Probeer het opnieuw ";
-				?>
-				<script type="text/JavaScript">
-					setTimeout("location.href = '/inloggen.php';",1500);
-				</script>
-				<?php
+				
 			}
 		}
 	}
