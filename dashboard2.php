@@ -25,7 +25,7 @@
     }
     ?>
 </div>
-<div id="winkelwagen" onclick="window.location = 'winkelwagen.php'";>
+<div id="ww-dash" onclick="window.location = 'winkelwagen.php'";>
     <?php    
     $ww = Winkelwagen::try_load_from_session();
     $aantal = '';

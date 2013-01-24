@@ -106,7 +106,13 @@ a {
     padding-bottom: 5pt;
 }
 
+#account-opties {
+    float: left;
+}
+
 #ww-dash{
+    margin-top: auto;
+    margin-bottom: auto;
     width: 56px;
     height: 54px;
     background-image: url('images/labels/cart.png');
@@ -114,8 +120,12 @@ a {
     opacity: 0.5;
 }
 
+#ww-dash:hover{
+    cursor: pointer;
+}
 
-/*
+
+
 #sidebar div {
     height: 0.8cm;
     border-top-left-radius: 0.4cm;
@@ -124,7 +134,7 @@ a {
     line-height: 0.7cm;
     color: #000000;
 }
-*/
+
 
 .clickable-item:hover {
     background: #D4D2D2;
