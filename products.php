@@ -67,7 +67,7 @@
     {
         $query .= " WHERE";
     
-        if (isset($_GET['genres']))
+        if ((isset($_GET['genres'])) && (!empty($_GET['genres'])))
         {
             $query .= " (genre_id = ";
             $genres = explode(',', $_GET['genres']);
@@ -75,7 +75,7 @@
             $query .= implode(" OR genre_id = ", array_filter($genres));
         }
         
-        if (isset($_GET['platforms']))
+        if ((isset($_GET['platforms']) && (!empty($_GET['platforms']))))
         {
             if (isset($_GET['genres']))
                 $query .= ") AND";
