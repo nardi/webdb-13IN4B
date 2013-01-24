@@ -69,28 +69,28 @@ Whale, whale, whale. What do we have here?
         return is_logged_in() && ($_SESSION['gebruiker-status'] >= 3);
     }
     
-    function upload_image() {
+    function upload_image($name) {
         $allowedExts = array("jpg", "jpeg", "gif", "png");
-        $extension = end(explode(".", $_FILES["image"]["name"]));
-        if ((($_FILES["image"]["type"] == "image/gif")
-        || ($_FILES["image"]["type"] == "image/jpeg")
-        || ($_FILES["image"]["type"] == "image/png")
-        || ($_FILES["image"]["type"] == "image/pjpeg"))
+        $extension = end(explode(".", $_FILES[$name]["name"]));
+        if ((($_FILES[$name]["type"] == "image/gif")
+        || ($_FILES[$name]["type"] == "image/jpeg")
+        || ($_FILES[$name]["type"] == "image/png")
+        || ($_FILES[$name]["type"] == "image/pjpeg"))
         && in_array($extension, $allowedExts)) {
-            if ($_FILES["image"]["error"] > 0)
+            if ($_FILES[$name]["error"] > 0)
             {
-                echo "Return Code: " . $_FILES["image"]["error"] . "<br>";
+                echo "Return Code: " . $_FILES[$name]["error"] . "<br>";
             }
             else
             {
-                if (file_exists("uploads/" . $_FILES["image"]["name"]))
+                if (file_exists("uploads/" . $_FILES[$name]["name"]))
                 {
                     $errormsg = "Het uploaden van de afbeelding is mislukt omdat er al een afbeelding bestaat met dezelfde naam. Deze afbeelding is nu aan het product gekoppeld.";
                 }
                 else
                 {
-                    if(!move_uploaded_file($_FILES["image"]["tmp_name"],
-                    "uploads/" . $_FILES["image"]["name"])) {
+                    if(!move_uploaded_file($_FILES[$name]["tmp_name"],
+                    "uploads/" . $_FILES[$name]["name"])) {
                         throw new Exception("Het uploaden van het bestand is mislukt");
                     }  
                             
@@ -98,7 +98,7 @@ Whale, whale, whale. What do we have here?
                 }
             }
             
-            return $_FILES["image"]["name"];
+            return $_FILES[$name]["name"];
         }
         else
         {
