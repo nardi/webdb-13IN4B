@@ -103,6 +103,12 @@ class Winkelwagen
         return $cover;
     }
     
+    function get_shipping()
+    {
+        global $verzendkosten;
+        return $verzendkosten;
+    }
+    
     function get_all()
     {
         return array_keys($this->producten);
@@ -125,6 +131,7 @@ class Winkelwagen
     
     function display($editable)
     {
+        $verzendkosten = $this->get_shipping();
 ?>
 <?php if ($editable) echo '<script src="winkelwagen.js"></script>'; ?>
     <table class="product-list">
@@ -168,11 +175,11 @@ class Winkelwagen
 <?php
             $totaalprijs += $productprijs;
         }
-        $totaalprijs += 6.75;
+        $totaalprijs += $verzendkosten;
 ?>
         <tr class="bottom-row">
             <td colspan="<?php if ($editable) echo '6'; else echo '5'; ?>" class="right">Verzendkosten:</th>
-            <td>&euro;<span id="shipping">6.75</span></td>
+            <td>&euro;<span id="shipping"><?php echo $verzendkosten; ?></span></td>
         </tr>
         <tr class="bottom-row">
             <th colspan="<?php if ($editable) echo '6'; else echo '5'; ?>" class="right">Totale prijs:</th>

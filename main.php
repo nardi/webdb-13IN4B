@@ -1,11 +1,12 @@
 <?php
     $imagedir = "uploads/";
+    $verzendkosten = 6.75;
     require 'winkelwagen.class.php';
-    
     
     function show_error_page($exception)
     {
 ?>
+<center>
     <h4><strong>FAIL WHALE</strong></h4>
     <h5>Oeps, er ging iets vaudt.</h5>
     <pre>
@@ -20,8 +21,9 @@
          '--/_.'----'`
 Whale, whale, whale. What do we have here?		
 	</pre>
-<?php 
-        echo $exception->getMessage();
+    <?=$exception->getMessage() ?>
+</center>
+<?php
     }
     
     set_exception_handler('show_error_page');

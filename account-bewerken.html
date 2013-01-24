@@ -71,8 +71,11 @@ U bent niet ingelogd!
               <center><b>Inloggegevens</b></center><br/>
               E-mailadres: <input type="text" id="email" name="e-mailadres" onblur="checkMail()" value = "<?php echo $email; ?>"><div id="email-label" class="label-div"></div><br/>
               E-mailadres bevestigen: <input type="text" id="email-bevestigen" name="e-mailadres-conf" onblur="verify('email','email-bevestigen', 'email-bevestigen-label')" value = "<?php echo $email; ?>"><div id="email-bevestigen-label" class="label-div"></div><br/>
-              <input type="submit" value="Wijzigingen bevestigen">
-          </div>
+              <hr width="100%">
+              <p>Voer uw wachtwoord in om de wijzigingen te bevestigen:</p>
+              <input type="password" name="wachtwoord">
+              <input type="submit" value="Wijzigingen bevestigen"><br/>
+              </div>
         </form>
     </div>
 </div>
