@@ -6,7 +6,7 @@
     }
     
     $db = connect_to_db();
-    
+      
     $gebruiker_id = $_SESSION['gebruiker-id'];  //
     $wachtwoord = $_POST['wachtwoord'];         //
     $voornaam = $_POST['voornaam'];
@@ -31,7 +31,14 @@
     $validHuis = '/^[0-9]{1,5}$/';
     $validMail='/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i';
     //$validWachtwoord='/^.+$/';
-    
+    //
+    $sqlww = $db->prepare("SELECT wachtwoord FROM Gebruikers WHERE id = ? LIMIT 1");
+    $sqlww->bind_param('i', $_SESSION['gebruiker-id']);
+    $sqlww->execute();
+    $sqlww->bind_result($wwdb);
+    $sqlww->fetch();
+    $sqlww->free_result();
+    //
         if (!check_wachtwoord($wachtwoord, $wwdb))
     {
         echo 'Het opgegeven wachtwoord is niet juist.';
