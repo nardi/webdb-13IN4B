@@ -115,7 +115,7 @@ a {
 }
 
 
-/*
+
 #sidebar div {
     height: 0.8cm;
     border-top-left-radius: 0.4cm;
@@ -124,7 +124,7 @@ a {
     line-height: 0.7cm;
     color: #000000;
 }
-*/
+
 
 .clickable-item:hover {
     background: #D4D2D2;
