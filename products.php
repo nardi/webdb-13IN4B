@@ -12,7 +12,7 @@
         $platformsql->execute();
         $platformsql->bind_result($platformid, $platform);
         
-        echo "<option value=''>--- Geen ---</option>";
+        echo "<option value='0'>--- Geen ---</option>";
         
         while ($platformsql->fetch()) {
 ?>
@@ -33,7 +33,7 @@
         $genresql->execute();
         $genresql->bind_result($genreid, $genre);
 
-        echo "<option value=''>--- Geen ---</option>";
+        echo "<option value='0'>--- Geen ---</option>";
         
         while ($genresql->fetch()) {
 ?>
@@ -67,7 +67,7 @@
     {
         $query .= " WHERE";
     
-        if ((isset($_GET['genres'])) && (!empty($_GET['genres'])))
+        if ((isset($_GET['genres'])) && ($_GET['genres'] != 0))
         {
             $query .= " (genre_id = ";
             $genres = explode(',', $_GET['genres']);
@@ -75,7 +75,7 @@
             $query .= implode(" OR genre_id = ", array_filter($genres));
         }
         
-        if ((isset($_GET['platforms'])) && (!empty($_GET['platforms'])))
+        if ((isset($_GET['platforms'])) && ($_GET['platforms'] != 0))
         {
             if (isset($_GET['genres']))
                 $query .= ") AND";
