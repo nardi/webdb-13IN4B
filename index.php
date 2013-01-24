@@ -66,7 +66,7 @@
 
         <div id="dashboard" class="vcenter">
             <?php
-            include("dashboard.php");
+            include("dashboard2.php");
 			?>
         </div>
     </div>
