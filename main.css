@@ -111,12 +111,17 @@ a {
 }
 
 #ww-dash{
+    margin-top: auto;
+    margin-bottom: auto;
     width: 56px;
     height: 54px;
     background-image: url('images/labels/cart.png');
     float: right;
     opacity: 0.5;
-    
+}
+
+#ww-dash:hover{
+    cursor: pointer;
 }
 
 
