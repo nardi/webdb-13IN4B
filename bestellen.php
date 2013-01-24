@@ -75,7 +75,7 @@
 <p>Klik onderaan op de knop "Betalen via Paypal" om voor de bestelling te betalen.<br/>
 Dit kan ook op een later moment via uw accountoverzicht, maar tot dan wordt uw bestelling nog niet verstuurd!</p>
 <?php
-                bestelling_weergeven($bestelling_id);
+                echo bestelling_weergeven($bestelling_id);
             }
         }
         else

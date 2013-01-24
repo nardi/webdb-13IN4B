@@ -2,6 +2,7 @@
     function bestelling_weergeven($id)
     {
         global $imagedir;
+        $html = '';
         $db = connect_to_db();
         $sql = $db->prepare("SELECT Producten.id, titel, hoeveelheid, Bestelling_Product.prijs,
                                 cover, betaalstatus, verzendkosten, verzendstatus
@@ -11,7 +12,7 @@
         $sql->bind_param('i', $id);
         $sql->bind_result($product_id, $titel, $hoeveelheid, $prijs, $cover, $betaalstatus, $verzendkosten, $verzendstatus);
         $sql->execute();
-        echo '    <table class="product-list">
+        $html .= '    <table class="product-list">
         <tr>
             <th>#</th>
             <th colspan="2">Product</th>
@@ -25,7 +26,7 @@
         while ($sql->fetch())
         {            
             $productprijs = $hoeveelheid * $prijs;
-            echo '        <tr>
+            $html .= '        <tr>
             <td class="product-id"><a href="item-description.php?id=' . $product_id . '"><span name="product-id">' . $product_id . '</span></a></td>
             <td class="product-image"><a href="item-description.php?id=' . $product_id . '"><img src="'. $imagedir . $cover . '" /></a></td>
             <td class="product-title"><a href="item-description.php?id=' . $product_id . '">' . $titel . '</a></td>
@@ -41,7 +42,7 @@
             $count++;
         }
         $totaalprijs += $verzendkosten;
-        echo '        <tr class="bottom-row">
+        $html .= '        <tr class="bottom-row">
             <td class="left" colspan="3">Betaalstatus: ' . $betaalstatus . '</td>
             <td class="right" colspan="2">Verzendkosten:</td>
             <td>&euro;' . $verzendkosten . '</td>
@@ -50,7 +51,7 @@
             <td class="left" colspan="3">';
         if ($betaalstatus == 'Niet betaald')
         {
-            echo '<form action="https://www.sandbox.paypal.com/us/cgi-bin/webscr" method="post">
+            $html .= '<form action="https://www.sandbox.paypal.com/us/cgi-bin/webscr" method="post">
     <input type="hidden" name="cmd" value="_cart">
     <input type="hidden" name="upload" value="1">
     <input type="hidden" name="business" value="paypal_1358181822_biz@nardilam.nl">
@@ -67,12 +68,13 @@
         }
         else
         {
-            echo "Verzendstatus: $verzendstatus";
+            $html .= "Verzendstatus: $verzendstatus";
         }
-        echo '            </td>
+        $html .= '            </td>
             <th colspan="2" class="right">Totale prijs:</th>
             <td>&euro;<span id="total-price">' . $totaalprijs . '</span></td>
         </tr>
     </table>';
+        return $html;
     }
 ?>
