@@ -59,11 +59,11 @@
                 $email_sql->execute();
                 if ($email_sql->fetch())
                 {
-                    $mail = "Bedankt voor uw bestelling bij Super Internet Shop!<br/>Hier is nogmaals te zien wat u precies besteld heeft:<br/>" . bestelling_weergeven($bestelling_id);
+
                     mail($email,
                          'Uw bestelling bij Super Internet Shop',
-                         $mail,
-                         "From: contact@superinternetshop.nl");//\r\nContent-type: text/html"));
+                         "Bedankt voor uw bestelling bij Super Internet Shop!<br/>Hier is nogmaals te zien wat u precies besteld heeft:<br/>" . bestelling_weergeven($bestelling_id, TRUE),
+                         "From: contact@superinternetshop.nl\r\nContent-type: text/html");
                 }
                 $email_sql->free_result();
                 
@@ -76,7 +76,7 @@
 <p>Klik onderaan op de knop "Betalen via Paypal" om voor de bestelling te betalen.<br/>
 Dit kan ook op een later moment via uw accountoverzicht, maar tot dan wordt uw bestelling nog niet verstuurd!</p>
 <?php
-                echo bestelling_weergeven($bestelling_id);
+                echo bestelling_weergeven($bestelling_id, FALSE);
             }
         }
         else
