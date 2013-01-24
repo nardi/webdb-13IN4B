@@ -39,7 +39,7 @@
                 <td><input type='checkbox' name='selected$id'></td>
                 <td class='column'>$id</td>
                 <td class='column'><input type='text' class='inputfield' name='titel$id' disabled='disabled' value='$titel' size=$titelwidth></td>
-                <td class='column'><div class='cover' value=$cover_var></td></div>
+                <td class='column'><div class='cover' value=$cover_var></div></td>
                 <div class='platform'>
                           <select name='platform'>";
 
@@ -49,7 +49,7 @@
 
         while ($platformsql->fetch()) {
                         echo "
-						  <option value='$platformid'; ?>><?php echo $platform; ?></option>";
+						  <option value='$platformid' >$platform </option>";
 
         }
         
