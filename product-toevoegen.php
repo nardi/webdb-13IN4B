@@ -34,7 +34,7 @@ Whale, whale, whale. What do we have here?
 					  <br />
 					  Titel: <input type="text" name="titel"><br /> <br />
 					  Beschrijving:
-					  <textarea rows="5" cols="80" name="beschrijving"></textarea>
+					  <textarea rows="5" cols="20" name="beschrijving"></textarea>
 					  <br />  
 					  Prijs: <input type="text" name="prijs"><br>
 					  Release date: <input type="text" name="release_date"><br>

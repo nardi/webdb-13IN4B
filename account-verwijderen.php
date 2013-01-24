@@ -14,12 +14,12 @@
     $wachtwoord = $_POST['wachtwoord'];
     
     $db = connect_to_db();
-	$sql = $db->prepare("SELECT wachtwoord FROM Gebruikers WHERE id = ? LIMIT 1");
-	$sql->bind_param('i', $_SESSION['gebruiker-id']);
-	$sql->execute();
-	$sql->bind_result($wwdb);
+    $sql = $db->prepare("SELECT wachtwoord FROM Gebruikers WHERE id = ? LIMIT 1");
+    $sql->bind_param('i', $_SESSION['gebruiker-id']);
+    $sql->execute();
+    $sql->bind_result($wwdb);
     $sql->fetch();
-	$sql->free_result();
+    $sql->free_result();
 
     if (!check_wachtwoord($wachtwoord, $wwdb))
     {

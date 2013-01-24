@@ -168,10 +168,15 @@ class Winkelwagen
 <?php
             $totaalprijs += $productprijs;
         }
+        $totaalprijs += 6.75;
 ?>
         <tr class="bottom-row">
-            <th colspan="<?php if ($editable) echo '6'; else echo '5'; ?>">Totale prijs:</th>
-            <td>&euro;<span id="total-price" class="price"><?php echo $totaalprijs; ?><span></td>
+            <td colspan="<?php if ($editable) echo '6'; else echo '5'; ?>" class="right">Verzendkosten:</th>
+            <td>&euro;<span id="shipping">6.75</span></td>
+        </tr>
+        <tr class="bottom-row">
+            <th colspan="<?php if ($editable) echo '6'; else echo '5'; ?>" class="right">Totale prijs:</th>
+            <td>&euro;<span id="total-price"><?php echo $totaalprijs; ?></span></td>
         </tr>
     </table>
 <?php

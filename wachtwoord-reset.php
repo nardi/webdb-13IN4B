@@ -11,36 +11,35 @@
    
 <?php
 
-$db = connect_to_db();
-$token = ($_GET['token']);
-$sql3 = $db->prepare("SELECT id FROM Gebruikers WHERE wachtwoord_token = ? LIMIT 1");
-$sql3->bind_param("s", $token) ;
-$sql3->bind_result($token_valid);
-$sql3->execute();
-
-if (!is_null($token_valid)) {
-
-
 if (!isset($_POST['wachtwoord'])&&
-	!isset($_POST['wachtwoord'])) {
+	!isset($_POST['wachtwoord_nogmaals'])) {
 	
-	if (isset($_GET['token'])) {
+	$db = connect_to_db();
+    $token = ($_GET['token']);
+    $sql3 = $db->prepare("SELECT id FROM Gebruikers WHERE wachtwoord_token = ? LIMIT 1");
+	$sql3->bind_param("s", $token) ;
+	$sql3->bind_result($token_valid);
+	$sql3->execute();
 
-    $token = ($_GET['token']);  
-    echo "<div align='justify'>
-    Vul hieronder het door u nieuwe gekozen wachtwoord in. 
-    </div><br /><br />";
-	echo "<form method='post' action='wachtwoord-reset.php'>
-	  <input name='token' type='hidden' value='$token'>
-      Wachtwoord: <input name='wachtwoord' type='text'><br />
-	  Wachtwoord nogmaals: <input name='wachtwoord_nogmaals' type='text'><br />
-      </textarea><br />
-      <input type='submit'>
-      </form>";
+	if (!is_null($token_valid)) {
+	
+		$token = ($_GET['token']);  
+		echo "<div align='justify'>
+		Vul hieronder het door u nieuwe gekozen wachtwoord in. 
+		</div><br /><br />";
+		echo "<form method='post' action='wachtwoord-reset.php'>
+		  <input name='token' type='hidden' value='$token'>
+		  Wachtwoord: <input name='wachtwoord' type='text'><br />
+		  Wachtwoord nogmaals: <input name='wachtwoord_nogmaals' type='text'><br />
+		  </textarea><br />
+		  <input type='submit'>
+		  </form>";
 	
 	} else {
-      echo "Helaas, deze link bestaat niet." ;
+		
+		throw new Exception("Deze link is verlopen") ;
 	}
+	
 	  
 } else {
 	
@@ -71,29 +70,23 @@ if (!isset($_POST['wachtwoord'])&&
 	  $sql2->execute();
 	  echo "Uw wachtwoord is aangepast, hartelijk dank!" ;
 	  
-	  } else {
-	  $token = $_POST['token'] ;
+	} else {
+		$token = $_POST['token'] ;
+		  
+		echo "<div align='justify'>
+		Vul hieronder nogmaals het door u nieuwe gekozen wachtwoord in. 
+		</div><br /><br />";
+		echo "<form method='post' action='wachtwoord-reset.php'>
+		  <input name='token' type='hidden' value='$token'>
+		  Wachtwoord: <input name='wachtwoord' type='text'><br />
+		  Wachtwoord nogmaals: <input name='wachtwoord_nogmaals' type='text'><br />
+		  </textarea><br />
+		  <input type='submit'>
+		  </form>"; 
 	  
-      echo "<div align='justify'>
-    Vul hieronder nogmaals het door u nieuwe gekozen wachtwoord in. 
-    </div><br /><br />";
-	echo "<form method='post' action='wachtwoord-reset.php'>
-	  <input name='token' type='hidden' value='$token'>
-      Wachtwoord: <input name='wachtwoord' type='text'><br />
-	  Wachtwoord nogmaals: <input name='wachtwoord_nogmaals' type='text'><br />
-      </textarea><br />
-      <input type='submit'>
-      </form>"; 
-	  
-	  }
+	}
 	  
 } 
-} else {
-	throw new Exception("Deze link is verlopen") ;
-}
-	  
-
-	  	  
 	  
 ?>
     
