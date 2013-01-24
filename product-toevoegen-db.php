@@ -5,41 +5,7 @@
         /* Code voor het uplaoden van afbeeldingen gebasseerd op het voorbeeld van w3.
          * URL: http://www.w3schools.com/php/php_file_upload.asp
          */
-      
-        $allowedExts = array("jpg", "jpeg", "gif", "png");
-        $extension = end(explode(".", $_FILES["image"]["name"]));
-        if ((($_FILES["image"]["type"] == "image/gif")
-        || ($_FILES["image"]["type"] == "image/jpeg")
-        || ($_FILES["image"]["type"] == "image/png")
-        || ($_FILES["image"]["type"] == "image/pjpeg"))
-        && in_array($extension, $allowedExts)) {
-            if ($_FILES["image"]["error"] > 0)
-            {
-                echo "Return Code: " . $_FILES["image"]["error"] . "<br>";
-            }
-            else
-            {
-                if (file_exists("uploads/" . $_FILES["image"]["name"]))
-                {
-                    $errormsg = "Het uploaden van de afbeelding is mislukt omdat er al een afbeelding bestaat met dezelfde naam. Deze afbeelding is nu aan het product gekoppeld.";
-                }
-                else
-                {
-                    if(!move_uploaded_file($_FILES["image"]["tmp_name"],
-                    "uploads/" . $_FILES["image"]["name"])) {
-                        throw new Exception("Het uploaden van het bestand is mislukt");
-                    }  
-                            
-                    
-                }
-            }
-            
-            $image = $_FILES["image"]["name"];
-        }
-        else
-        {
-            throw new Exception("Ongeldig bestand. Bestand moet .jpg, .jpeg, .png of .gif zijn");
-        }
+        $image = upload_image();
   
         $db = connect_to_db();
         
