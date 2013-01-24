@@ -56,7 +56,7 @@
 
 <div class="product-thumb">
     <a href="item-description.php?id=<?php echo $id; ?>">
-    <div class="image"><img src="<?php echo is_valid_cover($cover); ?>" /></div>
+    <img src="<?php echo is_valid_cover($cover); ?>" />
     <p class="title"><?php echo $titel; ?></p>
     <p class="price">&euro;<?php echo $prijs; ?></p>
     </a>
@@ -87,7 +87,7 @@
 
 <div class="product-thumb preorder">
     <a href="item-description.php?id=<?php echo $id; ?>">
-    <div class="image"><img src="<?php echo is_valid_cover($cover); ?>" /></div>
+    <img src="<?php echo is_valid_cover($cover); ?>" />
     <p class="title"><?php echo $titel; ?></p>
     <p class="price">&euro;<?php echo $prijs; ?></p>
     <p class="date"><?php echo $datum; ?></p>
