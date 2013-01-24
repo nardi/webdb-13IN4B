@@ -34,7 +34,7 @@
             <td class="product-image" width="80pt"><a href="' . $abs . 'item-description.php?id=' . $product_id . '"><img src="' . $abs . is_valid_cover($cover) . '" width="100%" /></a></td>
             <td class="product-title"><a href="' . $abs . 'item-description.php?id=' . $product_id . '">' . $titel . '</a></td>
             <td>&euro;<span id="price-' . $product_id . '">' . price($prijs) . '</span></td>
-            <td><input type="text" class="product-amount" value="' . $hoeveelheid . '" disabled="disabled" /></td>
+            <td>'. $hoeveelheid . '</td>
             <td>&euro;<span id="productprice-' . $product_id . '">' . price($productprijs) . '</span></td>
         </tr>';
             $paypal_info .= '<input type="hidden" name="item_number_' . $count . '" value="' . $product_id . '">
