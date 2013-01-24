@@ -21,7 +21,7 @@ if (!isset($_POST['wachtwoord'])&&
 	$sql3->bind_result($token_valid);
 	$sql3->execute();
 
-	if (!is_null($token_valid)) {
+	if (!$token_valid == 0) {
 	
 		$token = ($_GET['token']);  
 		echo "<div align='justify'>
@@ -65,7 +65,7 @@ if (!isset($_POST['wachtwoord'])&&
 	  $sql->execute();
 	  
 	  //Hier wordt de token verwijderd uit de database
-	  $sql2 = $db->prepare("UPDATE Gebruikers SET wachtwoord_token = NULL WHERE wachtwoord_token = ? LIMIT 1");
+	  $sql2 = $db->prepare("UPDATE Gebruikers SET wachtwoord_token = '0' WHERE wachtwoord_token = ? LIMIT 1");
 	  $sql2->bind_param("s", $token) ;
 	  $sql2->execute();
 	  echo "Uw wachtwoord is aangepast, hartelijk dank!" ;
