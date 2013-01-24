@@ -22,7 +22,8 @@
         $db3 = connect_to_db();
         $titelwidth = strlen($titel);    
         while($sqli_product_lijst->fetch()) {
-            $cover_var = '<img src="'.$imagedir.$cover.'" />';
+            $cover = is_valid_cover($cover);
+            $cover_var = '<img src="'.$cover.'" />';
             echo "<tr id=$id>
                 <td>
                     <div class='ProductEdit' onclick='enableEdit($id)'>
@@ -39,7 +40,7 @@
                 <td><input type='checkbox' name='selected$id'></td>
                 <td class='column'>$id</td>
                 <td class='column'><input type='text' class='inputfield' name='titel$id' disabled='disabled' value='$titel' size=$titelwidth></td>
-                <td class='column'><div class='cover'>$cover_var</div></td>
+                <td class='column'><div id='cover$id'>$cover_var</div></td>
                 <td><div class='platform'>
                     <select name='platform'>";
 
