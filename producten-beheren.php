@@ -40,7 +40,7 @@
                 <td><input type='checkbox' name='selected$id'></td>
                 <td class='column'>$id</td>
                 <td class='column'><input type='text' class='inputfield' name='titel$id' disabled='disabled' value='$titel' size=$titelwidth></td>
-                <td class='column'><div id='cover$id'>$cover_var</div></td>
+                <td class='column'><div class='cover' id='cover$id'>$cover_var</div></td>
                 <td><div class='platform'>
                     <select name='platform'>";
 
