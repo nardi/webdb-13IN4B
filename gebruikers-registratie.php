@@ -111,12 +111,20 @@
         if(!$sqli_adressen->execute())
             throw new Exception($sqli_adressen->error);
         
-        mail($emailadres,'Super Internet Shop verificatie e-mail.', 
-        'Hoi schat dankje voor het registreren bij Super Internet Shop,<br />
-        klik <a href="http://superinternetshop.nl/registratie-geverifieerd.html">hier</a> <br />
-        om je registratie te bevestigen. <br />
-        Ik heb het erg druk dus <br />
-        je kunt niet reageren. Veel plezier op school vandaag.', 'From:JeMoeder.' . "\r\n" . 'Content-type: text/html');
+		//dit is de stef-code
+		
+		$db = connect_to_db();
+		$token = md5($_POST['email'].time()) ;
+		$pwu = $db->prepare("UPDATE Gebruikers SET activatie_token = '$token' WHERE email = ? LIMIT 1");
+		$pwu->bind_param("s", $emailadres);
+		$pwu->execute();
+		
+		$onderwerp = "Super Internet Shop verificatie e-mail." ;
+        $bericht = "Geachte heer / mevrouw \n\n Hierbij ontvangt u een link om uw emailadres te verifieren. \n
+		Klik op https://www.superinternetshop.nl/registratie-geverifieerd.php?token=" . $token ;
+        $from = "noreply@superinternetshop.nl";
+        $headers = "From:" . $from;
+        mail($email, $onderwerp, $bericht, $headers);
         
         //id gebruiker aan AdresGebruiker toewijzen 
         $gebruiker_id = $sqli_gebruikers->insert_id;
