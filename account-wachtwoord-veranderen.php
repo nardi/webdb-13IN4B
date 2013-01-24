@@ -40,6 +40,7 @@ U bent niet ingelogd!
 			$sql->bind_param("s", $id);
 			$sql->execute();
 			$sql->bind_result($wwdb, $naam, $status);
+			$sql->fetch();
 			sleep(2);
 			
 			if (check_wachtwoord($wachtwoord, $wwdb)) {
