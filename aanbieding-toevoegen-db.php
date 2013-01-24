@@ -13,9 +13,9 @@
         if(!$sqli_producten->execute())
             throw new Exception($sqli_producten->error);
 
-        $db->close()
+        $db->close();
         
-        redirect_to("product-toevoegen-succesvol.html");
+        redirect_to("aanbieding-toevoegen.php");
         ?>
         
         <script type="text/javascript">
