@@ -25,7 +25,7 @@
 					  Genre:
 					  <div class="genre">
 
-						  <select name="genre">
+						  <select name="genres">
 <?php
         $genresql = $db->prepare("SELECT id, naam FROM Genres");
         $genresql->execute();
