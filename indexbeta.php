@@ -15,7 +15,7 @@
 
     <div id="banner" class="vcenter-container">
 
-        <div id="logo" onClick="window.open('frontpage.html', '_self');">
+        <div id="logo" onClick="window.open('frontpage.php', '_self');">
             <img src="images/logo/logo-sis-beta.png" alt="Link to homepage" />
         </div>
 
@@ -33,7 +33,7 @@
 
     <div id="contentWindow">
         <div id="sidebar">
-            <div class="clickable-item test" onClick="window.open('frontpage.html', '_self');">
+            <div class="clickable-item test" onClick="window.open('frontpage.php', '_self');">
                 frontpage
             </div>
             <div class="clickable-item" onClick="window.open('overons.html', '_self');">
@@ -58,7 +58,7 @@
                 $pag = (isset($_GET['pag'])) ? ($_GET['pag']) : ('') ; //read URL-pag parameter in
                 
                 if (empty($pag)) {
-                    include("frontpage.html");
+                    include("frontpage.php");
                 }
                 else {
                     if (file_exists($pag)) {

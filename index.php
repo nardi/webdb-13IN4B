@@ -4,7 +4,7 @@
     require 'main.php';
     
     session_start();
-    $pag = (isset($_GET['pag'])) ? ($_GET['pag']) : ('frontpage.html'); //read URL-pag parameter in
+    $pag = (isset($_GET['pag'])) ? ($_GET['pag']) : ('frontpage.php'); //read URL-pag parameter in
     if (strpos($pag, '.'))
     {
         $pagename = implode('.', explode('.', $pag, -1));
@@ -82,7 +82,7 @@
         <div id="content">
             <?php
                 if (empty($pag)) {
-                    include("frontpage.html");
+                    include("frontpage.php");
                 }
                 
                 else {
