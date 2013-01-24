@@ -67,7 +67,7 @@
     {
         $query .= " WHERE";
     
-        if ((isset($_GET['genres'])) && ($_GET['genres'] != 0))
+        if ((isset($_GET['genres'])))
         {
             $query .= " (genre_id = ";
             $genres = explode(',', $_GET['genres']);
@@ -75,7 +75,7 @@
             $query .= implode(" OR genre_id = ", array_filter($genres));
         }
         
-        if ((isset($_GET['platforms'])) && ($_GET['platforms'] != 0))
+        if ((isset($_GET['platforms'])))
         {
             if (isset($_GET['genres']))
                 $query .= ") AND";
@@ -99,6 +99,7 @@
     }
     
     $sqli = $db->prepare($query);
+    echo $sqli;
     if (isset($search))
         $sqli->bind_param('s', $search);
     $sqli->bind_result($id, $titel, $prijs, $cover);
