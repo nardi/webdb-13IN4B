@@ -22,7 +22,7 @@
         $db3 = connect_to_db();
         $titelwidth = strlen($titel);    
         while($sqli_product_lijst->fetch()) {
-            $cover_var = '<img src="'.$imagedir.$cover.'"/>';
+            $cover_var = '<img src="'.$imagedir.$cover.'" />';
             echo "<tr id=$id>
                 <td>
                     <div class='ProductEdit' onclick='enableEdit($id)'>

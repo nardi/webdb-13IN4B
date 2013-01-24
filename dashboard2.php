@@ -15,11 +15,14 @@
         </form>
         <?php
     }
+    
+    
     else {
         echo $_SESSION['gebruiker-naam']."<br />";
         ?>
         
         <a href="account-overzicht.php">Mijn account</a><br />
+        <a href='inloggen.php'>Uitloggen</a>;
         <?php
         
     }
