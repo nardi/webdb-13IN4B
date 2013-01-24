@@ -51,6 +51,9 @@
                     $sqli_product->bind_param('iidi', $bestelling_id, $product_id, $prijs, $hoeveelheid);
                     if(!$sqli_product->execute())
                         throw new Exception($sqli_product->error);
+                    $voorraad = $db->prepare("UPDATE Producten SET voorraad = voorraad - ? WHERE id = ?");
+                    $voorraad->bind_param('ii', $hoeveelheid, $product_id);
+                    $voorraad->execute();
                 }
                 
                 $email_sql = $db->prepare("SELECT email FROM Gebruikers WHERE id = ?");
