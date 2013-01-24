@@ -32,7 +32,7 @@
     </a>
 </div>
 <?php
-        while($on_sale->fetch());
+        } while($on_sale->fetch());
 ?>
 
 </div>
