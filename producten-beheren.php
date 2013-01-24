@@ -31,8 +31,8 @@
                 <td>
                     <div class='ProductDelete>
                             <form name='ActuallyAButton' id='DeleteItem' action='product-verwijderen.php' method='post'>
-                            <input type='hidden' name='delete' value='$id'>
-                            <input type='submit' value='' name='submitButton' class='DeleteSubmitButton'>
+                                <input type='hidden' name='delete' value='$id'>
+                                <input type='submit' value='' name='submitButton' class='DeleteSubmitButton'>
                             </form>
                     </div>
                 </td>
