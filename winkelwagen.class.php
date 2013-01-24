@@ -179,11 +179,11 @@ class Winkelwagen
 ?>
         <tr class="bottom-row">
             <td colspan="<?php if ($editable) echo '6'; else echo '5'; ?>" class="right">Verzendkosten:</th>
-            <td>&euro;<span id="shipping"><?=$verzendkosten ?></span></td>
+            <td>&euro;<span id="shipping"><?php echo $verzendkosten; ?></span></td>
         </tr>
         <tr class="bottom-row">
             <th colspan="<?php if ($editable) echo '6'; else echo '5'; ?>" class="right">Totale prijs:</th>
-            <td>&euro;<span id="total-price"><?=$totaalprijs ?></span></td>
+            <td>&euro;<span id="total-price"><?php echo $totaalprijs; ?></span></td>
         </tr>
     </table>
 <?php
