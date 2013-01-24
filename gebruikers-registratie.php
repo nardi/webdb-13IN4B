@@ -124,7 +124,7 @@
 		Klik op https://www.superinternetshop.nl/registratie-geverifieerd.php?token=" . $token ;
         $from = "noreply@superinternetshop.nl";
         $headers = "From:" . $from;
-        mail($email, $onderwerp, $bericht, $headers);
+        mail($emailadres, $onderwerp, $bericht, $headers);
         
         //id gebruiker aan AdresGebruiker toewijzen 
         $gebruiker_id = $sqli_gebruikers->insert_id;
