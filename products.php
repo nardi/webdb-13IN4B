@@ -53,6 +53,48 @@
 ?>
 
 <div class="centered-container">
+<div id="filters">
+    <form method="get" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+        <?php
+        $platformsql = $db->prepare("SELECT id, naam FROM Platforms");
+        $platformsql->execute();
+        $platformsql->bind_result($platformid, $platform);
+
+        while ($platformsql->fetch()) {
+?>
+						  <option value="<?php echo $platformid; ?>"><?php echo $platform; ?></option>
+<?php
+        }
+        
+        $platformsql->free_result();
+?>
+						  </select>
+					  </div>
+					  <br/>              
+					  Genre:
+					  <div class="genre">
+
+						  <select name="genre">
+<?php
+        $genresql = $db->prepare("SELECT id, naam FROM Genres");
+        $genresql->execute();
+        $genresql->bind_result($genreid, $genre);
+
+        while ($genresql->fetch()) {
+?>
+						  <option value="<?php echo $genreid; ?>"><?php echo $genre; ?></option>
+<?php
+        }
+        
+        $genresql->free_result();
+        $db->close();
+?>
+    <br />
+    
+    <input type="submit" value="Pas filters toe">
+    </form>
+</div>
+<hr>
 
 <div class="category">
 
