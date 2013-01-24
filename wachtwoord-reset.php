@@ -21,7 +21,7 @@ if (!isset($_POST['wachtwoord'])&&
 	$sql3->bind_result($token_valid);
 	$sql3->execute();
 
-	if (!$token_valid === '') {
+	if (!$token_valid == "") {
 	
 		$token = ($_GET['token']);  
 		echo "<div align='justify'>
