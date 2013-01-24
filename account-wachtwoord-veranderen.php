@@ -76,11 +76,7 @@ U bent niet ingelogd!
 				}
 			} else {
 				echo "Fout wachtwoord ingevuld. Probeer het opnieuw ";
-				?>
-				<script type="text/JavaScript">
-					setTimeout("location.href = '/inloggen.php';",1500);
-				</script>
-				<?php
+				
 			}
 		}
 	}
