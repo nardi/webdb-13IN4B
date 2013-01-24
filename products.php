@@ -11,7 +11,9 @@
         $platformsql = $db->prepare("SELECT id, naam FROM Platforms");
         $platformsql->execute();
         $platformsql->bind_result($platformid, $platform);
-
+        
+        echo "<option value=''>--- Geen ---</option>";
+        
         while ($platformsql->fetch()) {
 ?>
 						  <option value="<?php echo $platformid; ?>"><?php echo $platform; ?></option>
@@ -25,12 +27,14 @@
 					  Genre:
 					  <div class="genre">
 
-						  <select name="genre">
+						  <select name="genres">
 <?php
         $genresql = $db->prepare("SELECT id, naam FROM Genres");
         $genresql->execute();
         $genresql->bind_result($genreid, $genre);
 
+        echo "<option value=''>--- Geen ---</option>";
+        
         while ($genresql->fetch()) {
 ?>
 						  <option value="<?php echo $genreid; ?>"><?php echo $genre; ?></option>
@@ -109,13 +113,11 @@
     while ($sqli->fetch())
     {
     
-        if ((!file_exists($imagedir . $cover)) || (is_null($cover))) {
-            $cover = "nocover.png";
-        }
+        $cover = is_valid_cover($cover);
 ?>
 
 <div class="product-thumb">
-    <a href="item-description.php?id=<?php echo $id; ?>"> <?php echo '<img src="' . $imagedir . $cover . '"/>'; ?></a>
+    <a href="item-description.php?id=<?php echo $id; ?>"> <?php echo '<img src="' . $cover . '"/>'; ?></a>
     <p class="title"><a href="item-description.php?id=<?php echo $id; ?>"><?php echo $titel; ?></a></p>
     <p class="price"><a href="item-description.php?id=<?php echo $id; ?>">&euro;<?php echo $prijs; ?></a></p>
 </div>
