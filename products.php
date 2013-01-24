@@ -75,7 +75,7 @@
             $query .= implode(" OR genre_id = ", array_filter($genres));
         }
         
-        if ((isset($_GET['platforms']) && (!empty($_GET['platforms']))))
+        if ((isset($_GET['platforms'])) && (!empty($_GET['platforms'])))
         {
             if (isset($_GET['genres']))
                 $query .= ") AND";

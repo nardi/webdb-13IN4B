@@ -50,6 +50,8 @@
         
         if ($total_price == $totaalprijs && $business == 'paypal_1358181822_biz@nardilam.nl')
         {
+            error_log("IPN request: bestelling " . $bestelling . " is nu " . "'$status'");
+        
             if ($status == 'Pending')
                 $status = 'Betaling wordt verwerkt';
             else if ($status == 'Completed')
@@ -62,8 +64,31 @@
             $sql->execute();
         }
         
+        $email_sql = $db->prepare("SELECT email FROM Bestellingen JOIN Gebruikers ON Gebruikers.id = gebruiker_id WHERE Bestellingen.id = ?");
+        $email_sql->bind_param('i', $bestelling);
+        $email_sql->bind_result($email);
+        $email_sql->execute();
+        if ($email_sql->fetch())
+        {
+            mail($email,
+                 'U heeft betaald voor uw bestelling bij Super Internet Shop',
+                 '<html>
+                  <head>
+                    <style type="text/css">' . "\n" .
+                       file_get_contents('productlijst.css') . "\n" .
+                       file_get_contents('centering.css') . "\n" .
+                   '</style>
+                  </head>
+                  <body>
+                    Uw betaling wordt zo snel mogelijk verwerkt.<br/>Hier is nogmaals te zien wat u precies besteld heeft:<br/>' . bestelling_weergeven($bestelling, TRUE) .
+                 '</body>
+                  </html>',
+                 "From: \"Super Internet Shop\" <contact@superinternetshop.nl>\r\nContent-type: text/html");
+        }
+        $email_sql->free_result();
+        
         $db->close();
     }
     else
-        error_log("Unverified ipn request");
+        error_log("Unverified IPN request: " . $post_data);
 ?>

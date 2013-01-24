@@ -1,3 +1,6 @@
+@import url("product.css");
+@import url("category.css");
+
 #frontpage {
     margin-bottom: 50px;
     width: 100%;
