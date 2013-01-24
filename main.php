@@ -1,5 +1,5 @@
 <?php
-    setlocale(LC_ALL, 'nl_NL');
+    setlocale(LC_NUMERIC, 'nl_NL');
     
     $verzendkosten = 6.75;
     require 'winkelwagen.class.php';
