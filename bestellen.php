@@ -64,7 +64,8 @@
                          'Uw bestelling bij Super Internet Shop',
                          '<html>
                           <head>
-                            <link rel="stylesheet" type="text/css" href="http://superinternetshop.nl/bestelling.css" />
+                            <link rel="stylesheet" type="text/css" href="http://superinternetshop.nl/productlijst.css" />
+                            <link rel="stylesheet" type="text/css" href="http://superinternetshop.nl/centering.css" />
                           </head>
                           <body>
                             Bedankt voor uw bestelling bij Super Internet Shop!<br/>Hier is nogmaals te zien wat u precies besteld heeft:<br/>' . bestelling_weergeven($bestelling_id, TRUE) .
