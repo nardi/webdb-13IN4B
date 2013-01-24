@@ -9,7 +9,7 @@
                              JOIN Bestellingen ON Bestellingen.id = bestelling_id
                              WHERE bestelling_id = ?");
         $sql->bind_param('i', $id);
-        $sql->bind_result($product_id, $titel, $hoeveelheid, $prijs, $cover, $betaalstatus, $verzendkosten,$verzendstatus);
+        $sql->bind_result($product_id, $titel, $hoeveelheid, $prijs, $cover, $betaalstatus, $verzendkosten, $verzendstatus);
         $sql->execute();
 ?>
     <table class="product-list">
