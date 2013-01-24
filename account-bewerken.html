@@ -2,14 +2,9 @@
 <link rel="stylesheet" type="text/css" href="centering.css">
 <script src="account-bewerken.js"></script>
 
-<?php
-	if ((!isset($_SESSION['logged-in']))) {
-	?>
-	<pre>
-U bent niet ingelogd!
-	</pre>
+
 	<?php
-	}
+	
 	else {
         
         $db = connect_to_db();
