@@ -7,11 +7,11 @@
         $startdatum = $_POST['begin-datum'];
         $einddatum = $_POST['eind-datum'];
        
-        $sqli_producten = $db->prepare("INSERT INTO Aanbiedingen (product-id, prijs, start-datum, eind-datum)
+        $sql = $db->prepare("INSERT INTO Aanbiedingen (product-id, prijs, start-datum, eind-datum)
         VALUES (?,?,?,?)");
-        $sqli_producten->bind_param('isss', $productid, $prijs, $startdatum, $einddatum);
+        $sql->bind_param('isss', $productid, $prijs, $startdatum, $einddatum);
         if(!$sqli_producten->execute())
-            throw new Exception($sqli_producten->error);
+            throw new Exception($sql->error);
 
         $db->close();
         
