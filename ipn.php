@@ -1,6 +1,4 @@
 <?php
-    
-
     function https_post($url, $data)
     {
         $ch = curl_init($url);
@@ -34,16 +32,17 @@
         $bestelling = $_POST['custom'];
         
         $db = connect_to_db();
-        $sql = $db->prepare("SELECT prijs, hoeveelheid FROM Bestelling_Product JOIN Bestellingen ON Bestellingen.id = bestelling_id WHERE Bestellingen.id = ?");
+        $sql = $db->prepare("SELECT prijs, hoeveelheid, verzendkosten FROM Bestelling_Product JOIN Bestellingen ON Bestellingen.id = bestelling_id WHERE Bestellingen.id = ?");
         $sql->bind_param('i', $bestelling);
         $sql->execute();
-        $sql->bind_result($prijs, $hoeveelheid);
+        $sql->bind_result($prijs, $hoeveelheid, $verzendkosten);
         $totaalprijs = 0;
         while ($sql->fetch())
             $totaalprijs += $prijs * $hoeveelheid;
+        $totaalprijs += $verzendkosten;
         $sql->free_result();
         
-        $total_price = $_POST['mc_gross']; //moet gelijk zijn aan prijs bestelling
+        $total_price = $_POST['mc_gross']; // moet gelijk zijn aan prijs bestelling
         $business = $_POST['business']; // moet gelijk zijn aan "paypal@superinternetshop.nl"
         $status = $_POST['payment_status']; // Pending of Completed
         

@@ -11,7 +11,7 @@
     padding: 4pt;
 }
 
-.product-list td:not(.payment-status) {
+.product-list td:not(.left):not(.right) {
     border: 1px solid black;
     background-color: #fefefe;
 }
@@ -44,19 +44,19 @@
     width: 20pt;
 }
 
-.product-list .payment-status {
-    text-align: left;
-}
-
 .product-list .bottom-row td, th {
     vertical-align: top;
 }
 
-.product-list .bottom-row th {
+.product-list .bottom-row .left {
+    text-align: left;
+}
+
+.product-list .bottom-row .right {
     text-align: right;
 }
 
-.product-list .bottom-row td span {
+.product-list .bottom-row #total-price {
     text-decoration: underline;
     border-bottom: 1px solid black;
 }
