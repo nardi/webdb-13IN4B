@@ -5,10 +5,11 @@ if(!isset($_SESSION['logged-in'])) {
         <input type="text" name="e-mailadres" value="E-mail adres"><br />
         <input type="password" name="wachtwoord" value="wachtwoord"><br />
         <input type="submit" value="Log in"> 
-	</form>
-    <a href='wachtwoordvergeten.html'><SMALL> Wachtwoord vergeten </SMALL></a>
-     - 
-    <a href="registratie.html"><SMALL>Registreren</SMALL></a>
+	
+        <a href='wachtwoordvergeten.html'><SMALL> Wachtwoord vergeten </SMALL></a>
+         - 
+        <a href="registratie.html"><SMALL>Registreren</SMALL></a>
+    </form>
     <?php
 }
 else {
