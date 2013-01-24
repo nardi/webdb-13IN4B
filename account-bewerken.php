@@ -70,10 +70,10 @@
             throw new Exception($sqli_gebruikers->error);
         if(!$sqli_adressen->execute())
             throw new Exception($sqli_adressen->error);
-          
-        $db->close();
+        
         echo 'U heeft succesvol wijzigingen aangepast.';
-        redirect_to("account-overzicht.php");
+        $db->close();
+        exit();  
     }
     
     else{
