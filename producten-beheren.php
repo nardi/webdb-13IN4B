@@ -12,7 +12,7 @@
 ?>
 <div id="BeheerContainer">
 <table id="Producten">
-<tr><th>Aanpassen</th><th colspan="2">Verwijderen</th><th>Product Nummer</th><th>Titel</th><th>Cover</th><th>Platform</th><th>Genre</th><th>Prijs</th><th>Voorraad</th>
+<tr><th>Aanpassen</th><th colspan="2">Verwijderen</th><th>Product Nummer</th><th>Titel</th><th>Cover</th><th>Platform</th><th>Genre</th><th>Prijs</th><th>Voorraad</th></tr>
 
 
     <form name='EditProduct' id='EditProductId' onsubmit='verander-product.php' method='post'>
