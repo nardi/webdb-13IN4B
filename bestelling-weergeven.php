@@ -4,7 +4,7 @@
         global $imagedir;
         $abs = '';
         if ($email)
-            $abs = 'https://' . $_SERVER['SERVER_NAME'];
+            $abs = 'https://' . $_SERVER['SERVER_NAME'] . '/';
         $html = '';
         $db = connect_to_db();
         $sql = $db->prepare("SELECT Producten.id, titel, hoeveelheid, Bestelling_Product.prijs,
@@ -15,14 +15,6 @@
         $sql->bind_param('i', $id);
         $sql->bind_result($product_id, $titel, $hoeveelheid, $prijs, $cover, $betaalstatus, $verzendkosten, $verzendstatus);
         $sql->execute();
-        if ($email)
-        {
-            $html += '<style>
-                          .product-list {
-                              width: 85%;
-                          }
-                      </style>';
-        }
         $html .= '    <table class="product-list">
         <tr>
             <th>#</th>
