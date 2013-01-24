@@ -48,9 +48,9 @@
         $platformsql->bind_result($platformid, $platform);
 
         while ($platformsql->fetch()) {
-?>
-						  <option value="<?php echo $platformid; ?>"><?php echo $platform; ?></option>
-<?php
+                        echo "
+						  <option value='$platformid'; ?>><?php echo $platform; ?></option>"
+
         }
         
         $platformsql->free_result();
