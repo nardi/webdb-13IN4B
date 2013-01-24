@@ -4,7 +4,7 @@
         global $imagedir;
         $abs = '';
         if ($email)
-            $abs = 'https://' . $_SERVER['SERVER_NAME'] . '/';
+            $abs = $_SERVER['SERVER_NAME'] . '/';
         $html = '';
         $db = connect_to_db();
         $sql = $db->prepare("SELECT Producten.id, titel, hoeveelheid, Bestelling_Product.prijs,
