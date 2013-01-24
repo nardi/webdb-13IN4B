@@ -9,8 +9,9 @@
        
         $sql = $db->prepare("INSERT INTO Aanbiedingen (product_id, prijs, start_datum, eind_datum)
         VALUES (?,?,?,?)");
+        echo $sql;
         $sql->bind_param('isss', $productid, $prijs, $startdatum, $einddatum);
-        if(!$sqli_producten->execute())
+        if(!$sql->execute())
             throw new Exception($sql->error);
 
         $db->close();
