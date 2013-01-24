@@ -127,9 +127,8 @@
 
 <h1>Binnenkort beschikbaar</h1>
 <?php
-    }
-    do
-    {
+        do
+        {
 ?>
 
 <div class="product-thumb preorder">
@@ -141,7 +140,8 @@
     </a>
 </div>
 <?php
-    } while ($pre_orders->fetch());
+        } while ($pre_orders->fetch());
+    }
     $pre_orders->free_result();
     
     $db->close();
