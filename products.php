@@ -1,8 +1,10 @@
 <div class="centered-container">
 <div id="filters">
     <form method="get" action="products.php">
+        Platform:
         <div class="platform">
-        <select name="platform">
+       
+        <select name="platforms">
 
        <?php
         $db = connect_to_db();
@@ -19,8 +21,7 @@
         $platformsql->free_result();
 ?>
 						  </select>
-					  </div>
-					  <br/>              
+					  </div>          
 					  Genre:
 					  <div class="genre">
 
