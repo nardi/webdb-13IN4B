@@ -73,7 +73,7 @@
                             Bedankt voor uw bestelling bij Super Internet Shop!<br/>Hier is nogmaals te zien wat u precies besteld heeft:<br/>' . bestelling_weergeven($bestelling_id, TRUE) .
                          '</body>
                           </html>',
-                         "From: contact@superinternetshop.nl\r\nContent-type: text/html");
+                         "From: \"Super Internet Shop\" <contact@superinternetshop.nl>\r\nContent-type: text/html");
                 }
                 $email_sql->free_result();
                 
