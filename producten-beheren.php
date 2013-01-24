@@ -47,11 +47,11 @@
         $platformsql->execute();
         $platformsql->bind_result($platformid, $platform);
 
-        while ($platformsql->fetch()) {
-                        ?>
-						  <option value='$platformid' <?php if($platformid==$platform_id) echo "selected='selected'";?>  ><?php echo "$platform";?> </option>;
+            while ($platformsql->fetch()) {
+                            ?>
+                              <option value='$platformid' <?php if($platformid==$platform_id) echo "selected='selected'";?>  ><?php echo "$platform";?> </option>;
 
-        <?php}
+            <?php}
         
         $platformsql->free_result();
                 echo "
