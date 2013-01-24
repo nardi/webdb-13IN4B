@@ -21,7 +21,7 @@
         $db2 = connect_to_db();
         $db3 = connect_to_db();
         $titelwidth = strlen($titel);    
-        while($sqli_product_lijst->fetch()){
+        while($sqli_product_lijst->fetch()) {
             $cover_var = '<img src="'.$imagedir.$cover.'"/>';
             echo "<tr id=$id>
                 <td>
@@ -49,11 +49,29 @@
 
             while ($platformsql->fetch()) {
                             ?>
-                              <option value='$platformid' <?php if($platformid==$platform_id) echo "selected='selected'";?>  ><?php echo "$platform";?> </option>;
+                              <option value=<?php echo"'$platformid'";?> <?php if($platformid==$platform_id){ echo "selected='selected'";}?>><?php echo "$platform";?> </option>
 
-            <?php}
+            <?php }
         
         $platformsql->free_result();
+                echo "
+						  </select>
+					  </div></td>
+                      
+                      <td><div class='genre'>
+                    <select name='genre'>";
+
+        $genresql = $db->prepare("SELECT id, naam FROM Genres");
+        $genresql->execute();
+        $genresql->bind_result($genreid, $genre);
+
+            while ($genresql->fetch()) {
+                            ?>
+                              <option value=<?php echo"'$genreid'";?> <?php if($genreid==$genre_id){ echo "selected='selected'";}?>><?php echo "$genre";?> </option>
+
+            <?php }
+        
+        $genresql->free_result();
                 echo "
 						  </select>
 					  </div></td>
@@ -64,7 +82,8 @@
             </tr>";
         }
     ?>
-    </form>
+    
     </table>
     <input type='submit' value='wijzigingen aanbrengen'>
+    </form>
 </div>
