@@ -44,6 +44,7 @@
         echo 'Het opgegeven wachtwoord is niet juist.';
         $db->close();
         exit();
+        redirect_to("account-overzicht.php");
     }
     else {
     
@@ -71,8 +72,8 @@
             throw new Exception($sqli_adressen->error);
           
         $db->close();
-        
-        redirect_to("wijzigingen-succesvol.html");
+        echo 'U heeft succesvol wijzigingen aangepast.';
+        redirect_to("account-overzicht.php");
     }
     
     else{
