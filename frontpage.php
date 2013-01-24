@@ -1,9 +1,7 @@
-<link rel="stylesheet" type="text/css" href="frontpage.css" />
-<link rel="stylesheet" type="text/css" href="product.css" />
-<link rel="stylesheet" type="text/css" href="category.css" />
-
-
 <div id="frontpage">
+<?php
+    $db = connect_to_db();
+?>
 
 <div id="on-sale" class="category">
 
@@ -53,15 +51,6 @@
     </div>
     </a>
 </div>
-
-<!--
-Dit is voor een mogelijke aanbiedingenwisselaar
-<div class="previews">
-    <img src="images/products/1.jpg" />
-    <img src="images/products/2.jpg" />
-    <img src="images/products/1.jpg" />
-    <img src="images/products/2.jpg" />
-</div> -->
 
 </div>
 
@@ -126,19 +115,37 @@ Dit is voor een mogelijke aanbiedingenwisselaar
 </div>
 
 </div>
+<?php
+    $pre_orders = $db->prepare('SELECT id, titel, prijs, release_date, cover FROM Producten WHERE release_date > CURRENT_DATE LIMIT 8');
+    $pre_orders->bind_result($id, $titel, $prijs, $datum, $cover);
+    $pre_orders->execute();
+    if ($pre_orders->fetch())
+    {
+?>
 
 <div id="preorders" class="category">
 
 <h1>Binnenkort beschikbaar</h1>
+<?php
+    }
+    do
+    {
+?>
 
 <div class="product-thumb preorder">
-    <a href="item-description.php?id=1">
-    <img src="images/products/2.jpg" />
-    <p class="title">SUPER Battletoads X Arcade Edition</p>
-    <p class="price">&euro;84,-</p>
-    <p class="date">29-02-2013</p>
+    <a href="item-description.php?id=<?php echo $id; ?>">
+    <img src="<?php echo is_valid_cover($cover); ?>" />
+    <p class="title"><?php echo $titel; ?></p>
+    <p class="price">&euro;<?php echo $prijs; ?></p>
+    <p class="date"><?php echo $datum; ?></p>
     </a>
 </div>
+<?php
+    } while ($pre_orders->fetch());
+    $pre_orders->free_result();
+    
+    $db->close();
+?>
 
 </div>
 

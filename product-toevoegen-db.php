@@ -47,7 +47,7 @@
             echo '<p class="bedankje"> U heeft succesvol een product toegevoegd! <br/></p>';
         }
         ?>
-        <a href="frontpage.html">
+        <a href="frontpage.php">
         <p class="bedankje">Klik hier om terug te keren naar het hoofdmenu</p>
    
         </a>

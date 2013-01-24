@@ -22,7 +22,7 @@ $sql2->execute();
     
     <div class="bedankje">
         <p class="bedankje"> Bedankt, uw registratie is geverifieerd.</p>
-        <a href="frontpage.html">
+        <a href="frontpage.php">
         <p class="bedankje">Klik hier om terug te keren naar het hoofdmenu</p>
         </a>
     </div>
