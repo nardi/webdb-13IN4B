@@ -12,7 +12,7 @@
         $platformsql->execute();
         $platformsql->bind_result($platformid, $platform);
         
-        echo "<option value=NULL>--- Geen ---</option>";
+        echo "<option value=''>--- Geen ---</option>";
         
         while ($platformsql->fetch()) {
 ?>
@@ -33,7 +33,7 @@
         $genresql->execute();
         $genresql->bind_result($genreid, $genre);
 
-        echo "<option value=NULL>--- Geen ---</option>";
+        echo "<option value=''>--- Geen ---</option>";
         
         while ($genresql->fetch()) {
 ?>
