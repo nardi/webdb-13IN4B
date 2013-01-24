@@ -8,9 +8,9 @@ function enableEdit(id){
         array[i].disabled = false;
     }
     
-    coverId.onclick=function(){uploadCover(coverId)};
+    coverId.onclick=function(){uploadCover(coverId, id)};
 }
 
-function uploadCover(coverId){
-    coverId.innerHTML="<input type='file' name='image$id'>";
+function uploadCover(coverId, id){
+    coverId.innerHTML="<input type='file' name='image'"+id">";
 }
