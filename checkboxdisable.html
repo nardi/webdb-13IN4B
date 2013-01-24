@@ -4,9 +4,11 @@
 function enable_text(status)
 {
 status=!status;	
-document.regform2.huisnummer.disabled = !status;
-document.regform2.toevoeging.disabled = !status;
-document.regform2.postcode.disabled = !status;
+document.regform2.huisnummer.disabled = status;
+document.regform2.toevoeging.disabled = status;
+document.regform2.postcode.disabled = status;
+document.regform2.huisnummer.disabled = status;
+document.regform2.toevoeging.disabled = status;
 }
 //-->
 </script>
@@ -23,9 +25,9 @@ document.regform2.postcode.disabled = !status;
               <center><b>Adres numero dos</b></center><br>
               
               Huisnummer en toevoeging:
-             
+              <div class="huisnummer"> 
                 <input type="tekst" id="huisnummer" name="huisnummer" onchange="completeAddress()" onblur="checkHuis()"> <input type="tekst" name="toevoeging"><div id="huisnummer-label" class="label-div"></div>
-           
+              </div><br/>
 
               Postcode: <input type="text" id="postcode" name="postcode" onblur="checkPostcode()"><div id="postcode-label" class="label-div"></div><br>
               Straat: <input type="text" id="straatid" name="straat" disabled="disabled"><div id="straat-label" class="label-div"></div><br>
