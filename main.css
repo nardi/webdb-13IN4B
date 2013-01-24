@@ -124,6 +124,9 @@ a {
     cursor: pointer;
 }
 
+#ww-content {
+    opacity: 1.0;
+}
 
 
 #sidebar div {
