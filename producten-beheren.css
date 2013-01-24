@@ -34,3 +34,7 @@
 .column > input:last-of-type{
     margin-right:20px;
 }
+
+.fileupload{
+    width:80pt;
+}
