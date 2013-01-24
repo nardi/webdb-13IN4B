@@ -32,7 +32,7 @@ U bent niet ingelogd!
 		
 			$db = connect_to_db();
 			
-			$oud_wachtwoord = $_POST['oud_wachtwoord'];
+			$wachtwoord = $_POST['oud_wachtwoord'];
 			$nieuw_wachtwoord = $_POST['nieuw_wachtwoord'];
 			$nieuw_wachtwoord_nogmaals = $_POST['nieuw_wachtwoord_nogmaals'];
 			
@@ -42,7 +42,7 @@ U bent niet ingelogd!
 			$sql->bind_result($wwdb, $naam, $status);
 			sleep(2);
 			
-			if (check_wachtwoord($oud_wachtwoord, $wwdb)) {
+			if (check_wachtwoord($wachtwoord, $wwdb)) {
 				
 				if ($nieuw_wachtwoord === $nieuw_wachtwoord_nogmaals) {
 					
