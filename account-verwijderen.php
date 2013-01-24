@@ -38,6 +38,11 @@
 */
         $sql->free_result();
         
+        
+        if (isset($_SESSION['logged-in'])) {
+            session_destroy();
+        }
+
         redirect_to("verwijderen-succesvol.html");
         $db->close();
         exit();
