@@ -41,17 +41,17 @@
                 <td class='column'><input type='text' class='inputfield' name='titel$id' disabled='disabled' value='$titel' size=$titelwidth></td>
                 <td class='column'><div class='cover' value=$cover_var></div></td>
                 <td><div class='platform'>
-                    <select name='platform' selected='$platform_id'>";
+                    <select name='platform'>";
 
         $platformsql = $db->prepare("SELECT id, naam FROM Platforms");
         $platformsql->execute();
         $platformsql->bind_result($platformid, $platform);
 
         while ($platformsql->fetch()) {
-                        echo "
-						  <option value='$platformid' >$platform </option>";
+                        ?>
+						  <option value='$platformid' <?php if($platformid==$platform_id) echo "selected='selected'";?>  ><?php echo "$platform";?> </option>;
 
-        }
+        <?php}
         
         $platformsql->free_result();
                 echo "
