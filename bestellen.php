@@ -60,11 +60,10 @@
                 if ($email_sql->fetch())
                 {
                     $mail = "Bedankt voor uw bestelling bij Super Internet Shop!<br/>Hier is nogmaals te zien wat u precies besteld heeft:<br/>" . bestelling_weergeven($bestelling_id);
-                    error_log(mail($email,
+                    mail($email,
                          'Uw bestelling bij Super Internet Shop',
                          $mail,
-                         "From: contact@superinternetshop.nl\r\nContent-type: text/html"));
-                    error_log($mail);
+                         "From: contact@superinternetshop.nl");//\r\nContent-type: text/html"));
                 }
                 $email_sql->free_result();
                 
