@@ -44,6 +44,8 @@
         $genresql->free_result();
         
 ?>
+                          </select>
+					  </div>      
     <br />
     
     <input type="submit" value="Pas filters toe">
@@ -51,10 +53,7 @@
 </div>
 <hr>
 
-
 <?php
-   
-
     function check_array(&$var, $id, $db)
     {
         $var = $db->escape_string($var);
@@ -109,16 +108,15 @@
     
     if (isset($_GET['search']))
     {
-        $search = $db->escape_string($_GET['search']);
+        $search = '%' . $db->escape_string($_GET['search']) . '%';
         if (isset($_GET['genres']) || isset($_GET['platforms']))
             $query .= " AND";
         else
             $query .= " WHERE";
-        $query .= " WHERE titel LIKE %?%";
+        $query .= " titel LIKE ?";
     }
     
     $sqli = $db->prepare($query);
-    //var_dump($sqli);
     if (isset($search))
         $sqli->bind_param('s', $search);
     $sqli->bind_result($id, $titel, $prijs, $cover);
@@ -133,14 +131,7 @@
     while ($sqli->fetch())
     {
         $cover = is_valid_cover($cover);
-?>
-
-<div class="product-thumb">
-    <a href="item-description.php?id=<?php echo $id; ?>"> <?php echo '<img src="' . $cover . '"/>'; ?></a>
-    <p class="title"><a href="item-description.php?id=<?php echo $id; ?>"><?php echo $titel; ?></a></p>
-    <p class="price"><a href="item-description.php?id=<?php echo $id; ?>">&euro;<?php echo price($prijs); ?></a></p>
-</div>
-<?php
+        product_thumb($id, $cover, $titel, $prijs);
     }
  ?>
  

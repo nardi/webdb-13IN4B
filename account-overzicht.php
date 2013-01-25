@@ -17,14 +17,20 @@ U bent niet ingelogd!
         $sql->execute();  
         $sql->bind_result($naam, $achternaam, $telefoonnummer, $email);
         
-        if (!$sql->fetch()) { print "Onverwachte fout: Geen data."; exit(); }
+        if (!$sql->fetch()) { 
+            //print "Onverwachte fout: Geen data."; exit(); 
+            throw new Exception("Onverwachtse fout: geen data. Neem contact op met de site-beheerder");
+        }
         $sql->free_result();
 
         $sql = $db->prepare("SELECT postcode, huisnummer, toevoeging, plaats, straat FROM Adressen JOIN AdresGebruiker ON Adressen.id = adres_id WHERE gebruiker_id= '".$_SESSION['gebruiker-id']."' LIMIT 1");
         $sql->execute();  
         $sql->bind_result($postcode, $huisnummer, $toevoeging, $plaats, $straat); 
         
-        if (!$sql->fetch()) { print "Onverwachte fout: Geen data."; exit(); }
+        if (!$sql->fetch()) { 
+            //print "Onverwachte fout: Geen data."; exit(); 
+            throw new Exception("Onverwachtse fout: geen data. Neem contact op met de site-beheerder");
+        }
         $sql->free_result();
         
         $db->close();

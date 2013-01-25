@@ -20,7 +20,7 @@
          '--/_.'----'`
 Whale, whale, whale. What do we have here?		
 	</pre>
-    <?=$exception->getMessage() ?>
+    <?php echo $exception->getMessage(); ?>
 </center>
 <?php
     }
@@ -120,5 +120,17 @@ Whale, whale, whale. What do we have here?
         if (intval($num) == $num)
             return intval($num) . ',-';
         return number_format($num, 2, ',', '');
+    }
+    
+    function product_thumb($id, $cover, $titel, $prijs, $datum = null)
+    {
+?>
+<div class="product-thumb <?php if ($datum !== null) { ?>preorder<?php } ?>">
+    <div class="image"><a href="item-description.php?id=<?php echo $id; ?>"><?php echo '<img src="' . $cover . '"/>'; ?></a></div>
+    <p class="title"><a href="item-description.php?id=<?php echo $id; ?>"><?php echo $titel; ?></a></p>
+    <p class="price"><a href="item-description.php?id=<?php echo $id; ?>">&euro;<?php echo price($prijs); ?></a></p>
+    <?php if ($datum !== null) { ?><p class="date"><?php echo $datum; ?></p><?php } ?>
+</div>
+<?php
     }
 ?>
