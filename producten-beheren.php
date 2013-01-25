@@ -12,7 +12,7 @@
 ?>
 <div id="BeheerContainer">
 <table id="Producten">
-<tr><th>Aanpassen</th><th colspan="2">Verwijderen</th><th>Product Nummer</th><th>Titel</th><th>Cover</th><th>Platform</th><th>Genre</th><th>Beschrijving</th><th>Prijs</th><th>Voorraad</th></tr>
+<tr><th>Aanpassen</th><th colspan="2">Verwijderen</th><th>Product Nummer</th><th>Titel</th><th>Cover</th><th>Beschrijving</th><th>Platform</th><th>Genre</th><th>Prijs</th><th>Voorraad</th><th>Release Datum</th></tr>
 
 
     <form name='EditProduct' id='EditProductId' onsubmit='verander-product.php' method='post'>
@@ -84,7 +84,7 @@
                 <td class='column'><input type='text' class='inputfield' name='voorraad$id' disabled='disabled' value=$voorraad size='5'></td>
                 <td class='column'><input type='text' class='inputfield' name='release$id' disabled='disabled' value='$release_date' size='8'></td>
                 
-            </tr>";
+            </tr><hr />";
         }
     ?>
     
