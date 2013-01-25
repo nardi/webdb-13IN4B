@@ -37,7 +37,7 @@
 ?>
     </div>
     <hr width="100%">
-    <a href="bestellingen-lopende.html"><input type="submit" value="Lopende bestellingen"></a><br>
+    <a href="bestellingen-lopende.html"><input type="submit" value="Lopende bestellingen"></a><br />
 <?php
     }
 ?>
