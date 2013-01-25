@@ -70,6 +70,7 @@
                             '</body>
                              </html>';
                     $css = file_get_contents('email.css');
+                    require 'CssToInlineStyles.php';
                     $converter = new TijsVerkoyen\CssToInlineStyles\CssToInlineStyles($html, $css);
                     mail($email,
                          'Uw bestelling bij Super Internet Shop',
