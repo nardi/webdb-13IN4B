@@ -106,12 +106,12 @@
     
     if (isset($_GET['search']))
     {
-        $search = $db->escape_string($_GET['search']);
+        $search = '%' . $db->escape_string($_GET['search']) . '%';
         if (isset($_GET['genres']) || isset($_GET['platforms']))
             $query .= " AND";
         else
             $query .= " WHERE";
-        $query .= " titel LIKE '%?%'";
+        $query .= " titel LIKE ?";
     }
     
     $sqli = $db->prepare($query);
