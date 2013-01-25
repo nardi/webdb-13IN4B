@@ -43,7 +43,7 @@
                 <td class='column'>$id</td>
                 <td class='column'><input type='text' class='inputfield' name='titel$id' disabled='disabled' value='$titel' size=$titelwidth></td>
                 <td class='column'><div class='cover' id='cover$id'>$cover_var</div></td>
-                <td class='column'><textarea class='inputfield' name='beschrijving$id' disabled='disabled' value='$beschrijving' cols='30' rows='1' onclick='expand($id, $beschrijvingSize)' onblur='shrink($id)'></td>
+                <td class='column'><textarea class='inputfield' name='beschrijving$id' disabled='disabled' cols='30' rows='1' onclick='expand($id, $beschrijvingSize);' onblur='shrink($id);'>$beschrijving</textarea></td>
                 <td><div class='platform'>
                     <select name='platform' disabled='disabled'>";
 
