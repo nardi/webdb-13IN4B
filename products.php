@@ -72,7 +72,7 @@
         $validquery = true;
     }
     
-    if((isset($_GET['genres']) || isset($_GET['platforms'])) && $validquery)
+    if((isset($_GET['genres']) && ($_GET['genres'] != 0))  || (isset($_GET['platforms'])  && ($_GET['platforms'] != 0 )))
     {
         $query .= " WHERE";
     
