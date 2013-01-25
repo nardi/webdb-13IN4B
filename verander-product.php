@@ -4,9 +4,10 @@
     $sqli_id = $db->prepare("SELECT id FROM Producten");
     $sqli_id->bind_result($id);
     $sqli_id->execute();
+    ?><script>alert("Main");</script><?php
     while($sqli_id->fetch()){
         if(isset($_POST['titel'.$id])){
-            
+            ?><script>alert("while");</script><?php
             $titel=$_POST['titel'.$id];
             $platform_id=$_POST['platform'.$id];
             $genre_id=$_POST['genre'.$id];
