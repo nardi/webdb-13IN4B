@@ -81,7 +81,7 @@ if (!isset($_POST['wachtwoord'])&&
 		  Wachtwoord: <input name='wachtwoord' type='text'><br />
 		  Wachtwoord nogmaals: <input name='wachtwoord_nogmaals' type='text'><br />
 		  </textarea><br />
-		  <input type='submit'>
+		  <input type='submit' value='Verstuur'>
 		  </form>"; 
 	  
 	}
