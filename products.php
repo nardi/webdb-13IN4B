@@ -74,7 +74,7 @@
     
     if(isset($_GET['platforms']) && $_GET['platforms'] != 0) 
     {
-        $platforms_vaild = true;
+        $platforms_valid = true;
     }
     else 
     {
