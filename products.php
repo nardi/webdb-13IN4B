@@ -12,7 +12,7 @@
         $platformsql->execute();
         $platformsql->bind_result($platformid, $platform);
         
-        echo "<option value=''>--- Geen ---</option>";
+        echo "<option value='0'>--- Geen ---</option>";
         
         while ($platformsql->fetch()) {
 ?>
@@ -33,7 +33,7 @@
         $genresql->execute();
         $genresql->bind_result($genreid, $genre);
 
-        echo "<option value=''>--- Geen ---</option>";
+        echo "<option value='0'>--- Geen ---</option>";
         
         while ($genresql->fetch()) {
 ?>
@@ -51,10 +51,7 @@
 </div>
 <hr>
 
-
 <?php
-   
-
     function check_array(&$var, $id, $db)
     {
         $var = $db->escape_string($var);
@@ -63,11 +60,30 @@
     
     $query = "SELECT id, titel, prijs, cover FROM Producten";
     
-    if(isset($_GET['genres']) || isset($_GET['platforms']))
+    if(isset($_GET['genres']) && $_GET['genres'] != 0) 
+    {
+        $genres_valid = true;
+    }
+    else 
+    {
+        $genres_valid = false;
+    }
+    
+    if(isset($_GET['platforms']) && $_GET['platforms'] != 0) 
+    {
+        $platforms_valid = true;
+    }
+    else 
+    {
+        $platforms_valid = false;
+    }
+    
+    
+    if($genres_valid || $platforms_valid)
     {
         $query .= " WHERE";
     
-        if ((isset($_GET['genres'])))
+        if ($genres_valid)
         {
             $query .= " (genre_id = ";
             $genres = explode(',', $_GET['genres']);
@@ -75,9 +91,9 @@
             $query .= implode(" OR genre_id = ", array_filter($genres));
         }
         
-        if ((isset($_GET['platforms'])))
+        if ($platforms_valid)
         {
-            if (isset($_GET['genres']))
+            if ($genres_valid)
                 $query .= ") AND";
             $query .= " (platform_id = ";
             $platforms = explode(',', $_GET['platforms']);
@@ -131,4 +147,5 @@
 
 <?php
     $db->close();
+>>>>>>> 0b667666b9cf74bbd23d69453df465de4ec5bd78
 ?>
