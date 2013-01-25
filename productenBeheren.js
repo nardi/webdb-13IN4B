@@ -16,10 +16,10 @@ function uploadCover(coverId, id){
     coverId.onclick="";
 }
 
-function expand(id){
-    document.getElementById(id).type="textarea";
+function expand(id, beschrijvingSize){
+    document.getElementById(id).rows=beschrijvingSize;
 }
 
 function shrink(id){
-    document.getElementById(id).type="text";
+    document.getElementById(id).rows='1';
 }
