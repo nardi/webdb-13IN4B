@@ -45,7 +45,7 @@ if (!isset($_POST['wachtwoord'])&&
 	
 	} else {
 		
-		throw new Exception("Deze link is verlopen") ;
+		echo "Deze link is verlopen" ;
 	}
 	
 	  
