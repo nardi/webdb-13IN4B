@@ -14,8 +14,8 @@ function show_form()
 $token = ($_GET['token']);
 echo "<form method='post' action='wachtwoord-reset.php'>
 <input name='token' type='hidden' value='$token'>
-Wachtwoord: <input name='wachtwoord' type='text'><br />
-Wachtwoord nogmaals: <input name='wachtwoord_nogmaals' type='text'><br />
+Wachtwoord: <input name='wachtwoord' type='password'><br />
+Wachtwoord nogmaals: <input name='wachtwoord_nogmaals' type='password'><br />
 </textarea><br />
 <input type='submit' value='verstuur'>
 </form>";
@@ -45,7 +45,7 @@ if (!isset($_POST['wachtwoord'])&&
 	
 	} else {
 		
-		throw new Exception("Deze link is verlopen") ;
+		echo "Deze link is verlopen" ;
 	}
 	
 	  

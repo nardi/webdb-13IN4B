@@ -6,7 +6,7 @@
     <div align="right"> 
   <h1><CENTER><b>Wachtwoord vergeten?</b></CENTER></h1>
   <hr width="100%">
-    <br>
+    <br />
     
    
 <?php
@@ -62,10 +62,10 @@ if (isset($_POST['email'])) {
     Als u uw wachtwoord bent vergeten, vul dan hieronder uw e-mailadres in. 
     U ontvangt dan binnen enkele ogenblikken een e-mail van ons 
     waarmee u een nieuw wachtwoord kunt opgeven. 
-    </div><br><br>";
+    </div><br /><br />";
 	echo "<form method='post' action='wachtwoordvergeten.php'>
-      Email: <input name='email' type='text'><br>
-      </textarea><br>
+      Email: <input name='email' type='text'><br />
+      </textarea><br />
       <input type='submit' value='verstuur'>
       </form>";
 }
