@@ -104,19 +104,7 @@ function check(field, divLabel, msg){
         
     }   
 }
-function checkMail(){
-        //alert("derp");
-        var validMail=/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
-        var mailFieldVal = document.getElementById('email');
-        var labelPos = document.getElementById('email-label');
-        if(!validMail.test(mailFieldVal.value) || mailFieldVal.value=="" || !mailFieldVal.value){
-            error(labelPos, 'Dit is geen geldig e-mail adres');
-        }
-        
-        else{
-            ok(labelPos, 'Dit is een geldig e-mail adres');
-        }
-}
+
 
 function verify(field1, field2, divLabel){
     var field1Val = document.getElementById(field1).value;
@@ -160,14 +148,9 @@ function error(field, msg){
 function submitThisShit(){
     var form = document.getElementById('regformid');
     isValidForm=true;
-    checkNaam('voornaam', 'voornaam-label');
-    checkNaam('achternaam', 'achternaam-label');
     checkHuis();
     checkPostcode();
     check('straatid', 'straat-label', 'Uw postcode-huisnummer combinatie bestaat niet.');
-    checkTel();
-    checkMail();
-    verify('email','email-bevestigen','email-bevestigen-label');
     
     if(isValidForm){
         document.regform.action="adres-toevoegen.php";

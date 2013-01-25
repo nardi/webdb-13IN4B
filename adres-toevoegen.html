@@ -2,7 +2,6 @@
 <link rel="stylesheet" type="text/css" href="centering.css">
 <script src="adres-toevoegen.js"></script>
 
-
 <div class="centered-container">
     <div class="registratieformulier">
         <form name="regform" id="regformid"  onsubmit="submitThisShit()" action="javascript: void(0)" method="post">
@@ -12,15 +11,13 @@
                 <center><b>Adres toevoegen</b></center><br/>
                 Huisnummer en toevoeging:
                 <div class="huisnummer"> 
-                    <input type="tekst" id="huisnummer" name="huisnummer" onchange="completeAddress()" onblur="checkHuis()"> <input type="tekst" name="toevoeging" value = "<?php echo $toevoeging; ?>"><div id="huisnummer-label" class="label-div"></div>
+                    <input type="tekst" id="huisnummer" name="huisnummer" onchange="completeAddress()" onblur="checkHuis()"> <input type="tekst" name="toevoeging"><div id="huisnummer-label" class="label-div"></div>
                 </div><br/>                
                 Postcode: <input type="text" id="postcode" name="postcode" onblur="checkPostcode()"><div id="postcode-label" class="label-div"></div><br/>
-                Straat: <input type="text" id="straatid" name="straat" disabled="disabled"><div id="straat-label" class="label-div"></div><br />
-                Plaats: <input type="text" name="plaats" disabled="disabled"><div id="plaats-label" class="label-div"></div><br />
-                <hr width="100%">
-
+                Straat: <input type="text" id="straatid" name="straat" disabled="disabled"><div id="straat-label" class="label-div"></div><br/>
+                Plaats: <input type="text" name="plaats" disabled="disabled"><div id="plaats-label" class="label-div"></div><br/>
+                <input type="submit" id ="straatid" value="Wijzigingen bevestigen"><br/>
             </div>
         </form>
     </div>
 </div>
-

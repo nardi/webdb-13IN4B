@@ -3,7 +3,7 @@
         echo 'U moet uiteraard ingelogd zijn om uw account aan te passen.';
         exit();
     }
-    
+    else {
     $db = connect_to_db();
       
     $postcode = $_POST['postcode'];
@@ -23,7 +23,7 @@
     $validHuis = '/^[0-9]{1,5}$/';
 
     if(preg_match($validPostcode, $postcode)&&
-       preg_match($validHuis, $huisnummer)&&){
+       preg_match($validHuis, $huisnummer)){
        
         $gebruikersid = $_SESSION['gebruiker-id'];
         
@@ -31,8 +31,6 @@
     
         $sqli_adressen->bind_param('sisss',$postcode , $huisnummer , $toevoeging , $plaats , $straat);
         
-        if(!$sqli_gebruikers->execute())
-            throw new Exception($sqli_gebruikers->error);
         if(!$sqli_adressen->execute())
             throw new Exception($sqli_adressen->error);
     
@@ -42,7 +40,7 @@
         $sqli_adresgebr->bind_param('ii',$adres_id , $gebruikersid);
         $sqli_adresgebr->execute();
        
-        redirect_to("adres-toegevoegd-succesvol.html");
+        redirect_to("adres-toevoegen-succesvol.html");
         $db->close();
         exit();  
     }
@@ -51,5 +49,5 @@
        echo preg_match($validPostcode, $postcode).
        preg_match($validHuis, $huisnummer);
     }
-    
+  }  
 ?>
