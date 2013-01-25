@@ -11,6 +11,7 @@
 <?php
 function show_form()
 {  
+$token = ($_GET['token']);
 echo "<form method='post' action='wachtwoord-reset.php'>
 <input name='token' type='hidden' value='$token'>
 Wachtwoord: <input name='wachtwoord' type='text'><br />
