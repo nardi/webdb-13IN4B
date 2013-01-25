@@ -12,7 +12,7 @@
         $platformsql->execute();
         $platformsql->bind_result($platformid, $platform);
         
-        echo "<option value=''>--- Geen ---</option>";
+        echo "<option value='0'>--- Geen ---</option>";
         
         while ($platformsql->fetch()) {
 ?>
@@ -33,7 +33,7 @@
         $genresql->execute();
         $genresql->bind_result($genreid, $genre);
 
-        echo "<option value=''>--- Geen ---</option>";
+        echo "<option value='0'>--- Geen ---</option>";
         
         while ($genresql->fetch()) {
 ?>
@@ -63,7 +63,7 @@
     
     $query = "SELECT id, titel, prijs, cover FROM Producten";
     
-    if(isset($_GET['genres']) || isset($_GET['platforms']))
+    if((isset($_GET['genres']) && $_GET['genres'] != 0) || (isset($_GET['platforms']) && $_GET['genres'] != 0))
     {
         $query .= " WHERE";
     
