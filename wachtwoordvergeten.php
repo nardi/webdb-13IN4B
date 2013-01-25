@@ -56,7 +56,7 @@ if (isset($_POST['email'])) {
 	echo "<form method='post' action='wachtwoordvergeten.php'>
       Email: <input name='email' type='text'><br>
       </textarea><br>
-      <input type='submit'>
+      <input type='submit' value='verstuur'>
       </form>";
 }
 
