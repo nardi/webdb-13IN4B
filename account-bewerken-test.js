@@ -170,7 +170,7 @@ function submitThisShit(){
     verify('email','email-bevestigen','email-bevestigen-label');
     
     if(isValidForm){
-        document.regform.action="account-bewerken.php";
+        document.regform.action="account-bewerken-test.php";
         return true;
     }
     else{

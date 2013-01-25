@@ -119,8 +119,8 @@ width: 28.5%;
 .huisnummer input{
 width: 25%;
 }
-.huisnummer{
-width: 152pt;
+.huisnummer input{
+width: 60pt;
 }
 
 .telnr{
