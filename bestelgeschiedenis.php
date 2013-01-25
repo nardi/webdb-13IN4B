@@ -10,7 +10,7 @@
   <h1><center><b>Bestellingen</b></center></h1>
     <hr width="100%">
     <center><b>Bestelgeschiedenis</b></center><br/>
-    <div align="left"> 
+    <div class="centered-container"> 
 <?php
         $db = connect_to_db();
         $bestellingen = $db->prepare("SELECT id, timestamp FROM Bestellingen WHERE gebruiker_id = ?");
@@ -19,7 +19,7 @@
         $bestellingen->execute();
         $bestellingen->store_result();
 ?>
-    <table style="display: inline-block;">
+    <table class="centered">
         <tr>
             <th></th>
             <th>Totaalbedrag</th>
@@ -39,7 +39,7 @@
         <tr class="clickable-item" onclick="window.location = 'bestelling.php?id=<?php echo $bestelling_id; ?>';">
             <td>Bestelling #<?php echo $bestelling_id; ?></td>
             <td>&euro;<?php echo price($totaalprijs); ?></td>
-            <td><?php echo date('d-m-Y', $timestamp); ?></td>
+            <td><?php echo $timestamp; ?></td>
         </tr>
 <?php
             $producten->free_result();
