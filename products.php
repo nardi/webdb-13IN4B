@@ -63,15 +63,6 @@
     
     $query = "SELECT id, titel, prijs, cover FROM Producten";
     
-    if(($_GET['genres'] == 0) && ($_GET['platforms'])) 
-    {
-        $validquery = false;
-    }
-    else 
-    {
-        $validquery = true;
-    }
-    
     if((isset($_GET['genres']) && ($_GET['genres'] != 0))  || (isset($_GET['platforms'])  && ($_GET['platforms'] != 0 )))
     {
         $query .= " WHERE";
