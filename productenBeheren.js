@@ -35,3 +35,7 @@ function expand(id, beschrijvingSize){
 function shrink(id){
     id.rows='1';
 }
+
+function showImage(id, covervar){
+    id.innerHTML=cover_var;
+}
