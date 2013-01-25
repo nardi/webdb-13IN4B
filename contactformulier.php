@@ -7,6 +7,20 @@
   <hr width="100%">
 
 <?php
+function show_form()
+{
+echo "<form method='post' action='contactformulier.php'>
+Email: <input name='email' type='text'><br>
+Onderwerp: <input name='onderwerp' type='text'><br>
+Bericht:<br>
+<textarea name='bericht' rows='15' cols='40'>
+</textarea><br>
+<input type='submit' value='verstuur'>
+</form>"; 
+}
+?>
+ 
+<?php
 if (isset($_REQUEST['email'])){
   $email = $_REQUEST['email'] ;
   $onderwerp = $_REQUEST['onderwerp'] ;
@@ -16,14 +30,7 @@ if (isset($_REQUEST['email'])){
   echo "Hartelijk dank voor uw reactie, wij streven er naar uw vraag binnen 1 werkdag te beantwoorden";
 }
 else {
-  echo "<form method='post' action='contactformulier.php'>
-  Email: <input name='email' type='text'><br>
-  Onderwerp: <input name='onderwerp' type='text'><br>
-  Bericht:<br>
-  <textarea name='bericht' rows='15' cols='40'>
-  </textarea><br>
-  <input type='submit'>
-  </form>";
+  show_form();
 }
 ?>
     </div>
