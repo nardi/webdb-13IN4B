@@ -44,6 +44,8 @@
         $genresql->free_result();
         
 ?>
+                          </select>
+					  </div>      
     <br />
     
     <input type="submit" value="Pas filters toe">
@@ -115,7 +117,6 @@
     }
     
     $sqli = $db->prepare($query);
-    //var_dump($sqli);
     if (isset($search))
         $sqli->bind_param('s', $search);
     $sqli->bind_result($id, $titel, $prijs, $cover);
@@ -130,14 +131,7 @@
     while ($sqli->fetch())
     {
         $cover = is_valid_cover($cover);
-?>
-
-<div class="product-thumb">
-    <a href="item-description.php?id=<?php echo $id; ?>"> <?php echo '<img src="' . $cover . '"/>'; ?></a>
-    <p class="title"><a href="item-description.php?id=<?php echo $id; ?>"><?php echo $titel; ?></a></p>
-    <p class="price"><a href="item-description.php?id=<?php echo $id; ?>">&euro;<?php echo price($prijs); ?></a></p>
-</div>
-<?php
+        product_thumb($cover, $titel, $prijs);
     }
  ?>
  
