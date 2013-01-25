@@ -43,5 +43,5 @@ function showImage(id, covervar){
 
 function hideImage(id, covervar){
     id.innerHTML="Klik hier om de cover te laten zien.";
-    id.onclick=function{showImage(id, covervar)};
+    id.onclick=function(){showImage(id, covervar)};
 }
