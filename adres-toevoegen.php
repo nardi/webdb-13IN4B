@@ -23,7 +23,7 @@
     $validHuis = '/^[0-9]{1,5}$/';
 
     if(preg_match($validPostcode, $postcode)&&
-       preg_match($validHuis, $huisnummer)&&){
+       preg_match($validHuis, $huisnummer)){
        
         $gebruikersid = $_SESSION['gebruiker-id'];
         
