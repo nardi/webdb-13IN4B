@@ -52,7 +52,7 @@
 <?php
         do
         {
-            product_thumb(is_valid_cover($cover), $titel, $prijs);
+            product_thumb($id, is_valid_cover($cover), $titel, $prijs);
         } while ($new_releases->fetch());
 ?>
 
@@ -74,7 +74,7 @@
 <?php
         do
         {
-            product_thumb(is_valid_cover($cover), $titel, $prijs, $datum);
+            product_thumb($id, is_valid_cover($cover), $titel, $prijs, $datum);
         } while ($pre_orders->fetch());
 ?>
 

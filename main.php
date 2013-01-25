@@ -122,7 +122,7 @@ Whale, whale, whale. What do we have here?
         return number_format($num, 2, ',', '');
     }
     
-    function product_thumb($cover, $titel, $prijs, $datum = null)
+    function product_thumb($id, $cover, $titel, $prijs, $datum = null)
     {
 ?>
 <div class="product-thumb <?php if ($datum !== null) { ?>preorder<?php } ?>">

@@ -131,7 +131,7 @@
     while ($sqli->fetch())
     {
         $cover = is_valid_cover($cover);
-        product_thumb($cover, $titel, $prijs);
+        product_thumb($id, $cover, $titel, $prijs);
     }
  ?>
  
