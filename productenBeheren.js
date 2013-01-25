@@ -36,6 +36,6 @@ function shrink(id){
     id.rows='1';
 }
 
-function showImage(id){
-    id.innerHTML="$cover_var";
+function showImage(id, covervar){
+    id.innerHTML=cover_var;
 }
