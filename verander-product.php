@@ -15,7 +15,7 @@
         $voorraad=$_POST['voorraad'.$id];
         $cover=upload_image('image'.$id);
         
-        $sqli_verander = $db->prepare(UPDATE Producten SET titel=?, platform_id=?,genre_id=?,beschrijving=?, prijs=?, release_date=?, voorraad=? WHERE id=?);
+        $sqli_verander = $db->prepare("UPDATE Producten SET titel=?, platform_id=?,genre_id=?,beschrijving=?, prijs=?, release_date=?, voorraad=? WHERE id=?");
         
         $sqli_verander->bind_param('siisdsis',$titel,$platform_id,$genre_id,$beschrijving,$prijs,$release_date,$voorraad);
         
