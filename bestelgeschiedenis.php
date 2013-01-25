@@ -19,7 +19,7 @@
         $bestellingen->execute();
         $bestellingen->store_result();
 ?>
-    <table class="centered">
+    <table style="display: inline-block;">
         <tr>
             <th></th>
             <th>Totaalbedrag</th>
