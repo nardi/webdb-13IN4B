@@ -63,20 +63,30 @@
     
     $query = "SELECT id, titel, prijs, cover FROM Producten";
     
-    if(($_GET['genres'] == 0) && ($_GET['platforms'])) 
+    if(isset($_GET['genres']) && $_GET['genres'] != 0) 
     {
-        $validquery = false;
+        $genres_valid = true;
     }
     else 
     {
-        $validquery = true;
+        $genres_valid = false;
     }
     
-    if((isset($_GET['genres']) || isset($_GET['platforms'])) && $validquery)
+    if(isset($_GET['platforms']) && $_GET['platforms'] != 0) 
+    {
+        $platforms_vaild = true;
+    }
+    else 
+    {
+        $platforms_valid = false;
+    }
+    
+    
+    if($genres_valid || $platforms_valid)
     {
         $query .= " WHERE";
     
-        if ((isset($_GET['genres'])) && $_GET['genres'] != 0)
+        if ($genres_valid)
         {
             $query .= " (genre_id = ";
             $genres = explode(',', $_GET['genres']);
@@ -84,9 +94,9 @@
             $query .= implode(" OR genre_id = ", array_filter($genres));
         }
         
-        if ((isset($_GET['platforms'])) && $_GET['platforms'] != 0)
+        if ($platforms_valid)
         {
-            if (isset($_GET['genres']))
+            if ($genres_valid)
                 $query .= ") AND";
             $query .= " (platform_id = ";
             $platforms = explode(',', $_GET['platforms']);
