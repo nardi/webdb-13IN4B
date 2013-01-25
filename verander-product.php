@@ -7,7 +7,7 @@
     ?><script>alert("Main");</script><?php
     while($sqli_id->fetch()){
         ?><script>alert("while");</script><?php
-        if(isset($_POST['titel'.$id])){
+        if($_POST['titel'.$id])){
             ?><script>alert("if");</script><?php
             $titel=$_POST['titel'.$id];
             $platform_id=$_POST['platform'.$id];
