@@ -1,11 +1,17 @@
 function enableEdit(id){
     var trId = document.getElementById(id);
-    var array = trId.getElementsByTagName("input")
+    var array = trId.getElementsByTagName("input");
+    var txtAreaArray = trId.getElementsByTagName("textarea");
+    var txtAreaArrayLength = txtAreaArray.length;
     var arrayLength = array.length;
     var coverId = document.getElementById("cover"+id);
     
     for(i=0;i<arrayLength;i++){
         array[i].disabled = false;
+    }
+    
+    for(i=0;i<txtAreaArrayLength;i++){
+        txtAreaArray[i].disabled = false;
     }
     
     coverId.onclick=function(){uploadCover(coverId, id);};
