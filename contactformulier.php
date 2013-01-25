@@ -10,11 +10,11 @@
 function show_form()
 {
 echo "<form method='post' action='contactformulier.php'>
-Email: <input name='email' type='text'><br>
-Onderwerp: <input name='onderwerp' type='text'><br>
-Bericht:<br>
+Email: <input name='email' type='text'><br />
+Onderwerp: <input name='onderwerp' type='text'><br />
+Bericht:<br />
 <textarea name='bericht' rows='15' cols='40'>
-</textarea><br>
+</textarea><br />
 <input type='submit' value='verstuur'>
 </form>"; 
 }
