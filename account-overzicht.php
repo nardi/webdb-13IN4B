@@ -58,6 +58,7 @@ U bent niet ingelogd!
         <center><b>Bewerken</b></center><br/>
         <div align="center"> 
             <a href="account-wachtwoord-veranderen.php"><input type="submit"  value="Wachtwoord veranderen"></a><br/>
+            <a href="adres-toevoegen.html"><input type="submit"  value="Adres toevoegen"></a><br />
             <a href="account-bewerken.html"><input type="submit"  value="Accountgegevens veranderen"></a><br/>
             <a href="account-verwijderen.html"><input type="submit"  value="Account verwijderen"></a>
         </div>

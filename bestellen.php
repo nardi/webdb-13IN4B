@@ -69,12 +69,9 @@
                                 Bedankt voor uw bestelling bij Super Internet Shop!<br/>Hier is nogmaals te zien wat u precies besteld heeft:<br/>' . bestelling_weergeven($bestelling_id, TRUE) .
                             '</body>
                              </html>';
-                    $css = file_get_contents('email.css');
-                    $converter = new TijsVerkoyen\CssToInlineStyles\CssToInlineStyles($html, $css);
-                    mail($email,
-                         'Uw bestelling bij Super Internet Shop',
-                         $converter.convert(),
-                         "From: \"Super Internet Shop\" <contact@superinternetshop.nl>\r\nContent-type: text/html");
+                    $css = file_get_contents('main.css') . "\n" . file_get_contents('productlijst.css');
+                    require 'email.php';
+                    leuke_mail($email, 'Uw bestelling bij Super Internet Shop', $html, $css);
                 }
                 $email_sql->free_result();
                 

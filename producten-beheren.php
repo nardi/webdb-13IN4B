@@ -12,9 +12,10 @@
 ?>
 <div id="BeheerContainer">
 <table id="Producten">
-<tr><th>Aanpassen</th><th colspan="2">Verwijderen</th><th>Product Nummer</th><th>Titel</th><th>Cover</th><th>Platform</th><th>Genre</th><th>Beschrijving</th><th>Prijs</th><th>Voorraad</th></tr>
-
-
+<tr><th>Aanpassen</th><th colspan="2">Verwijderen</th><th>Product Nummer</th><th>Titel</th><th>Cover</th><th>Beschrijving</th><th>Platform</th><th>Genre</th><th>Prijs</th><th>Voorraad</th><th>Release Datum</th></tr>
+<tr><td colspan=12>
+<hr />
+</td></tr>
     <form name='EditProduct' id='EditProductId' onsubmit='verander-product.php' method='post'>
     <input type='submit' value='wijzigingen aanbrengen'>
     <?php
@@ -23,7 +24,7 @@
             
         while($sqli_product_lijst->fetch()) {
             $cover = is_valid_cover($cover);
-            $cover_var = '<img src="'.$cover.'" />';
+            $cover_var = "<img src='".$cover."' />";
             $titelwidth = strlen($titel);
             $beschrijvingSizeRaw = strlen($beschrijving)/30;
             $beschrijvingSize = ceil($beschrijvingSizeRaw);
@@ -33,7 +34,7 @@
                     </div>
                 </td>
                 <td>
-                    <div class='ProductDelete>
+                    <div class='ProductDelete'>
                             <form name='ActuallyAButton' id='DeleteItem' action='product-verwijderen.php' method='post'>
                                 <input type='hidden' name='delete' value='$id'>
                                 <input type='submit' value='' name='submitButton' class='DeleteSubmitButton'>
@@ -43,7 +44,7 @@
                 <td><input type='checkbox' name='selected$id'></td>
                 <td class='column'>$id</td>
                 <td class='column'><input type='text' class='inputfield' name='titel$id' disabled='disabled' value='$titel' size=$titelwidth></td>
-                <td class='column'><div class='cover' id='cover$id'>$cover_var</div></td>
+                <td class='column'><div class='cover' id='cover$id' onclick=\"showImage(cover$id, '$cover')\">Klik hier om de cover te laten zien.</div></td>
                 <td class='column'><textarea class='inputfield' id='beschrijvingid$id' name='beschrijving$id' disabled='disabled' cols='30' rows='1' onclick='expand(beschrijvingid$id, $beschrijvingSize)' onblur='shrink(beschrijvingid$id)'>$beschrijving</textarea></td>
                 <td><div class='platform'>
                     <select name='platform' disabled='disabled'>";
@@ -83,8 +84,10 @@
                 <td class='column'><input type='text' class='inputfield' name='prijs$id' disabled='disabled' value=$prijs size='6'></td>
                 <td class='column'><input type='text' class='inputfield' name='voorraad$id' disabled='disabled' value=$voorraad size='5'></td>
                 <td class='column'><input type='text' class='inputfield' name='release$id' disabled='disabled' value='$release_date' size='8'></td>
-                
-            </tr>";
+            </tr>
+            <tr><td colspan=12>
+            <hr />
+            </td></tr>";
         }
     ?>
     
