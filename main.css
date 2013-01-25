@@ -86,24 +86,8 @@ a {
     padding: 2pt;
 }
 
-/* 
- * The main window
- */
-
-#contentWindow {
-    width : 100%;
-    overflow : auto;
-}
-
-/* Sidebar */
-
-#sidebar {
-    float : left;
-    width : 5cm;
-    margin-right: 0.5cm;
-    background-color: #ffffff;
-    margin-top: 0.4cm;
-    padding-bottom: 5pt;
+#dashboard input {
+    width: 20pt;
 }
 
 #account-opties {
@@ -125,6 +109,25 @@ a {
 }
 
 
+/* 
+ * The main window
+ */
+
+#contentWindow {
+    width : 100%;
+    overflow : auto;
+}
+
+/* Sidebar */
+
+#sidebar {
+    float : left;
+    width : 5cm;
+    margin-right: 0.5cm;
+    background-color: #ffffff;
+    margin-top: 0.4cm;
+    padding-bottom: 5pt;
+}
 
 #sidebar div {
     height: 0.8cm;
