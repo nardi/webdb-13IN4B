@@ -52,16 +52,7 @@
 <?php
         do
         {
-?>
-
-<div class="product-thumb">
-    <a href="item-description.php?id=<?php echo $id; ?>">
-    <img src="<?php echo is_valid_cover($cover); ?>" />
-    <p class="title"><?php echo $titel; ?></p>
-    <p class="price">&euro;<?php echo price($prijs); ?></p>
-    </a>
-</div>
-<?php
+            product_thumb(is_valid_cover($cover), $titel, $prijs);
         } while ($new_releases->fetch());
 ?>
 
@@ -70,7 +61,7 @@
     }
     $new_releases->free_result();
 
-    $pre_orders = $db->prepare('SELECT id, titel, prijs, release_date, cover FROM Producten WHERE release_date > CURRENT_DATE LIMIT 8');
+    $pre_orders = $db->prepare('SELECT id, titel, prijs, release_date, cover FROM Producten WHERE release_date > CURRENT_DATE ORDER BY release_date ASC LIMIT 8');
     $pre_orders->bind_result($id, $titel, $prijs, $datum, $cover);
     $pre_orders->execute();
     if ($pre_orders->fetch())
@@ -83,17 +74,7 @@
 <?php
         do
         {
-?>
-
-<div class="product-thumb preorder">
-    <a href="item-description.php?id=<?php echo $id; ?>">
-    <img src="<?php echo is_valid_cover($cover); ?>" />
-    <p class="title"><?php echo $titel; ?></p>
-    <p class="price">&euro;<?php echo price($prijs); ?></p>
-    <p class="date"><?php echo $datum; ?></p>
-    </a>
-</div>
-<?php
+            product_thumb(is_valid_cover($cover), $titel, $prijs, $datum);
         } while ($pre_orders->fetch());
 ?>
 

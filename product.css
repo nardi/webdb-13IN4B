@@ -1,16 +1,15 @@
 .product-thumb {
     float: left;
     width: 25%;
-    height: 15em;
     text-align: center;
 }
 
-.product-thumb.preorder {
-    height: 17em;
+.product-thumb .image {
+    width: 70%;
 }
 
 .product-thumb img {
-    height: 50%;
+    height: 10em;
 }
 
 .product-thumb p {
