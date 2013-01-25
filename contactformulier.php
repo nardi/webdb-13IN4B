@@ -27,7 +27,7 @@ if (isset($_REQUEST['email'])){
   $bericht = $_REQUEST['bericht'] ;
   mail("contact@superinternetshop.nl", $onderwerp,
   $bericht, "From:" . $email);
-  echo ?><div align="center">Hartelijk dank voor uw reactie, wij streven er naar uw vraag binnen 1 werkdag te beantwoorden</div><?php;
+  echo ?><div align="center">Hartelijk dank voor uw reactie, wij streven er naar uw vraag binnen 1 werkdag te beantwoorden</div><?php
 }
 else {
   show_form();
