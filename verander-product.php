@@ -5,7 +5,7 @@
     $sqli_id->bind_result($id);
     $sqli_id->execute();
     while($sqli_id->fetch()){
-        if(isset($_POST['titel'.$id]){
+        if(isset($_POST['titel'.$id])){
             $titel=$_POST['titel'.$id];
             $platform_id=$_POST['platform'.$id];
             $genre_id=$_POST['genre'.$id];
