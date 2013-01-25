@@ -70,12 +70,8 @@
                             '</body>
                              </html>';
                     $css = file_get_contents('main.css') . "\n" . file_get_contents('productlijst.css');
-                    require 'CssToInlineStyles.php';
-                    $converter = new TijsVerkoyen\CssToInlineStyles\CssToInlineStyles($html, $css);
-                    mail($email,
-                         'Uw bestelling bij Super Internet Shop',
-                         $converter->convert(),
-                         "From: \"Super Internet Shop\" <contact@superinternetshop.nl>\r\nContent-type: text/html");
+                    require 'email.php';
+                    leuke_mail($email, 'Uw bestelling bij Super Internet Shop', $html, $css);
                 }
                 $email_sql->free_result();
                 
