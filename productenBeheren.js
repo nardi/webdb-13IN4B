@@ -37,5 +37,11 @@ function shrink(id){
 }
 
 function showImage(id, covervar){
-    id.innerHTML=cover_var;
+    id.innerHTML="<img src='"+covervar+"' />"
+    id.onclick=function(){hideImage(id, covervar)};
+}
+
+function hideImage(id, covervar){
+    id.innerHTML="Klik hier om de cover te laten zien.";
+    id.onclick=function(){showImage(id, covervar)};
 }
