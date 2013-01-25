@@ -43,7 +43,7 @@
                 <td><input type='checkbox' name='selected$id'></td>
                 <td class='column'>$id</td>
                 <td class='column'><input type='text' class='inputfield' name='titel$id' disabled='disabled' value='$titel' size=$titelwidth></td>
-                <td class='column'><div class='cover' id='cover$id' onclick=\"showImage(cover$id, \'$cover_var\')\">Klik hier om de cover te laten zien.</div></td>
+                <td class='column'><div class='cover' id='cover$id' onclick='showImage(cover$id, $cover_var)'>Klik hier om de cover te laten zien.</div></td>
                 <td class='column'><textarea class='inputfield' id='beschrijvingid$id' name='beschrijving$id' disabled='disabled' cols='30' rows='1' onclick='expand(beschrijvingid$id, $beschrijvingSize)' onblur='shrink(beschrijvingid$id)'>$beschrijving</textarea></td>
                 <td><div class='platform'>
                     <select name='platform' disabled='disabled'>";
