@@ -33,5 +33,5 @@ function expand(id, beschrijvingSize){
 }
 
 function shrink(id){
-    document.getElementById(id).rows='1';
+    id.rows='1';
 }
