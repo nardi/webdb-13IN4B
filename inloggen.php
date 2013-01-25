@@ -27,13 +27,13 @@
 						<form action="gebruikers-login.php" method="post">
 							<h1><CENTER><b>Inloggen</b></CENTER></h1>
 							<hr width="100%">
-							<br>
+							<br />
 							<div ALIGN="center">
 							Vul hieronder uw inloggegevens in.
-							</div><br>
-							E-mailadres: <input type="text" name="e-mailadres"><br>
-							Wachtwoord: <input type="password" name="wachtwoord"><br>
-							<input type="submit" value="Log in"><br>
+							</div><br />
+							E-mailadres: <input type="text" name="e-mailadres"><br />
+							Wachtwoord: <input type="password" name="wachtwoord"><br />
+							<input type="submit" value="Log in"><br />
 						</form>
 						
 						<a href='wachtwoordvergeten.php'><SMALL> Uw wachtwoord vergeten? </SMALL></a>

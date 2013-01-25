@@ -36,9 +36,9 @@ Whale, whale, whale. What do we have here?
 					  Beschrijving:
 					  <textarea rows="5" cols="20" name="beschrijving"></textarea>
 					  <br />  
-					  Prijs: <input type="text" name="prijs"><br>
-					  Release date: <input type="text" name="release_date"><br>
-					  Voorraad: <input type="text" name="voorraad"><br>
+					  Prijs: <input type="text" name="prijs"><br />
+					  Release date: <input type="text" name="release_date"><br />
+					  Voorraad: <input type="text" name="voorraad"><br />
 					  Platform:
 					  <div class="platform">
                           <select name="platform">

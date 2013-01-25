@@ -78,7 +78,7 @@ Whale, whale, whale. What do we have here?
         && in_array($extension, $allowedExts)) {
             if ($_FILES[$name]["error"] > 0)
             {
-                echo "Return Code: " . $_FILES[$name]["error"] . "<br>";
+                echo "Return Code: " . $_FILES[$name]["error"] . "<br />";
             }
             else
             {
