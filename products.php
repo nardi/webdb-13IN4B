@@ -147,5 +147,4 @@
 
 <?php
     $db->close();
->>>>>>> 0b667666b9cf74bbd23d69453df465de4ec5bd78
 ?>
