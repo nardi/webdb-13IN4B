@@ -36,19 +36,19 @@
         $sql->bind_param('i', $bestelling);
         $sql->execute();
         $sql->bind_result($prijs, $hoeveelheid, $verzendkosten);
-        $totaalprijs = 0;
+        $totaalbedrag = 0;
         while ($sql->fetch())
-            $totaalprijs += $prijs * $hoeveelheid;
-        $totaalprijs += $verzendkosten;
+            $totaalbedrag += $prijs * $hoeveelheid;
+        $totaalbedrag += $verzendkosten;
         $sql->free_result();
         
         $total_price = $_POST['mc_gross']; // moet gelijk zijn aan prijs bestelling
         $business = $_POST['business']; // moet gelijk zijn aan "paypal@superinternetshop.nl"
         $status = $_POST['payment_status']; // Pending of Completed
         
-        //error_log("totaalprijs: $totaalprijs/$total_price, business: $business, status: $status");
+        //error_log("totaalbedrag: $totaalbedrag/$total_price, business: $business, status: $status");
         
-        if ($total_price == $totaalprijs && $business == 'paypal_1358181822_biz@nardilam.nl')
+        if ($total_price == $totaalbedrag && $business == 'paypal_1358181822_biz@nardilam.nl')
         {
             error_log("IPN request: bestelling " . $bestelling . " is nu " . "'$status'");
         

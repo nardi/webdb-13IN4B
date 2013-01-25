@@ -144,7 +144,7 @@ class Winkelwagen
             <th>Totaal</th>
         </tr>
 <?php
-        $totaalprijs = 0;
+        $totaalbedrag = 0;
         foreach ($this->get_all() as $id)
         {
             $hoeveelheid = $this->get_amount($id);
@@ -173,17 +173,17 @@ class Winkelwagen
             <td>&euro;<span id="productprice-<?php echo $id; ?>"><?php echo price($productprijs); ?></span></td>
         </tr>
 <?php
-            $totaalprijs += $productprijs;
+            $totaalbedrag += $productprijs;
         }
-        $totaalprijs += $verzendkosten;
+        $totaalbedrag += $verzendkosten;
 ?>
         <tr class="bottom-row">
             <td colspan="<?php if ($editable) echo '6'; else echo '5'; ?>" class="right">Verzendkosten:</th>
             <td>&euro;<span id="shipping"><?php echo price($verzendkosten); ?></span></td>
         </tr>
         <tr class="bottom-row">
-            <th colspan="<?php if ($editable) echo '6'; else echo '5'; ?>" class="right">Totale prijs:</th>
-            <td>&euro;<span id="total-price"><?php echo price($totaalprijs); ?></span></td>
+            <th colspan="<?php if ($editable) echo '6'; else echo '5'; ?>" class="right">Totaalbedrag:</th>
+            <td>&euro;<span id="total-price"><?php echo price($totaalbedrag); ?></span></td>
         </tr>
     </table>
 <?php
