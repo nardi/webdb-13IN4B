@@ -3,7 +3,7 @@
         echo 'U moet uiteraard ingelogd zijn om uw account aan te passen.';
         exit();
     }
-    
+    else {
     $db = connect_to_db();
       
     $postcode = $_POST['postcode'];
@@ -51,5 +51,5 @@
        echo preg_match($validPostcode, $postcode).
        preg_match($validHuis, $huisnummer);
     }
-    
+  }  
 ?>
