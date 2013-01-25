@@ -8,7 +8,19 @@
   <hr width="100%">
     <br />
     
-   
+<?php
+function show_form()
+{  
+echo "<form method='post' action='wachtwoord-reset.php'>
+<input name='token' type='hidden' value='$token'>
+Wachtwoord: <input name='wachtwoord' type='text'><br />
+Wachtwoord nogmaals: <input name='wachtwoord_nogmaals' type='text'><br />
+</textarea><br />
+<input type='submit' value='verstuur'>
+</form>";
+}
+?>
+  
 <?php
 
 if (!isset($_POST['wachtwoord'])&&
@@ -27,13 +39,7 @@ if (!isset($_POST['wachtwoord'])&&
 		echo "<div align='justify'>
 		Vul hieronder het door u nieuwe gekozen wachtwoord in. 
 		</div><br /><br />";
-		echo "<form method='post' action='wachtwoord-reset.php'>
-		  <input name='token' type='hidden' value='$token'>
-		  Wachtwoord: <input name='wachtwoord' type='text'><br />
-		  Wachtwoord nogmaals: <input name='wachtwoord_nogmaals' type='text'><br />
-		  </textarea><br />
-		  <input type='submit'>
-		  </form>";
+		show_form();
 	
 	} else {
 		
@@ -76,13 +82,7 @@ if (!isset($_POST['wachtwoord'])&&
 		echo "<div align='justify'>
 		Vul hieronder nogmaals het door u nieuwe gekozen wachtwoord in. 
 		</div><br /><br />";
-		echo "<form method='post' action='wachtwoord-reset.php'>
-		  <input name='token' type='hidden' value='$token'>
-		  Wachtwoord: <input name='wachtwoord' type='text'><br />
-		  Wachtwoord nogmaals: <input name='wachtwoord_nogmaals' type='text'><br />
-		  </textarea><br />
-		  <input type='submit' value='Verstuur'>
-		  </form>"; 
+		show_form();
 	  
 	}
 	  
