@@ -11,13 +11,16 @@
 
 .product-thumb .image {
     width: 70%;
-    height: 10em;
+    height: 9em;
+    line-height: 9em;
+    display: inline-block;
 }
 
 .product-thumb img {
     max-height: 100%;
     max-width: 100%;
     width: 100%;
+    vertical-align: middle;
 }
 
 .product-thumb p {
