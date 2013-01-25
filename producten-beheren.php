@@ -23,7 +23,7 @@
             
         while($sqli_product_lijst->fetch()) {
             $cover = is_valid_cover($cover);
-            $cover_var = \'<img src=\"\'.$cover.\'\" />\';
+            $cover_var = '<img src=\"\'.$cover.\'\" />';
             $titelwidth = strlen($titel);
             $beschrijvingSizeRaw = strlen($beschrijving)/30;
             $beschrijvingSize = ceil($beschrijvingSizeRaw);
