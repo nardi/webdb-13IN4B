@@ -31,9 +31,14 @@ if (isset($_POST['email'])) {
 		$pwu->bind_param("s", $email);
 		$pwu->execute();
 		
+		$pwu1 = $db->prepare("SELECT id FROM Gebruikers WHERE email = ? LIMIT 1");
+		$pwu1->bind_param("s", $email);
+		$pwu1->bind_result($id);
+		$pwu1->execute();
+		
         $onderwerp = "Nieuw wachtwoord aanvragen" ;
         $bericht = "Geachte heer / mevrouw '$naam',\n\n Hierbij ontvangt u een email om uw wachtwoord opnieuw in te stellen. \n
-		Klik op https://www.superinternetshop.nl/wachtwoord-reset.php?token=" . $token . "\n
+		Klik op https://www.superinternetshop.nl/wachtwoord-reset.php?token=" . $token . "id=" . $id ."\n
 		via deze link kunt u eenmalig uw wachtwoord aanpassen.\n\n
 		Met vriendelijke groet,\n\n
 		Stefani Koetsier\n
