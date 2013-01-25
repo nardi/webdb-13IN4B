@@ -12,7 +12,7 @@
 ?>
 <div id="BeheerContainer">
 <table id="Producten">
-<tr><th>Aanpassen</th><th colspan="2">Verwijderen</th><th>Product Nummer</th><th>Titel</th><th>Cover</th><th>Platform</th><th>Genre</th><th>Prijs</th><th>Voorraad</th></tr>
+<tr><th>Aanpassen</th><th colspan="2">Verwijderen</th><th>Product Nummer</th><th>Titel</th><th>Cover</th><th>Platform</th><th>Genre</th><th>Beschrijving</th><th>Prijs</th><th>Voorraad</th></tr>
 
 
     <form name='EditProduct' id='EditProductId' onsubmit='verander-product.php' method='post'>
@@ -41,6 +41,7 @@
                 <td class='column'>$id</td>
                 <td class='column'><input type='text' class='inputfield' name='titel$id' disabled='disabled' value='$titel' size=$titelwidth></td>
                 <td class='column'><div class='cover' id='cover$id'>$cover_var</div></td>
+                <td class='column'><input type='text' class='inputfield' name='beschrijving$id' disabled='disabled' value=$beschrijving size='10' onclick='expand($id)' onblur='shrink($id)'></td>
                 <td><div class='platform'>
                     <select name='platform'>";
 
@@ -76,9 +77,9 @@
                 echo "
 						  </select>
 					  </div></td>
-                <td class='column'><input type='text' class='inputfield' name='genre$id' disabled='disabled' value=$genrenaam size='10'></td>
                 <td class='column'><input type='text' class='inputfield' name='prijs$id' disabled='disabled' value=$prijs size='6'></td>
                 <td class='column'><input type='text' class='inputfield' name='voorraad$id' disabled='disabled' value=$voorraad size='5'></td>
+                <td class='column'><input type='text' class='inputfield' name='release$id' disabled='disabled' value=$release_date size='8'></td>
                 
             </tr>";
         }
