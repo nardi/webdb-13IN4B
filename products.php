@@ -95,7 +95,7 @@
             $query .= " AND";
         else
             $query .= " WHERE";
-        $query .= " WHERE titel LIKE %?%";
+        $query .= " titel LIKE '%?%'";
     }
     
     $sqli = $db->prepare($query);
