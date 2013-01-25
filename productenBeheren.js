@@ -37,5 +37,5 @@ function shrink(id){
 }
 
 function showImage(id, covervar){
-    id.innerHTML=cover_var;
+    id.innerHTML="<img src='"+covervar+"' />"
 }
