@@ -15,3 +15,11 @@ function uploadCover(coverId, id){
     coverId.innerHTML="<input class='fileupload' type='file' name='image'"+id+">";
     coverId.onclick="";
 }
+
+function expand(id, beschrijvingSize){
+    document.getElementById(id).rows=beschrijvingSize;
+}
+
+function shrink(id){
+    document.getElementById(id).rows='1';
+}

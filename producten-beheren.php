@@ -12,7 +12,7 @@
 ?>
 <div id="BeheerContainer">
 <table id="Producten">
-<tr><th>Aanpassen</th><th colspan="2">Verwijderen</th><th>Product Nummer</th><th>Titel</th><th>Cover</th><th>Platform</th><th>Genre</th><th>Prijs</th><th>Voorraad</th></tr>
+<tr><th>Aanpassen</th><th colspan="2">Verwijderen</th><th>Product Nummer</th><th>Titel</th><th>Cover</th><th>Platform</th><th>Genre</th><th>Beschrijving</th><th>Prijs</th><th>Voorraad</th></tr>
 
 
     <form name='EditProduct' id='EditProductId' onsubmit='verander-product.php' method='post'>
@@ -20,10 +20,12 @@
     <?php
         $db2 = connect_to_db();
         $db3 = connect_to_db();
-        $titelwidth = strlen($titel);    
+            
         while($sqli_product_lijst->fetch()) {
             $cover = is_valid_cover($cover);
             $cover_var = '<img src="'.$cover.'" />';
+            $titelwidth = strlen($titel);
+            $beschrijvingSize = strlen($beschrijving)/30;
             echo "<tr id=$id>
                 <td>
                     <div class='ProductEdit' onclick='enableEdit($id)'>
@@ -41,8 +43,9 @@
                 <td class='column'>$id</td>
                 <td class='column'><input type='text' class='inputfield' name='titel$id' disabled='disabled' value='$titel' size=$titelwidth></td>
                 <td class='column'><div class='cover' id='cover$id'>$cover_var</div></td>
+                <td class='column'><textarea class='inputfield' name='beschrijving$id' disabled='disabled' value='$beschrijving' cols='30' rows='1' onclick='expand($id, $beschrijvingSize)' onblur='shrink($id)'></td>
                 <td><div class='platform'>
-                    <select name='platform'>";
+                    <select name='platform' disabled='disabled'>";
 
         $platformsql = $db->prepare("SELECT id, naam FROM Platforms");
         $platformsql->execute();
@@ -60,7 +63,7 @@
 					  </div></td>
                       
                       <td><div class='genre'>
-                    <select name='genre'>";
+                    <select name='genre' disabled='disabled'>";
 
         $genresql = $db->prepare("SELECT id, naam FROM Genres");
         $genresql->execute();
@@ -76,9 +79,9 @@
                 echo "
 						  </select>
 					  </div></td>
-                <td class='column'><input type='text' class='inputfield' name='genre$id' disabled='disabled' value=$genrenaam size='10'></td>
                 <td class='column'><input type='text' class='inputfield' name='prijs$id' disabled='disabled' value=$prijs size='6'></td>
                 <td class='column'><input type='text' class='inputfield' name='voorraad$id' disabled='disabled' value=$voorraad size='5'></td>
+                <td class='column'><input type='text' class='inputfield' name='release$id' disabled='disabled' value='$release_date' size='8'></td>
                 
             </tr>";
         }
