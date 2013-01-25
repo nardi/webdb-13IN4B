@@ -26,7 +26,7 @@
             $cover_var = '<img src="'.$cover.'" />';
             $titelwidth = strlen($titel);
             $beschrijvingSizeRaw = strlen($beschrijving)/30;
-            $beschrijvingSize = ceil(beschrijvingSizeRaw);
+            $beschrijvingSize = ceil($beschrijvingSizeRaw);
             echo "<tr id=$id>
                 <td>
                     <div class='ProductEdit' onclick='enableEdit($id)'>
