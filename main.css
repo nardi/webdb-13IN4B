@@ -137,10 +137,12 @@ a {
     color: #000000;
 }
 
-
 .clickable-item:hover {
-    background: #D4D2D2;
     cursor: pointer;
+}
+
+#sidebar .clickable-item:hover {
+    background: #D4D2D2;
 }
 
 /* Content window */
@@ -178,8 +180,8 @@ a {
 /*
  * Contactformulier en Over Ons:
  */
-.right_allign{
-    text-allign:right
+.right_allign {
+    text-align: right;
 }
 
 .centered-container {
@@ -191,11 +193,11 @@ a {
     display: inline-block;
 }
 
-.center{
+.center {
   text-align: center;
 }
 
-.displayed{
+.displayed {
   display:block; margin-left:auto; margin-right:auto;
 }
 

@@ -1,2 +1,10 @@
 @import url("inloggen-wachtwoord-registratie.css");
 @import url("centering.css");
+
+.bestellingen-geschiedenis table {
+    display: inline-block;
+}
+
+.bestellingen-geschiedenis td {
+    text-align: right;
+}

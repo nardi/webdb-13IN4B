@@ -23,7 +23,7 @@
                         <th>Hoeveelheid</th>
                         <th>Totaal</th>
                     </tr>';
-        $totaalprijs = 0;
+        $totaalbedrag = 0;
         $count = 1;
         $paypal_info = '';
         while ($sql->fetch())
@@ -47,10 +47,10 @@
                              <input type="hidden" name="item_name_' . $count . '" value="' . $titel . '">
                              <input type="hidden" name="amount_' . $count . '" value="' . $prijs . '">
                              <input type="hidden" name="quantity_' . $count . '" value="' . $hoeveelheid . '">';
-            $totaalprijs += $productprijs;
+            $totaalbedrag += $productprijs;
             $count++;
         }
-        $totaalprijs += $verzendkosten;
+        $totaalbedrag += $verzendkosten;
         $html .= '<tr class="bottom-row">
                     <td class="left" colspan="3">Betaalstatus: ' . $betaalstatus . '</td>
                     <td class="right" colspan="2">Verzendkosten:</td>
@@ -80,8 +80,8 @@
             $html .= "Verzendstatus: $verzendstatus";
         }
         $html .= '</td>
-                  <th colspan="2" class="right">Totale prijs:</th>
-                  <td>&euro;<span id="total-price">' . price($totaalprijs) . '</span></td>
+                  <th colspan="2" class="right">Totaalbedrag:</th>
+                  <td>&euro;<span id="total-price">' . price($totaalbedrag) . '</span></td>
                 </tr>
             </table>';
         return $html;
