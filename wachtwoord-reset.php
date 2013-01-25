@@ -29,14 +29,15 @@ if (!isset($_POST['wachtwoord'])&&
 	
 	$db = connect_to_db();
     $token = ($_GET['token']);
-    $sql3 = $db->prepare("SELECT id FROM Gebruikers WHERE wachtwoord_token = ? LIMIT 1");
-	$sql3->bind_param("s", $token) ;
-	$sql3->bind_result($token_valid);
+	$id = ($_GET['id']);
+    $sql3 = $db->prepare("SELECT wachtwoord_token FROM Gebruikers WHERE id = ? LIMIT 1");
+	$sql3->bind_param("s", $id) ;
+	$sql3->bind_result($token_db);
 	$sql3->execute();
+	$sql3->fetch();
 
-	if (!is_null($token_valid)) {
+	if ($token_db === $token) {
 	
-		$token = ($_GET['token']);  
 		echo "<div align='justify'>
 		Vul hieronder het door u nieuwe gekozen wachtwoord in. 
 		</div><br /><br />";
