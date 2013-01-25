@@ -74,7 +74,7 @@
                     $converter = new TijsVerkoyen\CssToInlineStyles\CssToInlineStyles($html, $css);
                     mail($email,
                          'Uw bestelling bij Super Internet Shop',
-                         $converter.convert(),
+                         $converter->convert(),
                          "From: \"Super Internet Shop\" <contact@superinternetshop.nl>\r\nContent-type: text/html");
                 }
                 $email_sql->free_result();
