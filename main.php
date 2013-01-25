@@ -20,6 +20,7 @@
          '--/_.'----'`
 Whale, whale, whale. What do we have here?		
 	</pre>
+    <br />
     <?php echo $exception->getMessage(); ?>
 </center>
 <?php
