@@ -3,7 +3,7 @@
 
 <div class="centered-container">
   <div class="wachtwoord-vergeten">
-    <div align="center"> 
+    <div align="right"> 
   <h1><CENTER><b>Wachtwoord Resetten</b></CENTER></h1>
   <hr width="100%">
     <br />
