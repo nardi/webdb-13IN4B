@@ -63,7 +63,7 @@
     
     $query = "SELECT id, titel, prijs, cover FROM Producten";
     
-    if($_GET['genres'] == 0 && $_GET['platforms']) 
+    if(($_GET['genres'] == 0) && ($_GET['platforms'])) 
     {
         $validquery = false;
     }
