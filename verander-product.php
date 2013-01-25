@@ -22,7 +22,7 @@
         $sqli_verander->execute();
         
         if($cover){
-            $sqli_verander_cover = db->prepare("UPDATE Producten SET cover=? WHERE id=?");
+            $sqli_verander_cover = $db->prepare("UPDATE Producten SET cover=? WHERE id=?");
             $sqli_verander_cover->bind_param('ss',$cover,$id);
             $sqli_verander_cover->execute();
             
