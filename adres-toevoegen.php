@@ -40,7 +40,7 @@
         $sqli_adresgebr->bind_param('ii',$adres_id , $gebruikersid);
         $sqli_adresgebr->execute();
        
-        redirect_to("adres-toegevoegd-succesvol.html");
+        redirect_to("adres-toevoegen-succesvol.html");
         $db->close();
         exit();  
     }
