@@ -18,7 +18,6 @@ U bent niet ingelogd!
         $sql->bind_result($naam, $achternaam, $telefoonnummer, $email);
         
         if (!$sql->fetch()) { 
-            //print "Onverwachte fout: Geen data."; exit(); 
             throw new Exception("Onverwachtse fout: geen data. Neem contact op met de site-beheerder");
         }
         $sql->free_result();
@@ -28,7 +27,6 @@ U bent niet ingelogd!
         $sql->bind_result($postcode, $huisnummer, $toevoeging, $plaats, $straat); 
         
         if (!$sql->fetch()) { 
-            //print "Onverwachte fout: Geen data."; exit(); 
             throw new Exception("Onverwachtse fout: geen data. Neem contact op met de site-beheerder");
         }
         $sql->free_result();
@@ -45,7 +43,8 @@ U bent niet ingelogd!
         Achternaam: <input type="text" name="achternaam" disabled value = "<?php echo $achternaam; ?>"><br/>
         Postcode: <input type="text" name="postcode" disabled value = "<?php echo $postcode; ?>"><br/>
         <div class="huisnummer"> 
-         Huisnummer:  <input type="tekst" name="huisnummer" disabled="disabled" value = "<?php echo $huisnummer; ?>"> <input type="tekst" name="toevoeging" disabled="disabled" value = "<?php echo $toevoeging; ?>">
+            Huisnummer:  <input type="tekst" name="huisnummer" disabled="disabled" value = "<?php echo $huisnummer; ?>"> 
+            <input type="tekst" name="toevoeging" disabled="disabled" value = "<?php echo $toevoeging; ?>">
         </div>
         Plaats: <input type="text" name="plaats" disabled value = "<?php echo $plaats; ?>"><br/>
         Telefoonnummer: <input type="text" name="telefoonnummer" disabled value = "<?php echo $telefoonnummer; ?>"><br/>
@@ -53,14 +52,14 @@ U bent niet ingelogd!
         <hr width="100%">
         <center><b>Bestellingen</b></center><br/>
         <div align="center"> 
-        <a href="bestelgeschiedenis.php"><input type="submit" value="Bestelgeschiedenis"></a>
+            <a href="bestelgeschiedenis.php"><input type="submit" value="Bestelgeschiedenis"></a>
         </div>
         <hr width="100%">
         <center><b>Bewerken</b></center><br/>
         <div align="center"> 
-        <a href="account-wachtwoord-veranderen.php"><input type="submit"  value="Wachtwoord veranderen"></a><br/>
-        <a href="account-bewerken.html"><input type="submit"  value="Accountgegevens veranderen"></a><br/>
-        <a href="account-verwijderen.html"><input type="submit"  value="Account verwijderen"></a>
+            <a href="account-wachtwoord-veranderen.php"><input type="submit"  value="Wachtwoord veranderen"></a><br/>
+            <a href="account-bewerken.html"><input type="submit"  value="Accountgegevens veranderen"></a><br/>
+            <a href="account-verwijderen.html"><input type="submit"  value="Account verwijderen"></a>
         </div>
         <hr width="100%">
       </div>
