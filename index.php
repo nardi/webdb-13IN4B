@@ -60,7 +60,7 @@
 
     <div id="banner" class="vcenter-container">
 
-        <div id="logo" onClick="window.open('/', '_self');">
+        <div id="logo" class="vcenter" onClick="window.open('/', '_self');">
             <img src="images/logo/logo-sis-met-tekst.png" alt="Link to homepage" />
         </div>
 

@@ -42,8 +42,7 @@ a {
  */
 
 #banner {
-    height : auto;
-    width : 100%; 
+    width: 100%; 
     background: #08C1FF;
     border-radius: 15px;
     padding: 0.2cm;
@@ -52,8 +51,7 @@ a {
 /* The logo */ 
  
 #logo {
-    margin-left: 0.25cm;
-    float : left;
+    padding-left: 0.25cm;
     height: 100%;
 }
 
@@ -63,6 +61,7 @@ a {
 
 #logo img{
     height: 2cm;
+    display: block;
 }
 
 /* The dashboard */
