@@ -4,7 +4,7 @@
         $db = connect_to_db();
         $totaalbedrag = 0;
         
-        $vz = $db->prepare("SELECT verzendkosten FROM Bestellingen WHERE bestelling_id = ?");
+        $vz = $db->prepare("SELECT verzendkosten FROM Bestellingen WHERE id = ?");
         $vz->bind_param('i', $bestelling_id);
         $vz->bind_result($verzendkosten);
         $vz->execute();
