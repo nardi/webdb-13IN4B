@@ -7,12 +7,7 @@
 .product-thumb {
     float: left;
     width: 25%;
-
     text-align: center;
-}
-
-.product-thumb.preorder {
-
 }
 
 .product-thumb .image {
