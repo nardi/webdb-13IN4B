@@ -7,9 +7,8 @@
     ?><script>alert("Main");</script><?php
     while($sqli_id->fetch()){
         ?><script>alert("while");</script><?php
-        $titel=$_POST['titel'.$id];
         //Probleem zi hier ergens. Zelfs als ik alle velden enable krijg ik nog steeds undefined errors.
-        if(isset($titel)){
+        if(isset($_POST['titel'.$id])){
             ?><script>alert("if");</script><?php
             $titel=$_POST['titel'.$id];
             $platform_id=$_POST['platform'.$id];
