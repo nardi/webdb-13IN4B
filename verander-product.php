@@ -6,7 +6,7 @@
     $sqli_id->execute();
     ?><script>alert("Main");</script><?php
     while($sqli_id->fetch()){
-        ?><script>alert("while");</script><?php
+        ?><script>//alert("while");</script><?php
         //Probleem zi hier ergens. Zelfs als ik alle velden enable krijg ik nog steeds undefined errors.
         echo "titel$id";
         if(isset($_POST['titel$id'])){
