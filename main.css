@@ -91,6 +91,13 @@ a {
     padding: 3px;
 }
 
+#account-opties {
+    float: left;
+    font-size: 0.85em;
+    margin-right: 4px;
+    text-align: right;
+}
+
 /* 
  * The main window
  */
