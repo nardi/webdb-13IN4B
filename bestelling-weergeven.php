@@ -68,7 +68,7 @@
         if ($editable)
         {
             $selected = 'selected="selected"';
-            $html .= 'Verzendstatus: <form action="bestelling.php?id=' . $id . '" method="post">
+            $html .= '<span style="float: left;">Verzendstatus:</span> <form action="bestelling.php?id=' . $id . '" method="post">
                         <select name="verzendstatus" style="float: left;">
                             <option value="Wordt verwerkt"' . ($verzendstatus == 'Wordt verwerkt' ? $selected : '') . '>Wordt verwerkt</option>
                             <option value="Verzonden" ' . ($verzendstatus == 'Verzonden' ? $selected : '') . '>Verzonden</option>
