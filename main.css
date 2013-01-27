@@ -63,7 +63,6 @@ a {
 
 #logo img{
     height: 2cm;
-    margin-top: 1em;
 }
 
 /* The dashboard */
@@ -79,7 +78,7 @@ a {
     padding-bottom: 2pt;
     padding-left: 6pt;
     padding-right: 6pt;
-    /*margin-right: 10pt; */
+    width: 9.3cm;
 }
 
 #dashboard a {
