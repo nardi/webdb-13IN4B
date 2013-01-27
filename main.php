@@ -18,7 +18,7 @@
       \          a    |
        ',.__.   ,__.-'/
          '--/_.'----'`
-Whale, whale, whale. What do we have here?		
+        Whale, whale, whale. What do we have here?		
 	</pre>
     <br />
     <?php echo $exception->getMessage(); ?>
@@ -126,7 +126,7 @@ Whale, whale, whale. What do we have here?
     function product_thumb($id, $cover, $titel, $prijs, $datum = null)
     {
 ?>
-<div class="product-thumb <?php if ($datum !== null) { ?>preorder<?php } ?>">
+<div class="product-thumb<?php if ($datum !== null) { ?> preorder<?php } ?>">
     <div class="image"><a href="item-description.php?id=<?php echo $id; ?>"><?php echo '<img src="' . $cover . '"/>'; ?></a></div>
     <p class="title"><a href="item-description.php?id=<?php echo $id; ?>"><?php echo $titel; ?></a></p>
     <p class="price"><a href="item-description.php?id=<?php echo $id; ?>">&euro;<?php echo price($prijs); ?></a></p>

@@ -127,7 +127,7 @@
 
 
     <div class="category">
-        <div width="100%">
+        <div class="product-row">
     <?php
         $count = 1;
         while ($sqli->fetch())
@@ -136,7 +136,7 @@
             product_thumb($id, $cover, $titel, $prijs);
             
             if ($count % 4 == 0)
-                echo '</div><div width="100%">';
+                echo '</div><div class="product-row">';
             
             $count++;
         }

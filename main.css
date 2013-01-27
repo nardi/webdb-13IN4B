@@ -183,15 +183,6 @@ a {
     text-align: right;
 }
 
-.centered-container {
-    width: 100%;
-    text-align: center;
-}
-
-.centered-container div {
-    display: inline-block;
-}
-
 .center {
   text-align: center;
 }
@@ -205,3 +196,5 @@ a {
     font-weight: bold;
 }
 
+/* tijdelijk totdat mensen hun css op orde krijgen :( */
+@import url("centering.css");
