@@ -13,6 +13,15 @@
         $id = $_GET['id'];
         
         $db = connect_to_db();
+        
+        if (isset($_POST['verzendstatus']) && is_admin())
+        {
+            $verzendstatus = $_POST['verzendstatus'];
+            $sql = $db->prepare("UPDATE Bestellingen SET verzendstatus = ? WHERE id = ?");
+            $sql->bind_param('si', $verzendstatus, $id);
+            $sql->execute();
+        }
+        
         $sql = $db->prepare("SELECT gebruiker_id FROM Bestellingen WHERE id = ?");
         $sql->bind_param('i', $id);
         $sql->bind_result($gebruiker_id);
@@ -21,7 +30,7 @@
         {
             echo 'Deze bestelling bestaat niet.';
         }
-        else if ($_SESSION['gebruiker-id'] != $gebruiker_id)
+        else if ($_SESSION['gebruiker-id'] != $gebruiker_id && !is_admin())
         {
             echo 'Deze bestelling is gedaan door een andere gebruiker.';
         }
