@@ -6,8 +6,8 @@ if(!isset($_SESSION['logged-in'])) {
     </script>
     
     <form action="gebruikers-login.php" method="post">
-        <input type="text" name="e-mailadres" value="E-mailadres" onfocus="value='';" onblur="emptyOrDefault(this, 'E-mailadres')";>
-        <div id="ww-dash clickable-item" onclick="window.location = 'winkelwagen.php'";>
+        <input type="text" name="e-mailadres" value="E-mailadres" onfocus="value=''" onblur="emptyOrDefault(this, 'E-mailadres')">
+        <div id="ww-dash" class="clickable-item" onclick="window.location = 'winkelwagen.php'">
             <?php    
             $ww = Winkelwagen::try_load_from_session();
             $aantal = '';
@@ -22,15 +22,15 @@ if(!isset($_SESSION['logged-in'])) {
         <input type="password" name="wachtwoord" value="wachtwoord" onfocus="value='';" onblur="emptyOrDefault(this, 'wachtwoord')">
         <br />
         <input type="submit" value="Log in"> 
-    
         <a href='wachtwoordvergeten.php' style='float: right;'><SMALL> Wachtwoord vergeten </SMALL></a>
+        <br />
         <a href="registratie.html" style='float: right; margin-top: -4px; margin-bottom: 4px;'><SMALL>Registreren</SMALL></a>
     </form>
     <?php
 } else {
     echo $_SESSION['gebruiker-naam'];
     ?>
-    <div id="ww-dash clickable-item" onclick="window.location = 'winkelwagen.php'";>
+    <div id="ww-dash" class="clickable-item" onclick="window.location = 'winkelwagen.php'">
         <?php    
         $ww = Winkelwagen::try_load_from_session();
         $aantal = '';

@@ -3,6 +3,6 @@
     text-align: center;
 }
 
-.centered-container>div {
+.centered-container div {
     display: inline-block;
 }
