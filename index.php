@@ -14,12 +14,12 @@
         $pagename = $pag;
     }
     
-    /* Deze code komt uit de voorbeeldcode voor HTTPS, uit eht bestand form.php
+    /* Deze code komt uit de voorbeeldcode voor HTTPS, uit het bestand form.php
      */
-    if (!isset($_SERVER['HTTPS']) || !$_SERVER['HTTPS'] ) {
-        $uri = 'https://'.$_SERVER['SERVER_NAME'].$_SERVER['SCRIPT_NAME'] ;
-        header('Location: '.$uri) ;
-}
+    if (!isset($_SERVER['HTTPS']) || !$_SERVER['HTTPS']) {
+        $uri = 'https://'.$_SERVER['SERVER_NAME'].$_SERVER['SCRIPT_NAME'];
+        header('Location: '.$uri);
+    }
 ?>
 <?xml version="1.0"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
