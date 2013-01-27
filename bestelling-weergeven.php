@@ -1,7 +1,9 @@
 <?php
-    function bestelling_weergeven($id, $editable)
+    function bestelling_weergeven($id, $email = FALSE, $editable = FALSE)
     {
-        $abs = $_SERVER['SERVER_NAME'] . '/';
+        $abs = '';
+        if ($email)
+            $abs = $_SERVER['SERVER_NAME'] . '/';
         $html = '';
         
         $db = connect_to_db();

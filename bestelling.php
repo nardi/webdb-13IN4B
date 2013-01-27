@@ -40,7 +40,7 @@
 <h1>Bestelling #<?php echo $id; ?></h1>
 <?php
             require 'bestelling-weergeven.php';
-            echo bestelling_weergeven($id, FALSE);
+            echo bestelling_weergeven($id, FALSE, TRUE);
         }
     }
 ?>

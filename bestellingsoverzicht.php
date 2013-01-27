@@ -12,7 +12,7 @@
 <?php
         $db = connect_to_db();
         $aantal_bestellingen = 0;
-        $lopende_bestellingen = $db->prepare("SELECT id, timestamp, betaalstatus, verzendstatus FROM Bestellingen WHERE  verzendstatus != 'Verzonden' ORDER BY betaalstatus, timestamp ASC");
+        $lopende_bestellingen = $db->prepare("SELECT id, timestamp, betaalstatus, verzendstatus FROM Bestellingen WHERE  verzendstatus != 'Verzonden' ORDER BY betaalstatus DESC, timestamp ASC");
         $lopende_bestellingen->bind_result($bestelling_id, $timestamp, $betaalstatus, $verzendstatus);
         $lopende_bestellingen->execute();
         $lopende_bestellingen->store_result();

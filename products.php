@@ -127,15 +127,21 @@
 
 
     <div class="category">
-
+        <div width="100%">
     <?php
+        $count = 1;
         while ($sqli->fetch())
         {
             $cover = is_valid_cover($cover);
             product_thumb($id, $cover, $titel, $prijs);
+            
+            if ($count % 4 == 0)
+                echo '</div><div width="100%">';
+            
+            $count++;
         }
      ?>
-     
+        </div>
     </div>
 
 </div>
