@@ -64,7 +64,7 @@
             <img src="images/logo/logo-sis-met-tekst.png" alt="Link to homepage" />
         </div>
 
-        <div id="dashboard" class="vcenter">
+        <div id="dashboard">
             <?php
             include("dashboard2.php");
 			?>

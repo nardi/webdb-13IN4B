@@ -70,41 +70,24 @@ a {
 #dashboard {
     float : right;
     border-radius: 15px;
-
     background: #FFFFFF;
-    margin-left: auto;
-    margin-right: auto;
     padding-top: 2pt;
     padding-bottom: 2pt;
     padding-left: 6pt;
     padding-right: 6pt;
-    width: 9.3cm;
-}
-
-#dashboard a {
-    padding: 2pt;
 }
 
 #dashboard input {
     width: auto;
 }
 
-#account-opties {
-    float: left;
-}
-
-#ww-dash{
-    margin-top: auto;
-    margin-bottom: auto;
+#ww-dash {
     width: 56px;
-    height: 54px;
+    height: 52px;
     background-image: url('images/labels/cart.png');
     float: right;
     opacity: 0.5;
-}
-
-#ww-dash:hover{
-    cursor: pointer;
+    margin-left: 3px;
 }
 
 
