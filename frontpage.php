@@ -49,12 +49,21 @@
 <div id="new-releases" class="category">
 
 <h1>Nieuwe releases</h1>
+
+<div class="product-row">
 <?php
+        $count = 1;
         do
         {
             product_thumb($id, is_valid_cover($cover), $titel, $prijs);
+            
+            if ($count % 4 == 0)
+            echo '</div><div class="product-row">';
+        
+            $count++;
         } while ($new_releases->fetch());
 ?>
+</div>
 
 </div>
 <?php
@@ -72,9 +81,15 @@
 
 <h1>Binnenkort beschikbaar</h1>
 <?php
+        $count = 1;
         do
         {
             product_thumb($id, is_valid_cover($cover), $titel, $prijs, $datum);
+            
+            if ($count % 4 == 0)
+            echo '</div><div class="product-row">';
+        
+            $count++;
         } while ($pre_orders->fetch());
 ?>
 
