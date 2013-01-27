@@ -10,6 +10,7 @@
         $vz->execute();
         $vz->fetch();
         $totaalbedrag += $verzendkosten;
+        $vz->free_result();
         
         $producten = $db->prepare("SELECT hoeveelheid, prijs FROM Bestelling_Product WHERE bestelling_id = ?");
         $producten->bind_param('i', $bestelling_id);
