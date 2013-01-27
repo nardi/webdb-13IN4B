@@ -51,7 +51,7 @@
 ?>
     </table>
 <?php
-        $bestellingen = $db->prepare("SELECT id, timestamp FROM Bestellingen WHERE gebruiker_id = ? AND verzendstatus = 'Verzonden' ORDER BY timestamp DESC");
+        $bestellingen = $db->prepare("SELECT id, timestamp, betaalstatus, verzendstatus FROM Bestellingen WHERE gebruiker_id = ? AND verzendstatus = 'Verzonden' ORDER BY timestamp DESC");
         $bestellingen->bind_param('i', $_SESSION['gebruiker-id']);
         $bestellingen->bind_result($bestelling_id, $timestamp);
         $bestellingen->execute();
