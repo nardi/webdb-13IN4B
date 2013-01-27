@@ -42,7 +42,7 @@ a {
  */
 
 #banner {
-    height : auto
+    height : auto;
     width : 100%; 
     background: #08C1FF;
     border-radius: 15px;
