@@ -1,4 +1,5 @@
-<div class="bestellingenlijst centered-container">
+<div class="centered-container">
+<div class="bestellingenlijst">
 <?php
     if (!isset($_SESSION['gebruiker-id']))
     {
@@ -93,4 +94,5 @@
             echo 'Je hebt nog geen bestellingen geplaatst.';
     }
 ?>
+</div>
 </div>
