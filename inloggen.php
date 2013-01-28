@@ -1,3 +1,4 @@
+<div class="centered-container">
 <?php
 	if (isset($_SESSION['logged-in'])) {
         unset($_SESSION['logged-in']);
@@ -14,8 +15,6 @@
 		?>
 		<link rel="stylesheet" type="text/css" href="inloggen-wachtwoord-registratie.css">
 			<link rel="stylesheet" type="text/css" href="centering.css">
-				
-			<div class="centered-container">
 				<div class="inlogformulier">
 					<div ALIGN="right"> 
 					
@@ -34,7 +33,7 @@
 						<a href='wachtwoordvergeten.php'><SMALL> Uw wachtwoord vergeten? </SMALL></a>
 					</div>
 				</div>
-			</div>
 	<?php
 	}
 ?>
+</div>

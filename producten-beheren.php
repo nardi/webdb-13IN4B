@@ -28,9 +28,10 @@
             $beschrijvingSize = ceil($beschrijvingSizeRaw);
             echo "
             <form name='EditProduct' id='EditProductId$id' action='verander-product.php' method='post'>
-            <input type='submit' value='wijzigingen aanbrengen'>
-            
             <tr id=$id>
+                <td>
+                    <input type='submit' value='wijzigingen aanbrengen'>
+                </td>
                 <td>
                     <div class='ProductEdit' onclick='enableEdit($id)'>
                     </div>
