@@ -22,7 +22,7 @@
     {
         $db = connect_to_db();
         
-        $sql = $db->prepare("SELECT adres_id FROM Adres_Gebruiker WHERE gebruiker_id = ?");
+        $sql = $db->prepare("SELECT adres_id FROM AdresGebruiker WHERE gebruiker_id = ?");
         $sql->bind_param('i', $gebruiker_id);
         $sql->execute();
         $sql->bind_result($adres_id);
