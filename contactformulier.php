@@ -7,28 +7,30 @@
   <hr width="100%">
 
 <?php
+//deze functie geeft het formulier weer. 
 function show_form()
 {
 echo "<form method='post' action='contactformulier.php'>
-Email: <input name='email' type='text'><br />
-Onderwerp: <input name='onderwerp' type='text'><br />
-Bericht:<br />
-<textarea name='bericht' rows='15' cols='40'>
-</textarea><br />
-<input type='submit' value='verstuur'>
-</form>"; 
+	Email: <input name='email' type='text'><br />
+	Onderwerp: <input name='onderwerp' type='text'><br />
+	Bericht:<br />
+	<textarea name='bericht' rows='15' cols='40'>
+	</textarea><br />
+	<input type='submit' value='verstuur'>
+	</form>"; 
 }
-?>
- 
-<?php
-if (isset($_REQUEST['email'])){
-  $email = $_REQUEST['email'] ;
-  $onderwerp = $_REQUEST['onderwerp'] ;
-  $bericht = $_REQUEST['bericht'] ;
-  mail("contact@superinternetshop.nl", $onderwerp,
-  $bericht, "From:" . $email);
+
+//als alles is ingevuld dan wordt de email verstuurd.
+if (isset($_POST['email']) &&
+	isset($_POST['onderwerp']) &&
+	isset($_POST['bericht'])) {
+		$email = $_REQUEST['email'] ;
+		$onderwerp = $_REQUEST['onderwerp'] ;
+		$bericht = $_REQUEST['bericht'] ;
+		mail("contact@superinternetshop.nl", $onderwerp,
+		$bericht, "From:" . $email);
   
-  ?><br /><div align="center">Hartelijk dank voor uw reactie, wij streven er naar uw vraag binnen 1 werkdag te beantwoorden.</div><?php
+	?><br /><div align="center">Hartelijk dank voor uw reactie, wij streven er naar uw vraag binnen 1 werkdag te beantwoorden.</div><?php
 }
 else {
   show_form();

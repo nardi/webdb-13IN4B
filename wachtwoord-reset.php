@@ -13,16 +13,13 @@ function show_form()
 {  
 $token = ($_GET['token']);
 echo "<form method='post' action='wachtwoord-reset.php'>
-<input name='token' type='hidden' value='$token'>
-Wachtwoord: <input name='wachtwoord' type='password'><br />
-Wachtwoord nogmaals: <input name='wachtwoord_nogmaals' type='password'><br />
-</textarea><br />
-<input type='submit' value='verstuur'>
-</form>";
+	<input name='token' type='hidden' value='$token'>
+	Wachtwoord: <input name='wachtwoord' type='password'><br />
+	Wachtwoord nogmaals: <input name='wachtwoord_nogmaals' type='password'><br />
+	</textarea><br />
+	<input type='submit' value='verstuur'>
+	</form>";
 }
-?>
-  
-<?php
 
 if (!isset($_POST['wachtwoord'])&&
 	!isset($_POST['wachtwoord_nogmaals'])) {
@@ -52,31 +49,31 @@ if (!isset($_POST['wachtwoord'])&&
 } else {
 	
 	if ($_POST['wachtwoord'] === $_POST['wachtwoord_nogmaals']) {
-	  $token = $_POST['token'] ;
-	  $wachtwoord = $_POST['wachtwoord_nogmaals'] ;
-	  
-	  //Random getal voor salt genereren
-	  $saltbytes = openssl_random_pseudo_bytes(32);
-	  $salt = bin2hex($saltbytes);
-	
-	  //Hashen met SHA-256
-	  $wwhash = hash('sha256', $wachtwoord);
-	  $saltedwwhash = hash('sha256', $salt . $wwhash);
-	
-	  //Combinatie salt en wachtwoordhash voor database
-	  $saltww = $salt . $saltedwwhash;
-	
-	  //Hier wordt het wachtwoord naar de database geschreven
-	  $db = connect_to_db();
-	  $sql = $db->prepare("UPDATE Gebruikers SET wachtwoord = '$saltww' WHERE wachtwoord_token = ? LIMIT 1");
-	  $sql->bind_param("s", $token) ;
-	  $sql->execute();
-	  
-	  //Hier wordt de token verwijderd uit de database
-	  $sql2 = $db->prepare("UPDATE Gebruikers SET wachtwoord_token = NULL WHERE wachtwoord_token = ? LIMIT 1");
-	  $sql2->bind_param("s", $token) ;
-	  $sql2->execute();
-	  echo "Uw wachtwoord is aangepast, hartelijk dank!" ;
+		$token = $_POST['token'] ;
+		$wachtwoord = $_POST['wachtwoord_nogmaals'] ;
+
+		//Random getal voor salt genereren
+		$saltbytes = openssl_random_pseudo_bytes(32);
+		$salt = bin2hex($saltbytes);
+
+		//Hashen met SHA-256
+		$wwhash = hash('sha256', $wachtwoord);
+		$saltedwwhash = hash('sha256', $salt . $wwhash);
+
+		//Combinatie salt en wachtwoordhash voor database
+		$saltww = $salt . $saltedwwhash;
+
+		//Hier wordt het wachtwoord naar de database geschreven
+		$db = connect_to_db();
+		$sql = $db->prepare("UPDATE Gebruikers SET wachtwoord = '$saltww' WHERE wachtwoord_token = ? LIMIT 1");
+		$sql->bind_param("s", $token) ;
+		$sql->execute();
+
+		//Hier wordt de token verwijderd uit de database
+		$sql2 = $db->prepare("UPDATE Gebruikers SET wachtwoord_token = NULL WHERE wachtwoord_token = ? LIMIT 1");
+		$sql2->bind_param("s", $token) ;
+		$sql2->execute();
+		echo "Uw wachtwoord is aangepast, hartelijk dank!" ;
 	  
 	} else {
 		$token = $_POST['token'] ;
@@ -87,11 +84,9 @@ if (!isset($_POST['wachtwoord'])&&
 		show_form();
 	  
 	}
-	  
 } 
 	  
 ?>
-    
       </div>
     </div>
 </div>
