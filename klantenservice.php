@@ -42,7 +42,7 @@ document.getElementById("keuze_3").value=mylist.options[mylist.selectedIndex].te
 		<option>Artikel</option>
 		<option>Klacht</option>
 		</select>
-		
+		</form>
 		var x = <input type="text" id="keuze_1" size="20"></p> ;
 		switch (x)
 		{
