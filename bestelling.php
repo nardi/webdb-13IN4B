@@ -10,6 +10,7 @@
     }
     else
     {
+        require 'bestelling-weergeven.php';
         $id = $_GET['id'];
         
         $db = connect_to_db();
@@ -59,7 +60,6 @@
 ?>
 <h1>Bestelling #<?php echo $id; ?></h1>
 <?php
-            require 'bestelling-weergeven.php';
             echo bestelling_weergeven($id, FALSE, is_admin());
         }
     }
