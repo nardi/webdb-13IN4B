@@ -40,7 +40,7 @@
 ?>
         <tr class="clickable-item" onclick="window.location = 'bestelling.php?id=<?php echo $bestelling_id; ?>';">
             <td>Bestelling #<?php echo $bestelling_id; ?></td>
-            <td>&euro;<?php echo price($totaalbedrag); ?></td>
+            <td>&euro;<?php echo prijs($totaalbedrag); ?></td>
             <td><?php echo date('d-m-Y', strtotime($timestamp)); ?></td>
             <td><?php echo $betaalstatus; ?></td>
             <td><?php echo $verzendstatus; ?></td>
@@ -78,7 +78,7 @@
 ?>
         <tr class="clickable-item" onclick="window.location = 'bestelling.php?id=<?php echo $bestelling_id; ?>';">
             <td>Bestelling #<?php echo $bestelling_id; ?></td>
-            <td>&euro;<?php echo price($totaalbedrag); ?></td>
+            <td>&euro;<?php echo prijs($totaalbedrag); ?></td>
             <td><?php echo date('d-m-Y', strtotime($timestamp)); ?></td>
             <td><?php echo $betaalstatus; ?></td>
             <td><?php echo $verzendstatus; ?></td>
