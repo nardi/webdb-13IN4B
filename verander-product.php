@@ -4,6 +4,7 @@
     $sqli_id = $db->prepare("SELECT id FROM Producten");
     $sqli_id->bind_result($id);
     $sqli_id->execute();
+    echo "ID=$id";
     ?><script>alert("Main");</script><?php
     while($sqli_id->fetch()){
         ?><script>alert("while");</script><?php
