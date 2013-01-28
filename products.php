@@ -61,7 +61,7 @@
             $var = intval($var);
         }
         
-        $query = "SELECT id, titel, prijs, cover FROM Producten";
+        $query = "SELECT id, titel, cover FROM Producten";
         
         if(isset($_GET['genres']) && $_GET['genres'] != 0) 
         {
