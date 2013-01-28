@@ -51,14 +51,30 @@ a {
 }
 
 /* 
- * The upper window
+ * The top and bottom banners
  */
 
-#banner {
+.banner {
     width: 100%; 
     background: #08C1FF;
     border-radius: 15px;
     padding: 0.2cm;
+    display: table;
+}
+
+#footer {
+    background: rgb(86, 212, 255);
+    text-align: center;
+}
+
+#footer a {
+    float: right;
+    margin-left: 4px;
+}
+
+#footer img {
+    width: 88px;
+    height: 32px;
 }
 
 /* The logo */ 
@@ -150,6 +166,7 @@ a {
 
 #content {
     margin-top: 0.4cm;
+    margin-bottom: 0.4cm;
     border-radius: 20px;
     background: #F0F0F0;
     position : relative;
