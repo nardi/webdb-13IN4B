@@ -46,7 +46,7 @@ U bent niet ingelogd!
         <div class="huisnummer"> 
             Huisnummer:  <input type="tekst" name="huisnummer" disabled="disabled" value = "<?php echo $huisnummer; ?>"> 
             <input type="tekst" name="toevoeging" disabled="disabled" value = "<?php echo $toevoeging; ?>">
-        </div>
+        </div><br/>
         Plaats: <input type="text" name="plaats" disabled value = "<?php echo $plaats; ?>"><br/>
         Telefoonnummer: <input type="text" name="telefoonnummer" disabled value = "<?php echo $telefoonnummer; ?>"><br/>
         E-mailadres: <input type="email" name="e-mailadres" disabled value = "<?php echo $email; ?>"><br/>
