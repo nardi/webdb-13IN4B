@@ -77,16 +77,7 @@ class Winkelwagen
     
     function get_price($id)
     {
-        $db = connect_to_db();
-        
-        $sql = $db->prepare("SELECT prijs FROM Producten WHERE id = ? LIMIT 1");
-        $sql->bind_param('i', $id);
-        $sql->execute();
-        $sql->bind_result($prijs);
-        $sql->fetch();
-        $sql->free_result();
-    
-        return $prijs;
+        return actuele_prijs($id);
     }
     
     function get_cover($id)
@@ -151,7 +142,6 @@ class Winkelwagen
             $titel = $this->get_title($id);
             $prijs = $this->get_price($id);
             $cover = $this->get_cover($id);
-            global $imagedir;
             
             $productprijs = $hoeveelheid * $prijs;
 ?>
@@ -168,9 +158,9 @@ class Winkelwagen
             <td class="product-id"><a href="item-description.php?id=<?php echo $id; ?>"><span name="product-id"><?php echo $id; ?></span></a></td>
             <td class="product-image"><a href="item-description.php?id=<?php echo $id; ?>"><img src="<?php echo is_valid_cover($cover); ?>" /></a></td>
             <td class="product-title"><a href="item-description.php?id=<?php echo $id; ?>"><?php echo $titel; ?></a></td>
-            <td>&euro;<span id="price-<?php echo $id; ?>"><?php echo price($prijs); ?></span></td>
+            <td>&euro;<span id="price-<?php echo $id; ?>"><?php echo prijs($prijs); ?></span></td>
             <td><input type="text" class="product-amount" id="amount-<?php echo $id; ?>" value="<?php echo $hoeveelheid; ?>" <?php if (!$editable) echo 'disabled="disabled"'; else echo 'onchange="changeAmount(' . $id . ');"'; ?> /></td>
-            <td>&euro;<span id="productprice-<?php echo $id; ?>"><?php echo price($productprijs); ?></span></td>
+            <td>&euro;<span id="productprice-<?php echo $id; ?>"><?php echo prijs($productprijs); ?></span></td>
         </tr>
 <?php
             $totaalbedrag += $productprijs;
@@ -179,11 +169,11 @@ class Winkelwagen
 ?>
         <tr class="bottom-row">
             <td colspan="<?php if ($editable) echo '6'; else echo '5'; ?>" class="right">Verzendkosten:</th>
-            <td>&euro;<span id="shipping"><?php echo price($verzendkosten); ?></span></td>
+            <td>&euro;<span id="shipping"><?php echo prijs($verzendkosten); ?></span></td>
         </tr>
         <tr class="bottom-row">
             <th colspan="<?php if ($editable) echo '6'; else echo '5'; ?>" class="right">Totaalbedrag:</th>
-            <td>&euro;<span id="total-price"><?php echo price($totaalbedrag); ?></span></td>
+            <td>&euro;<span id="total-price"><?php echo prijs($totaalbedrag); ?></span></td>
         </tr>
     </table>
 <?php
