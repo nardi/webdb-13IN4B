@@ -22,24 +22,10 @@
             $sql->bind_param('si', $verzendstatus, $id);
             $sql->execute();
             if ($sql->affected_rows > 0)
-            {
-                $email_sql = $db->prepare("SELECT email FROM Bestellingen JOIN Gebruikers ON Gebruikers.id = gebruiker_id WHERE Bestellingen.id = ?");
-                $email_sql->bind_param('i', $id);
-                $email_sql->bind_result($email);
-                $email_sql->execute();
-                if ($email_sql->fetch())
-                {
-                    $status = $verzendstatus == 'Verzonden' ? 'is verzonden.' : 'wordt klaargemaakt om te worden verzonden.';
-                    $html = "<html>
-                              <body>
-                                Uw bestelling #$id " . $status . '<br/>Hier is nogmaals te zien wat u precies besteld heeft:<br/>' . bestelling_weergeven($id, TRUE) .
-                             '</body>
-                             </html>';
-                    $css = file_get_contents('main.css') . "\n" . file_get_contents('productlijst.css');
-                    require_once 'email.php';
-                    leuke_mail($email, "Statusverandering van uw bestelling #$id bij Super Internet Shop", $html, $css);
-                }
-                $email_sql->free_result();
+            {                
+                $status = $verzendstatus == 'Verzonden' ? 'is verzonden' : 'wordt klaargemaakt om te worden verzonden';
+                require_once 'email.php';
+                bestelling_mail($id, "Statusverandering van uw bestelling #$id bij Super Internet Shop", "Uw bestelling #$id $status.");
             }
         }
         

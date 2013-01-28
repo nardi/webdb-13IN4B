@@ -20,6 +20,7 @@
         $email_sql->execute();
         if ($email_sql->fetch())
         {
+            require_once 'bestelling-weergeven.php';
             $html = "<html>
                      <body>
                         $message<br/>Hier is nogmaals te zien wat u precies besteld heeft:<br/>" . bestelling_weergeven($bestelling_id, TRUE) .
