@@ -4,11 +4,11 @@
 
     $emailquery ='%' . $_GET['email'] . '%';
   
-    $sqli = $db->prepare("SELECT naam, achternaam, email, status from Gebruikers WHERE email LIKE ? LIMIT 10");
+    $sqli = $db->prepare("SELECT id, naam, achternaam, email, status from Gebruikers WHERE email LIKE ? LIMIT 10");
     $sqli->bind_param('s', $emailquery);
-    $sqli-> bind_result($naam, $achternaam, $email, $status);
-    echo $sqli->execute();
-
+    $sqli-> bind_result($id, $naam, $achternaam, $email, $status);
+    $sqli->execute();
+    echo "<form method=\"post\" action=\"account-bewerken.php\">";
     echo "<table>";
     
     
@@ -17,10 +17,15 @@
         echo "<td width=80pt>$naam</td> 
             <td width=150pt>$achternaam</td> 
             <td width=250pt>$email</td> 
-            <td width=10pt>$status</td>";
+            <td width=10pt>$status</td>
+            <td>
+            <button name=\"id\" type=\"submit\" value=\"$id\">Bewerken</button>
+            </td>";
+            
         echo "</tr>";
         
     }
     echo "</table>";
+    echo "</form>";
     $db->close();
 ?>
