@@ -2,23 +2,7 @@
 
 <head>
 <script>
-function vraag_selectie()
-{
-var mylist=document.getElementById("myList");
-document.getElementById("keuze_1").value=mylist.options[mylist.selectedIndex].text;
-}
 
-function tweede_vraag_selectie()
-{
-var mylist=document.getElementById("myList");
-document.getElementById("keuze_2").value=mylist.options[mylist.selectedIndex].text;
-}
-
-function derde_vraag_selectie()
-{
-var mylist=document.getElementById("myList");
-document.getElementById("keuze_3").value=mylist.options[mylist.selectedIndex].text;
-}
 </script>
 </head>
 
@@ -47,8 +31,8 @@ document.getElementById("keuze_3").value=mylist.options[mylist.selectedIndex].te
 		
 		
 		
-		} <?php
-		}
+		<?php
+		
 		?>
 		</form>
 		</body>
