@@ -119,12 +119,42 @@
 		$pwu->bind_param("s", $emailadres);
 		$pwu->execute();
 		
+		/*
 		$onderwerp = "Super Internet Shop verificatie e-mail." ;
         $bericht = "Geachte heer / mevrouw \n\n Hierbij ontvangt u een link om uw emailadres te verifieren. \n
 		Klik op https://www.superinternetshop.nl/registratie-geverifieerd.php?token=" . $token ;
         $from = "noreply@superinternetshop.nl";
         $headers = "From:" . $from;
         mail($emailadres, $onderwerp, $bericht, $headers);
+		*/
+		
+		$onderwerp = "E-mail verificatie" ;
+		$html = '<html>
+		<head>
+		</head>
+		<body>
+		Geachte heer / mevrouw '.$voornaam.' '.$achternaam.',<br /><br />
+		
+		Gefeliciteerd! Naar aanleiding van uw registratie op onze website, ontvangt u nu een email van Super Internet Shop. <br />
+		Klik op <a href="https://www.superinternetshop.nl/registratie-geverifieerd.php?token=' . $token . '">deze activatielink.</a> <br />
+		Met deze link kunt u uw emailadres verifieren zodat u een bestelling kunt plaatsen. <br /><br />
+		
+		Met vriendelijke groet,
+		<br /> <br />
+		Stefani Koetsier <br />
+		Customer Care Officer <br />
+		<b> Super Internet Shop </b> <br />
+		<i> Where gaming begins </i> <br />
+		<img class="displayed src="/images/logo/logo-sis.png" alt="logo" width="75" height="35">
+		
+		
+		</body>
+		</html>';
+		$css = file_get_contents('main.css') ;
+		require_once 'email.php';
+		leuke_mail($emailadres, $onderwerp, $html, $css);
+		
+		//tot hier
         
         //id gebruiker aan AdresGebruiker toewijzen 
         $gebruiker_id = $sqli_gebruikers->insert_id;

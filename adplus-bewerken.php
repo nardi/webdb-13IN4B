@@ -13,13 +13,18 @@
     echo "<table>
         <tr>
         <b> <td> Voornaam </td> <td> Achternaam </td> <td> Telefoonnummer </td> <td> Email </td> <td> Status </td> </b>
-        </tr>";
+        </tr>
+        <hr />";
     
     
     
     while ($sqli->fetch()) {  
         echo "<tr>
-        <td>$naam</td><td>$achternaam</td><td>$telefoonnummer</td><td>$email</td><td>$status</td>
+        <td><input type='text' name='naam' value ='$naam' /></td>
+        <td><input type='text' name='achternaam' value ='$achternaam' /></td>
+        <td><input type='text' name='telefoonnummer' value ='$telefoonnummer' /></td>
+        <td><input type='text' name='email' value ='$email' /></td>
+        <td><input type='text' name='status' value ='$status' /></td>
         </tr>
     
         </table>";
@@ -36,8 +41,9 @@
     echo "<table>
         <tr>
         <b> <td> Adres ID </td> <td> Postcode </td>  <td> Plaats </td>  <td> Straat </td> <td> Huisnummer </td> <td> Toevoeging </td></b>
-        </tr>";
-  
+        </tr>
+        <hr />";
+        
     
     while ($sqli->fetch()) {
         echo "<tr>
