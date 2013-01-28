@@ -79,7 +79,7 @@ if (isset($_POST['email'])) {
 		<head>
 		</head>
 		<body>
-		Geachte heer / mevrouw '.$naam.',
+		Geachte heer / mevrouw '.$naam.',<br /><br />
 		
 		Hierbij ontvangt u een email om uw wachtwoord opnieuw in te stellen. <br />
 		Klik op <a href="https://www.superinternetshop.nl/wachtwoord-reset.php?token=' . $token . '&id=' . $id . '">wachtwoordlink</a> <br />
@@ -87,11 +87,11 @@ if (isset($_POST['email'])) {
 		
 		Met vriendelijke groet,
 		<br /> <br />
-		Stefani Koetsier
-		Customer Care Officer
-		<b> Super Internet Shop </b>
-		<i> Where gaming begins </i>
-		<img src="/images/logo/logo-sis.png" alt="logo">
+		Stefani Koetsier <br />
+		Customer Care Officer <br />
+		<b> Super Internet Shop </b> <br />
+		<i> Where gaming begins </i> <br />
+		<img class="displayed src="/images/logo/logo-sis.png" alt="logo" width="745" height="350">
 		
 		
 		</body>
@@ -101,8 +101,7 @@ if (isset($_POST['email'])) {
 		leuke_mail($email, $onderwerp, $html, $css);
 		
 		
-     
-        echo "U krijgt zo spoedig mogelijk een email toegestuurd met een link om uw wachtwoord opnieuw in te stellen.";
+		?><div align="center">U krijgt zo spoedig mogelijk een email toegestuurd met een link om uw wachtwoord opnieuw in te stellen.</div><?php
     }
     //als er geen waarden zijn ingevuld, dan wordt het formulier weergegeven 
 } else {
