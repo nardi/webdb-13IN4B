@@ -31,7 +31,7 @@
             echo "
             <tr id=$id>
                 <td>
-                    <button type='submit' value='$id' name='submitbutton'>wijzigen</button>
+                    <submit value='submit'>
                 </td>
                 <td>
                     <input type='text' value='$id' hidden='hidden' name='idee'>
