@@ -37,7 +37,7 @@
         $adres_id = $sqli_adressen->insert_id;
         
         $sqli_adresgebr = $db->prepare("INSERT INTO AdresGebruiker (adres_id, gebruiker_id) VALUES (?,?)");
-        $sqli_adresgebr->bind_param('ii',$adres_id , $gebruikersid);
+        $sqli_adresgebr->bind_param('ii',$adres_id , $_SESSION['gebruiker-id']);
         $sqli_adresgebr->execute();
         $db->close();
         redirect_to("adres-toevoegen-succesvol.html");
