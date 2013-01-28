@@ -79,7 +79,7 @@ if (isset($_POST['email'])) {
 		<head>
 		</head>
 		<body>
-		Geachte heer / mevrouw '$naam',
+		Geachte heer / mevrouw '.$naam.',
 		
 		Hierbij ontvangt u een email om uw wachtwoord opnieuw in te stellen. <br />
 		Klik op <a href="https://www.superinternetshop.nl/wachtwoord-reset.php?token=' . $token . '&id=' . $id . '">wachtwoordlink</a> <br />
