@@ -1,4 +1,6 @@
 <?php
+    $db = connect_to_db();
+    
     $idedit = $_POST['id'];
     
     $sqli = $db->prepare("SELECT naam, achternaam, telefoonnummer, email, status from Gebruikers WHERE id = ?");
@@ -30,7 +32,7 @@
     echo "<table>
         <tr>
         <b> <td> Adres ID </td> <td> Postcode </td>  <td> Plaats </td>  <td> Straat </td> <td> Huisnummer </td> <td> Toevoeging </td></b>
-        </tr>"
+        </tr>";
   
     
     while ($sqli->fetch()) {
