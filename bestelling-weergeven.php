@@ -86,6 +86,7 @@
                         <input type="hidden" name="business" value="paypal_1358181822_biz@nardilam.nl"/>
                         <input type="hidden" name="currency_code" value="EUR"/>
                         <input type="hidden" name="return" value="https://superinternetshop.nl/betaald.php"/>
+                        <input type="hidden" name="cancel_return" value="https://superinternetshop.nl/bestelling.php?id=' . $id . '"/>
                         <input type="hidden" name="notify_url" value="https://superinternetshop.nl/ipn.php"/>
                         <input type="hidden" name="custom" value="' . $id . '"/>
                         <input type="hidden" name="no_shipping" value="1"/>
