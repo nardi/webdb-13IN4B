@@ -4,8 +4,8 @@
     $sqli_id = $db->prepare("SELECT id FROM Producten");
     $sqli_id->bind_result($id);
     $sqli_id->execute();
-    $sqli_id->store_result();
-    $sqli_id->free_result();
+    //$sqli_id->store_result();
+    //$sqli_id->free_result();
     ?><script>alert("Main");</script><?php
     var_dump($_POST);
     while($sqli_id->fetch()){
