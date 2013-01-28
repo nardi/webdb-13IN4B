@@ -21,10 +21,10 @@
     while ($sqli->fetch()) {  
         echo "<tr>
         <td><input type='text' name='naam' value ='$naam' /></td>
-        <td><input type='text' name='fname' value ='$achternaam' /></td>
-        <td><input type='text' name='fname' value ='$telefoonnummer /></td>
-        <td><input type='text' name='fname' value ='$email' /></td>
-        <td><input type='text' name='fname' value ='$status' /></td>
+        <td><input type='text' name='achternaam' value ='$achternaam' /></td>
+        <td><input type='text' name='telefoonnummer' value ='$telefoonnummer' /></td>
+        <td><input type='text' name='email' value ='$email' /></td>
+        <td><input type='text' name='status' value ='$status' /></td>
         </tr>
     
         </table>";
