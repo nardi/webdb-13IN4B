@@ -48,7 +48,7 @@
             }
             
             else if($image==NULL){
-                echo "HOERA NULL!";
+                echo "HOERA NULL! $id";
             }
         }    
         //$titeltest=$_POST['titel22'];    
