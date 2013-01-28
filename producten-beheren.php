@@ -35,10 +35,10 @@
                 </td>
                 <td>
                     <div class='ProductDelete'>
-                            <form name='ActuallyAButton' id='DeleteItem' action='product-verwijderen.php' method='post'>
+                            <!--<form name='ActuallyAButton' id='DeleteItem' action='product-verwijderen.php' method='post'>
                                 <input type='hidden' name='delete' value='$id'>
                                 <input type='submit' value='' name='submitButton' class='DeleteSubmitButton'>
-                            </form>
+                            </form>-->
                     </div>
                 </td>
                 <td><input type='checkbox' name='selected$id'></td>
