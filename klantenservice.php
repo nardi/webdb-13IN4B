@@ -28,14 +28,14 @@
 		</select>
 		</form>
 		
-		
+		</body>
 		
 		
 		<?php
-		
+		}
 		?>
-		</form>
-		</body>
+		
+		
 
 		</html>
 
