@@ -27,7 +27,7 @@
             $beschrijvingSizeRaw = strlen($beschrijving)/30;
             $beschrijvingSize = ceil($beschrijvingSizeRaw);
             echo "
-            <form name='EditProduct' id='EditProductId$id' action='verander-product.php' method='post'>
+            <form name='EditProduct' id='EditProductId$id' action='upload-test.php' method='post'>
             <tr id=$id>
                 <td>
                     <input type='submit' value='wijzigingen aanbrengen'>
