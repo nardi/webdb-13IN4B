@@ -88,7 +88,7 @@
                         <input type="hidden" name="custom" value="' . $id . '"/>
                         <input type="hidden" name="no_shipping" value="1"/>
                         <input type="hidden" name="no_note" value="1"/>
-                        <input type="hidden" name="handling_cart" value="' . $verzendkosten . '"/>' . "\n" .
+                        <input type="hidden" name="handling_cart" value="' . $verzendkosten . '"/>' . "\n"
                         . $paypal_info .        
                         '<input type="submit" value="Betalen via PayPal"/>
                     </form>';
