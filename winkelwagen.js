@@ -29,9 +29,9 @@ function recalculateTotalPrice()
         var amount = parseInt(document.getElementById('amount-' + id).value);
         var price = parseFloat(document.getElementById('price-' + id).innerHTML.replace(',', '.'));
         var productPrice = Math.round(amount * price * 100) / 100;
-        document.getElementById('productprice-' + id).innerHTML = productPrice.toString().replace('.', ',');
+        document.getElementById('productprice-' + id).innerHTML = productPrice.toFixed(2).replace('.', ',');
         totalPrice += productPrice;
     }
     totalPrice = Math.round(totalPrice * 100) / 100;
-    document.getElementById('total-price').innerHTML = totalPrice.toString().replace('.', ',');
+    document.getElementById('total-price').innerHTML = totalPrice.toFixed(2).replace('.', ',');
 } 
