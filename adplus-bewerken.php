@@ -13,16 +13,19 @@
     echo "<table>
         <tr>
         <b> <td> Voornaam </td> <td> Achternaam </td> <td> Telefoonnummer </td> <td> Email </td> <td> Status </td> </b>
-        </tr>
-        
-        <tr>
+        </tr>";
+    
+    
+    
+    while ($sqli->fetch()) {  
+        echo "<tr>
         <td>$naam</td><td>$achternaam</td><td>$telefoonnummer</td><td>$email</td><td>$status</td>
         </tr>
     
         </table>";
+    }
     
-    
-   /* $sqli->free_result();
+    $sqli->free_result();
     $sqli = $db->prepare("SELECT id, postcode, huisnummer, toevoeging, plaats, straat FROM Adressen JOIN AdresGebruiker ON Adressen.id = adres_id WHERE gebruiker_id= ?");
     $sqli->bind_param('i', $idedit);
     $sqli-> bind_result($adres_id, $postcode, $huisnummer, $toevoeging, $plaats, $straat);
@@ -42,7 +45,7 @@
             </tr>
             </table>";
     }
-    */
+    
     $db->close();
     
 ?>
