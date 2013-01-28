@@ -30,9 +30,8 @@
         while ($sql->fetch())
         {
 ?>
-<input type="radio" name="adres" value="<?php echo $adres_id; ?>">
+<input type="radio" name="adres" value="<?php echo $adres_id; ?>"/>
 <?php adres_weergeven($adres_id); ?>
-</input>
 <?php
         }
     }

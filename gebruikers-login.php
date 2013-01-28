@@ -9,10 +9,10 @@
 	$sql->bind_param("s", $emailadres);
 	$sql->execute();
 	$sql->bind_result($id, $wwdb, $naam, $status);
-    sleep(2);
 	if (!$sql->fetch())
-    { 
-        print "Er is geen account gevonden met dit e-mailadres.";
+    {
+        sleep(2);
+        echo "Er is geen account gevonden met dit e-mailadres.";
     }
     else
     {        

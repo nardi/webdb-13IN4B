@@ -3,14 +3,17 @@
     require_once 'bestelling-weergeven.php';
     require_once 'voorraad.php';
     
-    if (!isset($_SESSION['logged-in']))
+    $ww = Winkelwagen::try_load_from_session();
+    
+    if (!is_logged_in())
     {
         echo 'Je moet ingelogd zijn om een bestelling te plaatsen.';
     }
-    
-    $ww = Winkelwagen::try_load_from_session();
-    
-    if ($ww->is_empty())
+    else if (!is_verified())
+    {
+        echo 'Je e-mailadres moet geverifiëerd zijn om een bestelling te plaatsen. Klik op de link in de e-mail die naar je toe gestuurd is.';
+    }
+    else if ($ww->is_empty())
     {
         echo 'Voeg eerst producten toe aan je winkelwagen voor je een bestelling plaatst.';
     }
@@ -46,7 +49,7 @@
             {
                 $adres_id = $_POST['adres'];
                 $verzendkosten = $ww->get_shipping();
-                $sqli_bestelling = $db->prepare("INSERT INTO Bestellingen (gebruiker_id, verzendkosten, adres_id) VALUES (?, ?)");
+                $sqli_bestelling = $db->prepare("INSERT INTO Bestellingen (gebruiker_id, verzendkosten, adres_id) VALUES (?, ?, ?)");
                 $sqli_bestelling->bind_param('idi', $gebruiker_id, $verzendkosten, $adres_id);
                 if(!$sqli_bestelling->execute())
                     throw new Exception($sqli_bestelling->error);

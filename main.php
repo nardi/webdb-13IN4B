@@ -29,7 +29,8 @@
     
     function connect_to_db()
     {
-        $mysqli = new mysqli("localhost", "webdb13IN4B", "trestunu", "webdb13IN4B");
+        $db_info = json_decode(file_get_contents("../db-info.json"));
+        $mysqli = new mysqli($db_info->host, $db_info->username, $db_info->password, $db_info->database);
         if ($mysqli->connect_errno)
             throw new Exception($mysqli->connect_error);
         return $mysqli;
@@ -61,6 +62,11 @@
     function is_logged_in()
     {
         return isset($_SESSION['logged-in']);
+    }
+    
+    function is_verified()
+    {
+        return is_logged_in() && ($_SESSION['gebruiker-status'] >= 2);
     }
     
     function is_admin()

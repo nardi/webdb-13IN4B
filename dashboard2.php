@@ -29,7 +29,7 @@
         <input type="password" name="wachtwoord" value="wachtwoord" onfocus="empty(this, 'wachtwoord')" onblur="emptyOrDefault(this, 'wachtwoord')">
         <br />
         <input type="submit" value="Log in"> 
-        <a href='wachtwoordvergeten.php' style='float: right;'><SMALL> Wachtwoord vergeten </SMALL></a>
+        <a href='wachtwoordvergeten.php' style='float: right;'><SMALL>Wachtwoord vergeten</SMALL></a>
         <br />
         <a href="registratie.html" style='float: right; margin-top: -4px; margin-bottom: 4px;'><SMALL>Registreren</SMALL></a>
     </form>
