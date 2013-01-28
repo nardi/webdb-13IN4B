@@ -22,13 +22,13 @@
             $voorraad=$_POST['voorraad'];
             $id=$_POST['id'];
             
-           /* try{
+           try{
                 echo "TRY";
-                $cover=upload_image("image");
+                $image = upload_image("image");
             }
             catch(Exeption $img){
-                $cover=NULL;
-            }*/
+                $image=NULL;
+            }
             
             
             $sqli_verander = $db->prepare("UPDATE Producten SET titel=?, platform_id=?,genre_id=?,beschrijving=?, prijs=?, release_date=?, voorraad=? WHERE id=?");
@@ -42,7 +42,7 @@
             if($cover!=NULL){
                 echo"NULL!";
                 $sqli_verander_cover = $db->prepare("UPDATE Producten SET cover=? WHERE id=?");
-                $sqli_verander_cover->bind_param('ss',$cover,$id);
+                $sqli_verander_cover->bind_param('ss',$image,$id);
                 $sqli_verander_cover->execute();
                 
             }
