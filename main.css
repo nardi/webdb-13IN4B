@@ -16,7 +16,7 @@ a {
 }
 
 #mainWindow {
-    margin-top: 10pt;
+    padding-top: 10pt;
     height : auto;
     width : 25.5cm;
     margin-left : auto;
@@ -42,8 +42,7 @@ a {
  */
 
 #banner {
-    height : 2.5cm;
-    width : 100%; 
+    width: 100%; 
     background: #08C1FF;
     border-radius: 15px;
     padding: 0.2cm;
@@ -52,8 +51,7 @@ a {
 /* The logo */ 
  
 #logo {
-    margin-left: 0.25cm;
-    float : left;
+    padding-left: 0.25cm;
     height: 100%;
 }
 
@@ -63,7 +61,7 @@ a {
 
 #logo img{
     height: 2cm;
-    margin-top: 1em;
+    display: block;
 }
 
 /* The dashboard */
@@ -71,43 +69,33 @@ a {
 #dashboard {
     float : right;
     border-radius: 15px;
-
     background: #FFFFFF;
-    margin-left: auto;
-    margin-right: auto;
     padding-top: 2pt;
     padding-bottom: 2pt;
     padding-left: 6pt;
     padding-right: 6pt;
-    /*margin-right: 10pt; */
-}
-
-#dashboard a {
-    padding: 2pt;
 }
 
 #dashboard input {
     width: auto;
 }
 
-#account-opties {
-    float: left;
-}
-
-#ww-dash{
-    margin-top: auto;
-    margin-bottom: auto;
-    width: 56px;
-    height: 54px;
+#ww-dash {
+    width: 50px;
+    height: 46px;
     background-image: url('images/labels/cart.png');
     float: right;
     opacity: 0.5;
+    margin-left: 3px;
+    padding: 3px;
 }
 
-#ww-dash:hover{
-    cursor: pointer;
+#account-opties {
+    float: left;
+    font-size: 0.85em;
+    margin-right: 4px;
+    text-align: right;
 }
-
 
 /* 
  * The main window
@@ -184,15 +172,6 @@ a {
     text-align: right;
 }
 
-.centered-container {
-    width: 100%;
-    text-align: center;
-}
-
-.centered-container div {
-    display: inline-block;
-}
-
 .center {
   text-align: center;
 }
@@ -205,4 +184,7 @@ a {
     color: #0204A6;
     font-weight: bold;
 }
+
+/* tijdelijk totdat mensen hun css op orde krijgen :( */
+@import url("centering.css");
 

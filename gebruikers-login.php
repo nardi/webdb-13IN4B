@@ -22,7 +22,7 @@
 		$_SESSION['gebruiker-id'] = $id;
 		$_SESSION['gebruiker-naam'] = $naam;
 		$_SESSION['gebruiker-status'] = $status;
-		echo "Welkom terug, ".$_SESSION['gebruiker-naam'];
+		echo "Welkom terug, ".$_SESSION['gebruiker-naam'].'.';
 		?>
 		
 		<script type="text/JavaScript">
@@ -32,6 +32,7 @@
 		<?php
 	}
 	else {
+        sleep(2);
 		echo "Fout wachtwoord ingevuld. Probeer het opnieuw ";
         ?>
         <script type="text/JavaScript">

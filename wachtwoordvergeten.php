@@ -41,7 +41,8 @@ if (isset($_POST['email'])) {
 		$pwu2->execute();
 		$pwu2->fetch();
 		
-        $onderwerp = "Nieuw wachtwoord aanvragen" ;
+        /*
+		$onderwerp = "Nieuw wachtwoord aanvragen" ;
         $bericht = "Geachte heer / mevrouw '$naam',\n\n Hierbij ontvangt u een email om uw wachtwoord opnieuw in te stellen. \n
 		Klik op https://www.superinternetshop.nl/wachtwoord-reset.php?token=" . $token . "&id=" . $id . "\n
 		via deze link kunt u eenmalig uw wachtwoord aanpassen.\n\n
@@ -52,6 +53,24 @@ if (isset($_POST['email'])) {
         $from = "noreply@superinternetshop.nl";
         $headers = "From:" . $from;
         mail($email, $onderwerp, $bericht, $headers);
+		*/
+		
+		//nieuw stukje
+		
+		$html = '<html>
+		<head>
+		</head>
+		<body>
+		Hierbij ontvangt u een email om uw wachtwoord opnieuw in te stellen. <br />
+		Klik op <a href="https://www.superinternetshop.nl/wachtwoord-reset.php?token=' . $token . &id= . $id '">wachtwoordlink</a> <br />
+		via deze link kunt u eenmalig uw wachtwoord aanpassen. <br /><br />
+		</body>
+		</html>';
+		$css = file_get_contents('main.css') ;
+		require 'email.php';
+		leuke_mail($email, $onderwerp, $html, $css);
+		
+		
      
         echo "U krijgt zo spoedig mogelijk een email toegestuurd met een link om uw wachtwoord opnieuw in te stellen.";
       }

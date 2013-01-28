@@ -1,9 +1,8 @@
-<div class="centered-container">
-<div class="bestellingenlijst">
+<div class="bestellingenlijst centered-container">
 <?php
-    if (!isset($_SESSION['gebruiker-id']))
+    if (!is_admin())
     {
-        echo 'Je moet ingelogd zijn om je bestellingen te bekijken.';
+        echo 'Je moet admin zijn om bestellingen te kunnen bekijken.';
     }
     else
     {
@@ -13,8 +12,7 @@
 <?php
         $db = connect_to_db();
         $aantal_bestellingen = 0;
-        $lopende_bestellingen = $db->prepare("SELECT id, timestamp, betaalstatus, verzendstatus FROM Bestellingen WHERE gebruiker_id = ? AND verzendstatus != 'Verzonden' ORDER BY timestamp DESC");
-        $lopende_bestellingen->bind_param('i', $_SESSION['gebruiker-id']);
+        $lopende_bestellingen = $db->prepare("SELECT id, timestamp, betaalstatus, verzendstatus FROM Bestellingen WHERE  verzendstatus != 'Verzonden' ORDER BY betaalstatus DESC, timestamp ASC");
         $lopende_bestellingen->bind_result($bestelling_id, $timestamp, $betaalstatus, $verzendstatus);
         $lopende_bestellingen->execute();
         $lopende_bestellingen->store_result();
@@ -51,8 +49,7 @@
 ?>
     </table>
 <?php
-        $bestellingen = $db->prepare("SELECT id, timestamp, betaalstatus, verzendstatus FROM Bestellingen WHERE gebruiker_id = ? AND verzendstatus = 'Verzonden' ORDER BY timestamp DESC");
-        $bestellingen->bind_param('i', $_SESSION['gebruiker-id']);
+        $bestellingen = $db->prepare("SELECT id, timestamp, betaalstatus, verzendstatus FROM Bestellingen WHERE verzendstatus = 'Verzonden' ORDER BY timestamp DESC");
         $bestellingen->bind_result($bestelling_id, $timestamp, $betaalstatus, $verzendstatus);
         $bestellingen->execute();
         $bestellingen->store_result();
@@ -91,8 +88,7 @@
     </table>
 <?php
         if ($aantal_bestellingen == 0)
-            echo 'Je hebt nog geen bestellingen geplaatst.';
+            echo 'Er zijn nog geen bestellingen geplaatst.';
     }
 ?>
-</div>
 </div>

@@ -1,21 +1,16 @@
-
 <?php
-	
-
 	if (isset($_SESSION['logged-in'])) {
-		echo "Uitgelogd";
-		session_destroy();
-			
-		?>
-		
+        unset($_SESSION['logged-in']);
+		unset($_SESSION['gebruiker-id']);
+		unset($_SESSION['gebruiker-naam']);
+		unset($_SESSION['gebruiker-status']);
+		echo "U bent uitgelogd.";		
+?>
 		<script type="text/JavaScript">
 			setTimeout("location.href = '/';",2000);
 		</script>
-		
-		<?php
-	}
-	
-	else {
+<?php
+	} else {
 		?>
 		<link rel="stylesheet" type="text/css" href="inloggen-wachtwoord-registratie.css">
 			<link rel="stylesheet" type="text/css" href="centering.css">

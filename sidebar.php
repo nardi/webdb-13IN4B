@@ -1,21 +1,17 @@
-﻿<!-- <div id="/" class="clickable-item" onClick="window.open('/', '_self');"> -->
-<div id="/" class="clickable-item" onClick="onButtonClick(this.id);">
+﻿<div id="/" class="clickable-item" onClick="onButtonClick(this.id);">
     Beginpagina
 </div>
 
-<!-- <div id="producten" class="clickable-item" onClick="window.open('products.php', '_self');"> -->
 <div id="/products.php" class="clickable-item" onClick="onButtonClick(this.id);">
     Producten
 </div>
 
 <div></div>
 
-<!-- <div id="overons" class="clickable-item" onClick="window.open('overons.php', '_self');"> -->
 <div id="/overons.html" class="clickable-item" onClick="onButtonClick(this.id);">
     Over ons
 </div>
 
-<!-- <div id="contact" class="clickable-item" onClick="window.open('overons.php#contact', '_self');"> -->
 <div id="/contact.html" class="clickable-item" onClick="onButtonClick(this.id);">
     Contact
 </div>
@@ -35,21 +31,22 @@
         if ($_SESSION['gebruiker-status'] >= 3) {
             ?>
             <hr>
-            <!-- <div id="producttoevoegen" class="clickable-item" onClick="window.open('product-toevoegen.php', '_self');"> -->
-            <div id="/product-toevoegen.php" class="clickable-item" onClick="onButtonClick(this.id);">
-                Product Toevoegen
+            <div id="/bestellingsoverzicht.php" class="clickable-item" onClick="onButtonClick(this.id);">
+                Bestellingsoverzicht
             </div>
             
-            <!-- <div id="producttoevoegen" class="clickable-item" onClick="window.open('product-toevoegen.php', '_self');"> -->
+            <div id="/product-toevoegen.php" class="clickable-item" onClick="onButtonClick(this.id);">
+                Product toevoegen
+            </div>
+            
             <div id="/producten-beheren.php" class="clickable-item" onClick="onButtonClick(this.id);">
-                Producten Beheren
+                Producten beheren
             </div>
             
             <div id="/aanbieding-toevoegen.php" class="clickable-item" onClick="onButtonClick(this.id);">
                 Aanbieding toevoegen
             </div>
             
-            <!-- <div id="f-up" class="clickable-item" onClick="window.open('upload-test.html', '_self');"> -->
             <div id="/upload-test.html" class="clickable-item" onClick="onButtonClick(this.id);">
                 F-UP test
             </div>

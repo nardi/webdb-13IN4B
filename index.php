@@ -14,11 +14,11 @@
         $pagename = $pag;
     }
     
-    /* Deze code komt uit de voorbeeldcode voor HTTPS, uit eht bestand form.php
+    /* Deze code komt uit de voorbeeldcode voor HTTPS, uit het bestand form.php
      */
-    if (!isset($_SERVER['HTTPS']) || !$_SERVER['HTTPS'] ) {
-        $uri = 'https://'.$_SERVER['SERVER_NAME'].$_SERVER['SCRIPT_NAME'] ;
-        //header('Location: '.$uri) ;
+    if (!isset($_SERVER['HTTPS']) || !$_SERVER['HTTPS']) {
+        $uri = 'https://'.$_SERVER['SERVER_NAME'].$_SERVER['SCRIPT_NAME'];
+        //header('Location: '.$uri);
     }
 ?>
 <?xml version="1.0"?>
@@ -60,11 +60,11 @@
 
     <div id="banner" class="vcenter-container">
 
-        <div id="logo" onClick="window.open('/', '_self');">
+        <div id="logo" class="vcenter" onClick="window.open('/', '_self');">
             <img src="images/logo/logo-sis-met-tekst.png" alt="Link to homepage" />
         </div>
 
-        <div id="dashboard" class="vcenter">
+        <div id="dashboard">
             <?php
             include("dashboard2.php");
 			?>

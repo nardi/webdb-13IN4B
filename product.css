@@ -1,12 +1,13 @@
+.product-row {
+    width: 100%;
+    overflow: auto;
+    padding-bottom: 10pt;
+}
+
 .product-thumb {
     float: left;
     width: 25%;
-    height: 15em;
     text-align: center;
-}
-
-.product-thumb.preorder {
-    height: 17em;
 }
 
 .product-thumb .image {
