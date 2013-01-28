@@ -33,7 +33,7 @@
                     <input type='submit' value='wijzigingen aanbrengen'>
                 </td>
                 <td>
-                    <input type='text' value='$id' hidden='hidden' name='id'>
+                    <input type='text' value='$id' hidden='hidden' name='id' />
                 </td>
                 <td>
                     <div class='ProductEdit' onclick='enableEdit($id)'>
