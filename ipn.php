@@ -70,6 +70,7 @@
         $email_sql->execute();
         if ($email_sql->fetch())
         {
+            require 'bestelling-weergeven.php';
             $html = '<html>
                       <body>
                         Uw betaling wordt zo snel mogelijk verwerkt.<br/>Hier is nogmaals te zien wat u precies besteld heeft:<br/>' . bestelling_weergeven($bestelling, TRUE) .
