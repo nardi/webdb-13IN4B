@@ -16,7 +16,7 @@
         <td>$naam</td><td>$achternaam</td><td>$telefoonnummer</td><td>$email</td><td>$status</td>
         </tr>
     
-        </table>"
+        </table>";
     
     
     $sqli->free_result();
