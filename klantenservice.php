@@ -42,7 +42,7 @@ document.getElementById("keuze_3").value=mylist.options[mylist.selectedIndex].te
 		<option>Artikel</option>
 		<option>Klacht</option>
 		</select>
-		
+		</form>
 		var x = <input type="text" id="keuze_1" size="20"></p> ;
 		switch (x)
 		{
@@ -88,7 +88,7 @@ document.getElementById("keuze_3").value=mylist.options[mylist.selectedIndex].te
 				break;
 			}
 		case Klacht:
-				document.write"<p>Klik op <a href='https.superinternetshop.nl/klachtenformulier.php'>deze link</a> om bij het klachtenformulier te komen.</p>");
+				document.write"<p>Klik op <a href='klachtenformulier.php'>deze link</a> om bij het klachtenformulier te komen.</p>");
 				break;
 		} <?php
 		}
