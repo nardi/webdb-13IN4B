@@ -70,6 +70,13 @@
     }
     
     function upload_image($name) {
+        if ($_FILES[$name]["error"] > 0)
+        {
+            echo "Error: " . $_FILES[$name]["error"] . "<br>";
+        }
+    
+    
+    
         $allowedExts = array("jpg", "jpeg", "gif", "png");
         $extension = end(explode(".", $_FILES[$name]["name"]));
         if ((($_FILES[$name]["type"] == "image/gif")
