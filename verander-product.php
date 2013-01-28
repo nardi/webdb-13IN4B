@@ -39,7 +39,7 @@
             
             $sqli_verander->execute();
             
-            if($cover!=NULL){
+            if($image!=NULL){
                 echo"NULL!";
                 $sqli_verander_cover = $db->prepare("UPDATE Producten SET cover=? WHERE id=?");
                 $sqli_verander_cover->bind_param('ss',$image,$id);
