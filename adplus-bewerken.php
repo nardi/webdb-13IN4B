@@ -30,7 +30,7 @@
     echo "<table>
         <tr>
         <b> <td> Adres ID </td> <td> Postcode </td>  <td> Plaats </td>  <td> Straat </td> <td> Huisnummer </td> <td> Toevoeging </td></b>
-        </tr>"
+        </tr>";
   
     
     while ($sqli->fetch()) {
