@@ -13,10 +13,10 @@
     
     while ($sqli->fetch()) {
         echo "<tr>";
-        echo "<td width=10pt>$naam</td> 
-            <td width=10pt>$achternaam</td> 
-            <td width=20pt>$email</td> 
-            <td width=5pt>$status</td>";
+        echo "<td width=80pt>$naam</td> 
+            <td width=150pt>$achternaam</td> 
+            <td width=250pt>$email</td> 
+            <td width=10pt>$status</td>";
         echo "</tr>";
         
     }
