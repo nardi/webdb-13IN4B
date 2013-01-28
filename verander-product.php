@@ -3,7 +3,7 @@
     
     //$sqli_id = $db->prepare("SELECT id FROM Producten");
     $sqli_id =$db->prepare("SELECT Producten.id,titel,platform_id,genre_id,beschrijving,prijs,release_date,voorraad,datum_toegevoegd,cover,Platforms.naam,Genres.naam FROM Producten JOIN Platforms ON platform_id=Platforms.id JOIN Genres ON genre_id=Genres.id");
-    $sqli_id->bind_result($id,$titel,$platform_id,$genre_id,$beschrijving,$prijs,$release_date,$voorraad,$datum_toegevoegd,$cover,$platformnaam,$genrenaam);
+    $sqli_id->bind_result($id,$titelbagger,$platform_idbagger,$genre_idbagger,$beschrijvingbagger,$prijsbagger,$release_datebagger,$voorraadbagger,$datum_toegevoegdbagger,$coverbagger,$platformnaambagger,$genrenaambagger);
     //$sqli_id->bind_result($id);
     $sqli_id->execute();
     ?><script>alert("Main");</script><?php
@@ -36,8 +36,8 @@
                 
             }
         }    
-        $titeltest=$_POST['titel22'];    
-        echo "$titeltest";
+        //$titeltest=$_POST['titel22'];    
+        //echo "$titeltest";
 
     }
     $db->close();
