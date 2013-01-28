@@ -11,7 +11,7 @@
         echo "ID=$id <br><hr>";
         ?><script>alert("while");</script><?php
         //Probleem zi hier ergens. Zelfs als ik alle velden enable krijg ik nog steeds undefined errors.
-        echo "titel.$id";
+        echo "titel$id";
         if(isset($_POST['titel'.$id])){
             ?><script>alert("if");</script><?php
             $titel=$_POST['titel'.$id];
