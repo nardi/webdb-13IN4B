@@ -5,8 +5,9 @@
     
     $sqli = $db->prepare("SELECT naam, achternaam, telefoonnummer, email, status from Gebruikers WHERE id = ?");
     $sqli->bind_param('i', $idedit);
-    $sqli-> bind_result( $naam, $achternaam, $telefoonnummer, $email, $status);
+    $sqli->bind_result($naam, $achternaam, $telefoonnummer, $email, $status);
     $sqli->execute();
+    echo $naam . "<br />";
     
     echo "<h1> Gebruikers gegevens </h1>";
     echo "<table>
