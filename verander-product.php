@@ -1,11 +1,14 @@
 <?php
     $db = connect_to_db();
     
-    $sqli_id = $db->prepare("SELECT id FROM Producten");
-    $sqli_id->bind_result($id);
+    //$sqli_id = $db->prepare("SELECT id FROM Producten");
+    $sqli_id =$db->prepare("SELECT Producten.id,titel,platform_id,genre_id,beschrijving,prijs,release_date,voorraad,datum_toegevoegd,cover,Platforms.naam,Genres.naam FROM Producten JOIN Platforms ON platform_id=Platforms.id JOIN Genres ON genre_id=Genres.id");
+    $sqli_id->bind_result($id,$titel,$platform_id,$genre_id,$beschrijving,$prijs,$release_date,$voorraad,$datum_toegevoegd,$cover,$platformnaam,$genrenaam);
+    //$sqli_id->bind_result($id);
     $sqli_id->execute();
     ?><script>alert("Main");</script><?php
     while($sqli_id->fetch()){
+        echo "ID=$id <br><hr>";
         ?><script>alert("while");</script><?php
         //Probleem zi hier ergens. Zelfs als ik alle velden enable krijg ik nog steeds undefined errors.
         echo "titel.$id";
