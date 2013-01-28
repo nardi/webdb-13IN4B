@@ -62,9 +62,9 @@ if (isset($_POST['email'])) {
 		</head>
 		<body>
 		Hierbij ontvangt u een email om uw wachtwoord opnieuw in te stellen. <br />
-		Klik op <a href= "https://www.superinternetshop.nl/wachtwoord-reset.php?token=" . '$token' . "&id=" . '$id' ">wachtwoordlink</a> <br />
-		via deze link kunt u eenmalig uw wachtwoord aanpassen. <br /><br />'
-		'</body>
+		Klik op <a href="https://www.superinternetshop.nl/wachtwoord-reset.php?token=' . $token . "&id=" . $id '">wachtwoordlink</a> <br />
+		via deze link kunt u eenmalig uw wachtwoord aanpassen. <br /><br />
+		</body>
 		</html>';
 		$css = file_get_contents('main.css') ;
 		require 'email.php';
