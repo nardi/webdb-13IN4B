@@ -4,9 +4,9 @@
     $sqli_id = $db->prepare("SELECT id FROM Producten");
     $sqli_id->bind_result($id);
     $sqli_id->execute();
-    echo "ID=$id";
     ?><script>alert("Main");</script><?php
     while($sqli_id->fetch()){
+        echo "ID=$id <br><hr>";
         ?><script>alert("while");</script><?php
         //Probleem zi hier ergens. Zelfs als ik alle velden enable krijg ik nog steeds undefined errors.
         echo "titel.$id";
