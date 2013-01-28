@@ -33,6 +33,9 @@
                     $cover=NULL;
                 }
             }
+            else{
+                echo "HURDUR";
+            }
             
             $sqli_verander = $db->prepare("UPDATE Producten SET titel=?, platform_id=?,genre_id=?,beschrijving=?, prijs=?, release_date=?, voorraad=? WHERE id=?");
             
