@@ -25,7 +25,7 @@
 <?php
     }
     
-    set_exception_handler('show_error_page');
+    //set_exception_handler('show_error_page');
     
     function connect_to_db()
     {
