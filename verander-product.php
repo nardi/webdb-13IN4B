@@ -22,13 +22,13 @@
             $voorraad=$_POST['voorraad'];
             $id=$_POST['id'];
             
-            try{
+           /* try{
                 echo "TRY";
                 $cover=upload_image("image");
             }
             catch(Exeption $img){
                 $cover=NULL;
-            }
+            }*/
             
             
             $sqli_verander = $db->prepare("UPDATE Producten SET titel=?, platform_id=?,genre_id=?,beschrijving=?, prijs=?, release_date=?, voorraad=? WHERE id=?");
