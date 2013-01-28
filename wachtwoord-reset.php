@@ -42,7 +42,7 @@ if (!isset($_POST['wachtwoord'])&&
 	
 	} else {
 		
-		echo "Deze link is verlopen" ;
+		echo "Deze link is verlopen." ;
 	}
 	
 	  
@@ -70,7 +70,7 @@ if (!isset($_POST['wachtwoord'])&&
 		$sql->execute();
 
 		//Hier wordt de token verwijderd uit de database
-		$sql2 = $db->prepare("UPDATE Gebruikers SET wachtwoord_token = '0' WHERE wachtwoord_token = ? LIMIT 1");
+		$sql2 = $db->prepare("UPDATE Gebruikers SET wachtwoord_token = NULL WHERE wachtwoord_token = ? LIMIT 1");
 		$sql2->bind_param("s", $token) ;
 		$sql2->execute();
 		echo "Uw wachtwoord is aangepast, hartelijk dank!" ;

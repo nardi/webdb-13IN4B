@@ -27,7 +27,6 @@
         
         $sqli_adressen = $db->prepare("INSERT INTO Adressen (postcode, huisnummer, toevoeging, plaats, straat)
         VALUES (?,?,?,?,?)");
-        echo $straat;
         $sqli_adressen->bind_param('sisss',$postcode , $huisnummer , $toevoeging , $plaats , $straat);
         $sqli_adressen->execute();
         
@@ -36,7 +35,7 @@
         $gebruiker_id = $_SESSION['gebruiker-id'];
         
         $sqli_adresgebr = $db->prepare("INSERT INTO AdresGebruiker (adres_id, gebruiker_id) VALUES (?,?)");
-        $sqli_adresgebr->bind_param('ss', $adres_id, $gebruiker_id);
+        $sqli_adresgebr->bind_param('ii', $adres_id, $gebruiker_id);
         $sqli_adresgebr->execute();
         
         $db->close();
