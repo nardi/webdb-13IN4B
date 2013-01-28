@@ -36,8 +36,8 @@
                 
             }
         }    
-        $titeltest=$_POST['titel22'];    
-        echo "$titeltest";
+        //$titeltest=$_POST['titel22'];    
+        //echo "$titeltest";
 
     }
     $db->close();
