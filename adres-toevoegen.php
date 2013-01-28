@@ -27,10 +27,11 @@
        
         $gebruikersid = $_SESSION['gebruiker-id'];
         
-        $sqli_adressen = $db->prepare("INSERT INTO Adressen (postcode, huisnummer, toevoeging, plaats, straat) VALUES (?,?,?,?,?)");
+        $sqli_adressen = $db->prepare("INSERT INTO Adressen (postcode, huisnummer, toevoeging, plaats, straat)
+        VALUES (?,?,?,?,?)");
         $sqli_adressen->bind_param('sisss',$postcode , $huisnummer , $toevoeging , $plaats , $straat);
         $sqli_adressen->execute();
-    
+        
         //id adres en id gebruiker aan AdresGebruiker toewijzen
         $adres_id = $sqli_adressen->insert_id;
         
