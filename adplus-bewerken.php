@@ -7,7 +7,7 @@
     $sqli->bind_param('i', $idedit);
     $sqli->bind_result($naam, $achternaam, $telefoonnummer, $email, $status);
     $sqli->execute();
-    echo $naam . "<br />";
+    echo $naam . "...<br />";
     
     echo "<h1> Gebruikers gegevens </h1>";
     echo "<table>
