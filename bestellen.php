@@ -1,6 +1,7 @@
 <div class="centered-container">
 <?php
     require 'bestelling-weergeven.php';
+    require 'voorraad.php';
     
     if (!isset($_SESSION['logged-in']))
     {
@@ -8,14 +9,22 @@
     }
     
     $ww = Winkelwagen::try_load_from_session();
-        
+    
     if ($ww->is_empty())
     {
         echo 'Voeg eerst producten toe aan je winkelwagen voor je een bestelling plaatst.';
     }
     else
     {
-        if (isset($_POST['wachtwoord']))
+        $voorraad = TRUE;
+        foreach($ww->get_all() as $id)
+            $voorraad = $voorraad && is_op_voorraad($id);
+        
+        if (!$voorraad)
+        {
+            echo 'Sommige producten in uw winkelwagen zijn niet meer op voorraad.';
+        }
+        else if (isset($_POST['wachtwoord']))
         {
             $gebruiker_id = $_SESSION['gebruiker-id'];
             $wachtwoord = $_POST['wachtwoord'];
@@ -53,7 +62,8 @@
                         throw new Exception($sqli_product->error);
                     $voorraad = $db->prepare("UPDATE Producten SET voorraad = voorraad - ? WHERE id = ?");
                     $voorraad->bind_param('ii', $hoeveelheid, $product_id);
-                    $voorraad->execute();
+                    if(!$voorraad->execute())
+                        throw new Exception($voorraad->error);
                 }
                 
                 $email_sql = $db->prepare("SELECT email FROM Gebruikers WHERE id = ?");

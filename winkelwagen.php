@@ -1,19 +1,24 @@
+<div id="winkelwagen">
+
+<h1>Winkelwagen</h1>
+
 <?php
     $ww = Winkelwagen::try_load_from_session();
     
     if (isset($_POST['add']))
-        $ww->add($_POST['add']);
+    {
+        require 'voorraad.php';
+        if (is_op_voorraad($_POST['add']))
+            $ww->add($_POST['add']);
+        else
+            echo '<p>Dit product is niet meer op voorraad.</p>';
+    }
         
     if (isset($_POST['remove']))
         $ww->remove($_POST['remove']);
     
     $ww->save_to_session();
 ?>
-
-<div id="winkelwagen">
-
-<h1>Winkelwagen</h1>
-
 <?php
     if ($ww->is_empty())
     { 
