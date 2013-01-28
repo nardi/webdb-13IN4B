@@ -1,12 +1,13 @@
 <link rel="stylesheet" type="text/css" href="inloggen-wachtwoord-registratie.css">
 <link rel="stylesheet" type="text/css" href="centering.css">
  
+<div class="centered-container">
 <?php
 	if ((!isset($_SESSION['logged-in']))) {
 	?>
-	<pre>
+	<p>
 U bent niet ingelogd!
-	</pre>
+	</p>
 	<?php
 	}
 	else {
@@ -69,3 +70,4 @@ U bent niet ingelogd!
 	<?php
 		}
 	?>
+</div>

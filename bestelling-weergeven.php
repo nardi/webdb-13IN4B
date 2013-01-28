@@ -7,13 +7,12 @@
         $html = '';
         
         $db = connect_to_db();
-        $sql = $db->prepare("SELECT Producten.id, titel, hoeveelheid, Bestelling_Product.prijs,
-                                cover, betaalstatus, verzendkosten, verzendstatus
+        $sql = $db->prepare("SELECT Producten.id, titel, hoeveelheid, cover, betaalstatus, verzendkosten, verzendstatus
                              FROM Producten JOIN Bestelling_Product ON product_id = Producten.id
                              JOIN Bestellingen ON Bestellingen.id = bestelling_id
                              WHERE bestelling_id = ?");
         $sql->bind_param('i', $id);
-        $sql->bind_result($product_id, $titel, $hoeveelheid, $prijs, $cover, $betaalstatus, $verzendkosten, $verzendstatus);
+        $sql->bind_result($product_id, $titel, $hoeveelheid, $cover, $betaalstatus, $verzendkosten, $verzendstatus);
         $sql->execute();
         
         $html .= '<table class="product-list">
@@ -30,6 +29,7 @@
         $paypal_info = '';
         while ($sql->fetch())
         {
+            $prijs = actuele_prijs($product_id);
             $productprijs = $hoeveelheid * $prijs;
             
             $html .= '<tr>
@@ -42,9 +42,9 @@
                         <td class="product-title">
                             <a href="' . $abs . 'item-description.php?id=' . $product_id . '">' . $titel . '</a>
                         </td>
-                        <td>&euro;<span id="price-' . $product_id . '">' . price($prijs) . '</span></td>
+                        <td>&euro;<span id="price-' . $product_id . '">' . prijs($prijs) . '</span></td>
                         <td>'. $hoeveelheid . '</td>
-                        <td>&euro;<span id="productprice-' . $product_id . '">' . price($productprijs) . '</span></td>
+                        <td>&euro;<span id="productprice-' . $product_id . '">' . prijs($productprijs) . '</span></td>
                     </tr>';
                     
             $paypal_info .= '<input type="hidden" name="item_number_' . $count . '" value="' . $product_id . '">
@@ -60,7 +60,7 @@
         $html .= '<tr class="bottom-row">
                     <td class="left" colspan="3">Betaalstatus: ' . $betaalstatus . '</td>
                     <td class="right" colspan="2">Verzendkosten:</td>
-                    <td>&euro;' . price($verzendkosten) . '</td>
+                    <td>&euro;' . prijs($verzendkosten) . '</td>
                 </tr>
                 <tr class="bottom-row">
                     <td class="left" colspan="3">';
@@ -100,7 +100,7 @@
         
         $html .= '</td>
                   <th colspan="2" class="right">Totaalbedrag:</th>
-                  <td>&euro;<span id="total-price">' . price($totaalbedrag) . '</span></td>
+                  <td>&euro;<span id="total-price">' . prijs($totaalbedrag) . '</span></td>
                 </tr>
             </table>';
             

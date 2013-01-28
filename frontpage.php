@@ -24,9 +24,9 @@
         <div class="vcenter">
             <p class="title"><?php echo $titel; ?></p>
             <p>van</p>
-            <p class="old-price">&euro;<?php echo price($oude_prijs); ?></p>
+            <p class="old-price">&euro;<?php echo prijs($oude_prijs); ?></p>
             <p>voor</p>
-            <p class="price">&euro;<?php echo price($prijs); ?></p>
+            <p class="price">&euro;<?php echo prijs($prijs); ?></p>
         </div>
     </div>
     </a>
@@ -39,8 +39,8 @@
 <?php
     }
 
-    $new_releases = $db->prepare('SELECT id, titel, prijs, cover FROM Producten WHERE release_date < CURRENT_DATE ORDER BY release_date DESC LIMIT 8');
-    $new_releases->bind_result($id, $titel, $prijs, $cover);
+    $new_releases = $db->prepare('SELECT id, titel, cover FROM Producten WHERE release_date < CURRENT_DATE ORDER BY release_date DESC LIMIT 8');
+    $new_releases->bind_result($id, $titel, $cover);
     $new_releases->execute();
     if ($new_releases->fetch())
     {
@@ -55,7 +55,7 @@
         $count = 1;
         do
         {
-            product_thumb($id, is_valid_cover($cover), $titel, $prijs);
+            product_thumb($id, is_valid_cover($cover), $titel, actuele_prijs($id));
             
             if ($count % 4 == 0)
             echo '</div><div class="product-row">';
@@ -70,8 +70,8 @@
     }
     $new_releases->free_result();
 
-    $pre_orders = $db->prepare('SELECT id, titel, prijs, release_date, cover FROM Producten WHERE release_date > CURRENT_DATE ORDER BY release_date ASC LIMIT 8');
-    $pre_orders->bind_result($id, $titel, $prijs, $datum, $cover);
+    $pre_orders = $db->prepare('SELECT id, titel, release_date, cover FROM Producten WHERE release_date > CURRENT_DATE ORDER BY release_date ASC LIMIT 8');
+    $pre_orders->bind_result($id, $titel, $datum, $cover);
     $pre_orders->execute();
     if ($pre_orders->fetch())
     {
@@ -84,7 +84,7 @@
         $count = 1;
         do
         {
-            product_thumb($id, is_valid_cover($cover), $titel, $prijs, $datum);
+            product_thumb($id, is_valid_cover($cover), $titel, actuele_prijs($id), $datum);
             
             if ($count % 4 == 0)
             echo '</div><div class="product-row">';

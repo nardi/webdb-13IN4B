@@ -61,7 +61,7 @@
             $var = intval($var);
         }
         
-        $query = "SELECT id, titel, prijs, cover FROM Producten";
+        $query = "SELECT id, titel, cover FROM Producten";
         
         if(isset($_GET['genres']) && $_GET['genres'] != 0) 
         {
@@ -120,7 +120,7 @@
         $sqli = $db->prepare($query);
         if (isset($search))
             $sqli->bind_param('s', $search);
-        $sqli->bind_result($id, $titel, $prijs, $cover);
+        $sqli->bind_result($id, $titel, $cover);
         if (!$sqli->execute())
                 throw new Exception("Er zijn foutieve parameters opgegeven.");
     ?>
@@ -132,6 +132,7 @@
         $count = 1;
         while ($sqli->fetch())
         {
+            $prijs = actuele_prijs($id);
             $cover = is_valid_cover($cover);
             product_thumb($id, $cover, $titel, $prijs);
             
