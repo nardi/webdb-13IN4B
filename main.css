@@ -37,6 +37,19 @@ a {
     vertical-align: middle;
 }
 
+/*
+ *  And horizontal
+ */
+ 
+.centered-container {
+    width: 100%;
+    text-align: center;
+}
+
+.centered-container div {
+    display: inline-block;
+}
+
 /* 
  * The upper window
  */
@@ -184,7 +197,4 @@ a {
     color: #0204A6;
     font-weight: bold;
 }
-
-/* tijdelijk totdat mensen hun css op orde krijgen :( */
-@import url("centering.css");
 
