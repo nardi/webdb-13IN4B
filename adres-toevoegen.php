@@ -29,6 +29,7 @@
         
         $sqli_adressen = $db->prepare("INSERT INTO Adressen (postcode, huisnummer, toevoeging, plaats, straat)
         VALUES (?,?,?,?,?)");
+        echo $straat;
         $sqli_adressen->bind_param('sisss',$postcode , $huisnummer , $toevoeging , $plaats , $straat);
         $sqli_adressen->execute();
         
