@@ -26,7 +26,7 @@
                 echo "TRY";
                 $image = upload_image("file");
             }
-            catch(Exeption $img){
+            catch(Exception $img){
                 $image=NULL;
             }
             
