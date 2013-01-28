@@ -1,4 +1,6 @@
 <?php
+    $db = connect_to_db();
+    
     $idedit = $_POST['id'];
     
     $sqli = $db->prepare("SELECT naam, achternaam, telefoonnummer, email, status from Gebruikers WHERE id = ?");
