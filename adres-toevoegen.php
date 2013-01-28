@@ -34,11 +34,12 @@
         $adres_id = $sqli_adressen->insert_id;
         $gebruiker_id = $_SESSION['gebruiker-id'];
         
+        echo "$adres_id";
+        echo $gebruiker_id;
+        
         $sqli_adresgebr = $db->prepare("INSERT INTO AdresGebruiker (adres_id, gebruiker_id) VALUES (?,?)");
         $sqli_adresgebr->bind_param('ii', $adres_id, $gebruiker_id);
         $sqli_adresgebr->execute(); 
-        
-        echo "$gebruiker_id";
         
         $db->close();
         
