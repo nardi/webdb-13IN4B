@@ -1,15 +1,15 @@
 <?php
     $db = connect_to_db();
     
-    $sqli_id = $db->prepare("SELECT id FROM Producten");
+    /*$sqli_id = $db->prepare("SELECT id FROM Producten");
     $sqli_id->bind_result($id);
     $sqli_id->execute();
     $sqli_id->store_result();
-   // $sqli_id->free_result();
+   // $sqli_id->free_result();*/
     ?><script>//alert("Main");</script><?php
     var_dump($_POST);
-    while($sqli_id->fetch()){
-        echo "ID=$id <br>";
+    //while($sqli_id->fetch()){
+        //echo "ID=$id <br>";
         ?><script>//alert("while");</script><?php
         if(isset($_POST['titel'])){
             ?><script>//alert("if");</script><?php
@@ -20,7 +20,7 @@
             $prijs=$_POST['prijs'];
             $release_date=$_POST['release'];
             $voorraad=$_POST['voorraad'];
-            
+            $id=$_POST['id'];
             
             try{
                 echo "TRY";
@@ -50,7 +50,7 @@
         //$titeltest=$_POST['titel22'];    
         //echo "$titeltest";
 
-    }
+    
     $db->close();
 ?>
     
