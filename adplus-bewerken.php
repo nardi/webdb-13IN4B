@@ -3,10 +3,10 @@
     
     $idedit = $_POST['id'];
     
-    $sqli = $db->prepare("SELECT naam, achternaam, telefoonnummer, email, status FROM Gebruikers WHERE id = ?");
-    $sqli->bind_param('i', $idedit);
+    $sqli = $db->prepare("SELECT naam, achternaam, telefoonnummer, email, status from Gebruikers WHERE id=?");
+    $sqli->bind_param('s', $idedit);
     $sqli->bind_result($naam, $achternaam, $telefoonnummer, $email, $status);
-    $sqli->execute();
+    echo $sqli->execute();
     echo $naam . "...<br />";
     
     echo "<h1> Gebruikers gegevens </h1>";
@@ -22,7 +22,7 @@
         </table>";
     
     
-    $sqli->free_result();
+   /* $sqli->free_result();
     $sqli = $db->prepare("SELECT id, postcode, huisnummer, toevoeging, plaats, straat FROM Adressen JOIN AdresGebruiker ON Adressen.id = adres_id WHERE gebruiker_id= ?");
     $sqli->bind_param('i', $idedit);
     $sqli-> bind_result($adres_id, $postcode, $huisnummer, $toevoeging, $plaats, $straat);
@@ -42,7 +42,7 @@
             </tr>
             </table>";
     }
-    
+    */
     $db->close();
     
 ?>
