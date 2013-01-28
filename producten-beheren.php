@@ -34,7 +34,7 @@
                     <button type='submit' value='$id' name='submitbutton'>wijzigen</button>
                 </td>
                 <td>
-                    <input type='text' value='$sid' hidden='hidden' name='id' />
+                    <input type='text' value='$id' hidden='hidden' name='idee' />
                 </td>
                 <td>
                     <div class='ProductEdit' onclick='enableEdit($id)'>
