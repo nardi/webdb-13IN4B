@@ -20,7 +20,7 @@
             $prijs=$_POST['prijs'];
             $release_date=$_POST['release'];
             $voorraad=$_POST['voorraad'];
-            $id=$_POST['id'];
+            $id=$_POST['sid'];
             
            try{
                 echo "TRY";
