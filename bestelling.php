@@ -32,7 +32,7 @@
                     $status = $verzendstatus == 'Verzonden' ? 'is verzonden.' : 'wordt klaargemaakt om te worden verzonden.';
                     $html = '<html>
                               <body>
-                                Uw bestelling #$id ' . $status . '<br/>Hier is nogmaals te zien wat u precies besteld heeft:<br/>' . bestelling_weergeven($bestelling, TRUE) .
+                                Uw bestelling #$id ' . $status . '<br/>Hier is nogmaals te zien wat u precies besteld heeft:<br/>' . bestelling_weergeven($id, TRUE) .
                              '</body>
                              </html>';
                     $css = file_get_contents('main.css') . "\n" . file_get_contents('productlijst.css');
