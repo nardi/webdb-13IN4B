@@ -7,12 +7,13 @@
         $html = '';
         
         $db = connect_to_db();
-        $sql = $db->prepare("SELECT Producten.id, titel, hoeveelheid, cover, betaalstatus, verzendkosten, verzendstatus
+        $sql = $db->prepare("SELECT Producten.id, titel, hoeveelheid, Bestelling_Product.prijs,
+                                cover, betaalstatus, verzendkosten, verzendstatus
                              FROM Producten JOIN Bestelling_Product ON product_id = Producten.id
                              JOIN Bestellingen ON Bestellingen.id = bestelling_id
                              WHERE bestelling_id = ?");
         $sql->bind_param('i', $id);
-        $sql->bind_result($product_id, $titel, $hoeveelheid, $cover, $betaalstatus, $verzendkosten, $verzendstatus);
+        $sql->bind_result($product_id, $titel, $hoeveelheid, $prijs, $cover, $betaalstatus, $verzendkosten, $verzendstatus);
         $sql->execute();
         
         $html .= '<table class="product-list">
@@ -29,7 +30,6 @@
         $paypal_info = '';
         while ($sql->fetch())
         {
-            $prijs = actuele_prijs($product_id);
             $productprijs = $hoeveelheid * $prijs;
             
             $html .= '<tr>

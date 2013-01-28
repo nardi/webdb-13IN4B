@@ -1,10 +1,13 @@
 <?php
+    $db = connect_to_db();
+    
     $idedit = $_POST['id'];
     
     $sqli = $db->prepare("SELECT naam, achternaam, telefoonnummer, email, status from Gebruikers WHERE id = ?");
     $sqli->bind_param('i', $idedit);
-    $sqli-> bind_result( $naam, $achternaam, $telefoonnummer, $email, $status);
+    $sqli->bind_result($naam, $achternaam, $telefoonnummer, $email, $status);
     $sqli->execute();
+    echo $naam . "<br />";
     
     echo "<h1> Gebruikers gegevens </h1>";
     echo "<table>
@@ -30,7 +33,7 @@
     echo "<table>
         <tr>
         <b> <td> Adres ID </td> <td> Postcode </td>  <td> Plaats </td>  <td> Straat </td> <td> Huisnummer </td> <td> Toevoeging </td></b>
-        </tr>"
+        </tr>";
   
     
     while ($sqli->fetch()) {
