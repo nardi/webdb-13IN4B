@@ -18,7 +18,7 @@
      */
     if (!isset($_SERVER['HTTPS']) || !$_SERVER['HTTPS']) {
         $uri = 'https://'.$_SERVER['SERVER_NAME'].$_SERVER['SCRIPT_NAME'];
-        header('Location: '.$uri);
+        //header('Location: '.$uri);
     }
 ?>
 <?xml version="1.0"?>
