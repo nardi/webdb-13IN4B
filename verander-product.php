@@ -6,18 +6,18 @@
     $sqli_id->execute();
     ?><script>alert("Main");</script><?php
     while($sqli_id->fetch()){
-        ?><script>//alert("while");</script><?php
+        ?><script>alert("while");</script><?php
         //Probleem zi hier ergens. Zelfs als ik alle velden enable krijg ik nog steeds undefined errors.
-        echo "titel$id";
+        echo "titel.$id";
         if(isset($_POST['titel'.$id])){
             ?><script>alert("if");</script><?php
-            $titel=$_POST["titel$id"];
-            $platform_id=$_POST["platform$id"];
-            $genre_id=$_POST["genre$id"];
-            $beschrijving=$_POST["beschrijving$id"];
-            $prijs=$_POST["prijs$id"];
-            $release_date=$_POST["release$id"];
-            $voorraad=$_POST["voorraad$id"];
+            $titel=$_POST['titel'.$id];
+            $platform_id=$_POST['platform'.$id];
+            $genre_id=$_POST['genre'.$id];
+            $beschrijving=$_POST['beschrijving'.$id];
+            $prijs=$_POST['prijs'.$id];
+            $release_date=$_POST['release'.$id];
+            $voorraad=$_POST['voorraad'.$id];
             $cover=upload_image('image'.$id);
             
             $sqli_verander = $db->prepare("UPDATE Producten SET titel=?, platform_id=?,genre_id=?,beschrijving=?, prijs=?, release_date=?, voorraad=? WHERE id=?");
@@ -33,7 +33,8 @@
                 
             }
         }    
-            
+        $titeltest=$_POST['titel'];    
+        echo "$titeltest";
 
     }
     $db->close();
