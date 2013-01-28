@@ -50,7 +50,7 @@
             $paypal_info .= '<input type="hidden" name="item_number_' . $count . '" value="' . $product_id . '">
                              <input type="hidden" name="item_name_' . $count . '" value="' . $titel . '">
                              <input type="hidden" name="amount_' . $count . '" value="' . $prijs . '">
-                             <input type="hidden" name="quantity_' . $count . '" value="' . $hoeveelheid . '">';
+                             <input type="hidden" name="quantity_' . $count . '" value="' . $hoeveelheid . '">' . "\n";
                              
             $totaalbedrag += $productprijs;
             $count++;
@@ -83,12 +83,12 @@
                         <input type="hidden" name="upload" value="1"/>
                         <input type="hidden" name="business" value="paypal_1358181822_biz@nardilam.nl"/>
                         <input type="hidden" name="currency_code" value="EUR"/>
-                        <input type="hidden" name="return" value="http://superinternetshop.nl/betaald.php"/>
-                        <input type="hidden" name="notify_url" value="http://superinternetshop.nl/ipn.php"/>
+                        <input type="hidden" name="return" value="https://superinternetshop.nl/betaald.php"/>
+                        <input type="hidden" name="notify_url" value="https://superinternetshop.nl/ipn.php"/>
                         <input type="hidden" name="custom" value="' . $id . '"/>
                         <input type="hidden" name="no_shipping" value="1"/>
                         <input type="hidden" name="no_note" value="1"/>
-                        <input type="hidden" name="handling_cart" value="' . $verzendkosten . '"/>'
+                        <input type="hidden" name="handling_cart" value="' . $verzendkosten . '"/>' . "\n" .
                         . $paypal_info .        
                         '<input type="submit" value="Betalen via PayPal"/>
                     </form>';
