@@ -74,13 +74,26 @@ if (isset($_POST['email'])) {
 		
 		//nieuw stukje
 		
+		$onderwerp = "Nieuw wachtwoord aanvragen" ;
 		$html = '<html>
 		<head>
 		</head>
 		<body>
+		Geachte heer / mevrouw '.$naam.',
+		
 		Hierbij ontvangt u een email om uw wachtwoord opnieuw in te stellen. <br />
 		Klik op <a href="https://www.superinternetshop.nl/wachtwoord-reset.php?token=' . $token . '&id=' . $id . '">wachtwoordlink</a> <br />
 		via deze link kunt u eenmalig uw wachtwoord aanpassen. <br /><br />
+		
+		Met vriendelijke groet,
+		<br /> <br />
+		Stefani Koetsier
+		Customer Care Officer
+		<b> Super Internet Shop </b>
+		<i> Where gaming begins </i>
+		<img src="/images/logo/logo-sis.png" alt="logo">
+		
+		
 		</body>
 		</html>';
 		$css = file_get_contents('main.css') ;
