@@ -11,7 +11,7 @@
     
 ?>
 <div id="BeheerContainer">
-<form name='EditProduct' id='EditProductId$id' action='upload-test.php' method='post' enctype='multipart/form-data'>
+<form name='EditProduct' id='EditProductId$id' action='verander-product.php' method='post' enctype='multipart/form-data'>
 <table id="Producten">
 <tr><th>Aanpassen</th><th colspan="2">Verwijderen</th><th>Product Nummer</th><th>Titel</th><th>Cover</th><th>Beschrijving</th><th>Platform</th><th>Genre</th><th>Prijs</th><th>Voorraad</th><th>Release Datum</th></tr>
 <tr><td colspan=12>
@@ -30,7 +30,7 @@
             echo "
             <tr id=$id>
                 <td>
-                    <button type='submit' value='$id' name='subtmitbutton'>wijzigen</button>
+                    <button type='submit' value='$id' name='submitbutton'>wijzigen</button>
                 </td>
                 <td>
                     <input type='text' value='$id' hidden='hidden' name='id' />

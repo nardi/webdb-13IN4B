@@ -26,7 +26,7 @@
                 echo "TRY";
                 $image = upload_image("file");
             }
-            catch(Exeption $img){
+            catch(Exception $img){
                 $image=NULL;
             }
             
@@ -39,12 +39,16 @@
             
             $sqli_verander->execute();
             
-            if($cover!=NULL){
-                echo"NULL!";
+            if($image!=NULL){
+                echo"Niet NULL!";
                 $sqli_verander_cover = $db->prepare("UPDATE Producten SET cover=? WHERE id=?");
                 $sqli_verander_cover->bind_param('ss',$image,$id);
                 $sqli_verander_cover->execute();
                 
+            }
+            
+            else if($image==NULL){
+                echo "HOERA NULL!";
             }
         }    
         //$titeltest=$_POST['titel22'];    
