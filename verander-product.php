@@ -28,7 +28,7 @@
             
             try{
                 echo "TRY";
-                $cover=upload_image('image');
+                $cover=upload_image("image");
             }
             catch(Exeption $img){
                 $cover=NULL;
