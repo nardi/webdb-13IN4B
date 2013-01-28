@@ -16,8 +16,6 @@
 <tr><td colspan=12>
 <hr />
 </td></tr>
-    <form name='EditProduct' id='EditProductId' action='verander-product.php' method='post' enctype="multipart/form-data">
-    <input type='submit' value='wijzigingen aanbrengen'>
     <?php
         $db2 = connect_to_db();
         $db3 = connect_to_db();
@@ -28,7 +26,12 @@
             $titelwidth = strlen($titel);
             $beschrijvingSizeRaw = strlen($beschrijving)/30;
             $beschrijvingSize = ceil($beschrijvingSizeRaw);
-            echo "<tr id=$id>
+            echo "
+            <form name='EditProduct' id='EditProductId$id' action='verander-product.php' method='post'>
+            <tr id=$id>
+                <td>
+                    <input type='submit' value='wijzigingen aanbrengen'>
+                </td>
                 <td>
                     <div class='ProductEdit' onclick='enableEdit($id)'>
                     </div>
@@ -41,13 +44,13 @@
                             </form>-->
                     </div>
                 </td>
-                <td><input type='checkbox' name='selected$id'></td>
+                <td><input type='checkbox' name='selected'></td>
                 <td class='column'>$id</td>
-                <td class='column'><input type='text' class='inputfield' name='titel$id' disabled='disabled' value='$titel' size=$titelwidth>titel$id</td>
+                <td class='column'><input type='text' class='inputfield' name='titel' disabled='disabled' value='$titel' size=$titelwidth>titel$id</td>
                 <td class='column'><div class='cover' id='cover$id' onclick=\"showImage(cover$id, '$cover')\">Klik hier om de cover te laten zien.</div></td>
-                <td class='column'><textarea class='inputfield' id='beschrijvingid$id' name='beschrijving$id' disabled='disabled' cols='30' rows='1' onclick='expand(beschrijvingid$id, $beschrijvingSize)' onblur='shrink(beschrijvingid$id)'>$beschrijving</textarea></td>
+                <td class='column'><textarea class='inputfield' id='beschrijvingid$id' name='beschrijving' disabled='disabled' cols='30' rows='1' onclick='expand(beschrijvingid$id, $beschrijvingSize)' onblur='shrink(beschrijvingid$id)'>$beschrijving</textarea></td>
                 <td><div class='platform'>
-                    <select name='platform$id' disabled='disabled'>";
+                    <select name='platform' disabled='disabled'>";
 
         $platformsql = $db->prepare("SELECT id, naam FROM Platforms");
         $platformsql->execute();
@@ -65,7 +68,7 @@
 					  </div></td>
                       
                       <td><div class='genre'>
-                    <select name='genre$id' disabled='disabled'>";
+                    <select name='genre' disabled='disabled'>";
 
         $genresql = $db->prepare("SELECT id, naam FROM Genres");
         $genresql->execute();
@@ -81,17 +84,16 @@
                 echo "
 						  </select>
 					  </div></td>
-                <td class='column'><input type='text' class='inputfield' name='prijs$id' disabled='disabled' value=$prijs size='6'></td>
-                <td class='column'><input type='text' class='inputfield' name='voorraad$id' disabled='disabled' value=$voorraad size='5'></td>
-                <td class='column'><input type='text' class='inputfield' name='release$id' disabled='disabled' value='$release_date' size='8'></td>
+                <td class='column'><input type='text' class='inputfield' name='prijs' disabled='disabled' value=$prijs size='6'></td>
+                <td class='column'><input type='text' class='inputfield' name='voorraad' disabled='disabled' value=$voorraad size='5'></td>
+                <td class='column'><input type='text' class='inputfield' name='release' disabled='disabled' value='$release_date' size='8'></td>
             </tr>
             <tr><td colspan=12>
             <hr />
-            </td></tr>";
+            </td></tr>
+            </form>";
         }
     ?>
     
     </table>
-    <input type='submit' value='wijzigingen aanbrengen'>
-    </form>
 </div>
