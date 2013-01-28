@@ -27,13 +27,14 @@
             $titelwidth = strlen($titel);
             $beschrijvingSizeRaw = strlen($beschrijving)/30;
             $beschrijvingSize = ceil($beschrijvingSizeRaw);
+            $sid = $id;
             echo "
             <tr id=$id>
                 <td>
                     <button type='submit' value='$id' name='submitbutton'>wijzigen</button>
                 </td>
                 <td>
-                    <input type='text' value='$id' hidden='hidden' name='id' />
+                    <input type='text' value='$sid' hidden='hidden' name='id' />
                 </td>
                 <td>
                     <div class='ProductEdit' onclick='enableEdit($id)'>
