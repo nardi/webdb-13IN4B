@@ -34,7 +34,7 @@ if (isset($_POST['email'])) {
 	$sql->bind_param("s", $email) ;
 	$sql->bind_result($id, $naam) ;
 	$sql->execute();
-	$sql->fetch();
+	
 
 	if (!$sql->fetch()) {
 	  
