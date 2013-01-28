@@ -18,20 +18,20 @@
     
     if(!isset($_SESSION['logged-in'])) {
     ?>
-    <script>
+    <script type="text/javascript">
         function empty(elem,dv) { elem.value = elem.value == dv ? '' : elem.value; }
         function emptyOrDefault(elem,dv) { elem.value = elem.value == '' ? dv : elem.value; }
     </script>
     <form action="gebruikers-login.php" method="post">
-        <input type="text" name="e-mailadres" value="E-mailadres" onfocus="empty(this, 'E-mailadres')" onblur="emptyOrDefault(this, 'E-mailadres')">
+        <input type="text" name="e-mailadres" value="E-mailadres" onfocus="empty(this, 'E-mailadres')" onblur="emptyOrDefault(this, 'E-mailadres')" />
         <?php ww_dash(); ?>
         <br />
-        <input type="password" name="wachtwoord" value="wachtwoord" onfocus="empty(this, 'wachtwoord')" onblur="emptyOrDefault(this, 'wachtwoord')">
+        <input type="password" name="wachtwoord" value="wachtwoord" onfocus="empty(this, 'wachtwoord')" onblur="emptyOrDefault(this, 'wachtwoord')" />
         <br />
-        <input type="submit" value="Log in"> 
-        <a href='wachtwoordvergeten.php' style='float: right;'><SMALL>Wachtwoord vergeten</SMALL></a>
+        <input type="submit" value="Log in" /> 
+        <a href='wachtwoordvergeten.php' style='float: right; font-size: small;'>Wachtwoord vergeten</a>
         <br />
-        <a href="registratie.html" style='float: right; margin-top: -4px; margin-bottom: 4px;'><SMALL>Registreren</SMALL></a>
+        <a href="registratie.html" style='float: right; font-size: small; margin-top: -4px; margin-bottom: 4px;'>Registreren</a>
     </form>
 <?php
     } else {

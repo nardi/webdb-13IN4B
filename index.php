@@ -25,7 +25,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="Content of Site" content="Super Internet Shop, a webshop made by UvA" />
         <link rel="shortcut icon" href="favicon.ico" />
         <title>SIS</title>
@@ -33,7 +33,7 @@
         <?php if (file_exists($pagename . ".css"))
                 echo '<link rel="stylesheet" type="text/css" href="' . $pagename . '.css" />';
         ?>    
-    <script type="text/javascript" language="javascript" src="button.js"></script>
+    <script type="text/javascript" src="button.js"></script>
     
 </head>
 
@@ -42,7 +42,7 @@
 <?php
     if (!isset($_COOKIE["user"])) {
 ?>
-    <script>
+    <script type="text/javascript">
         window.onload = alert("Deze website maakt gebruik van functionele cookies. Bij het gebruik van de website gaat u hiermee akkoord.") ;
     </script>
 <?php
@@ -51,7 +51,7 @@
 
 <div id="mainWindow">
     <div class="banner">
-        <div id="logo" class="vcenter" onClick="window.open('/', '_self');">
+        <div id="logo" class="vcenter" onclick="window.open('/', '_self');">
             <img src="images/logo/logo-sis-met-tekst.png" alt="Link to homepage" />
         </div>
         <div id="dashboard">

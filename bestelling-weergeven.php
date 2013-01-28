@@ -39,7 +39,7 @@
                             <a href="' . $abs . 'item-description.php?id=' . $product_id . '"><span name="product-id">' . $product_id . '</span></a>
                         </td>
                         <td class="product-image">
-                            <a href="' . $abs . 'item-description.php?id=' . $product_id . '"><img src="' . $abs . is_valid_cover($cover) . '" width="100%" /></a>
+                            <a href="' . $abs . 'item-description.php?id=' . $product_id . '"><img src="' . $abs . is_valid_cover($cover) . '" alt="' . $titel . '" width="100%" /></a>
                         </td>
                         <td class="product-title">
                             <a href="' . $abs . 'item-description.php?id=' . $product_id . '">' . $titel . '</a>
