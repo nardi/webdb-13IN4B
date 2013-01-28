@@ -47,6 +47,10 @@
                 Aanbieding toevoegen
             </div>
             
+            <div id="/adplus.html" class="clickable-item" onClick="onButtonClick(this.id);">
+                Adplus
+            </div>
+            
             <div id="/upload-test.html" class="clickable-item" onClick="onButtonClick(this.id);">
                 F-UP test
             </div>
