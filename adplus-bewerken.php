@@ -42,9 +42,9 @@
     while ($sqli->fetch()) {
         echo "<tr>
             <td>$adres_id</td><td>$postcode</td><td>$plaats</td><td>$straat</td><td>$huisnummer</td><td>$toevoeging</td>
-            </tr>
-            </table>";
+            </tr>";
     }
+    echo "</table>";
     
     $db->close();
     
