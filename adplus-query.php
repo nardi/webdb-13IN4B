@@ -3,7 +3,7 @@
 
     $emailquery = $_GET['email'];
 
-    $sqli = $db->prepare("SELECT naam, achternaam, email WHERE email LIKE ? LIMIT 10");
+    $sqli = $db->prepare("SELECT naam, achternaam, email from Gebruikers WHERE email LIKE ? LIMIT 10");
     $sqli->bind_param('s', $emailquery);
     $sqli-> bind_result($naam, $achternaam, $email);
     $sqli->execute();
