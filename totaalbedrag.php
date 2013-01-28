@@ -12,15 +12,12 @@
         $totaalbedrag += $verzendkosten;
         $vz->free_result();
         
-        $producten = $db->prepare("SELECT hoeveelheid FROM Bestelling_Product WHERE bestelling_id = ?");
+        $producten = $db->prepare("SELECT hoeveelheid, prijs FROM Bestelling_Product WHERE bestelling_id = ?");
         $producten->bind_param('i', $bestelling_id);
-        $producten->bind_result($hoeveelheid);
+        $producten->bind_result($hoeveelheid, $prijs);
         $producten->execute();
         while ($producten->fetch())
-        {
-            $prijs = actuele_prijs($bestelling_id);
             $totaalbedrag += $hoeveelheid * $prijs;
-        }
 
         $producten->free_result();
         $db->close();
