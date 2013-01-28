@@ -12,7 +12,7 @@ function getNames(str)
     return;
   }
 
-  var url="adplus-query.php";
+  var url="backend/adplus-query.php";
   str = str.replace(/\n/g, " ");
   url = url + "?email=" + str;
   url = url + "&sid=" + Math.random();
