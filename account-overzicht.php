@@ -19,7 +19,7 @@ U bent niet ingelogd!
         $sql->bind_result($naam, $achternaam, $telefoonnummer, $email);
         
         if (!$sql->fetch()) { 
-            throw new Exception("Onverwachtse fout: geen data. Neem contact op met de site-beheerder");
+            throw new Exception("Onverwachte fout: geen data. Neem contact op met de site-beheerder");
         }
         $sql->free_result();
 
@@ -28,7 +28,7 @@ U bent niet ingelogd!
         $sql->bind_result($postcode, $huisnummer, $toevoeging, $plaats, $straat); 
         
         if (!$sql->fetch()) { 
-            throw new Exception("Onverwachtse fout: geen data. Neem contact op met de site-beheerder");
+            throw new Exception("Onverwachte fout: geen data. Neem contact op met de site-beheerder");
         }
         $sql->free_result();
         
@@ -51,13 +51,13 @@ U bent niet ingelogd!
         Telefoonnummer: <input type="text" name="telefoonnummer" disabled value = "<?php echo $telefoonnummer; ?>"><br/>
         E-mailadres: <input type="email" name="e-mailadres" disabled value = "<?php echo $email; ?>"><br/>
         <hr width="100%">
+        <div width="100%" align="center">
         <center><b>Bestellingen</b></center><br/>
-        <div align="center"> 
             <a href="bestelgeschiedenis.php"><input type="submit" value="Bestelgeschiedenis"></a>
         </div>
         <hr width="100%">
-        <center><b>Bewerken</b></center><br/>
-        <div align="center"> 
+        <div width="100%" align="center">
+        <center><b>Bewerken</b></center><br/> 
             <a href="account-wachtwoord-veranderen.php"><input type="submit"  value="Wachtwoord veranderen"></a><br/>
             <a href="adres-toevoegen.html"><input type="submit"  value="Adres toevoegen"></a><br />
             <a href="account-bewerken.html"><input type="submit"  value="Accountgegevens veranderen"></a><br/>
