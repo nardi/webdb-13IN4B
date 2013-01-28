@@ -24,11 +24,14 @@
             $prijs=$_POST['prijs'.$id];
             $release_date=$_POST['release'.$id];
             $voorraad=$_POST['voorraad'.$id];
-            try{
-                $cover=upload_image('image'.$id);
-            }
-            catch(Exeption $img){
-                $cover=NULL;
+            
+            if(isset($_POST['image'.$id])){
+                try{
+                    $cover=upload_image('image'.$id);
+                }
+                catch(Exeption $img){
+                    $cover=NULL;
+                }
             }
             
             $sqli_verander = $db->prepare("UPDATE Producten SET titel=?, platform_id=?,genre_id=?,beschrijving=?, prijs=?, release_date=?, voorraad=? WHERE id=?");
