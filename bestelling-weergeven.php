@@ -106,7 +106,7 @@
                 </tr>
             </table>
             <br />
-            Wordt verstuurd naar:
+            Wordt verstuurd naar:<br/>
             ' . adres_weergeven($adres_id);
             
         return $html;
