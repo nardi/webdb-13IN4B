@@ -33,7 +33,7 @@
                 
             }
         }    
-        $titeltest=$_POST['titel'];    
+        $titeltest=$_POST['titel22'];    
         echo "$titeltest";
 
     }
