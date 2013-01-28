@@ -10,7 +10,7 @@ String.prototype.trim = function() {
     return x;
 };
 
-function requiresContextNode(xmlTagName) {
+function require_oncesContextNode(xmlTagName) {
     return !(xmlTagName == "taconite-execute-javascript" || xmlTagName == "taconite-redirect");
 }
 
@@ -19,7 +19,7 @@ function XhtmlToDOMParser(){
     this.parseXhtml = function(xml){
         var xmlTagName=xml.tagName.toLowerCase();
         var contextNode=document.getElementById(xml.getAttribute("contextNodeID"));
-        if(contextNode == null && requiresContextNode(xmlTagName)){
+        if(contextNode == null && require_oncesContextNode(xmlTagName)){
             return false;
         }
         switch (xmlTagName) {

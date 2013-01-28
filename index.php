@@ -1,7 +1,7 @@
 <?php
     setcookie("user", "sis_user", time()+3600 * 3600 * 3600);
 
-    require 'main.php';
+    require_once 'main.php';
     
     session_start();
     $pag = (isset($_GET['pag'])) ? ($_GET['pag']) : ('frontpage.php'); //read URL-pag parameter in

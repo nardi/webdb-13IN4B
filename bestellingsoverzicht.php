@@ -6,7 +6,7 @@
     }
     else
     {
-        require 'totaalbedrag.php';
+        require_once 'totaalbedrag.php';
 ?>
   <h1><center><b>Bestellingen</b></center></h1>
 <?php

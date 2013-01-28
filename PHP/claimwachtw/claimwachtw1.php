@@ -1,3 +1,3 @@
 <?php
-require('../../private/claimwachtw.php');
+require_once('../../private/claimwachtw.php');
 ?>

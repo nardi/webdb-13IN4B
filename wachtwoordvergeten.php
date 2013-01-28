@@ -73,7 +73,7 @@ if (isset($_POST['email'])) {
 		</body>
 		</html>';
 		$css = file_get_contents('main.css') ;
-		require 'email.php';
+		require_once 'email.php';
 		leuke_mail($email, $onderwerp, $html, $css);
 		
 		

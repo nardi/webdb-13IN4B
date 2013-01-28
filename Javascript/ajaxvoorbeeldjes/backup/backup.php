@@ -22,7 +22,7 @@ $stmt->sfetch() ;
     </title>
     <script type="text/javascript" src="../../dojo/dojo.js"></script>
     <script type="text/javascript">
-        dojo.require("dojo.io.*");
+        dojo.require_once("dojo.io.*");
         var submitted = false; //status van de pagina: submitted of niet
         var url = 'https://websec.science.uva.nl:30443/~kaper/ajaxvoorbeeldjes/backup/backup.server.php';
         function save(ready) {

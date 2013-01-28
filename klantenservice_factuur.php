@@ -15,7 +15,10 @@ U bent niet ingelogd!
 		<hr width="100%">
 		<center><b>Vragen over uw factuur</b></center>
 		<br />
-	}
+	
 		
 		</div>
 		</div>
+	<?php
+	}
+	?>
