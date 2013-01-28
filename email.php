@@ -14,7 +14,7 @@
     function bestelling_mail($bestelling_id, $subject, $message)
     {
         $db = connect_to_db();
-        $email_sql = $db->prepare("SELECT email FROM Gebruikers JOIN Bestellingen ON Gebriukers.id = gebruiker_id WHERE Bestellingen.id = ?");
+        $email_sql = $db->prepare("SELECT email FROM Gebruikers JOIN Bestellingen ON Gebruikers.id = gebruiker_id WHERE Bestellingen.id = ?");
         $email_sql->bind_param('i', $bestelling_id);
         $email_sql->bind_result($email);
         $email_sql->execute();
