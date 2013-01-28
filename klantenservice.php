@@ -88,7 +88,7 @@ document.getElementById("keuze_3").value=mylist.options[mylist.selectedIndex].te
 				break;
 			}
 		case Klacht:
-				document.write"<p>Klik op <a href='https.superinternetshop.nl/klachtenformulier.php'>deze link</a> om bij het klachtenformulier te komen.</p>");
+				document.write"<p>Klik op <a href='klachtenformulier.php'>deze link</a> om bij het klachtenformulier te komen.</p>");
 				break;
 		} <?php
 		}
