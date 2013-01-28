@@ -1,6 +1,8 @@
 <?php
     function bestelling_weergeven($id, $email = FALSE, $editable = FALSE)
     {
+        require_once 'adresweergave.php';
+        
         $abs = '';
         if ($email)
             $abs = $_SERVER['SERVER_NAME'] . '/';
@@ -8,12 +10,12 @@
         
         $db = connect_to_db();
         $sql = $db->prepare("SELECT Producten.id, titel, hoeveelheid, Bestelling_Product.prijs,
-                                cover, betaalstatus, verzendkosten, verzendstatus
+                                cover, betaalstatus, verzendkosten, verzendstatus, adres_id
                              FROM Producten JOIN Bestelling_Product ON product_id = Producten.id
                              JOIN Bestellingen ON Bestellingen.id = bestelling_id
                              WHERE bestelling_id = ?");
         $sql->bind_param('i', $id);
-        $sql->bind_result($product_id, $titel, $hoeveelheid, $prijs, $cover, $betaalstatus, $verzendkosten, $verzendstatus);
+        $sql->bind_result($product_id, $titel, $hoeveelheid, $prijs, $cover, $betaalstatus, $verzendkosten, $verzendstatus, $adres_id);
         $sql->execute();
         
         $html .= '<table class="product-list">
@@ -102,7 +104,10 @@
                   <th colspan="2" class="right">Totaalbedrag:</th>
                   <td>&euro;<span id="total-price">' . prijs($totaalbedrag) . '</span></td>
                 </tr>
-            </table>';
+            </table>
+            <br />
+            Wordt verstuurd naar:
+            ' . adres_weergeven($adres_id);
             
         return $html;
     }

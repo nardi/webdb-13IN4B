@@ -70,14 +70,14 @@
         $email_sql->execute();
         if ($email_sql->fetch())
         {
-            require 'bestelling-weergeven.php';
+            require_once 'bestelling-weergeven.php';
             $html = '<html>
                       <body>
                         Uw betaling wordt zo snel mogelijk verwerkt.<br/>Hier is nogmaals te zien wat u precies besteld heeft:<br/>' . bestelling_weergeven($bestelling, TRUE) .
                      '</body>
                      </html>';
             $css = file_get_contents('main.css') . "\n" . file_get_contents('productlijst.css');
-            require 'email.php';
+            require_once 'email.php';
             leuke_mail($email, 'U heeft betaald voor uw bestelling bij Super Internet Shop', $html, $css);
         }
         $email_sql->free_result();

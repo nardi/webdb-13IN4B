@@ -10,7 +10,7 @@
     }
     else
     {
-        require 'bestelling-weergeven.php';
+        require_once 'bestelling-weergeven.php';
         $id = $_GET['id'];
         
         $db = connect_to_db();
@@ -36,7 +36,7 @@
                              '</body>
                              </html>';
                     $css = file_get_contents('main.css') . "\n" . file_get_contents('productlijst.css');
-                    require 'email.php';
+                    require_once 'email.php';
                     leuke_mail($email, "Statusverandering van uw bestelling #$id bij Super Internet Shop", $html, $css);
                 }
                 $email_sql->free_result();

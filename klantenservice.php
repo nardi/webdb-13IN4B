@@ -2,23 +2,27 @@
 
 <head>
 <script>
-function vraag_selectie()
+function loadXMLDoc(var x)
 {
-var mylist=document.getElementById("myList");
-document.getElementById("keuze_1").value=mylist.options[mylist.selectedIndex].text;
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+    document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+    }
+  }
+xmlhttp.open("GET","xmlhttp_info.txt",true);
+xmlhttp.send();
 }
 
-function tweede_vraag_selectie()
-{
-var mylist=document.getElementById("myList");
-document.getElementById("keuze_2").value=mylist.options[mylist.selectedIndex].text;
-}
-
-function derde_vraag_selectie()
-{
-var mylist=document.getElementById("myList");
-document.getElementById("keuze_3").value=mylist.options[mylist.selectedIndex].text;
-}
 </script>
 </head>
 
@@ -33,69 +37,35 @@ document.getElementById("keuze_3").value=mylist.options[mylist.selectedIndex].te
 		<?php
 	} else {
 		?>
-		<form>
+		<div class="account-wachtwoord-veranderen">
+		<div align="right"> 
+		<h1><center><b>Klantenservice</b></center></h1>
+		<hr width="100%">
+		<center><b>Vragen over uw factuur</b></center>
+		<br />
+	
+		<form action=../">
 		Waar gaat uw vraag over?
-		<select id="myList" onchange="vraag_selectie()">
-		<option></option>
-		<option>Factuur</option>
+		<select id="myList" onchange="loadXMLDoc(this.options[this.selectedIndex].value,'_top')">
+		<option value="">Kies een onderwerp...</option>
+		<option value="klantenservice_factuur.php">Factuur</option>
 		<option>Verzending</option>  
 		<option>Artikel</option>
 		<option>Klacht</option>
 		</select>
 		</form>
 		
+		</div>
+		</div>
+		
+		</body>
 		
 		
-		if ("keuze_1" == "Factuur") {
-			document.write("<p>Als u naar "Mijn Account" gaat dan kunt u uw facturen van de bestellingen bekijken.</p>");
-			break;
-		}
-		case Verzending:
-			<form>
-			Welke specifieke vraag heeft u over de verzending?
-			<select id="myList" onchange="tweede_vraag_selectie()">
-			<option></option>
-			<option>Verzendkosten</option>
-			<option>Verzend-duur</option> 
-			
-			var y =	<input type="text" id="keuze_2" size="20"> ;
-			switch (y)
-			{
-			case Verzendkosten:
-				document.write("<p>Onze standaard verzendkostenbedragen €6,75. Deze worden berekend aan het eindvan het bestelproces.</p>");
-				break;
-			
-			case Verzend-duur:
-				document.write("<p>Als op werkdagen voor 19:00 bij ons besteld heeft, dan wordt de volgende dag uw bestelling afgeleverd door PostNL</p>");
-				break;
-			}
-		case Artikel:
-		
-			<form>
-			U heeft een vraag over een artikel, specificeer uw vraag gelieve verder:
-			<select id="myList" onchange="derde_vraag_selectie()">
-			<option></option>
-			<option>Releasedatum bepaald artikel</option>
-			<option>Heeft u een bepaald artikelop voorraad?</option>  
-			</select>
-			var z =	<input type="text" id="keuze_3" size="20"> ;
-			switch (z) 
-			{
-			case Releasedatum bepaald artikel:
-				document.write("<p>Alle artikelen die binnen 30 dagen in onze webshop zullen verschijnen kunt u vinden onder het kopje "Nieuwe Releases".</p>");
-				break;
-			case Heeft u een bepaald artikel op voorraad?:
-				document.write("<p>Als u op het artikel klikt dan kunt u in het overzicht zien als een artikel niet op voorraad is.</p>");
-				break;
-			}
-		case Klacht:
-				document.write"<p>Klik op <a href='klachtenformulier.php'>deze link</a> om bij het klachtenformulier te komen.</p>");
-				break;
-		} <?php
+		<?php
 		}
 		?>
-		</form>
-		</body>
+		
+		
 
 		</html>
 
