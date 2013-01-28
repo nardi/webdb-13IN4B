@@ -128,7 +128,6 @@
         
         //id gebruiker aan AdresGebruiker toewijzen 
         $gebruiker_id = $sqli_gebruikers->insert_id;
-        echo $gebruiker_id;
         
         //id adres aan AdresGebruiker toewijzen
         $adres_id = $sqli_adressen->insert_id;

@@ -38,8 +38,6 @@
         $sqli_adresgebr->bind_param('ii', $adres_id, $gebruiker_id);
         $sqli_adresgebr->execute(); 
         
-        echo "$gebruiker_id";
-        
         $db->close();
         
         redirect_to("adres-toevoegen-succesvol.html");

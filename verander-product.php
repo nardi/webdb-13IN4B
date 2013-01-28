@@ -1,15 +1,15 @@
 <?php
     $db = connect_to_db();
     
-    $sqli_id = $db->prepare("SELECT id FROM Producten");
+    /*$sqli_id = $db->prepare("SELECT id FROM Producten");
     $sqli_id->bind_result($id);
     $sqli_id->execute();
     $sqli_id->store_result();
-   // $sqli_id->free_result();
+   // $sqli_id->free_result();*/
     ?><script>//alert("Main");</script><?php
     var_dump($_POST);
-    while($sqli_id->fetch()){
-        echo "ID=$id <br>";
+    //while($sqli_id->fetch()){
+        //echo "ID=$id <br>";
         ?><script>//alert("while");</script><?php
         if(isset($_POST['titel'])){
             ?><script>//alert("if");</script><?php
@@ -20,14 +20,14 @@
             $prijs=$_POST['prijs'];
             $release_date=$_POST['release'];
             $voorraad=$_POST['voorraad'];
+            $id=$_POST['id'];
             
-            
-            try{
+           try{
                 echo "TRY";
-                $cover=upload_image("image");
+                $image = upload_image("file");
             }
             catch(Exeption $img){
-                $cover=NULL;
+                $image=NULL;
             }
             
             
@@ -42,7 +42,7 @@
             if($cover!=NULL){
                 echo"NULL!";
                 $sqli_verander_cover = $db->prepare("UPDATE Producten SET cover=? WHERE id=?");
-                $sqli_verander_cover->bind_param('ss',$cover,$id);
+                $sqli_verander_cover->bind_param('ss',$image,$id);
                 $sqli_verander_cover->execute();
                 
             }
@@ -50,7 +50,7 @@
         //$titeltest=$_POST['titel22'];    
         //echo "$titeltest";
 
-    }
+    
     $db->close();
 ?>
     
