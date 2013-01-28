@@ -8,7 +8,7 @@
     $sqli->bind_param('s', $emailquery);
     $sqli-> bind_result($id, $naam, $achternaam, $email, $status);
     $sqli->execute();
-    echo "<form method=\"post\" action=\"account-bewerken.php\">";
+    echo "<form method=\"post\" action=\"adplus-bewerken.php\">";
     echo "<table>";
     
     
