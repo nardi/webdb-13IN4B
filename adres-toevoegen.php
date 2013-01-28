@@ -25,17 +25,17 @@
     if(preg_match($validPostcode, $postcode)&&
        preg_match($validHuis, $huisnummer)){
         
-        $sqli_addadres = $db->prepare("INSERT INTO Adressen (postcode, huisnummer, toevoeging, plaats, straat)
+        $sqli_adressen = $db->prepare("INSERT INTO Adressen (postcode, huisnummer, toevoeging, plaats, straat)
         VALUES (?,?,?,?,?)");
-        $sqli_addadres->bind_param('sisss',$postcode , $huisnummer , $toevoeging , $plaats , $straat);
-        $sqli_addadres->execute();
+        $sqli_adressen->bind_param('sisss',$postcode , $huisnummer , $toevoeging , $plaats , $straat);
+        $sqli_adressen->execute();
         
         //id van adres en id van gebruiker aan tabel AdresGebruiker toewijzen
-        $ad_adres_id = $sqli_addadres->insert_id;
+        $adres_id = $sqli_adressen->insert_id;
         $gebruiker_id = $_SESSION['gebruiker-id'];
         
         $sqli_adresgebr = $db->prepare("INSERT INTO AdresGebruiker (adres_id, gebruiker_id) VALUES (?,?)");
-        $sqli_adresgebr->bind_param('ii', $ad_adres_id, $gebruiker_id);
+        $sqli_adresgebr->bind_param('ii', $adres_id, $gebruiker_id);
         $sqli_adresgebr->execute(); 
         
         $db->close();
