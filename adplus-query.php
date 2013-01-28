@@ -11,7 +11,7 @@
     echo "<table>";
     
 
-    while ($platformsql->fetch()) {
+    while ($sqli->fetch()) {
         echo "<tr>";
         echo "<td>$naam</td> <td>$achternaam</td> <td>$email</td>";
         echo "</tr>";
