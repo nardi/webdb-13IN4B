@@ -1,5 +1,5 @@
 <?php
-    require '../main.php'; 
+    require_once '../main.php'; 
     $db = connect_to_db();
 
     $emailquery ='%' . $_GET['email'] . '%';

@@ -4,7 +4,7 @@ Bevat validatieregels voor een serie formulieren
 met bijbehorende foutboodschappen
 */
 
-require("formvalidator.class.php") ;
+require_once("formvalidator.class.php") ;
 
 class myformvalidator extends formvalidator {
     function __construct() {

@@ -1,7 +1,7 @@
 <?php
     function leuke_mail($email, $subject, $html, $css = '')
     {
-        require 'CssToInlineStyles.php';
+        require_once 'CssToInlineStyles.php';
         $converter = new TijsVerkoyen\CssToInlineStyles\CssToInlineStyles($html, $css);
         mail($email,
              $subject,

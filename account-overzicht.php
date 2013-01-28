@@ -34,10 +34,10 @@ U bent niet ingelogd!
         
         $db->close();
     ?>
-    <div class="account-overzicht">
-      <div align="right"> 
+    <div class="account-overzicht"> 
       <h1><center><b>Mijn account</b></center></h1>
         <hr width="100%">
+        <div align="right">
         <center><b>Accountgegevens</b></center>
         <br/>
         Voornaam: <input type="text" name="voornaam" disabled value = "<?php echo $naam; ?>" ><br/>
@@ -50,21 +50,17 @@ U bent niet ingelogd!
         Plaats: <input type="text" name="plaats" disabled value = "<?php echo $plaats; ?>"><br/>
         Telefoonnummer: <input type="text" name="telefoonnummer" disabled value = "<?php echo $telefoonnummer; ?>"><br/>
         E-mailadres: <input type="email" name="e-mailadres" disabled value = "<?php echo $email; ?>"><br/>
-        <hr width="100%">
-        <div width="100%" align="center">
-        <center><b>Bestellingen</b></center><br/>
-            <a href="bestelgeschiedenis.php"><input type="submit" value="Bestelgeschiedenis"></a>
         </div>
         <hr width="100%">
-        <div width="100%" align="center">
+        <center><b>Bestellingen</b></center><br/>
+            <a href="bestelgeschiedenis.php"><input type="submit" value="Bestelgeschiedenis"></a>
+        <hr width="100%">
         <center><b>Bewerken</b></center><br/> 
             <a href="account-wachtwoord-veranderen.php"><input type="submit"  value="Wachtwoord veranderen"></a><br/>
             <a href="adres-toevoegen.html"><input type="submit"  value="Adres toevoegen"></a><br />
             <a href="account-bewerken.html"><input type="submit"  value="Accountgegevens veranderen"></a><br/>
             <a href="account-verwijderen.html"><input type="submit"  value="Account verwijderen"></a>
-        </div>
         <hr width="100%">
-      </div>
     </div>
 
 	<?php

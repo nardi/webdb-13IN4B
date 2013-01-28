@@ -7,7 +7,7 @@
     
     if (isset($_POST['add']))
     {
-        require 'voorraad.php';
+        require_once 'voorraad.php';
         if (is_op_voorraad($_POST['add']))
             $ww->add($_POST['add']);
         else

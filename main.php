@@ -165,5 +165,5 @@
         return $prijs;
     }
     
-    require 'winkelwagen.class.php';
+    require_once 'winkelwagen.class.php';
 ?>

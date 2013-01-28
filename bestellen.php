@@ -1,7 +1,7 @@
 <div class="centered-container">
 <?php
-    require 'bestelling-weergeven.php';
-    require 'voorraad.php';
+    require_once 'bestelling-weergeven.php';
+    require_once 'voorraad.php';
     
     if (!isset($_SESSION['logged-in']))
     {
@@ -44,9 +44,10 @@
             }
             else
             {
+                $adres_id = $_POST['adres'];
                 $verzendkosten = $ww->get_shipping();
-                $sqli_bestelling = $db->prepare("INSERT INTO Bestellingen (gebruiker_id, verzendkosten) VALUES (?, ?)");
-                $sqli_bestelling->bind_param('id', $gebruiker_id, $verzendkosten);
+                $sqli_bestelling = $db->prepare("INSERT INTO Bestellingen (gebruiker_id, verzendkosten, adres_id) VALUES (?, ?)");
+                $sqli_bestelling->bind_param('idi', $gebruiker_id, $verzendkosten, $adres_id);
                 if(!$sqli_bestelling->execute())
                     throw new Exception($sqli_bestelling->error);
                 $bestelling_id = $sqli_bestelling->insert_id;
@@ -78,7 +79,7 @@
                             '</body>
                              </html>';
                     $css = file_get_contents('main.css') . "\n" . file_get_contents('productlijst.css');
-                    require 'email.php';
+                    require_once 'email.php';
                     leuke_mail($email, 'Uw bestelling bij Super Internet Shop', $html, $css);
                 }
                 $email_sql->free_result();
@@ -105,8 +106,14 @@ Dit kan ook op een later moment via uw accountoverzicht, maar tot dan wordt uw b
             echo $ww->display(FALSE);
 ?>
 <br/>
-<p>Voer uw wachtwoord opnieuw in ter controle voor u een bestelling plaatst:</p>
 <form method="post">
+<p>Kies hieronder het adres waarnaar de bestelling verstuurd moet worden:</p>
+<?php
+    require_once 'adresweergave.php';
+    adres_select($_SESSION['gebruiker-id']);
+?>
+<br/>
+<p>Voer uw wachtwoord opnieuw in ter controle voor u een bestelling plaatst:</p>
     <input type="password" name="wachtwoord"><br/>
     <input type="submit" value="Plaats bestelling"><br/>
 </form>
