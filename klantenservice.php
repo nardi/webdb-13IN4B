@@ -43,12 +43,13 @@ document.getElementById("keuze_3").value=mylist.options[mylist.selectedIndex].te
 		<option>Klacht</option>
 		</select>
 		</form>
-		var x = <input type="text" id="keuze_1" size="20"></p> ;
-		switch (x)
-		{
-		case Factuur:
+		
+		
+		
+		if ("keuze_1" == "Factuur") {
 			document.write("<p>Als u naar "Mijn Account" gaat dan kunt u uw facturen van de bestellingen bekijken.</p>");
 			break;
+		}
 		case Verzending:
 			<form>
 			Welke specifieke vraag heeft u over de verzending?
