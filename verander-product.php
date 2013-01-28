@@ -1,11 +1,11 @@
 <?php
     $db = connect_to_db();
     
-    //$sqli_id = $db->prepare("SELECT id FROM Producten");
-    $sqli_id =$db->prepare("SELECT Producten.id,titel,platform_id,genre_id,beschrijving,prijs,release_date,voorraad,datum_toegevoegd,cover,Platforms.naam,Genres.naam FROM Producten JOIN Platforms ON platform_id=Platforms.id JOIN Genres ON genre_id=Genres.id");
-    $sqli_id->bind_result($id,$titelbagger,$platform_idbagger,$genre_idbagger,$beschrijvingbagger,$prijsbagger,$release_datebagger,$voorraadbagger,$datum_toegevoegdbagger,$coverbagger,$platformnaambagger,$genrenaambagger);
-    //$sqli_id->bind_result($id);
+    $sqli_id = $db->prepare("SELECT id FROM Producten");
+    $sqli_id->bind_result($id);
     $sqli_id->execute();
+    $sqli_id->store_result();
+    $sqli_id->free_result();
     ?><script>alert("Main");</script><?php
     var_dump($_POST);
     while($sqli_id->fetch()){
