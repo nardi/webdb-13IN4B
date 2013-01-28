@@ -2,7 +2,7 @@
 
 <head>
 <script>
-function loadXMLDoc(link)
+function loadXMLDoc(var x)
 {
 if (window.XMLHttpRequest)
   {// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -19,7 +19,7 @@ xmlhttp.onreadystatechange=function()
     document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
     }
   }
-xmlhttp.open("GET",link,true);
+xmlhttp.open("GET","xmlhttp_info.txt",true);
 xmlhttp.send();
 }
 
