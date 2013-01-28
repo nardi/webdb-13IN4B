@@ -30,9 +30,9 @@ if (isset($_POST['email'])) {
 	//naam en id worden opgehaald uit db, tegelijk wordt gekeken of email voorkomt in db
 	$email = $_POST['email'] ;
 	$db = connect_to_db();
-	$sql = $db->prepare("SELECT id, naam FROM Gebruikers WHERE email = ? LIMIT 1");
+	$sql = $db->prepare("SELECT id, naam, achternaam FROM Gebruikers WHERE email = ? LIMIT 1");
 	$sql->bind_param("s", $email) ;
-	$sql->bind_result($id, $naam) ;
+	$sql->bind_result($id, $naam, $achternaam) ;
 	$sql->execute();
 	
 
@@ -79,7 +79,7 @@ if (isset($_POST['email'])) {
 		<head>
 		</head>
 		<body>
-		Geachte heer / mevrouw '.$naam.',<br /><br />
+		Geachte heer / mevrouw '.$naam.' '.$achternaam.',<br /><br />
 		
 		Hierbij ontvangt u een email om uw wachtwoord opnieuw in te stellen. <br />
 		Klik op <a href="https://www.superinternetshop.nl/wachtwoord-reset.php?token=' . $token . '&id=' . $id . '">wachtwoordlink</a> <br />
