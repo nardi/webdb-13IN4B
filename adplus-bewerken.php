@@ -3,10 +3,10 @@
     
     $idedit = $_POST['id'];
     
-    $sqli = $db->prepare("SELECT naam, achternaam, telefoonnummer, email, status from Gebruikers WHERE id=?");
-    $sqli->bind_param('s', $idedit);
+    $sqli = $db->prepare("SELECT naam, achternaam, telefoonnummer, email, status FROM Gebruikers WHERE id=?");
+    $sqli->bind_param('i', $idedit);
     $sqli->bind_result($naam, $achternaam, $telefoonnummer, $email, $status);
-    $sqli->execute();
+    echo $sqli->execute();
     echo $naam . "...<br />";
     
     echo "<h1> Gebruikers gegevens </h1>";
