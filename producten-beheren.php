@@ -16,7 +16,7 @@
 <tr><td colspan=12>
 <hr />
 </td></tr>
-    <form name='EditProduct' id='EditProductId' action='verander-product.php' method='post'>
+    <form name='EditProduct' id='EditProductId' action='verander-product.php' method='post' enctype="multipart/form-data">
     <input type='submit' value='wijzigingen aanbrengen'>
     <?php
         $db2 = connect_to_db();
