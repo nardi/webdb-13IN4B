@@ -13,7 +13,7 @@ $sql = $db->prepare("UPDATE Gebruikers SET status = 2 WHERE activatie_token = ? 
 $sql->bind_param("s", $token) ;
 $sql->execute();
 
-$sql2 = $db->prepare("UPDATE Gebruikers SET activatie_token = '0' WHERE activatie_token = ? LIMIT 1");
+$sql2 = $db->prepare("UPDATE Gebruikers SET activatie_token = NULL WHERE activatie_token = ? LIMIT 1");
 $sql2->bind_param("s", $token) ;
 $sql2->execute();
 

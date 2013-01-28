@@ -17,8 +17,8 @@
     /* Deze code komt uit de voorbeeldcode voor HTTPS, uit het bestand form.php
      */
     if (!isset($_SERVER['HTTPS']) || !$_SERVER['HTTPS']) {
-        $uri = 'https://'.$_SERVER['SERVER_NAME'].$_SERVER['SCRIPT_NAME'];
-        header('Location: '.$uri);
+        $uri = 'https://'.$_SERVER['SERVER_NAME'].'/'.$pag;
+        //header('Location: '.$uri);
     }
 ?>
 <?xml version="1.0"?>
