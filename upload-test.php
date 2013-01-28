@@ -28,15 +28,15 @@ if ((($_FILES["file"]["type"] == "image/gif")
       $status = $_FILES["file"]["error"];
       echo "Status: $status <br /> <br />";
       
-      if(!move_uploaded_file($_FILES["file"]["tmp_name"],
-      "/uploads/" . $_FILES["file"]["name"])) {
+      if(!move_uploaded_file($_FILES[$name]["tmp_name"],
+        "uploads/" . $_FILES[$name]["name"])) {
         throw new Exception("Faal");
       }
       
       
       
       
-      if(file_exists("/datastore/webdb13IN4B/uploads/" . $_FILES["file"]["name"])) {
+      if(file_exists("uploads/" . $_FILES["file"]["name"])) {
         echo "true";
       }
       else {
