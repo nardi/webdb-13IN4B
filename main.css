@@ -75,6 +75,7 @@ a {
 #footer img {
     width: 88px;
     height: 32px;
+    display: block;
 }
 
 /* The logo */ 
