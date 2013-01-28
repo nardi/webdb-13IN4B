@@ -25,7 +25,7 @@ function enableEdit(id){
 
 function uploadCover(coverId, id){
     var image = 'image'+id;
-    coverId.innerHTML="<input class='fileupload' type='file' name="image">";
+    coverId.innerHTML="<input class='fileupload' type='file' name='"+image+"'>";
     coverId.onclick="";
 }
 
