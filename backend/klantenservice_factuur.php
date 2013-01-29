@@ -18,7 +18,7 @@ U bent niet ingelogd!
 	<div class="account-wachtwoord-veranderen">
 		<div align="right"> 
 		<hr width="100%">
-		<
+		
 		
 		<form>
 		Wat voor vraag heeft u over uw factuur?
