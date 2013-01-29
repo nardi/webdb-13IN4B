@@ -63,16 +63,20 @@ if (isset($_POST['email'])) {
 		via deze link kunt u eenmalig uw wachtwoord aanpassen. <br /><br />
 		
 		Met vriendelijke groet,
-		<br /> <br />
+		<br /> <br /> <br />
+		<div>
 		Stefani Koetsier <br />
 		Customer Care Officer <br />
 		<b> Super Internet Shop </b> <br />
 		<i> Where gaming begins </i> <br />
-		
+		contact@superinternetshop.nl
+		</div>
+		'
 		
 		
 		;
-		$html .= "<img class="displayed src="/images/logo/logo-sis.png" alt="logo" width="70" height="33"></body></html>';
+		$html .='<img class="displayed src="https.superinternetshop.nl/images/logo/logo-sis.png" alt="logo" width="70" height="33">
+		</body></html>';
 		$css = file_get_contents('main.css') ;
 		require_once 'email.php';
 		leuke_mail($email, $onderwerp, $html, $css);

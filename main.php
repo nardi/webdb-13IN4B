@@ -41,6 +41,11 @@
         header("location:$url");
     }
     
+    function string_starts_with($string, $search) 
+    { 
+        return (strncmp($string, $search, strlen($search)) == 0); 
+    } 
+    
     function get_address($postcode, $nummer, $toevoeging = '')
     {
         $ch = curl_init("https://api.postcode.nl/rest/addresses/$postcode/$nummer/$toevoeging");

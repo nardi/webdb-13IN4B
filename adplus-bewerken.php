@@ -47,8 +47,15 @@
             <td><input type='text' name='achternaam' value ='$achternaam' /></td>
             <td><input type='text' name='telefoonnummer' value ='$telefoonnummer' /></td>
             <td><input type='text' name='email' value ='$email' /></td>
-            <td><input type='text' name='status' value ='$status' /></td>
-            <td><input type='hidden' name='id' value ='$idedit' /></td>
+            <td><select name ='status'>";
+            ?>
+                <option value='1' <?php if($status == 1){ echo 'selected="selected"';} ?> >Ongeverifiëerd</option>
+                <option value='2' <?php if($status == 2){ echo 'selected="selected"';} ?> >Geverifiëerd</option> 
+                <option value='3' <?php if($status == 3){ echo 'selected="selected"';} ?> >Medewerker</option>
+                <option value='4' <?php if($status == 4){ echo 'selected="selected"';} ?> >Beheerder</option>
+                </select></td>
+            <?php
+            echo "<td><input type='hidden' name='id' value ='$idedit' /></td>
             </tr>
         
             </table>";

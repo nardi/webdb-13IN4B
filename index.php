@@ -4,21 +4,37 @@
     require_once 'main.php';
     
     session_start();
-    $pag = (isset($_GET['pag'])) ? ($_GET['pag']) : ('frontpage.php'); //read URL-pag parameter in
-    if (strpos($pag, '.'))
+    
+    $default_page = 'frontpage.php';
+    $pag = (isset($_GET['pag'])) ? ($_GET['pag']) : ''; //read URL-pag parameter in
+    if (string_starts_with($_SERVER['REQUEST_URI'], 'index.php'))
     {
-        $pagename = implode('.', explode('.', $pag, -1));
-    }
-    else
-    {
-        $pagename = $pag;
+        if (!empty($pag))
+            redirect_to('/');
+        else
+        {
+            redirect_to('/' . substr($_SERVER['REQUEST_URI'], strlen('index.php?pag=')));
+        }
     }
     
     /* Deze code komt uit de voorbeeldcode voor HTTPS, uit het bestand form.php
      */
     if (!isset($_SERVER['HTTPS']) || !$_SERVER['HTTPS']) {
-        $uri = 'https://'.$_SERVER['SERVER_NAME'].'/'.$pag;
+        $uri = 'https://'.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];
         //header('Location: '.$uri);
+    }
+    
+    if (strpos($pag, '.'))
+    {
+        $pagename = implode('.', explode('.', $pag, -1));
+    }
+    else if (empty($pag))
+    {
+        $pagename = $default_page;
+    }
+    else
+    {
+        $pagename = $pag;
     }
 ?>
 <?xml version="1.0"?>
@@ -38,26 +54,14 @@
 
 <body onload = "setButtonColor(location.pathname)">
 
-<?php
-    if (!isset($_COOKIE["user"])) {
-?>
-    <script type="text/javascript">
-        window.onload = alert("Deze website maakt gebruik van functionele cookies. Bij het gebruik van de website gaat u hiermee akkoord.") ;
-    </script>
-<?php
-}
-?>
-
 <div id="mainWindow">
     <div class="banner">
         <div id="logo" class="vcenter" onclick="window.open('/', '_self');">
             <img src="images/logo/logo-sis-met-tekst.png" alt="Link to homepage" />
         </div>
-        <div id="dashboard">
-            <?php
-                include("dashboard.php");
-			?>
-        </div>
+        <?php
+            include("dashboard.php");
+        ?>
     </div>
     <div id="contentWindow">
         <div id="sidebar">
@@ -69,7 +73,7 @@
             <?php
                 if (empty($pag))
                 {
-                    include("frontpage.php");
+                    include($default_page);
                 }
                 else
                 {
@@ -104,6 +108,16 @@
 	konami = new Konami()
 	konami.load("?pag=42.toad");
 </script>
+
+<?php
+    if (!isset($_COOKIE["user"])) {
+?>
+    <script type="text/javascript">
+        //window.onload = alert("Deze website maakt gebruik van functionele cookies. Bij het gebruik van de website gaat u hiermee akkoord.") ;
+    </script>
+<?php
+}
+?>
 
 </body>
 </html>
