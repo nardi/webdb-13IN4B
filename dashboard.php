@@ -1,4 +1,6 @@
 <?php
+    require_once 'winkelwagen.class.php';
+
     function ww_dash()
     {
 ?>

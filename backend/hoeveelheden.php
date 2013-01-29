@@ -1,5 +1,6 @@
 <?php
     require_once '../main.php';
+    require_once '../winkelwagen.class.php';
     
     session_start();
     
