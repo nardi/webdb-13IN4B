@@ -1,7 +1,5 @@
 <?php
     if(is_admin()){
-        $iid=$_POST['delete'];
-        product_verwijderen_func($iid);
         function product_verwijderen_func($pid){
             $id=$pid;
             $db = connect_to_db();
@@ -24,6 +22,10 @@
             
         
             echo "<img src='placeholder' /> <br /> <strong> $titel is succesvol verwijderd uit de database.</strong>";
+        }
+        if(isset($_POST['delete'])){
+            $iid=$_POST['delete'];
+            product_verwijderen_func($iid);
         }
     }
     else
