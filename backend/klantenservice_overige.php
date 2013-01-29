@@ -16,9 +16,9 @@ if ((!isset($_SESSION['logged-in']))) {
 	<div class="centered-container"> 
 	<div class="account-wachtwoord-veranderen">
 	<hr width="100%">
-	
+	<br />
 	<?php
-	echo "U heeft aangegevendat uw vraag er niet tussen staat.
+	echo "U heeft aangegeven dat uw vraag er niet tussen staat.
 		Klikop onderstaande link om ons een bericht te sturen.";
 	?>
 	<br /><br >
