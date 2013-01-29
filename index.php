@@ -59,6 +59,9 @@
         <div id="logo" class="vcenter" onclick="onButtonclick();">
             <img src="images/logo/logo-sis-met-tekst.png" alt="Link to homepage" />
         </div>
+        <div id="slogan" class="vcenter">
+        
+        </div>
         <?php
             include("dashboard.php");
         ?>
