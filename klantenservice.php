@@ -40,7 +40,7 @@ return xhttp.responseXML;
 	
 		<form>
 		Waar gaat uw vraag over?
-		<select id="myList" onchange="choice = this.options[this.selectedIndex].value;">
+		<select id="myList" onchange="loadXMLDoc("this.options[this.selectedIndex].value")">
 		<option value="">Kies een onderwerp...</option>
 		<option value="klantenservice_factuur.php">Factuur</option>
 		<option value="klantenservice_verzending.xml">Verzending</option>  
@@ -49,7 +49,7 @@ return xhttp.responseXML;
 		</select>
 		</form>
 		
-		loadXMLDoc(choice);
+		
 		
 		</div>
 		</div>
