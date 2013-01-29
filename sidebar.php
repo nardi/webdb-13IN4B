@@ -21,7 +21,7 @@
 <form method="get" action="products.php" id='searchform'>
     <div>
         <input type="text" name="search"/>
-        <div id='searchbutton' onclick=<script>document.getElementById('searchform').submit()</script>>
+        <div id='searchbutton' onclick='document.getElementById('searchform').submit()'>
         </div>
     </div>
 </form>
