@@ -21,6 +21,7 @@
 <form method="get" action="products.php">
     <div>
         <input type="text" name="search"/>
+        <input type='submit' value='' id='searchbutton'>
     </div>
 </form>
 

@@ -1,5 +1,3 @@
-<link rel="stylesheet" type="text/css" href="item-description.css">
-
 <body>
 <?php 
     /*Onderstaande verkrijgt dynamisch de informatie over een product op basis van de meegegeven id.*/
