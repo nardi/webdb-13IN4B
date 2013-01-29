@@ -21,7 +21,8 @@ if ((!isset($_SESSION['logged-in']))) {
 	echo "U heeft aangegevendat uw vraag er niet tussen staat.
 		Klikop onderstaande link om ons een bericht te sturen.";
 	?>
-	<a href="https//www.superinternetshop.nl/klantenservice_niet_beantwoord.php">ga naar formulier</a>
+	<br /><br >
+	<a href="/klantenservice_niet_beantwoord.php">ga naar formulier</a>
 	<script type="text/JavaScript">
 	   setTimeout("location.href = '/klantenservice_niet_beantwoord.php';",3500);
 	</script>
