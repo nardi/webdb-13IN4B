@@ -5,6 +5,7 @@
     $sqli_id = $db->prepare("SELECT id FROM Producten");
     $sqli_id->bind_result($id);
     $sqli_id->execute();
+    //Dit bestand moet worden teruggezet naar een andere GIT versie.
     $sqli_id->store_result();
    // $sqli_id->free_result();*/
     ?><script>//alert("Main");</script><?php
