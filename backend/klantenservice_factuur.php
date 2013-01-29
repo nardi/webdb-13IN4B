@@ -19,7 +19,7 @@ U bent niet ingelogd!
 	<div class="centered-container"> 
 		<div class="account-wachtwoord-veranderen">
 		<hr width="100%">
-		
+		<br />
 		
 		<form>
 		Wat voor vraag heeft u over uw factuur? <br />
@@ -27,7 +27,7 @@ U bent niet ingelogd!
 		<option value="">Kies een onderwerp...</option>
 		<option value="backend/klantenservice_factuur_klopt_niet.php">Factuurbedrag klopt niet</option>
 		<option value="backend/klantenservice_factuur_niet_ontvangen.php">Ik heb geen factuur ontvangen</option>  
-		<option value="backend/klantenservice_overige.php">Overige factuurvragen</option>
+		<option value="klantenservice_overige.php">Overige factuurvragen</option>
 		</select>
 		</form>
 		
