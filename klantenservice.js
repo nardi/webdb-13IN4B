@@ -10,7 +10,7 @@ else
   {
   xhttp=new ActiveXObject("Microsoft.XMLHTTP");
   }
-xhttp.open("GET",dname,false);
+xhttp.open("GET",url,false);
 xhttp.send();
 document.getElementById(element_id).innerHTML=xhttp.responseText;
 }
