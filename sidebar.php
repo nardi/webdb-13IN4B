@@ -18,10 +18,11 @@
 
 <div></div>
 
-<form method="get" action="products.php">
+<form method="get" action="products.php" id='searchform'>
     <div>
         <input type="text" name="search"/>
-        <input type='submit' value='' id='searchbutton'>
+        <div id='searchbutton' onclick=<script>document.getElementById('searchform').submit()</script>>
+        </div>
     </div>
 </form>
 
