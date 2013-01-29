@@ -2,22 +2,7 @@
 
 <head>
 <head>
-<script>
-function loadXMLDoc(url)
-{
-var xhttp;
-if (window.XMLHttpRequest)
-  {
-  xhttp=new XMLHttpRequest();
-  }
-else
-  {
-  xhttp=new ActiveXObject("Microsoft.XMLHTTP");
-  }
-xhttp.open("GET",url,false);
-xhttp.send();
-document.getElementById("choice").innerHTML=xhttp.responseText;
-}
+<script src="klantenservice.js">
 </script>
 </head>
 </head>
@@ -42,8 +27,8 @@ document.getElementById("choice").innerHTML=xhttp.responseText;
 	
 		<form>
 		Waar gaat uw vraag over? <br />
-		<select id="myList" onchange="loadXMLDoc(this.options[this.selectedIndex].value)">
-		<option>Kies een onderwerp...</option>
+		<select id="myList" onchange="loadXMLDoc(this.options[this.selectedIndex].value,'choice')">
+		<option value="">Kies een onderwerp...</option>
 		<option value="backend/klantenservice_factuur.php">Factuur</option>
 		<option value="klantenservice_verzending.xml">Verzending</option>  
 		<option>Artikel</option>
