@@ -8,7 +8,6 @@ function changeAmount(id)
     xhr.open('POST', url);
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhr.setRequestHeader("Content-length", params.length);
-    xhr.setRequestHeader("Connection", "close");
     xhr.onreadystatechange = function()
     {
         if (xhr.readyState == 4)

@@ -1,6 +1,18 @@
+/* 
+ * Deze functie gebruikt de gratis Postcode.nl API om een huisnummer
+ * en postcode aan te vullen tot een volledig adres
+ */
+var xhr;
 function getAddress(callback, postcode, nummer, toevoeging)
 {
-    var xhr = new XMLHttpRequest();
+    /* 
+     * Als er al een XMLHTTPRequest aan de gang is, zet deze stop zodat
+     * de nieuwe waarde niet overschreven kan worden door een oude
+     */
+    if (xhr)
+        xhr.abort();
+    xhr = new XMLHttpRequest();
+    // Roep PHP-scriptje aan vanwege Same-Origin Policy
     var url = 'backend/adres.php?postcode=' + postcode + '&nummer=' + nummer;
     if (toevoeging && toevoeging != '')
         url += '&toevoeging=' + toevoeging;
@@ -24,8 +36,6 @@ function completeAddress(postcode)
         {
             document.regform.straat.value = adresInfo.street;
             document.regform.plaats.value = adresInfo.city;
-            //document.regform.co.value = adresInfo.latitude + ', ' + adresInfo.longitude;
-            //document.regform.wo.value = adresInfo.surfaceArea + 'm2';
         }
         else
         {
@@ -36,9 +46,6 @@ function completeAddress(postcode)
 
 //http://www.randomsnippets.com/2008/04/01/how-to-verify-email-format-via-javascript/
 
-// Ik heb even je code gecomment omdat de mijne anders ook helemaal niet geladen wordt :)
-
-//function test(){alert("Werken kreng");}
 function checkPostcode(){
     var validPostcode = /^[0-9]{4}[\s-]?[a-z]{2}$/i;
     var postcode = document.getElementById('postcode').value;
