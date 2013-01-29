@@ -49,11 +49,11 @@
                 <td>
                     <input type='text' value=$id hidden='hidden' name='idee$id'>
                 </td>
-                <td class='column'><input type='text' class='inputfield' name='titel' disabled='disabled' value='$titel' size=$titelwidth>titel$id</td>
+                <td class='column'><input type='text' class='inputfield' name='titel$id' disabled='disabled' value='$titel' size=$titelwidth>titel$id</td>
                 <td class='column'><div class='cover' id='cover$id' onclick=\"showImage(cover$id, '$cover')\">Klik hier om de cover te laten zien.</div></td>
-                <td class='column'><textarea class='inputfield' id='beschrijvingid$id' name='beschrijving' disabled='disabled' cols='30' rows='1' onclick='expand(beschrijvingid$id, $beschrijvingSize)' onblur='shrink(beschrijvingid$id)'>$beschrijving</textarea></td>
+                <td class='column'><textarea class='inputfield' id='beschrijvingid$id' name='beschrijving$id' disabled='disabled' cols='30' rows='1' onclick='expand(beschrijvingid$id, $beschrijvingSize)' onblur='shrink(beschrijvingid$id)'>$beschrijving</textarea></td>
                 <td><div class='platform'>
-                    <select name='platform' disabled='disabled'>";
+                    <select name='platform$id' disabled='disabled'>";
 
         $platformsql = $db->prepare("SELECT id, naam FROM Platforms");
         $platformsql->execute();
@@ -71,7 +71,7 @@
 					  </div></td>
                       
                       <td><div class='genre'>
-                    <select name='genre' disabled='disabled'>";
+                    <select name='genre$id' disabled='disabled'>";
 
         $genresql = $db->prepare("SELECT id, naam FROM Genres");
         $genresql->execute();
@@ -87,9 +87,9 @@
                 echo "
 						  </select>
 					  </div></td>
-                <td class='column'><input type='text' class='inputfield' name='prijs' disabled='disabled' value=$prijs size='6'></td>
-                <td class='column'><input type='text' class='inputfield' name='voorraad' disabled='disabled' value=$voorraad size='5'></td>
-                <td class='column'><input type='text' class='inputfield' name='release' disabled='disabled' value='$release_date' size='8'></td>
+                <td class='column'><input type='text' class='inputfield' name='prijs$id' disabled='disabled' value=$prijs size='6'></td>
+                <td class='column'><input type='text' class='inputfield' name='voorraad$id' disabled='disabled' value=$voorraad size='5'></td>
+                <td class='column'><input type='text' class='inputfield' name='release$id' disabled='disabled' value='$release_date' size='8'></td>
             </tr>
             <tr><td colspan=12>
             <hr />
