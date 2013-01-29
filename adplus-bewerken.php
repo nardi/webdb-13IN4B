@@ -29,7 +29,7 @@
         echo $sqli->execute();
         echo $naam . "...<br />";
         
-        echo "<form method='post' action=/"$_SERVER['PHP_SELF']/">";
+        echo "<form method='post' action=\"$_SERVER['PHP_SELF']\">";
        
         echo "<h1> Gebruikers gegevens </h1>";
         echo "<table>
