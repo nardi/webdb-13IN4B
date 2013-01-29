@@ -4,6 +4,7 @@
 //deze functie geeft het formulier weer. 
 function show_form()
 {
+echo "Uw gegevens worden automatisch met het bericht meegestuurd naar onze klantenservice!";
 echo "<form method='post' action='klantenservice_niet_beantwoord.php'>
 	
 	Bericht:<br />
@@ -13,7 +14,7 @@ echo "<form method='post' action='klantenservice_niet_beantwoord.php'>
 	</form>"; 
 }
 
-if ((!isset($_SESSION['logged-in']))) {
+if (!isset($_SESSION['logged-in'])) {
 	?>
 	<pre>
 	U bent niet ingelogd!
@@ -23,7 +24,7 @@ if ((!isset($_SESSION['logged-in']))) {
 	?>
 	<div class="account-wachtwoord-veranderen">
 	<div class="centered-container"> 
-	<h1><center><b>Klantenservice</b></center></h1>
+	<h1><center><b>Klantenserviceformulier</b></center></h1>
 	<hr width="100%"><br />
 
 	<?php
@@ -49,7 +50,7 @@ if ((!isset($_SESSION['logged-in']))) {
 		mail("contact@superinternetshop.nl", $onderwerp,
 		$bericht, "From:" . $email);
 
-		?><br /><div align="center">Hartelijk dank voor uw reactie, wij streven er naar uw vraag binnen 1 werkdag te beantwoorden.</div><?php
+		?><br /><div align="center">Hartelijk dank voor uw reactie, wij streven er naar uw vraag binnen 1 werkdag te beantwoorden.<br /><br /></div><?php
 	} else {
 		show_form();
 	}
