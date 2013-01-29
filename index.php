@@ -6,7 +6,7 @@
     session_start();
     
     $default_page = 'frontpage.php';
-    $pag = (isset($_GET['pag'])) ? ($_GET['pag']) : ''; //read URL-pag parameter in
+    $pag = (isset($_GET['pag'])) ? ($_GET['pag']) : $default_page; //read URL-pag parameter in
     if (string_starts_with($_SERVER['REQUEST_URI'], 'index.php'))
     {
         if (!empty($pag))
