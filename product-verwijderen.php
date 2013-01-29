@@ -3,7 +3,7 @@
         $iid=$_POST['delete'];
         product_verwijderen_func($iid);
         function product_verwijderen_func($pid){
-            $id=$pid
+            $id=$pid;
             $db = connect_to_db();
             $sqli_preserved_product = $db->prepare("SELECT * FROM Producten WHERE id=?");
             $sqli_preserved_product->bind_param('i',$id);
