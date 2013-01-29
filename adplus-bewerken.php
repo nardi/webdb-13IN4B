@@ -49,10 +49,10 @@
             <td><input type='text' name='email' value ='$email' /></td>
             <td><select name ='status'>";
             ?>
-                <option value=1  <?phpif($status == 1) echo ' selected';?> >Ongeverifiëerd</option>
-                <option value=2  <?phpif($status == 2) echo ' selected';?> >Geverifiëerd</option> 
-                <option value=3  <?phpif($status == 3) echo ' selected';?> >Medewerker</option>
-                <option value=4  <?phpif($status == 4) echo ' selected';?> >Beheerder</option>
+                <option value=1 <?phpif($status == 1) echo 'selected';?> >Ongeverifiëerd</option>
+                <option value=2 <?phpif($status == 2) echo 'selected';?> >Geverifiëerd</option> 
+                <option value=3 <?phpif($status == 3) echo 'selected';?> >Medewerker</option>
+                <option value=4 <?phpif($status == 4) echo 'selected';?> >Beheerder</option>
                 </select></td>
             <?php
             echo "<td><input type='hidden' name='id' value ='$idedit' /></td>
