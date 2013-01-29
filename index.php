@@ -7,13 +7,13 @@
     
     $default_page = 'frontpage.php';
     $pag = (isset($_GET['pag'])) ? ($_GET['pag']) : $default_page; //read URL-pag parameter in
-    if (string_starts_with($_SERVER['REQUEST_URI'], 'index.php'))
+    if (string_starts_with($_SERVER['REQUEST_URI'], '/index.php'))
     {
         if (!empty($pag))
             redirect_to('/');
         else
         {
-            redirect_to('/' . substr($_SERVER['REQUEST_URI'], strlen('index.php?pag=')));
+            redirect_to('/' . substr($_SERVER['REQUEST_URI'], strlen('/index.php?pag=')));
         }
     }
     
@@ -21,7 +21,7 @@
      */
     if (!isset($_SERVER['HTTPS']) || !$_SERVER['HTTPS']) {
         $uri = 'https://'.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];
-        //header('Location: '.$uri);
+        redirect_to($uri);
     }
     
     if (strpos($pag, '.'))
