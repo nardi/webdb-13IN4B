@@ -2,7 +2,8 @@
 
 <head>
 <head>
-<script src="klantenservice.js"></script>
+<script src="klantenservice.js">
+</script>
 </head>
 </head>
 
@@ -18,16 +19,16 @@
 	} else {
 		?>
 		<div class="account-wachtwoord-veranderen">
-		<div align="right"> 
+		<div class="centered-container"> 
 		<h1><center><b>Klantenservice</b></center></h1>
 		<hr width="100%">
-		<center><b>Vragen over uw factuur</b></center>
+		
 		<br />
 	
 		<form>
-		Waar gaat uw vraag over?
-		<select id="myList" onchange="loadXMLDoc(this.options[this.selectedIndex].value,"choice")">
-		<option>Kies een onderwerp...</option>
+		Waar gaat uw vraag over? <br />
+		<select id="myList" onchange="loadXMLDoc(this.options[this.selectedIndex].value,'choice')">
+		<option value="">Kies een onderwerp...</option>
 		<option value="backend/klantenservice_factuur.php">Factuur</option>
 		<option value="klantenservice_verzending.xml">Verzending</option>  
 		<option>Artikel</option>
