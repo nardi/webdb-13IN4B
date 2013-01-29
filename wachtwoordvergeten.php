@@ -63,12 +63,13 @@ if (isset($_POST['email'])) {
 		via deze link kunt u eenmalig uw wachtwoord aanpassen. <br /><br />
 		
 		Met vriendelijke groet,
-		<br /> <br />
+		<br /> <br /> <br />
 		<div>
 		Stefani Koetsier <br />
 		Customer Care Officer <br />
 		<b> Super Internet Shop </b> <br />
 		<i> Where gaming begins </i> <br />
+		contact@superinternetshop.nl
 		</div>
 		'
 		

@@ -30,7 +30,7 @@
     }
     else if (empty($pag))
     {
-        $pagename = "frontpage.php"
+        $pagename = $default_page;
     }
     else
     {
