@@ -98,7 +98,8 @@ a {
 /* The slogan */
 
 #slogan {
-    width: auto;
+    width: 530px;
+    text-align: center;
     height: auto;
 }
 
