@@ -15,7 +15,7 @@ function changeAmount(id)
         {
             if (xhr.readyState == 4)
             {
-                recalculateTotalPrice(JSON.decode(xhr.responseText));
+                recalculateTotalPrice(JSON.parse(xhr.responseText));
             }
         };
         xhr.send(params);
