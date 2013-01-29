@@ -52,7 +52,7 @@
         <script type="text/javascript" src="button.js"></script>  
 </head>
 
-<body onload = "setButtonColor(location.pathname)">
+<body onload = "setButtonColor('<?php echo $pag; ?>')">
 
 <div id="mainWindow">
     <div class="banner">
