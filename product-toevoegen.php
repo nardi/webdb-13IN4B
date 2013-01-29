@@ -69,7 +69,7 @@ Whale, whale, whale. What do we have here?
 
         while ($genresql->fetch()) {
 ?>
-						  <option value="<?php echo $genreid; ?>"><?php echo $genre; ?></option>
+						  <option value="<?php echo $genreid; ?>" onselect="alert('fyes, bacon!');"><?php echo $genre; ?></option>
 <?php
         }
         
