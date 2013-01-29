@@ -18,11 +18,11 @@ U bent niet ingelogd!
 	<div class="account-wachtwoord-veranderen">
 		<div align="right"> 
 		<hr width="100%">
-		<
+		
 		
 		<form>
 		Wat voor vraag heeft u over uw factuur?
-		<select id="myList" onchange="loadXMLDoc(this.options[this.selectedIndex].value)">
+		<select id="myList" onchange="loadXMLDoc(this.options[this.selectedIndex].value,choice_factuur)">
 		<option value="">Kies een onderwerp...</option>
 		<option value="backend/klantenservice_factuur_klopt_niet.php">Factuurbedrag klopt niet</option>
 		<option value="backend/klantenservice_factuur_niet_ontvangen.php">Ik heb geen factuur ontvangen</option>  
@@ -30,7 +30,7 @@ U bent niet ingelogd!
 		</select>
 		</form>
 		
-		<div id="choice">
+		<div id="choice_factuur">
 		
 		
 		</div>

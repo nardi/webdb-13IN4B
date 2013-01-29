@@ -1,5 +1,5 @@
-<script>
-function loadXMLDoc(dname)
+
+function loadXMLDoc(url, element_id)
 {
 var xhttp;
 if (window.XMLHttpRequest)
@@ -10,9 +10,8 @@ else
   {
   xhttp=new ActiveXObject("Microsoft.XMLHTTP");
   }
-xhttp.open("GET",dname,false);
+xhttp.open("GET",url,false);
 xhttp.send();
-document.getElementById("choice").innerHTML=xhttp.responseText;
+document.getElementById(element_id).innerHTML=xhttp.responseText;
 }
 
-</script>
