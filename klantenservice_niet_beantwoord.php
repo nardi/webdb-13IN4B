@@ -6,11 +6,12 @@ function show_form()
 {
 echo "Uw gegevens worden automatisch met het bericht meegestuurd naar onze klantenservice!";
 echo "<form method='post' action='klantenservice_niet_beantwoord.php'>
-	
+	<br /><br />
 	Bericht:<br />
 	<textarea name='bericht' rows='15' cols='40'>
 	</textarea><br />
 	<input type='submit' value='verstuur'>
+	<br /><br />
 	</form>"; 
 }
 
@@ -35,7 +36,7 @@ if (!isset($_SESSION['logged-in'])) {
 
 		$id = $_SESSION['gebruiker-id'] ;
 		$naam = $_SESSION['gebruiker-naam'] ;
-		$onderwerp = "Factuur" ;
+		$onderwerp = "Vraag niet beantwoord" ;
 
 		$db = connect_to_db();
 
