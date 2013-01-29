@@ -14,7 +14,7 @@
         $sqli->bind_param('ssssii', $naam, $achternaam, $telefoonnummer, $email, $status, $id);
         $sqli->execute();
         
-        redirect_to("adplus.html");
+        
     
     }
     
@@ -26,11 +26,12 @@
         $sqli = $db->prepare("SELECT naam, achternaam, telefoonnummer, email, status FROM Gebruikers WHERE id=?");
         $sqli->bind_param('i', $idedit);
         $sqli->bind_result($naam, $achternaam, $telefoonnummer, $email, $status);
-        echo $sqli->execute();
-        echo $naam . "...<br />";
+        $sqli->execute();
+                
+        echo '<form method="post" action="adplus-bewerken.php">';
         
-        echo '<form method="post" action="' .$_SERVER['PHP_SELF']. '">';
-       
+        echo "<input type='submit' name='submit' value='Wijzigingen opslaan'>";
+        
         echo "<h1> Gebruikers gegevens </h1>";
         echo "<table>
             <tr>
@@ -46,7 +47,12 @@
             <td><input type='text' name='achternaam' value ='$achternaam' /></td>
             <td><input type='text' name='telefoonnummer' value ='$telefoonnummer' /></td>
             <td><input type='text' name='email' value ='$email' /></td>
-            <td><input type='text' name='status' value ='$status' /></td>
+            <td><select name ='status'>
+                <option value=1 ". if($status == 1) echo 'selected' .">Ongeverifiëerd</option>
+                <option value=2 ". if($status == 2) echo 'selected' .">Geverifiëerd</option>
+                <option value=3 ". if($status == 3) echo 'selected' .">Medewerker</option>
+                <option value=4 ". if($status == 4) echo 'selected' .">Beheerder</option>
+                </select></td>
             <td><input type='hidden' name='id' value ='$idedit' /></td>
             </tr>
         
