@@ -26,7 +26,7 @@ if (!isset($_SESSION['logged-in'])) {
 	<option value="backend/klantenservice_factuur.php">Factuur</option>
 	<option value="backend/klantenservice_verzending.php">Verzending</option>  
 	<option value="backend/klantenservice_artikel.php">Artikel</option>
-	<option value="backend/klantenservice_klacht.php">Klacht</option>
+	<option value="backend/klachtenformulier.php">Klacht</option>
 	</select>
 	</form>
 		
