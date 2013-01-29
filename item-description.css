@@ -65,7 +65,7 @@
     display:table;
 }
 
-#variablwidth div{
+#variablewidth div{
     display:table-cell;
 }
 
