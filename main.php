@@ -29,7 +29,8 @@
     
     function connect_to_db()
     {
-        $mysqli = new mysqli("localhost", "webdb13IN4B", "trestunu", "webdb13IN4B");
+        $db_info = json_decode(file_get_contents("../db-info.json"));
+        $mysqli = new mysqli($db_info->host, $db_info->username, $db_info->password, $db_info->database);
         if ($mysqli->connect_errno)
             throw new Exception($mysqli->connect_error);
         return $mysqli;
@@ -61,6 +62,11 @@
     function is_logged_in()
     {
         return isset($_SESSION['logged-in']);
+    }
+    
+    function is_verified()
+    {
+        return is_logged_in() && ($_SESSION['gebruiker-status'] >= 2);
     }
     
     function is_admin()
@@ -133,7 +139,7 @@
     {
 ?>
 <div class="product-thumb<?php if ($datum !== null) { ?> preorder<?php } ?>">
-    <div class="image"><a href="item-description.php?id=<?php echo $id; ?>"><?php echo '<img src="' . $cover . '"/>'; ?></a></div>
+    <div class="image"><a href="item-description.php?id=<?php echo $id; ?>"><img src="<?php echo $cover; ?>" alt="<?php echo $titel; ?>"/></a></div>
     <p class="title"><a href="item-description.php?id=<?php echo $id; ?>"><?php echo $titel; ?></a></p>
     <p class="price"><a href="item-description.php?id=<?php echo $id; ?>">&euro;<?php echo prijs($prijs); ?></a></p>
     <?php if ($datum !== null) { ?><p class="date"><?php echo $datum; ?></p><?php } ?>

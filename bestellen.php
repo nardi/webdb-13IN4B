@@ -3,14 +3,17 @@
     require_once 'bestelling-weergeven.php';
     require_once 'voorraad.php';
     
-    if (!isset($_SESSION['logged-in']))
+    $ww = Winkelwagen::try_load_from_session();
+    
+    if (!is_logged_in())
     {
         echo 'Je moet ingelogd zijn om een bestelling te plaatsen.';
     }
-    
-    $ww = Winkelwagen::try_load_from_session();
-    
-    if ($ww->is_empty())
+    else if (!is_verified())
+    {
+        echo 'Je e-mailadres moet geverifiëerd zijn om een bestelling te plaatsen. Klik op de link in de e-mail die naar je toe gestuurd is.';
+    }
+    else if ($ww->is_empty())
     {
         echo 'Voeg eerst producten toe aan je winkelwagen voor je een bestelling plaatst.';
     }
@@ -46,7 +49,7 @@
             {
                 $adres_id = $_POST['adres'];
                 $verzendkosten = $ww->get_shipping();
-                $sqli_bestelling = $db->prepare("INSERT INTO Bestellingen (gebruiker_id, verzendkosten, adres_id) VALUES (?, ?)");
+                $sqli_bestelling = $db->prepare("INSERT INTO Bestellingen (gebruiker_id, verzendkosten, adres_id) VALUES (?, ?, ?)");
                 $sqli_bestelling->bind_param('idi', $gebruiker_id, $verzendkosten, $adres_id);
                 if(!$sqli_bestelling->execute())
                     throw new Exception($sqli_bestelling->error);
@@ -67,22 +70,8 @@
                         throw new Exception($voorraad->error);
                 }
                 
-                $email_sql = $db->prepare("SELECT email FROM Gebruikers WHERE id = ?");
-                $email_sql->bind_param('i', $gebruiker_id);
-                $email_sql->bind_result($email);
-                $email_sql->execute();
-                if ($email_sql->fetch())
-                {
-                    $html = '<html>
-                             <body>
-                                Bedankt voor uw bestelling bij Super Internet Shop!<br/>Hier is nogmaals te zien wat u precies besteld heeft:<br/>' . bestelling_weergeven($bestelling_id, TRUE) .
-                            '</body>
-                             </html>';
-                    $css = file_get_contents('main.css') . "\n" . file_get_contents('productlijst.css');
-                    require_once 'email.php';
-                    leuke_mail($email, 'Uw bestelling bij Super Internet Shop', $html, $css);
-                }
-                $email_sql->free_result();
+                require_once 'email.php';
+                bestelling_mail($bestelling_id, 'Uw bestelling bij Super Internet Shop', 'Bedankt voor uw bestelling bij Super Internet Shop!');
                 
                 $db->close();
                 $ww->remove_all();
@@ -93,7 +82,7 @@
 <p>Klik onderaan op de knop "Betalen via Paypal" om voor de bestelling te betalen.<br/>
 Dit kan ook op een later moment via uw accountoverzicht, maar tot dan wordt uw bestelling nog niet verstuurd!</p>
 <?php
-                echo bestelling_weergeven($bestelling_id, FALSE);
+                echo bestelling_weergeven($bestelling_id);
             }
         }
         else
@@ -109,8 +98,8 @@ Dit kan ook op een later moment via uw accountoverzicht, maar tot dan wordt uw b
 <form method="post">
 <p>Kies hieronder het adres waarnaar de bestelling verstuurd moet worden:</p>
 <?php
-    require_once 'adresweergave.php';
-    adres_select($_SESSION['gebruiker-id']);
+            require_once 'adresweergave.php';
+            echo adres_select($_SESSION['gebruiker-id']);
 ?>
 <br/>
 <p>Voer uw wachtwoord opnieuw in ter controle voor u een bestelling plaatst:</p>

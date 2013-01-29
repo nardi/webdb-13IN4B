@@ -39,7 +39,7 @@
                             <a href="' . $abs . 'item-description.php?id=' . $product_id . '"><span name="product-id">' . $product_id . '</span></a>
                         </td>
                         <td class="product-image">
-                            <a href="' . $abs . 'item-description.php?id=' . $product_id . '"><img src="' . $abs . is_valid_cover($cover) . '" width="100%" /></a>
+                            <a href="' . $abs . 'item-description.php?id=' . $product_id . '"><img src="' . $abs . is_valid_cover($cover) . '" alt="' . $titel . '" width="100%" /></a>
                         </td>
                         <td class="product-title">
                             <a href="' . $abs . 'item-description.php?id=' . $product_id . '">' . $titel . '</a>
@@ -86,6 +86,7 @@
                         <input type="hidden" name="business" value="paypal_1358181822_biz@nardilam.nl"/>
                         <input type="hidden" name="currency_code" value="EUR"/>
                         <input type="hidden" name="return" value="https://superinternetshop.nl/betaald.php"/>
+                        <input type="hidden" name="cancel_return" value="https://superinternetshop.nl/bestelling.php?id=' . $id . '"/>
                         <input type="hidden" name="notify_url" value="https://superinternetshop.nl/ipn.php"/>
                         <input type="hidden" name="custom" value="' . $id . '"/>
                         <input type="hidden" name="no_shipping" value="1"/>
@@ -106,7 +107,7 @@
                 </tr>
             </table>
             <br />
-            Wordt verstuurd naar:
+            Wordt verstuurd naar:<br/>
             ' . adres_weergeven($adres_id);
             
         return $html;

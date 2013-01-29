@@ -152,7 +152,7 @@
 		</html>';
 		$css = file_get_contents('main.css') ;
 		require_once 'email.php';
-		leuke_mail($email, $onderwerp, $html, $css);
+		leuke_mail($emailadres, $onderwerp, $html, $css);
 		
 		//tot hier
         

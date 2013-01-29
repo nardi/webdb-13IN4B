@@ -1,4 +1,9 @@
 <?php
+    /*
+     *  Dit bestand kan omgaan met de Instant Payment Notification-meldingen van PayPal.
+     *  Hiermee geeft PayPal op een veilige manier de staat van de betaling door.
+     */
+
     function https_post($url, $data)
     {
         $ch = curl_init($url);
@@ -46,8 +51,6 @@
         $business = $_POST['business']; // moet gelijk zijn aan "paypal@superinternetshop.nl"
         $status = $_POST['payment_status']; // Pending of Completed
         
-        //error_log("totaalbedrag: $totaalbedrag/$total_price, business: $business, status: $status");
-        
         if ($total_price == $totaalbedrag && $business == 'paypal_1358181822_biz@nardilam.nl')
         {
             error_log("IPN request: bestelling " . $bestelling . " is nu " . "'$status'");
@@ -64,23 +67,12 @@
             $sql->execute();
         }
         
-        $email_sql = $db->prepare("SELECT email FROM Bestellingen JOIN Gebruikers ON Gebruikers.id = gebruiker_id WHERE Bestellingen.id = ?");
-        $email_sql->bind_param('i', $bestelling);
-        $email_sql->bind_result($email);
-        $email_sql->execute();
-        if ($email_sql->fetch())
-        {
-            require_once 'bestelling-weergeven.php';
-            $html = '<html>
-                      <body>
-                        Uw betaling wordt zo snel mogelijk verwerkt.<br/>Hier is nogmaals te zien wat u precies besteld heeft:<br/>' . bestelling_weergeven($bestelling, TRUE) .
-                     '</body>
-                     </html>';
-            $css = file_get_contents('main.css') . "\n" . file_get_contents('productlijst.css');
-            require_once 'email.php';
-            leuke_mail($email, 'U heeft betaald voor uw bestelling bij Super Internet Shop', $html, $css);
-        }
-        $email_sql->free_result();
+        require_once 'email.php';
+        bestelling_mail($bestelling, 'U heeft betaald voor uw bestelling bij Super Internet Shop',
+        'Uw betaling wordt zo snel mogelijk verwerkt en uw bestelling wordt daarna zo spoedig mogelijk verzonden.<br/>
+        Wanneer dit gebeurt krijgt u van ons een email ter bevestiging.<br/>
+        U kunt ook altijd zelf de situatie in de gaten houden via uw accountoverzicht, of contact met ons opnemen als u vragen heeft.<br/>
+        Bedankt voor uw bestelling bij SuperInternetShop.nl!');
         
         $db->close();
     }

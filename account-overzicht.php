@@ -52,10 +52,10 @@ U bent niet ingelogd!
         E-mailadres: <input type="email" name="e-mailadres" disabled value = "<?php echo $email; ?>"><br/>
         </div>
         <hr width="100%">
-        <center><b>Bestellingen</b></center><br/>
+        <center><b>Bestellingen</b></center>
             <a href="bestelgeschiedenis.php"><input type="submit" value="Bestelgeschiedenis"></a>
         <hr width="100%">
-        <center><b>Bewerken</b></center><br/> 
+        <center><b>Bewerken</b></center>
             <a href="account-wachtwoord-veranderen.php"><input type="submit"  value="Wachtwoord veranderen"></a><br/>
             <a href="adres-toevoegen.html"><input type="submit"  value="Adres toevoegen"></a><br />
             <a href="account-bewerken.html"><input type="submit"  value="Accountgegevens veranderen"></a><br/>

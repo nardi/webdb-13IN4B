@@ -1,14 +1,14 @@
 <?php
     $db = connect_to_db();
     
-    /*$sqli_id = $db->prepare("SELECT id FROM Producten");
+    $sqli_id = $db->prepare("SELECT id FROM Producten");
     $sqli_id->bind_result($id);
     $sqli_id->execute();
     $sqli_id->store_result();
    // $sqli_id->free_result();*/
     ?><script>//alert("Main");</script><?php
     var_dump($_POST);
-    //while($sqli_id->fetch()){
+    while($sqli_id->fetch()){
         //echo "ID=$id <br>";
         ?><script>//alert("while");</script><?php
         if(isset($_POST['titel'])){
@@ -20,7 +20,7 @@
             $prijs=$_POST['prijs'];
             $release_date=$_POST['release'];
             $voorraad=$_POST['voorraad'];
-            $id=$_POST['submitbutton'];
+            //$id=$_POST['idee'];
             
            try{
                 echo "TRY";
@@ -48,13 +48,13 @@
             }
             
             else if($image==NULL){
-                echo "HOERA NULL!";
+                echo "HOERA NULL! $id";
             }
         }    
         //$titeltest=$_POST['titel22'];    
         //echo "$titeltest";
 
-    
+    }
     $db->close();
 ?>
     
