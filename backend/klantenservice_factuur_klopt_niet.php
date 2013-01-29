@@ -30,8 +30,8 @@ U bent niet ingelogd!
 		<select onchange="window.open(this.options[this.selectedIndex].value,'_top')">
 		
 		<option value="">kies een antwoord...</option>
-		<option value="backend/klantenservice_vraag_beantwoord.php">ja</option>
-		<option value="backend/klantenservice_niet_beantwoord.php">nee</option>  
+		<option value="klantenservice_vraag_beantwoord.php">ja</option>
+		<option value="klantenservice_niet_beantwoord.php">nee</option>  
 		</select>
 		</form>
 		
