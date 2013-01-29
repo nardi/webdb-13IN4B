@@ -1,7 +1,9 @@
 <?php
     if(is_admin()){
-        $iid=$_POST['delete'];
-        product_verwijderen_func($iid);
+        if(isset($_POST['delete'])){
+            $iid=$_POST['delete'];
+        }
+        
         function product_verwijderen_func($pid){
             $id=$pid;
             $db = connect_to_db();
@@ -25,6 +27,7 @@
         
             echo "<img src='placeholder' /> <br /> <strong> $titel is succesvol verwijderd uit de database.</strong>";
         }
+        product_verwijderen_func($iid);
     }
     else
         throw new Exception("U heeft niet de juiste privileges om deze pagina te zien.");
