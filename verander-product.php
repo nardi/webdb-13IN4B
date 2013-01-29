@@ -1,4 +1,5 @@
 <?php
+    require 'product-verwijderen.php';
     $db = connect_to_db();
     
     $sqli_id = $db->prepare("SELECT id FROM Producten");
@@ -11,7 +12,7 @@
     while($sqli_id->fetch()){
         //echo "ID=$id <br>";
         ?><script>//alert("while");</script><?php
-        if(isset($_POST["titel$id"])){
+        if(isset($_POST["titel$id"]) && $_POST['verwijderen'] != 'teverwijderen'){
             ?><script>//alert("if");</script><?php
             $titel=$_POST["titel$id"];
             $platform_id=$_POST["platform$id"];
@@ -50,7 +51,11 @@
             else if($image==NULL){
                 echo "HOERA NULL! $id";
             }
-        }    
+        } 
+
+        else if{
+            product-verwijderen-func($id);
+        }
         //$titeltest=$_POST['titel22'];    
         //echo "$titeltest";
 

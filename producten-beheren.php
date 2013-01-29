@@ -14,6 +14,9 @@
 <form name='EditProduct' id='EditProductId$id' action='verander-product.php' method='post' enctype='multipart/form-data'>
 <table id="Producten">
 <tr><th>Aanpassen</th><th colspan="2">Verwijderen</th><th>Product Nummer</th><th>Titel</th><th>Cover</th><th>Beschrijving</th><th>Platform</th><th>Genre</th><th>Prijs</th><th>Voorraad</th><th>Release Datum</th></tr>
+<td>
+    <input type='submit' value='Wijzigen/verwijderen'>
+</td>
 <tr><td colspan=12>
 <hr />
 </td></tr>
@@ -30,9 +33,6 @@
             echo "
             <tr id=$id>
                 <td>
-                    <input type='submit' value='submit'>
-                </td>
-                <td>
                     <div class='ProductEdit' onclick='enableEdit($id)'>
                     </div>
                 </td>
@@ -44,7 +44,7 @@
                             </form>-->
                     </div>
                 </td>
-                <td><input type='checkbox' name='selected'></td>
+                <td><input type='checkbox' name='verwijderen' value='teverwijderen'></td>
                 <td class='column'>$id</td>
                 <td>
                     <input type='text' value=$id hidden='hidden' name='idee$id'>
