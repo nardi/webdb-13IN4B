@@ -14,7 +14,7 @@
         $sqli->bind_param('ssssii', $naam, $achternaam, $telefoonnummer, $email, $status, $id);
         $sqli->execute();
         
-        redirect_to("adplus.html");
+        
     
     }
     
@@ -26,11 +26,12 @@
         $sqli = $db->prepare("SELECT naam, achternaam, telefoonnummer, email, status FROM Gebruikers WHERE id=?");
         $sqli->bind_param('i', $idedit);
         $sqli->bind_result($naam, $achternaam, $telefoonnummer, $email, $status);
-        echo $sqli->execute();
-        echo $naam . "...<br />";
+        $sqli->execute();
+                
+        echo '<form method="post" action="adplus-bewerken.php">';
         
-        echo '<form method="post" action="' .$_SERVER['PHP_SELF']. '">';
-       
+        echo "<input type='submit' name='submit' value='Wijzigingen opslaan'>";
+        
         echo "<h1> Gebruikers gegevens </h1>";
         echo "<table>
             <tr>
