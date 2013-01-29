@@ -101,8 +101,8 @@
         </table>
         </form>
     </div>
-}
 <?php
+}
     else{
         throw new Exception("U heeft niet de juiste privileges om deze pagina te zien.");
     }
