@@ -2,7 +2,23 @@
 
 <head>
 <head>
-<script src="klantenservice.js"></script>
+<script>
+function loadXMLDoc(url)
+{
+var xhttp;
+if (window.XMLHttpRequest)
+  {
+  xhttp=new XMLHttpRequest();
+  }
+else
+  {
+  xhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xhttp.open("GET",url,false);
+xhttp.send();
+document.getElementById("choice").innerHTML=xhttp.responseText;
+}
+</script>
 </head>
 </head>
 
@@ -21,12 +37,12 @@
 		<div align="right"> 
 		<h1><center><b>Klantenservice</b></center></h1>
 		<hr width="100%">
-		<center><b>Vragen over uw factuur</b></center>
+		
 		<br />
 	
 		<form>
-		Waar gaat uw vraag over?
-		<select id="myList" onchange="loadXMLDoc(this.options[this.selectedIndex].value,"choice")">
+		Waar gaat uw vraag over? <br />
+		<select id="myList" onchange="loadXMLDoc(this.options[this.selectedIndex].value)">
 		<option>Kies een onderwerp...</option>
 		<option value="backend/klantenservice_factuur.php">Factuur</option>
 		<option value="klantenservice_verzending.xml">Verzending</option>  
