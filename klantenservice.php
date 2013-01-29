@@ -38,7 +38,7 @@ return xhttp.responseXML;
 		<center><b>Vragen over uw factuur</b></center>
 		<br />
 	
-		<form action=../">
+		<form>
 		Waar gaat uw vraag over?
 		<select id="myList" onchange="loadXMLDoc(this.options[this.selectedIndex].value')">
 		<option value="">Kies een onderwerp...</option>
