@@ -61,7 +61,7 @@ Whale, whale, whale. What do we have here?
 					  Genre:
 					  <div class="genre">
 
-						  <select name="genre" onselect="alert('fyes, bacon!');">
+						  <select name="genre" onchange="alert('fyes, bacon!');">
 <?php
         $genresql = $db->prepare("SELECT id, naam FROM Genres");
         $genresql->execute();
