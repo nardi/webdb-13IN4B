@@ -43,7 +43,7 @@ class Winkelwagen
         {
             if (array_key_exists($id, $this->producten))
             {
-                $this->change_amount($this->producten[$id] + 1);
+                $this->change_amount($id, $this->producten[$id] + 1);
             }
             else
             {    
