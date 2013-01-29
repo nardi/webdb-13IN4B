@@ -35,7 +35,7 @@
         echo "<h1> Gebruikers gegevens </h1>";
         echo "<table>
             <tr>
-            <b> <td> Voornaam </td> <td> Achternaam </td> <td> Telefoonnummer </td> <td> Email </td> <td> Status </td> </b>
+            <td > Voornaam </td> <td> Achternaam </td> <td> Telefoonnummer </td> <td> Email </td> <td> Status </td>
             </tr>
             <hr />";
         
@@ -43,10 +43,10 @@
         
         while ($sqli->fetch()) {  
             echo "<tr>
-            <td><input type='text' name='naam' value ='$naam' /></td>
-            <td><input type='text' name='achternaam' value ='$achternaam' /></td>
-            <td><input type='text' name='telefoonnummer' value ='$telefoonnummer' /></td>
-            <td><input type='text' name='email' value ='$email' /></td>
+            <td><input size='15' type='text' name='naam' value ='$naam' /></td>
+            <td><input size='15' type='text' name='achternaam' value ='$achternaam' /></td>
+            <td><input size='15' type='text' name='telefoonnummer' value ='$telefoonnummer' /></td>
+            <td><input size='20' type='text' name='email' value ='$email' /></td>
             <td><select name ='status'>";
             ?>
                 <option value='1' <?php if($status == 1){ echo 'selected="selected"';} ?> >Ongeverifiëerd</option>
