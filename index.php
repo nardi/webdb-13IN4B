@@ -4,6 +4,8 @@
     require_once 'main.php';
     
     session_start();
+    
+    $default_page = 'frontpage.php';
     $pag = (isset($_GET['pag'])) ? ($_GET['pag']) : ''; //read URL-pag parameter in
     if (string_starts_with($_SERVER['REQUEST_URI'], 'index.php'))
     {
@@ -14,20 +16,25 @@
             redirect_to('/' . substr($_SERVER['REQUEST_URI'], strlen('index.php?pag=')));
         }
     }
-    if (strpos($pag, '.'))
-    {
-        $pagename = implode('.', explode('.', $pag, -1));
-    }
-    else
-    {
-        $pagename = $pag;
-    }
     
     /* Deze code komt uit de voorbeeldcode voor HTTPS, uit het bestand form.php
      */
     if (!isset($_SERVER['HTTPS']) || !$_SERVER['HTTPS']) {
-        $uri = 'https://'.$_SERVER['SERVER_NAME'].'/'.$pag;
+        $uri = 'https://'.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];
         //header('Location: '.$uri);
+    }
+    
+    if (strpos($pag, '.'))
+    {
+        $pagename = implode('.', explode('.', $pag, -1));
+    }
+    else if (empty($pag))
+    {
+        $pagename = "frontpage.php"
+    }
+    else
+    {
+        $pagename = $pag;
     }
 ?>
 <?xml version="1.0"?>
@@ -66,7 +73,7 @@
             <?php
                 if (empty($pag))
                 {
-                    include("frontpage.php");
+                    include($default_frontpage);
                 }
                 else
                 {
