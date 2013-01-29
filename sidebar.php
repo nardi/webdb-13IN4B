@@ -1,4 +1,4 @@
-﻿<div class="clickable-item" onclick="onButtonclick();">
+﻿<div id="frontpage.php" class="clickable-item" onclick="onButtonclick(this.id);">
     Beginpagina
 </div>
 
