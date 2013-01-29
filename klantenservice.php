@@ -2,25 +2,19 @@
 
 <head>
 <script>
-function loadXMLDoc(var x)
+function loadXMLDoc(dname)
 {
 if (window.XMLHttpRequest)
-  {// code for IE7+, Firefox, Chrome, Opera, Safari
-  xmlhttp=new XMLHttpRequest();
+  {
+  xhttp=new XMLHttpRequest();
   }
 else
-  {// code for IE6, IE5
-  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-  }
-xmlhttp.onreadystatechange=function()
   {
-  if (xmlhttp.readyState==4 && xmlhttp.status==200)
-    {
-    document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
-    }
+  xhttp=new ActiveXObject("Microsoft.XMLHTTP");
   }
-xmlhttp.open("GET","xmlhttp_info.txt",true);
-xmlhttp.send();
+xhttp.open("GET",dname,false);
+xhttp.send();
+return xhttp.responseXML;
 }
 
 </script>
