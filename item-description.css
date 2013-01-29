@@ -34,7 +34,7 @@
 
 #ItemDescription{
 	width:100%;
-	float:left;
+	/*float:left;*/
 }
 
 #SystemRequirements{
@@ -65,7 +65,7 @@
     display:table;
 }
 
-#variablwidth div{
+#variablewidth div{
     display:table-cell;
 }
 
