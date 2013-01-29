@@ -24,7 +24,7 @@ U bent niet ingelogd!
 		<p> Het kan voorkomen dat er iets niet klopt op de factuur. 
 		Wij doen altijd onze best om de prijzen up-to-date te houden. 
 		Houd er wel rekening mee dat wij standaard altijd €6,75 verzendkosten in rekening brengen. </p>
-		
+		<br /><br />
 		<form action="../">
 		Is hiermee uw vraag beantwoord?<br />
 		<select onchange="window.open(this.options[this.selectedIndex].value,'_top')">

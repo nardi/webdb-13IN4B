@@ -26,7 +26,7 @@ U bent niet ingelogd!
 		Het kan zijn dat de orderbevestiging in uw spamfolder terecht is gekomen.
 		Controleer alstublieft even uw spamfolder.
 		Tevens sturen wij nogmaals dezelfde factuur met de bestelling mee. </p>
-		<br /><br /><br />
+		<br /><br />
 		
 		<form action="../">
 		Is hiermee uw vraag beantwoord?<br />
