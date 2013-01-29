@@ -1,7 +1,23 @@
 <link rel="stylesheet" type="text/css" href="inloggen-wachtwoord-registratie.css">
 
 <head>
-<script src="klantenservice.js"></script>
+<script>
+function loadXMLDoc(url)
+{
+var xhttp;
+if (window.XMLHttpRequest)
+  {
+  xhttp=new XMLHttpRequest();
+  }
+else
+  {
+  xhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xhttp.open("GET",url,false);
+xhttp.send();
+document.getElementById("choice_factuur").innerHTML=xhttp.responseText;
+}
+</script>
 </head>
 <body>
 
