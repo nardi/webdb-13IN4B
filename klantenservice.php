@@ -19,7 +19,7 @@
 	} else {
 		?>
 		<div class="account-wachtwoord-veranderen">
-		<div align="right"> 
+		<div class="centered-container"> 
 		<h1><center><b>Klantenservice</b></center></h1>
 		<hr width="100%">
 		
