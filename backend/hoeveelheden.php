@@ -14,5 +14,5 @@
     
     $ww->save_to_session();
     
-    echo json_encode($ww);
+    echo var_dump($ww);
 ?>
