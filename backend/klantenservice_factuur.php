@@ -17,7 +17,7 @@ U bent niet ingelogd!
 	} else {
 	?>
 	<div class="account-wachtwoord-veranderen">
-		<div align="right"> 
+		<div class="centered-container"> 
 		<hr width="100%">
 		
 		
