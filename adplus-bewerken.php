@@ -28,7 +28,7 @@
         $sqli->bind_result($naam, $achternaam, $telefoonnummer, $email, $status);
         $sqli->execute();
                 
-        echo '<form method="post" action="' .$_SERVER['PHP_SELF']. '">';
+        echo '<form method="post" action="adplus-bewerken.php">';
         
         echo "<input type='submit' name='submit' value='Wijzigingen opslaan'>";
         
