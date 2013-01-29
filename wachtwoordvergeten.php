@@ -52,6 +52,7 @@ if (isset($_POST['email'])) {
 		//hier wordt de email met een link waarin het token en id variabale in zit verstuurd
 		$onderwerp = "Nieuw wachtwoord aanvragen" ;
 		$html = '<html>
+		
 		<head>
 		</head>
 		<body>
@@ -67,11 +68,12 @@ if (isset($_POST['email'])) {
 		Customer Care Officer <br />
 		<b> Super Internet Shop </b> <br />
 		<i> Where gaming begins </i> <br />
-		<img class="displayed src="/images/logo/logo-sis.png" alt="logo" width="745" height="350">
+		
 		
 		
 		</body>
 		</html>';
+		$html .= "<img class="displayed src="/images/logo/logo-sis.png" alt="logo" width="70" height="33">";
 		$css = file_get_contents('main.css') ;
 		require_once 'email.php';
 		leuke_mail($email, $onderwerp, $html, $css);
