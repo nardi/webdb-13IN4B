@@ -40,10 +40,10 @@ return xhttp.responseXML;
 	
 		<form action=../">
 		Waar gaat uw vraag over?
-		<select id="myList" onchange="loadXMLDoc(this.options[this.selectedIndex].value,'_top')">
+		<select id="myList" onchange=loadXMLDoc(this.options[this.selectedIndex].value,'_top')>
 		<option value="">Kies een onderwerp...</option>
 		<option value="klantenservice_factuur.php">Factuur</option>
-		<option>Verzending</option>  
+		<option value="klantenservice_verzending.xml">Verzending</option>  
 		<option>Artikel</option>
 		<option>Klacht</option>
 		</select>
