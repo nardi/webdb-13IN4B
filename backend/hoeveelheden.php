@@ -14,5 +14,7 @@
     
     $ww->save_to_session();
     
-    echo 'success';
+    echo var_dump($ww);
+    echo $ww->to_json();
+    echo json_last_error();
 ?>

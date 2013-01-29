@@ -53,82 +53,85 @@
     ?>
 </h3>
 </div>
-<div id="ItemCoverContainer">
-    <div id="ItemCover">
-    <h4>Game cover</h4>
+<div id="variablewidth">
+    <div id="ItemCoverContainer">
+    
+        <div id="ItemCover">
+        <h4>Game cover</h4>
+            <?php
+                echo '<img src="'. is_valid_cover($cover) .'" />';
+            ?>
+        </div>
+        <div id="ItemWWToevoegen">
+            <form name="ActuallyAButton" id="AddToCartButton" action="winkelwagen.php" method="post">
+                <input type="hidden" name="add" value="<?php echo $_GET['id'] ?>">
+                <input type="submit" value="" name="submitButton" id="AddSubmitButton">
+            </form>
+        </div>
         <?php
-            echo '<img src="'. is_valid_cover($cover) .'" />';
+            $id = $_GET['id'];
+            if(is_admin()){echo "
+                <div id='ItemVerwijderen'>
+                    <form name='ActuallyAButton' id='DeleteItem' action='product-verwijderen.php' method='post'>
+                        <input type='hidden' name='delete' value='$id'>
+                        <input type='submit' value='' name='submitButton' id='DeleteSubmitButton'>
+                    </form>
+                </div>";
+            }
         ?>
     </div>
-    <div id="ItemWWToevoegen">
-        <form name="ActuallyAButton" id="AddToCartButton" action="winkelwagen.php" method="post">
-            <input type="hidden" name="add" value="<?php echo $_GET['id'] ?>">
-            <input type="submit" value="" name="submitButton" id="AddSubmitButton">
-        </form>
-    </div>
+
+
+
+    <div id="game-description-en-prijs">
+    <div id="ItemDescription">
+    <h4>Game Description</h4>
     <?php
-        $id = $_GET['id'];
-        if(is_admin()){echo "
-            <div id='ItemVerwijderen'>
-                <form name='ActuallyAButton' id='DeleteItem' action='product-verwijderen.php' method='post'>
-                    <input type='hidden' name='delete' value='$id'>
-                    <input type='submit' value='' name='submitButton' id='DeleteSubmitButton'>
-                </form>
+            echo $beschrijving;
+        ?>
+    </div>
+
+    <div id="Prijs">
+    <hr />
+        <?php
+            echo "&euro;".prijs($prijs);
+        ?>
+    </div>
+    </div>
+
+    <?php
+        if($quotes != ""){
+        echo "
+            <div id='Quotes'>
+            <h4>Wat vonden reviewers van dit spel?</h4>
+                $quotes;
+            </div>";
+        }
+
+        if($platform == '5'){
+            echo "
+            <div id='SystemRequirements'>
+            <table class='SystemRequirementsTable'>
+            <tr>
+            <th colspan='2'> Systeem Vereiste </th>
+            </tr>
+            <tr>
+            <td>CPU</td><td>$cpu</td>
+            </tr>
+            <tr>
+            <td>RAM</td><td>$ram</td>
+            </tr>
+            <tr>
+            <td>GPU</td> <td>$gpu</td>
+            </tr>
+            <tr>
+            <td>OS</td> <td>$os</td>
+            </tr>
+            </table>
             </div>";
         }
     ?>
-</div>
-
-
-
-<div id="game-description-en-prijs">
-<div id="ItemDescription">
-<h4>Game Description</h4>
-<?php
-        echo $beschrijving;
-    ?>
-</div>
-
-<div id="Prijs">
-<hr />
-    <?php
-        echo "&euro;".prijs($prijs);
-    ?>
-</div>
-</div>
-
-<?php
-    if($quotes != ""){
-    echo "
-        <div id='Quotes'>
-        <h4>Wat vonden reviewers van dit spel?</h4>
-            $quotes;
-        </div>";
-    }
-
-    if($platform == '5'){
-        echo "
-        <div id='SystemRequirements'>
-        <table class='SystemRequirementsTable'>
-        <tr>
-        <th colspan='2'> Systeem Vereiste </th>
-        </tr>
-        <tr>
-        <td>CPU</td><td>$cpu</td>
-        </tr>
-        <tr>
-        <td>RAM</td><td>$ram</td>
-        </tr>
-        <tr>
-        <td>GPU</td> <td>$gpu</td>
-        </tr>
-        <tr>
-        <td>OS</td> <td>$os</td>
-        </tr>
-        </table>
-        </div>";
-    }
-?>
+    </div>
 </div>
 </body>
 

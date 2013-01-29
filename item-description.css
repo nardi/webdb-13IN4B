@@ -15,7 +15,8 @@
 #ItemCoverContainer{
     margin-left:0.5cm;
 	width:20%;
-	float:left;
+	/*float:left;*/
+    display:table-cell;
 }
 
 #AddSubmitButton{
@@ -34,14 +35,16 @@
 
 #ItemDescription{
 	width:100%;
-	float:left;
+	/*float:left;*/
+    display:table-cell;
 }
 
 #SystemRequirements{
 	margin-left:0.5cm;
 	margin-top:0.5cm;
 	width:20%;
-	float:left;
+	/*float:left;*/
+    display:table-cell;
 }
 
 #Prijs{
@@ -50,18 +53,22 @@
 
 #Quotes{
 	margin-left:0.5cm;
-	float:left;
+	/*float:left;*/
 	width:20%;
+    display:table-cell;
 }
 
 #game-description-en-prijs{
 	margin-left:0.5cm;
 	min-width:25%;
     max-width:70%;
-	float:left;
+    display:table-cell;
+	/*float:left;*/
 }
 
-
+#variablewidth{
+    display:table;
+}
 
 .SystemRequirementsTable{
 	border-collapse:collapse;
