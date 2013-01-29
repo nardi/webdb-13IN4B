@@ -38,7 +38,7 @@ U bent niet ingelogd!
 		
 		<form>
 		Wat voor vraag heeft u over uw factuur?
-		<select id="myList" onchange="loadXMLDoc(this.options[this.selectedIndex].value,choice_factuur)">
+		<select id="myList" onchange="loadXMLDoc(this.options[this.selectedIndex].value)">
 		<option value="">Kies een onderwerp...</option>
 		<option value="backend/klantenservice_factuur_klopt_niet.php">Factuurbedrag klopt niet</option>
 		<option value="backend/klantenservice_factuur_niet_ontvangen.php">Ik heb geen factuur ontvangen</option>  
