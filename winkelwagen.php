@@ -3,6 +3,8 @@
 <h1>Winkelwagen</h1>
 
 <?php
+    require_once 'winkelwagen.class.php';
+
     $ww = Winkelwagen::try_load_from_session();
     
     if (isset($_POST['add']))

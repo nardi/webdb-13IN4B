@@ -1,5 +1,6 @@
 <div class="centered-container">
 <?php
+    require_once 'winkelwagen.class.php';
     require_once 'bestelling-weergeven.php';
     require_once 'voorraad.php';
     
