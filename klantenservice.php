@@ -37,11 +37,11 @@ document.getElementById("choice").innerHTML=xhttp.responseText;
 		<div align="right"> 
 		<h1><center><b>Klantenservice</b></center></h1>
 		<hr width="100%">
-		<center><b>Vragen over uw factuur</b></center>
+		
 		<br />
 	
 		<form>
-		Waar gaat uw vraag over?
+		Waar gaat uw vraag over? <br />
 		<select id="myList" onchange="loadXMLDoc(this.options[this.selectedIndex].value)">
 		<option>Kies een onderwerp...</option>
 		<option value="backend/klantenservice_factuur.php">Factuur</option>
