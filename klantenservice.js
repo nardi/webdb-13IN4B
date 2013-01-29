@@ -1,5 +1,5 @@
 
-function loadXMLDoc(dname)
+function loadXMLDoc(url, element_id)
 {
 var xhttp;
 if (window.XMLHttpRequest)
@@ -12,6 +12,6 @@ else
   }
 xhttp.open("GET",dname,false);
 xhttp.send();
-document.getElementById("choice").innerHTML=xhttp.responseText;
+document.getElementById(element_id).innerHTML=xhttp.responseText;
 }
 
