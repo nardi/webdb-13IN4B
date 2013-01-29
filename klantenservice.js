@@ -1,6 +1,8 @@
 
 function loadXMLDoc(url, element_id)
 {
+if (url !="")
+{
 var xhttp;
 if (window.XMLHttpRequest)
   {
@@ -13,5 +15,6 @@ else
 xhttp.open("GET",url,false);
 xhttp.send();
 document.getElementById(element_id).innerHTML=xhttp.responseText;
+}
 }
 
