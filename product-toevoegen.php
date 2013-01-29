@@ -61,7 +61,7 @@ Whale, whale, whale. What do we have here?
 					  Genre:
 					  <div class="genre">
 
-						  <select name="genre">
+						  <select name="genre" onselect="alert('fyes, bacon!');">
 <?php
         $genresql = $db->prepare("SELECT id, naam FROM Genres");
         $genresql->execute();
@@ -69,7 +69,7 @@ Whale, whale, whale. What do we have here?
 
         while ($genresql->fetch()) {
 ?>
-						  <option value="<?php echo $genreid; ?>" onselect="alert('fyes, bacon!');"><?php echo $genre; ?></option>
+						  <option value="<?php echo $genreid; ?>" ><?php echo $genre; ?></option>
 <?php
         }
         
