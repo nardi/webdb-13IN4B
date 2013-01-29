@@ -29,8 +29,8 @@ if ((!isset($_SESSION['logged-in']))) {
 	<?php
 
 
-		//als alles is ingevuld dan wordt de email verstuurd.
-	if (isset($_POST['bericht']) {
+	//als alles is ingevuld dan wordt de email verstuurd.
+	if (isset($_POST['bericht'])) {
 
 		$id = $_SESSION['gebruiker-id'] ;
 		$naam = $_SESSION['gebruiker-naam'] ;
