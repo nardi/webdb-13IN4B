@@ -1,4 +1,4 @@
-<script>
+
 function loadXMLDoc(dname)
 {
 var xhttp;
@@ -15,4 +15,3 @@ xhttp.send();
 document.getElementById("choice").innerHTML=xhttp.responseText;
 }
 
-</script>
