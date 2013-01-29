@@ -84,7 +84,7 @@ class Winkelwagen
         foreach ($this->get_all() as $id)
         {
             $voorraad = voorraad($id);
-            if ($voorraad < $amount)
+            if ($voorraad < $this->producten[$id])
             {
                 $this->change_amount($id, $voorraad);
                 $verandering = true;
