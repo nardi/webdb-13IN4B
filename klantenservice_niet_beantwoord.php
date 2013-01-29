@@ -22,8 +22,8 @@ if (!isset($_SESSION['logged-in'])) {
 	<?php
 } else {
 	?>
-	<div class="account-wachtwoord-veranderen">
 	<div class="centered-container"> 
+	<div class="account-wachtwoord-veranderen">
 	<h1><center><b>Klantenserviceformulier</b></center></h1>
 	<hr width="100%"><br />
 
