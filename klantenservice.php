@@ -24,7 +24,7 @@
 	
 		<form>
 		Waar gaat uw vraag over?
-		<select id="myList" onchange="loadXMLDoc(this.options[this.selectedIndex].value)">
+		<select id="myList" onchange="loadXMLDoc(this.options[this.selectedIndex].value, choice)">
 		<option>Kies een onderwerp...</option>
 		<option value="backend/klantenservice_factuur.php">Factuur</option>
 		<option value="klantenservice_verzending.xml">Verzending</option>  
