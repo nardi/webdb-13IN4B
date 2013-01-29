@@ -80,7 +80,9 @@
             }
         ?>
     </div>
-
+    
+    <div class="buffer">
+    </div>
 
 
     <div id="game-description-en-prijs">
@@ -98,13 +100,18 @@
         ?>
     </div>
     </div>
-
+    
+    <div class="buffer">
+    </div>
+    
     <?php
         if($quotes != ""){
         echo "
             <div id='Quotes'>
             <h4>Wat vonden reviewers van dit spel?</h4>
                 $quotes;
+            </div>
+            <div class='buffer'>
             </div>";
         }
 

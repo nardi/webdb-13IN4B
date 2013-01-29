@@ -82,3 +82,7 @@
 	background-color:cyan;
 }
 
+.buffer{
+    display:table-cell;
+    width:1%;
+}
