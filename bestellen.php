@@ -22,7 +22,8 @@
     {        
         if ($ww->check_amounts())
         {
-            echo 'Sommige producten in uw winkelwagen zijn niet meer op voorraad. Uw winkelwagen is hiervoor aangepast. U kunt de wijzigingen controleren en nogmaals bestellen.<br/>';
+            $ww->save_to_session();
+            echo '<p>Sommige producten in uw winkelwagen zijn niet meer op voorraad. Uw winkelwagen is hiervoor aangepast. U kunt de wijzigingen controleren en nogmaals bestellen.</p>';
             include 'winkelwagen.php';            
         }
         else if (isset($_POST['wachtwoord']))

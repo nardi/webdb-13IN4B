@@ -30,6 +30,8 @@
     }
     else
     {
+        if ($ww->check_amounts())
+            echo '<p>Sommige producten in uw winkelwagen zijn niet meer op voorraad. Uw winkelwagen is hiervoor aangepast.</p>';
         echo $ww->display(TRUE);
 ?>
 <br/>
