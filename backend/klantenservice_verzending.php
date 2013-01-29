@@ -26,7 +26,7 @@ U bent niet ingelogd!
 		<select id="myList" onchange="loadXMLDoc(this.options[this.selectedIndex].value,'choice_verzending')">
 		<option value="">Kies een onderwerp...</option>
 		<option value="backend/klantenservice_verzending_wanneer.php">Wanneer wordt bestelling verzonden?</option>
-		<option value="backend/klantenservice_verzendkosten.php.php">Wat zijn de verzendkosten?</option>  
+		<option value="backend/klantenservice_verzendkosten.php">Wat zijn de verzendkosten?</option>  
 		<option value="klantenservice_overige.php">Overige verzendvragen</option>
 		</select>
 		</form>
