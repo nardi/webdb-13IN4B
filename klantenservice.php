@@ -1,24 +1,7 @@
 <link rel="stylesheet" type="text/css" href="inloggen-wachtwoord-registratie.css">
 
 <head>
-<script>
-function loadXMLDoc(dname)
-{
-var xhttp;
-if (window.XMLHttpRequest)
-  {
-  xhttp=new XMLHttpRequest();
-  }
-else
-  {
-  xhttp=new ActiveXObject("Microsoft.XMLHTTP");
-  }
-xhttp.open("GET",dname,false);
-xhttp.send();
-document.getElementById("choice").innerHTML=xhttp.responseText;
-}
-
-</script>
+<script src="klantenservice.js"></script>
 </head>
 
 <body>
