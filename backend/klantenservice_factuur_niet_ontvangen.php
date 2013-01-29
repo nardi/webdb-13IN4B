@@ -21,10 +21,13 @@ U bent niet ingelogd!
 		
 		<hr width="100%">
 		
-		<p> Het kan voorkomen dat er iets niet klopt op de factuur. 
-		Wij doen altijd onze best om de prijzen up-to-date te houden. 
-		Houd er wel rekening mee dat wij standaard altijd €6,75 verzendkosten in rekening brengen. </p>
+		<p> U heeft aangegeven dat uw geen factuur heeft ontvangen.
+		Wij sturen u altijd een orderbevestiging waarin de factuur weergegeven wordt. 
+		Het kan zijn dat de orderbevestiging in uw spamfolder terecht is gekomen.
+		Controleer alstublieft even uw spamfolder.
+		Tevens sturen wij nogmaals dezelfde factuur met de bestelling mee. </p>
 		<br /><br />
+		
 		<form action="../">
 		Is hiermee uw vraag beantwoord?<br />
 		<select onchange="window.open(this.options[this.selectedIndex].value,'_top')">
