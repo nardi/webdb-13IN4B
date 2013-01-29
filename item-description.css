@@ -15,7 +15,7 @@
 #ItemCoverContainer{
     margin-left:0.5cm;
 	width:20%;
-	float:left;
+	/*float:left;*/
 }
 
 #AddSubmitButton{
@@ -41,7 +41,7 @@
 	margin-left:0.5cm;
 	margin-top:0.5cm;
 	width:20%;
-	float:left;
+	/*float:left;*/
 }
 
 #Prijs{
@@ -50,7 +50,7 @@
 
 #Quotes{
 	margin-left:0.5cm;
-	float:left;
+	/*float:left;*/
 	width:20%;
 }
 
@@ -58,7 +58,7 @@
 	margin-left:0.5cm;
 	min-width:25%;
     max-width:70%;
-	float:left;
+	/*float:left;*/
 }
 
 #variablewidth{
