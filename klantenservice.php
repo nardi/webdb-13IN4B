@@ -1,30 +1,9 @@
 <link rel="stylesheet" type="text/css" href="inloggen-wachtwoord-registratie.css">
 
-<head>
-<script>
-function loadXMLDoc(var x)
-{
-if (window.XMLHttpRequest)
-  {// code for IE7+, Firefox, Chrome, Opera, Safari
-  xmlhttp=new XMLHttpRequest();
-  }
-else
-  {// code for IE6, IE5
-  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-  }
-xmlhttp.onreadystatechange=function()
-  {
-  if (xmlhttp.readyState==4 && xmlhttp.status==200)
-    {
-    document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
-    }
-  }
-xmlhttp.open("GET","xmlhttp_info.txt",true);
-xmlhttp.send();
-}
 
+
+<script src="klantenservice.js">
 </script>
-</head>
 
 <body>
 
@@ -37,24 +16,27 @@ xmlhttp.send();
 		<?php
 	} else {
 		?>
+		<div class="centered-container"> 
 		<div class="account-wachtwoord-veranderen">
-		<div align="right"> 
 		<h1><center><b>Klantenservice</b></center></h1>
 		<hr width="100%">
-		<center><b>Vragen over uw factuur</b></center>
+		
 		<br />
 	
-		<form action=../">
-		Waar gaat uw vraag over?
-		<select id="myList" onchange="loadXMLDoc(this.options[this.selectedIndex].value,'_top')">
+		<form>
+		Waar gaat uw vraag over? <br />
+		<select id="myList" onchange="loadXMLDoc(this.options[this.selectedIndex].value,'choice')">
 		<option value="">Kies een onderwerp...</option>
-		<option value="klantenservice_factuur.php">Factuur</option>
-		<option>Verzending</option>  
-		<option>Artikel</option>
-		<option>Klacht</option>
+		<option value="backend/klantenservice_factuur.php">Factuur</option>
+		<option value="backend/klantenservice_verzending.php">Verzending</option>  
+		<option value="backend/klantenservice_artikel.php">Artikel</option>
+		<option value="backend/klantenservice_klacht.php">Klacht</option>
 		</select>
 		</form>
 		
+		<div id="choice">
+		
+		</div>
 		</div>
 		</div>
 		

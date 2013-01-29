@@ -1,5 +1,6 @@
 <?php
     require_once '../main.php';
+    require_once '../winkelwagen.class.php';
     
     session_start();
     
@@ -13,5 +14,7 @@
     
     $ww->save_to_session();
     
-    echo 'success';
+    echo var_dump($ww);
+    echo $ww->to_json();
+    echo json_last_error();
 ?>

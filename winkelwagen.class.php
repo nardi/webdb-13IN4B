@@ -1,4 +1,5 @@
-<?php
+<?php require_once 'voorraad.php';
+
 class Winkelwagen
 {
     private $producten;
@@ -14,6 +15,7 @@ class Winkelwagen
         if (isset($_SESSION['winkelwagen']))
         {
             $ww->producten = $_SESSION['winkelwagen'];
+            $ww->check_amounts();
         }
         return $ww;
     }
@@ -23,37 +25,72 @@ class Winkelwagen
         $_SESSION['winkelwagen'] = $this->producten;
     }
     
+    public static function from_json($json)
+    {
+        $ww = new Winkelwagen();
+        $ww->producten = json_decode($json);
+        return $ww;
+    }
+    
+    function to_json()
+    {
+        return json_encode($this->producten);
+    }
+    
     function add($id)
     {
-        if (array_key_exists($id, $this->producten))
+        if (is_op_voorraad($id))
         {
-            $this->producten[$id]++;
-        }
-        else
-        {    
-            $db = connect_to_db();
-            
-            $sql = $db->prepare("SELECT * FROM Producten WHERE id = ? LIMIT 1");
-            $sql->bind_param('i', $id);
-            $sql->execute();
-            
-            if ($sql->fetch())
-                $this->producten[$id] = 1;
+            if (array_key_exists($id, $this->producten))
+            {
+                $this->change_amount($id, $this->producten[$id] + 1);
+            }
+            else
+            {    
+                $db = connect_to_db();
                 
-            $sql->free_result();
-            $db->close();
+                $sql = $db->prepare("SELECT * FROM Producten WHERE id = ? LIMIT 1");
+                $sql->bind_param('i', $id);
+                $sql->execute();
+                
+                if ($sql->fetch())
+                    $this->producten[$id] = 1;
+                    
+                $sql->free_result();
+                $db->close();
+            }
         }
     }
     
     function change_amount($id, $amount)
     {
+        $voorraad = voorraad($id);
         if (isset($this->producten[$id]))
         {
             if ($amount == 0)
                 $this->remove($id);
+            else if ($voorraad < $amount)
+            {
+                $this->producten[$id] = $voorraad;
+            }
             else
                 $this->producten[$id] = $amount;
         }
+    }
+    
+    function check_amounts()
+    {
+        $verandering = false;
+        foreach ($this->get_all() as $id)
+        {
+            $voorraad = voorraad($id);
+            if ($voorraad < $this->producten[$id])
+            {
+                $this->change_amount($id, $voorraad);
+                $verandering = true;
+            }
+        }
+        return $verandering;
     }
     
     function get_amount($id)

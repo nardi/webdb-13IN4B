@@ -1,4 +1,6 @@
 <?php
+    require_once 'winkelwagen.class.php';
+
     function ww_dash()
     {
 ?>
@@ -23,24 +25,28 @@
         function emptyOrDefault(elem,dv) { elem.value = elem.value == '' ? dv : elem.value; }
     </script>
     <form action="gebruikers-login.php" method="post">
-        <input type="text" name="e-mailadres" value="E-mailadres" onfocus="empty(this, 'E-mailadres')" onblur="emptyOrDefault(this, 'E-mailadres')" />
-        <?php ww_dash(); ?>
-        <br />
-        <input type="password" name="wachtwoord" value="wachtwoord" onfocus="empty(this, 'wachtwoord')" onblur="emptyOrDefault(this, 'wachtwoord')" />
-        <br />
-        <input type="submit" value="Log in" /> 
-        <a href='wachtwoordvergeten.php' style='float: right; font-size: small; margin-top: 4px;'>Wachtwoord vergeten</a>
-        <br />
-        <a href="registratie.html" style='float: right; font-size: small; margin-top: -2px; margin-bottom: 4px;'>Registreren</a>
+        <div id="dashboard">
+            <input type="text" name="e-mailadres" value="E-mailadres" onfocus="empty(this, 'E-mailadres')" onblur="emptyOrDefault(this, 'E-mailadres')" />
+            <?php ww_dash(); ?>
+            <br />
+            <input type="password" name="wachtwoord" value="wachtwoord" onfocus="empty(this, 'wachtwoord')" onblur="emptyOrDefault(this, 'wachtwoord')" />
+            <br />
+            <input type="submit" value="Log in" /> 
+            <a href='wachtwoordvergeten.php' style='float: right; font-size: small; margin-top: 4px;'>Wachtwoord vergeten</a>
+            <br />
+            <a href="registratie.html" style='float: right; font-size: small; margin-top: -2px; margin-bottom: 4px;'>Registreren</a>
+        </div>
     </form>
 <?php
     } else {
-        ww_dash();
 ?>
-    <div id="account-opties">
-        <?php echo $_SESSION['gebruiker-naam']; ?><br />
-        <a href="account-overzicht.php">Mijn account</a><br />
-        <a href='inloggen.php'>Uitloggen</a>
+    <div id="dashboard">
+        <?php ww_dash(); ?>
+        <div id="account-opties">
+            <?php echo $_SESSION['gebruiker-naam']; ?><br />
+            <a href="account-overzicht.php">Mijn account</a><br />
+            <a href='inloggen.php'>Uitloggen</a>
+        </div>
     </div>
 <?php
     }

@@ -29,7 +29,7 @@
     
     function connect_to_db()
     {
-        $db_info = json_decode(file_get_contents("../db-info.json"));
+        $db_info = json_decode(file_get_contents("/datastore/webdb13IN4B/db-info.json"));
         $mysqli = new mysqli($db_info->host, $db_info->username, $db_info->password, $db_info->database);
         if ($mysqli->connect_errno)
             throw new Exception($mysqli->connect_error);
@@ -40,6 +40,11 @@
     {
         header("location:$url");
     }
+    
+    function string_starts_with($string, $search) 
+    { 
+        return (strncmp($string, $search, strlen($search)) == 0); 
+    } 
     
     function get_address($postcode, $nummer, $toevoeging = '')
     {
@@ -80,8 +85,6 @@
             echo "Error: " . $_FILES[$name]["error"] . "<br>";
         }
     
-    
-    
         $allowedExts = array("jpg", "jpeg", "gif", "png");
         $extension = end(explode(".", $_FILES[$name]["name"]));
         if ((($_FILES[$name]["type"] == "image/gif")
@@ -104,9 +107,7 @@
                     if(!move_uploaded_file($_FILES[$name]["tmp_name"],
                     "uploads/" . $_FILES[$name]["name"])) {
                         throw new Exception("Het uploaden van het bestand is mislukt");
-                    }  
-                            
-                    
+                    }   
                 }
             }
             
@@ -170,6 +171,4 @@
         
         return $prijs;
     }
-    
-    require_once 'winkelwagen.class.php';
 ?>

@@ -1,5 +1,7 @@
-function onButtonClick(button) {
-    window.location = button;
+function onButtonclick(button) {
+    if (!button)
+        button = '';
+    window.location = '/' + button;
 }
 
 

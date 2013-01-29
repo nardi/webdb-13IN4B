@@ -61,7 +61,7 @@
             $var = intval($var);
         }
         
-        $query = "SELECT id, titel, cover FROM Producten";
+        $query = "SELECT id, titel, cover FROM Producten WHERE verwijderd != 1";
         
         if(isset($_GET['genres']) && $_GET['genres'] != 0) 
         {
@@ -84,7 +84,7 @@
         
         if($genres_valid || $platforms_valid)
         {
-            $query .= " WHERE";
+            $query .= " AND";
         
             if ($genres_valid)
             {
@@ -110,11 +110,7 @@
         if (isset($_GET['search']))
         {
             $search = '%' . $db->escape_string($_GET['search']) . '%';
-            if (isset($_GET['genres']) || isset($_GET['platforms']))
-                $query .= " AND";
-            else
-                $query .= " WHERE";
-            $query .= " titel LIKE ?";
+            $query .= " AND titel LIKE ?";
         }
         
         $sqli = $db->prepare($query);
