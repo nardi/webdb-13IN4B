@@ -1,6 +1,6 @@
 <link rel="stylesheet" type="text/css" href="inloggen-wachtwoord-registratie.css">
 
-<script>
+<?php
 //deze functie geeft het formulier weer. 
 function show_form()
 {
@@ -12,9 +12,7 @@ echo "<form method='post' action='klantenservice_factuur_niet_beantwoord.php'>
 	<input type='submit' value='verstuur'>
 	</form>"; 
 }
-</script>
-
-<body>
+?>
 
 <?php
 	if ((!isset($_SESSION['logged-in']))) {
@@ -56,8 +54,8 @@ if (isset($_POST['bericht']) {
 	$bericht, "From:" . $email);
   
 	?><br /><div align="center">Hartelijk dank voor uw reactie, wij streven er naar uw vraag binnen 1 werkdag te beantwoorden.</div><?php
-}
-else {
+} else {
   show_form();
+}
 }
 ?>
