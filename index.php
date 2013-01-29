@@ -73,7 +73,7 @@
             <?php
                 if (empty($pag))
                 {
-                    include($default_frontpage);
+                    include($default_page);
                 }
                 else
                 {
