@@ -136,7 +136,11 @@ a {
 }
 
 /* Sidebar */
-
+#searchbutton{
+	background-image:url('images/labels/search.png');
+	background-size:100%;
+	background-repeat:no-repeat;
+}
 #sidebar {
     float : left;
     width : 5cm;
