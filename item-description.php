@@ -53,8 +53,9 @@
     ?>
 </h3>
 </div>
-<div id="ItemCoverContainer">
-    <div id="variablewidth">
+<div id="variablewidth">
+    <div id="ItemCoverContainer">
+    
         <div id="ItemCover">
         <h4>Game cover</h4>
             <?php
@@ -78,7 +79,7 @@
                 </div>";
             }
         ?>
-    
+    </div>
 
 
 
