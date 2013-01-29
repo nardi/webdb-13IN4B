@@ -53,8 +53,8 @@
             }
         } 
 
-        else if{
-            product-verwijderen-func($id);
+        else if($_POST['verwijderen'] == 'teverwijderen'){
+            product_verwijderen_func($id);
         }
         //$titeltest=$_POST['titel22'];    
         //echo "$titeltest";

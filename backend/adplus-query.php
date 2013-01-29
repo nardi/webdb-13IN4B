@@ -17,11 +17,18 @@
         echo "<td width=80pt>$naam</td> 
             <td width=150pt>$achternaam</td> 
             <td width=250pt>$email</td> 
-            <td width=10pt>$status</td>
+            <td>";
+            
+                if($status == 1) { echo "Ongeverifiëerd"; }
+                if($status == 2) { echo "Geverifiëerd"; }
+                if($status == 3) { echo "Medewerker"; }
+                if($status == 4) { echo "Beheerder"; }
+            
+            echo "</td>
             <td>
             <button name=\"id\" type=\"submit\" value=\"$id\">Bewerken</button>
             </td>";
-            
+    
         echo "</tr>";
         
     }
