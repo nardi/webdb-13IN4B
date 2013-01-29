@@ -43,8 +43,8 @@
                 Producten beheren
             </div>
             
-            <div id="aanbieding-toevoegen.php" class="clickable-item" onclick="onButtonclick(this.id);">
-                Aanbieding toevoegen
+            <div id="aanbiedingen.php" class="clickable-item" onclick="onButtonclick(this.id);">
+                Aanbiedingen
             </div>
             
             <div id="adplus.html" class="clickable-item" onclick="onButtonclick(this.id);">

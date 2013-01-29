@@ -1,9 +1,9 @@
 <link rel="stylesheet" type="text/css" href="inloggen-wachtwoord-registratie.css">
 
-<head>
+
 <script src="klantenservice.js">
 </script>
-</head>
+
 <body>
 
 <?php
@@ -16,8 +16,8 @@ U bent niet ingelogd!
 	<?php
 	} else {
 	?>
-	<div class="account-wachtwoord-veranderen">
-		<div class="centered-container"> 
+	<div class="centered-container"> 
+		<div class="account-wachtwoord-veranderen">
 		<hr width="100%">
 		
 		
@@ -36,7 +36,7 @@ U bent niet ingelogd!
 		
 		</div>
 		</div>
-		
+	</div>	
 		</body>
 	<?php
 	}

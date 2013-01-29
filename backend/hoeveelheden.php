@@ -14,5 +14,5 @@
     
     $ww->save_to_session();
     
-    echo 'success';
+    echo json_encode($ww);
 ?>
