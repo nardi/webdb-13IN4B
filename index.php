@@ -4,7 +4,16 @@
     require_once 'main.php';
     
     session_start();
-    $pag = (isset($_GET['pag'])) ? ($_GET['pag']) : ('frontpage.php'); //read URL-pag parameter in
+    $pag = (isset($_GET['pag'])) ? ($_GET['pag']) : ''; //read URL-pag parameter in
+    if (string_starts_with($_SERVER['REQUEST_URI'], 'index.php'))
+    {
+        if (!empty($pag))
+            redirect_to('/');
+        else
+        {
+            redirect_to('/' . substr($_SERVER['REQUEST_URI'], strlen('index.php?pag=')));
+        }
+    }
     if (strpos($pag, '.'))
     {
         $pagename = implode('.', explode('.', $pag, -1));
@@ -38,26 +47,14 @@
 
 <body onload = "setButtonColor(location.pathname)">
 
-<?php
-    if (!isset($_COOKIE["user"])) {
-?>
-    <script type="text/javascript">
-        window.onload = alert("Deze website maakt gebruik van functionele cookies. Bij het gebruik van de website gaat u hiermee akkoord.") ;
-    </script>
-<?php
-}
-?>
-
 <div id="mainWindow">
     <div class="banner">
         <div id="logo" class="vcenter" onclick="window.open('/', '_self');">
             <img src="images/logo/logo-sis-met-tekst.png" alt="Link to homepage" />
         </div>
-        <div id="dashboard">
-            <?php
-                include("dashboard.php");
-			?>
-        </div>
+        <?php
+            include("dashboard.php");
+        ?>
     </div>
     <div id="contentWindow">
         <div id="sidebar">
@@ -104,6 +101,16 @@
 	konami = new Konami()
 	konami.load("?pag=42.toad");
 </script>
+
+<?php
+    if (!isset($_COOKIE["user"])) {
+?>
+    <script type="text/javascript">
+        //window.onload = alert("Deze website maakt gebruik van functionele cookies. Bij het gebruik van de website gaat u hiermee akkoord.") ;
+    </script>
+<?php
+}
+?>
 
 </body>
 </html>
