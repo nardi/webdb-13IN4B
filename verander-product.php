@@ -1,7 +1,7 @@
 <?php
     $db = connect_to_db();
     
-    /*$sqli_id = $db->prepare("SELECT id FROM Producten");
+    $sqli_id = $db->prepare("SELECT id FROM Producten");
     $sqli_id->bind_result($id);
     $sqli_id->execute();
     $sqli_id->store_result();
@@ -20,7 +20,7 @@
             $prijs=$_POST['prijs'];
             $release_date=$_POST['release'];
             $voorraad=$_POST['voorraad'];
-            $id=$_POST['idee'];
+            //$id=$_POST['idee'];
             
            try{
                 echo "TRY";
