@@ -15,6 +15,8 @@ else
 xhttp.open("GET",url,false);
 xhttp.send();
 document.getElementById(element_id).innerHTML=xhttp.responseText;
+} else {
+document.getElementById(element_id).innerHTML="";
 }
 }
 
