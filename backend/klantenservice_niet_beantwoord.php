@@ -1,8 +1,18 @@
 <link rel="stylesheet" type="text/css" href="inloggen-wachtwoord-registratie.css">
 
-<head>
-
-</head>
+<script>
+//deze functie geeft het formulier weer. 
+function show_form()
+{
+echo "<form method='post' action='klantenservice_factuur_niet_beantwoord.php'>
+	
+	Bericht:<br />
+	<textarea name='bericht' rows='15' cols='40'>
+	</textarea><br />
+	<input type='submit' value='verstuur'>
+	</form>"; 
+}
+</script>
 
 <body>
 
@@ -23,20 +33,11 @@
 		<br />
 		
 		<?php
-//deze functie geeft het formulier weer. 
-function show_form()
-{
-echo "<form method='post' action='klantenservice_factuur_niet_beantwoord.php'>
-	
-	Bericht:<br />
-	<textarea name='bericht' rows='15' cols='40'>
-	</textarea><br />
-	<input type='submit' value='verstuur'>
-	</form>"; 
-}
+
 
 //als alles is ingevuld dan wordt de email verstuurd.
 if (isset($_POST['bericht']) {
+
 	$id = $_SESSION['gebruiker-id'] ;
 	$naam = $_SESSION['gebruiker-naam'] ;
 	$onderwerp = "Factuur" ;
