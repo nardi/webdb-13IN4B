@@ -1,4 +1,4 @@
-<?php require_once '../voorraad.php';
+<?php require_once 'voorraad.php';
 
 class Winkelwagen
 {
