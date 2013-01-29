@@ -144,12 +144,21 @@ a {
 }
 
 /* Sidebar */
+#searchcontainer{
+    width:100%;
+}
 #searchbutton{
 	background-image:url('images/labels/search.png');
 	background-size:100%;
 	background-repeat:no-repeat;
 	width:20px;
 	heigth:20px;
+    float:left;
+}
+
+#searchbar{
+    float:left;
+    width:75%;
 }
 #sidebar {
     float : left;

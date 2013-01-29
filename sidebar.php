@@ -19,8 +19,8 @@
 <div></div>
 
 <form method="get" action="products.php" id='searchform'>
-    <div>
-        <input type="text" name="search"/>
+    <div id='searchcontainer'>
+        <input type="text" name="search" id='searchbar'/>
         <div id='searchbutton' onclick="document.getElementById('searchform').submit()">
         </div>
     </div>
