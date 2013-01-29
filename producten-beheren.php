@@ -47,7 +47,7 @@
                 <td><input type='checkbox' name='selected'></td>
                 <td class='column'>$id</td>
                 <td>
-                    <input type='text' value=$id hidden='hidden' name='idee'>
+                    <input type='number' value=$id hidden='hidden' name='idee'>
                 </td>
                 <td class='column'><input type='text' class='inputfield' name='titel' disabled='disabled' value='$titel' size=$titelwidth>titel$id</td>
                 <td class='column'><div class='cover' id='cover$id' onclick=\"showImage(cover$id, '$cover')\">Klik hier om de cover te laten zien.</div></td>
