@@ -3,23 +3,31 @@ function changeAmount(id)
     var xhr = new XMLHttpRequest();
     var amountElem = document.getElementById('amount-' + id);
     var amount = parseInt(amountElem.value);
-    var url = 'backend/hoeveelheden.php';
-    var params = 'amount-' + id + '=' + amount;
-    xhr.open('POST', url);
-    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhr.setRequestHeader("Content-length", params.length);
-    xhr.setRequestHeader("Connection", "close");
-    xhr.onreadystatechange = function()
+    if (!isNaN(amount))
     {
-        if (xhr.readyState == 4 && xhr.responseText == 'success')
+        var url = 'backend/hoeveelheden.php';
+        var params = 'amount-' + id + '=' + amount;
+        xhr.open('POST', url);
+        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhr.setRequestHeader("Content-length", params.length);
+        xhr.setRequestHeader("Connection", "close");
+        xhr.onreadystatechange = function()
         {
-            recalculateTotalPrice();
-        }
-    };
-    xhr.send(params);
+            if (xhr.readyState == 4)
+            {
+                recalculateTotalPrice(JSON.decode(xhr.responseText));
+            }
+        };
+        xhr.send(params);
+    }
 }
 
-function recalculateTotalPrice()
+function recalculateTotalPrice(json)
+{
+    document.getElementsByTagName('h1')[0].innerHtml = JSON.stringify(json);
+}
+
+/* function recalculateTotalPrice()
 {
     var ids = document.getElementsByName('product-id');
     var totalPrice = parseFloat(document.getElementById('shipping').innerHTML.replace(',', '.'));
@@ -34,4 +42,4 @@ function recalculateTotalPrice()
     }
     totalPrice = Math.round(totalPrice * 100) / 100;
     document.getElementById('total-price').innerHTML = totalPrice.toFixed(2).replace('.', ',');
-} 
+} */
