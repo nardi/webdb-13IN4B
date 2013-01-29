@@ -1,8 +1,8 @@
 <?php
     if(is_admin()){
         $iid=$_POST['delete'];
-        product-verwijderen-func($iid);
-        function product-verwijderen-func($pid){
+        product_verwijderen_func($iid);
+        function product_verwijderen_func($pid){
             $id=$pid
             $db = connect_to_db();
             $sqli_preserved_product = $db->prepare("SELECT * FROM Producten WHERE id=?");
