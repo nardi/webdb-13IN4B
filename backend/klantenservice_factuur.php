@@ -1,7 +1,8 @@
 <link rel="stylesheet" type="text/css" href="inloggen-wachtwoord-registratie.css">
 
 <head>
-<script src="klantenservice.js"></script>
+<script src="klantenservice.js">
+</script>
 </head>
 <body>
 
@@ -16,13 +17,13 @@ U bent niet ingelogd!
 	} else {
 	?>
 	<div class="account-wachtwoord-veranderen">
-		<div align="right"> 
+		<div class="centered-container"> 
 		<hr width="100%">
 		
 		
 		<form>
-		Wat voor vraag heeft u over uw factuur?
-		<select id="myList" onchange="loadXMLDoc(this.options[this.selectedIndex].value, choice_factuur)">
+		Wat voor vraag heeft u over uw factuur? <br />
+		<select id="myList" onchange="loadXMLDoc(this.options[this.selectedIndex].value,'choice_factuur')">
 		<option value="">Kies een onderwerp...</option>
 		<option value="backend/klantenservice_factuur_klopt_niet.php">Factuurbedrag klopt niet</option>
 		<option value="backend/klantenservice_factuur_niet_ontvangen.php">Ik heb geen factuur ontvangen</option>  

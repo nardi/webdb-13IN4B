@@ -83,6 +83,7 @@ a {
 #logo {
     padding-left: 0.25cm;
     height: 100%;
+    width : 80px;
 }
 
 #logo:hover{
@@ -92,6 +93,13 @@ a {
 #logo img{
     height: 2cm;
     display: block;
+}
+
+/* The slogan */
+
+#slogan {
+    width: auto;
+    height: auto;
 }
 
 /* The dashboard */
@@ -136,7 +144,22 @@ a {
 }
 
 /* Sidebar */
+#searchcontainer{
+    width:100%;
+}
+#searchbutton{
+	background-image:url('images/labels/search.png');
+	background-size:100%;
+	background-repeat:no-repeat;
+	width:20px;
+	heigth:20px;
+    float:left;
+}
 
+#searchbar{
+    float:left;
+    width:75%;
+}
 #sidebar {
     float : left;
     width : 5cm;

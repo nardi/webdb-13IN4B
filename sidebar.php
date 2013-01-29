@@ -18,9 +18,11 @@
 
 <div></div>
 
-<form method="get" action="products.php">
-    <div>
-        <input type="text" name="search"/>
+<form method="get" action="products.php" id='searchform'>
+    <div id='searchcontainer'>
+        <input type="text" name="search" id='searchbar'/>
+        <div id='searchbutton' onclick="document.getElementById('searchform').submit()">
+        </div>
     </div>
 </form>
 
@@ -41,8 +43,8 @@
                 Producten beheren
             </div>
             
-            <div id="aanbieding-toevoegen.php" class="clickable-item" onclick="onButtonclick(this.id);">
-                Aanbieding toevoegen
+            <div id="aanbiedingen.php" class="clickable-item" onclick="onButtonclick(this.id);">
+                Aanbiedingen
             </div>
             
             <div id="adplus.html" class="clickable-item" onclick="onButtonclick(this.id);">
