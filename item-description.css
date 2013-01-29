@@ -61,6 +61,13 @@
 	float:left;
 }
 
+#variablewidth{
+    display:table;
+}
+
+#variablwidth div{
+    display:table-cell;
+}
 
 
 .SystemRequirementsTable{
