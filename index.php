@@ -52,11 +52,11 @@
         <script type="text/javascript" src="button.js"></script>  
 </head>
 
-<body onload = "setButtonColor(location.pathname)">
+<body onload = "setButtonColor('<?php echo $pag; ?>')">
 
 <div id="mainWindow">
     <div class="banner">
-        <div id="logo" class="vcenter" onclick="window.open('/', '_self');">
+        <div id="logo" class="vcenter" onclick="onButtonclick();">
             <img src="images/logo/logo-sis-met-tekst.png" alt="Link to homepage" />
         </div>
         <div id="slogan" class="vcenter">

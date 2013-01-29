@@ -99,33 +99,38 @@
 </div>
 </div>
 
-<div id="Quotes">
-<h4>Wat vonden reviewers van dit spel?</h4>
-    <?php
-        echo $quotes;
-    ?>
-</div>
+<?php
+    if($quotes != ""){
+    echo "
+        <div id='Quotes'>
+        <h4>Wat vonden reviewers van dit spel?</h4>
+            $quotes;
+        </div>";
+    }
 
-<div id="SystemRequirements">
-<table class="SystemRequirementsTable">
-<tr>
-<th colspan="2"> Systeem Vereiste </th>
-</tr>
-<tr>
-<td>CPU</td><td> <?php echo $cpu ?></td>
-</tr>
-<tr>
-<td>RAM</td><td> <?php echo $ram ?></td>
-</tr>
-<tr>
-<td>GPU</td> <td><?php echo $gpu ?></td>
-</tr>
-<tr>
-<td>OS</td> <td><?php echo $os ?></td>
-</tr>
-</table>
-</div>
-
+    if($platform == '5'){
+        echo "
+        <div id='SystemRequirements'>
+        <table class='SystemRequirementsTable'>
+        <tr>
+        <th colspan='2'> Systeem Vereiste </th>
+        </tr>
+        <tr>
+        <td>CPU</td><td>$cpu</td>
+        </tr>
+        <tr>
+        <td>RAM</td><td>$ram</td>
+        </tr>
+        <tr>
+        <td>GPU</td> <td>$gpu</td>
+        </tr>
+        <tr>
+        <td>OS</td> <td>$os</td>
+        </tr>
+        </table>
+        </div>";
+    }
+?>
 </div>
 </body>
 
