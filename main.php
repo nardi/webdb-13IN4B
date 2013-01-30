@@ -176,16 +176,15 @@
         return $aanbiedingsprijs;
     }
     
-    function product_thumb($id, $cover, $titel, $prijs, $datum = null)
+    function product_thumb($id, $cover, $titel, $prijs, $aanbiedingsprijs = null, $datum = null)
     {
-        $aanbiedingsprijs = aanbiedingsprijs($id);
 ?>
 <div class="product-thumb<?php if ($datum !== null) { ?> preorder<?php } ?>">
     <div class="image"><a href="item-description.php?id=<?php echo $id; ?>"><img src="<?php echo $cover; ?>" alt="<?php echo $titel; ?>"/></a></div>
     <p class="title"><a href="item-description.php?id=<?php echo $id; ?>"><?php echo $titel; ?></a></p>
     <p><a href="item-description.php?id=<?php echo $id; ?>">
 <?php if ($aanbiedingsprijs !== null) { ?>
-        <span class="old-price">&euro;<?php echo prijs($aanbiedingsprijs); ?></span>
+        <span class="old-price">&euro;<?php echo prijs($aanbiedingsprijs); ?></span><br />
 <?php } ?>
         <span class="price">&euro;<?php echo prijs($prijs); ?></span>
     </a></p>
