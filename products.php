@@ -61,7 +61,7 @@
             $var = intval($var);
         }
         
-        $query = "SELECT Producten.id, titel, cover, Producten.prijs, Aanbiedingen.prijs FROM Producten LEFT JOIN Aanbiedingen ON product_id = Producten.id WHERE verwijderd != 1";
+        $query = "SELECT COUNT(*), Producten.id, titel, cover, Producten.prijs, Aanbiedingen.prijs FROM Producten LEFT JOIN Aanbiedingen ON product_id = Producten.id WHERE verwijderd != 1";
         
         if(isset($_GET['genres']) && $_GET['genres'] != 0) 
         {
@@ -129,7 +129,7 @@
         $sqli = $db->prepare($query);
         if (isset($search))
             $sqli->bind_param('s', $search);
-        $sqli->bind_result($id, $titel, $cover, $prijs, $aanbiedingsprijs);
+        $sqli->bind_result($numproducts, $id, $titel, $cover, $prijs, $aanbiedingsprijs);
         if (!$sqli->execute())
                 throw new Exception("Er zijn foutieve parameters opgegeven.");
     ?>
@@ -174,10 +174,10 @@
         if ($_SERVER['QUERY_STRING'] == '')
             $url .= '?';
     
-        $count = $db->prepare("SELECT COUNT(*) FROM Producten");
+        /* $count = $db->prepare("SELECT  FROM Producten");
         $count->execute();
         $count->bind_result($numproducts);
-        $count->fetch();
+        $count->fetch(); */
     
         $prevpage = $page - 1;
         $has_prevpage = $page > 1;
@@ -193,7 +193,7 @@
             echo ' <a href="'.$url.'&page='.$nextpage.'">Volgende ></a>';
         echo '</p>';
         
-        $count->free_result();
+       // $count->free_result();
     ?>
     </div>
 
