@@ -1,9 +1,0 @@
-Ajax voor backup - gebruikt dojo javascript library
-
-Backup.php
-	Het formulier
-Backup.server.php
-	Het serverscript dat de gegvens bewaart
-
-fatalerror, mymysqli, mystatement ken je al.
-Dit zijn identieke copietjes, met alleen in mymysqli andere connectiegegevens.
