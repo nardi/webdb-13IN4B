@@ -115,7 +115,7 @@
             </div>";
         }
 
-        if($platform == '5'){
+        if($platform == '5' && $cpu != NULL){
             echo "
             <div id='SystemRequirements'>
             <table class='SystemRequirementsTable'>
