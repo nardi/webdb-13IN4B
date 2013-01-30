@@ -1,7 +1,8 @@
 <?php
+    require_once '../main.php'; 
     if (is_admin())
     {
-        require_once '../main.php'; 
+        
         $db = connect_to_db();
 
         $emailquery ='%' . $_GET['email'] . '%';
