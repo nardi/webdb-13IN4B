@@ -26,7 +26,7 @@ function checkPrijs(field, label){
 }
 //Er moet even gekeken worden naar wat er gebeurt als een datum als dd-mm-jjjj wordt ingevoerd.
 function checkDatum(field, label){
-    var validDatum = /^[0-9]{4}[0-12]{1}[0-31]$/;
+    var validDatum = /^[0-9]{4}[\-][0-9]{2}[\-][0-9]{2}$/;
     var datum = document.getElementById(field).value;
     var label = document.getElementById(label);
     
