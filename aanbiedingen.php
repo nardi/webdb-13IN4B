@@ -15,7 +15,7 @@
             echo "<form action='aanbieding-bewerken.php' method='post'>
                   <table>
                   <tr>
-                  <td>Spel</td> <td>Oude prijs</td> <td>Aanbiedingsprijs</td> <td>Start Datum</td> <td>Eind Datum</td>       
+                  <th>Spel</th> <th>Oude prijs</th> <th>Aanbiedingsprijs</th> <th>Start Datum</th> <th>Eind Datum</th>       
                   </tr>";
             
                 while($on_sale->fetch()) {

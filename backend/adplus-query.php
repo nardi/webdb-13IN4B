@@ -1,6 +1,10 @@
 <?php
+    /* De volgende 2 functies zijn nodig omdat het bestand zich in de backend map bevindt
+     */
     session_start();
     require_once '../main.php'; 
+    /* Door deze check wordt, m.b.v. main.php gekeken of de gebruiker de juiste privileges heeeft.
+     */
     if (is_owner())
     {
         
@@ -20,7 +24,7 @@
             echo "<tr>";
             echo "<td width=80pt>$naam</td> 
                 <td width=150pt>$achternaam</td> 
-                <td width=250pt>$email</td> 
+                <td width=250pt>$email</td>
                 <td>";
                 
                     if($status == 1) { echo "Ongeverifiëerd"; }
