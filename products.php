@@ -61,7 +61,7 @@
             $var = intval($var);
         }
         
-        $query = "SELECT id, titel, cover FROM Producten WHERE verwijderd != 1";
+        $query = "SELECT Producten.id, titel, cover, Producten.prijs, Aanbiedingen.prijs FROM Producten LEFT JOIN Aanbiedingen ON product_id = Producten.id WHERE verwijderd != 1";
         
         if(isset($_GET['genres']) && $_GET['genres'] != 0) 
         {
@@ -116,7 +116,7 @@
         $sqli = $db->prepare($query);
         if (isset($search))
             $sqli->bind_param('s', $search);
-        $sqli->bind_result($id, $titel, $cover);
+        $sqli->bind_result($id, $titel, $cover, $prijs, $aanbiedingsprijs);
         if (!$sqli->execute())
                 throw new Exception("Er zijn foutieve parameters opgegeven.");
     ?>
@@ -128,9 +128,10 @@
         $count = 1;
         while ($sqli->fetch())
         {
-            $prijs = actuele_prijs($id);
             $cover = is_valid_cover($cover);
-            product_thumb($id, $cover, $titel, $prijs);
+            if (!isset($aanbiedingsprijs))
+                $aanbiedingsprijs = null;
+            product_thumb($id, $cover, $titel, $prijs, $aanbiedingsprijs);
             
             if ($count % 4 == 0)
                 echo '</div><div class="product-row">';

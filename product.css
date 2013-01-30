@@ -37,6 +37,12 @@
     font-size: 1.6em; 
 }
 
+.product-thumb .old-price {
+    font-size: 1em;
+    text-decoration: line-through;
+    margin-bottom: 2px;
+}
+
 .product-thumb .date {
     font-size: 1em; 
 }

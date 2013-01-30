@@ -57,7 +57,7 @@
                 Aanbiedingen
             </div>
             
-            <div id="adplus.html" class="clickable-item" onclick="onButtonclick(this.id);">
+            <div id="adplus.php" class="clickable-item" onclick="onButtonclick(this.id);">
                 Adplus
             </div>
             

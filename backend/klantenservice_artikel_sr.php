@@ -1,3 +1,7 @@
+<!--
+Klant komt op deze pagina terecht als hij wil weten waar hij de system-requirement wil weten
+-->
+
 <link rel="stylesheet" type="text/css" href="inloggen-wachtwoord-registratie.css">
 
 <script src="klantenservice.js">
@@ -32,7 +36,6 @@ if ((!isset($_SESSION['logged-in']))) {
 
 	</div>
 	</div>
-
 <?php
 }
 ?>

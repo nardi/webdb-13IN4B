@@ -14,8 +14,6 @@
             throw new Exception($sql->error);
 
         $db->close();
-        
-        
         ?>
         
         De aanbieding is toegevoegd.
@@ -25,4 +23,8 @@
 		</script>    
      <?php
      }
+     
+     else{
+        throw new Exception("U heeft niet de juiste privileges om deze pagina te zien.");
+    }
 ?>
