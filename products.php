@@ -61,7 +61,7 @@
             $var = intval($var);
         }
         
-        $query = "SELECT Producten.id, titel, cover, Producten.prijs, Aanbiedingen.prijs FROM Producten LEFT JOIN Aanbiedingen ON product_id = Producten.id AND start_datum <= CURRENT_DATE AND eind_datum >= CURRENT_DATE WHERE verwijderd != 1";
+        $query = "SELECT Producten.id, titel, cover, Producten.prijs, Aanbiedingen.prijs FROM Producten LEFT JOIN Aanbiedingen ON product_id = Producten.id WHERE verwijderd != 1";
         
         if(isset($_GET['genres']) && $_GET['genres'] != 0) 
         {
@@ -124,7 +124,7 @@
             $page = 1;
         }
         $query .= " LIMIT " . ($page - 1) * 25 . ", " . 25;
-        
+        echo $query;
         $sqli = $db->prepare($query);
         if (isset($search))
             $sqli->bind_param('s', $search);
@@ -153,6 +153,25 @@
     ?>
         </div>
     <?php
+        $url = $_SERVER['REQUEST_URI'];
+        while (($pagepos = strpos($url, '&page=')) !== FALSE)
+        {
+            $pageend = strpos($url, '&', $pagepos + 1);
+            if ($pageend === FALSE)
+                $url = substr($url, 0, $pagepos);
+            else
+                $url = substr($url, 0, $pagepos) . substr($url, $pageend);
+        }
+        
+        while (($pagepos = strpos($url, 'page=')) !== FALSE)
+        {
+            $pageend = strpos($url, '&', $pagepos);
+            if ($pageend === FALSE)
+                $url = substr($url, 0, $pagepos);
+            else
+                $url = substr($url, 0, $pagepos) . substr($url, $pageend);
+        }
+    
         $count = $db->prepare("SELECT COUNT(*) FROM Producten");
         $count->execute();
         $count->bind_result($numproducts);
@@ -165,15 +184,14 @@
         
         echo '<p>';
         if ($has_prevpage)
-            echo '<a href="products.php?page='.$prevpage.'&'.$_SERVER['QUERY_STRING'].'">< Vorige</a> ';
+            echo '<a href="'.$url.'&page='.$prevpage.'">< Vorige</a> ';
         if ($has_prevpage || $has_nextpage)
             echo '|';
         if ($has_nextpage)
-            echo ' <a href="products.php?page='.$nextpage.'&'.$_SERVER['QUERY_STRING'].'">Volgende ></a>';
+            echo ' <a href="'.$url.'&page='.$nextpage.'">Volgende ></a>';
         echo '</p>';
         
         $count->free_result();
-        $db->close();
     ?>
     </div>
 
