@@ -1,6 +1,7 @@
 <div class="centered-container">
 <?php
-    if (!isset($_SESSION['logged-in']))
+    // Eerst een paar checks
+    if (!is_logged_in())
     {
         echo 'Je moet ingelogd zijn om je bestellingen te kunnen bekijken.';
     }
@@ -15,6 +16,7 @@
         
         $db = connect_to_db();
         
+        // Een admin kan de verzendstatus aanpassen wanneer de bestelling verzonden is
         if (isset($_POST['verzendstatus']) && is_admin())
         {
             $verzendstatus = $_POST['verzendstatus'];
@@ -37,10 +39,12 @@
         {
             echo 'Deze bestelling bestaat niet.';
         }
+        // Een admin mag de bestellingen van andere gebruikers bekijken, normale gebruikers niet
         else if ($_SESSION['gebruiker-id'] != $gebruiker_id && !is_admin())
         {
             echo 'Deze bestelling is gedaan door een andere gebruiker.';
         }
+        // Als alles klopt wordt de bestelling weergegeven
         else
         {
 ?>
