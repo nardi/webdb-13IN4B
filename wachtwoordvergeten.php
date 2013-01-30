@@ -76,8 +76,8 @@ if (isset($_POST['email'])) {
 		contact@superinternetshop.nl
 		</div>
 		';
-		$html .='<img class="displayed src="https.superinternetshop.nl/images/logo/logo-sis.png" alt="logo" width="70" height="33">
-		</body></html>';
+		$html .='<div align="left"><img class="displayed src="superinternetshop.nl/images/logo/logo-sis.png" alt="logo" width="70" height="33">
+		</body></html></div>';
 		$css = file_get_contents('main.css') ;
 		require_once 'email.php';
 		leuke_mail($email, $onderwerp, $html, $css);
