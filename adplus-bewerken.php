@@ -1,5 +1,5 @@
 <?php
-    if (is_admin()) 
+    if (is_owner()) 
     {
         $db = connect_to_db();
         
@@ -16,6 +16,7 @@
             $sqli->bind_param('ssssii', $naam, $achternaam, $telefoonnummer, $email, $status, $id);
             $sqli->execute();
             
+            redirect_to("adplus.php");
             
         
         }
