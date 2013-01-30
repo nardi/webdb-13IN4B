@@ -1,3 +1,8 @@
+<!--
+Deze file zorgt ervoor dat een gebruiker zijn account kan bewerken. 
+Dat gebeurt met de sql query UPDATE.
+-->
+
 <?php
     if (!isset($_SESSION['logged-in'])){
         echo 'U moet uiteraard ingelogd zijn om uw account aan te passen.';
