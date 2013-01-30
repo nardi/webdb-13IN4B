@@ -2,8 +2,10 @@
 if (is_admin())
 { ?>
 
-    <script src="adplus-request.js"></script>
-
+    <script src="adplus-request.js">
+    getNames();
+    </script>
+    
     <div class="centered-container">
         <div id="filters">
             <!-- Zoekbalk hier... -->
@@ -16,9 +18,7 @@ if (is_admin())
         <hr /> <br />
         
         <div id = "userlist">
-            <?php
-            include("backend/adplus-query.php");
-            ?>
+            
         </div>
     </div>
 <?php
