@@ -37,6 +37,11 @@
     font-size: 1.6em; 
 }
 
+.product-hilite .old-price {
+    font-size: 1em;
+    text-decoration: line-through;
+}
+
 .product-thumb .date {
     font-size: 1em; 
 }
