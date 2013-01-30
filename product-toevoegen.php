@@ -33,13 +33,13 @@ Whale, whale, whale. What do we have here?
 					  <hr width="100%">
 					  <center><b>Productspecificaties</b></center>
 					  <br />
-					  Titel: <input type="text" id="titel" name="titel"><div id='titellabel'></div><br /> <br />
+					  Titel: <input type="text" id="titel" name="titel"><div id='titellabel' class='label'></div><br /> <br />
 					  Beschrijving:
-					  <textarea rows="5" cols="20" id="beschrijving" name="beschrijving"></textarea><div id='beschrijvinglabel'></div>
+					  <textarea rows="5" cols="20" id="beschrijving" name="beschrijving"></textarea><div id='beschrijvinglabel' class='label'></div>
 					  <br />  
-					  Prijs: <input type="text" id="prijs" name="prijs"><div id='prijslabel'></div><br />
-					  Release date: <input type="text" id="release_date" name="release_date"><div id='releaselabel'></div><br />
-					  Voorraad: <input type="text" id="voorraad" name="voorraad"><div id='voorraadlabel'></div><br />
+					  Prijs: <input type="text" id="prijs" name="prijs"><div id='prijslabel' class='label'></div><br />
+					  Release date: <input type="text" id="release_date" name="release_date"><div id='releaselabel' class='label'></div><br />
+					  Voorraad: <input type="text" id="voorraad" name="voorraad"><div id='voorraadlabel' class='label'></div><br />
 					  Platform:
 					  <div class="platform">
                           <select name="platform" id="platform">
@@ -58,7 +58,7 @@ Whale, whale, whale. What do we have here?
         $platformsql->free_result();
 ?>
 +						  </select>
-					  </div><div id="platformlabel"></div>
+					  </div><div id="platformlabel" class='label'></div>
 					  <br/>              
 					  Genre:
 					  <div class="genre">
@@ -80,13 +80,13 @@ Whale, whale, whale. What do we have here?
 ?>
 						  </select>
 
-					  </div><div id='genrelabel'></div>
+					  </div><div id='genrelabel' class='label'></div>
 					  <br/>
                       
                       <!-- Image upload to db test -->
                       <div>
                       Cover: 
-                      <input type="file" name="image" id="image" /><div id='coverlabel'></div>
+                      <input type="file" name="image" id="image" /><div id='coverlabel' class='label'></div>
                       <script>alert(document.getElementById('image').value)</script>
 					  </div>
                       

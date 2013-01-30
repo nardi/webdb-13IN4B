@@ -76,7 +76,7 @@ if (isset($_POST['email'])) {
 		contact@superinternetshop.nl
 		</div>
 		';
-		$html .='<div align="left"><img class="displayed src="superinternetshop.nl/images/logo/logo-sis.png" alt="logo" width="70" height="33">
+		$html .='<div align="left"><img class="displayed" src="superinternetshop.nl/images/logo/logo-sis.png" alt="logo" width="70" height="33">
 		</body></html></div>';
 		$css = file_get_contents('main.css') ;
 		require_once 'email.php';

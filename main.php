@@ -162,8 +162,8 @@
         }
         else
         {
-            //throw new Exception("Ongeldig bestand. Bestand moet .jpg, .jpeg, .png of .gif zijn");
-            return "nocover.png";
+            throw new Exception("Ongeldig bestand. Bestand moet .jpg, .jpeg, .png of .gif zijn");
+          
         }
     }
     
