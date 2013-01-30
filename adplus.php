@@ -18,7 +18,7 @@ if (is_admin())
         <hr /> <br />
         
         <div id = "userlist">
-            
+            Staat dit er nou nog?
         </div>
     </div>
 <?php
