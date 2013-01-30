@@ -113,6 +113,18 @@
             $query .= " AND titel LIKE ?";
         }
         
+        if (isset($_GET['page']))
+        {
+            $page = intval($db->escape_string($_GET['page']));
+            if ($page < 1)
+                $page = 1;
+        }
+        else
+        {
+            $page = 1;
+        }
+        $query .= " LIMIT " . ($page - 1) * 25 . ", " . 25;
+        
         $sqli = $db->prepare($query);
         if (isset($search))
             $sqli->bind_param('s', $search);
@@ -138,8 +150,31 @@
             
             $count++;
         }
-     ?>
+    ?>
         </div>
+    <?php
+        $count = $db->prepare("SELECT COUNT(*) FROM Producten");
+        $count->execute();
+        $count->bind_result($numproducts);
+        $count->fetch();
+    
+        $prevpage = $page - 1;
+        $has_prevpage = $page > 1;
+        $nextpage = $page + 1;
+        $has_nextpage = $numproducts > $page * 25;
+        
+        echo '<p>';
+        if ($has_prevpage)
+            echo '<a href="products.php?page='.$prevpage.'&'.$_SERVER['QUERY_STRING'].'">< Vorige</a> ';
+        if ($has_prevpage || $has_nextpage)
+            echo '|';
+        if ($has_nextpage)
+            echo ' <a href="products.php?page='.$nextpage.'&'.$_SERVER['QUERY_STRING'].'">Volgende ></a>';
+        echo '</p>';
+        
+        $count->free_result();
+        $db->close();
+    ?>
     </div>
 
 </div>
