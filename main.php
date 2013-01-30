@@ -79,6 +79,11 @@
         return is_logged_in() && ($_SESSION['gebruiker-status'] >= 3);
     }
     
+     function is_owner()
+    {
+        return is_logged_in() && ($_SESSION['gebruiker-status'] == 4);
+    }
+    
     function upload_image($name) {
         if ($_FILES[$name]["error"] > 0)
         {
@@ -115,7 +120,8 @@
         }
         else
         {
-            throw new Exception("Ongeldig bestand. Bestand moet .jpg, .jpeg, .png of .gif zijn");
+            //throw new Exception("Ongeldig bestand. Bestand moet .jpg, .jpeg, .png of .gif zijn");
+            return "nocover.png";
         }
     }
     
@@ -136,19 +142,7 @@
         return number_format($num, 2, ',', '');
     }
     
-    function product_thumb($id, $cover, $titel, $prijs, $datum = null)
-    {
-?>
-<div class="product-thumb<?php if ($datum !== null) { ?> preorder<?php } ?>">
-    <div class="image"><a href="item-description.php?id=<?php echo $id; ?>"><img src="<?php echo $cover; ?>" alt="<?php echo $titel; ?>"/></a></div>
-    <p class="title"><a href="item-description.php?id=<?php echo $id; ?>"><?php echo $titel; ?></a></p>
-    <p class="price"><a href="item-description.php?id=<?php echo $id; ?>">&euro;<?php echo prijs($prijs); ?></a></p>
-    <?php if ($datum !== null) { ?><p class="date"><?php echo $datum; ?></p><?php } ?>
-</div>
-<?php
-    }
-    
-    function actuele_prijs($id)
+    function aanbiedingsprijs($id)
     {
         $db = connect_to_db();
         
@@ -158,17 +152,52 @@
         $sql->bind_result($prijs);
         $sql->fetch();
         $sql->free_result();
+        $db->close();
         
-        if (!isset($prijs))
+        return isset($prijs) ? $prijs : null;
+    }
+    
+    function normale_prijs($id)
+    {
+        $db = connect_to_db();
+        
+        $sql = $db->prepare("SELECT prijs FROM Producten WHERE id = ? LIMIT 1");
+        $sql->bind_param('i', $id);
+        $sql->execute();
+        $sql->bind_result($prijs);
+        $sql->fetch();
+        $sql->free_result();
+        $db->close();
+        
+        return isset($prijs) ? $prijs : null;
+    }
+    
+    function actuele_prijs($id)
+    {
+        $aanbiedingsprijs = aanbiedingsprijs($id);
+        if ($aanbiedingsprijs === null)
         {
-            $sql = $db->prepare("SELECT prijs FROM Producten WHERE id = ? LIMIT 1");
-            $sql->bind_param('i', $id);
-            $sql->execute();
-            $sql->bind_result($prijs);
-            $sql->fetch();
-            $sql->free_result();
+            return normale_prijs($id);
         }
-        
-        return $prijs;
+        return $aanbiedingsprijs;
+    }
+    
+    function product_thumb($id, $cover, $titel, $prijs, $aanbiedingsprijs = null, $datum = null)
+    {
+?>
+<div class="product-thumb<?php if ($datum !== null) { ?> preorder<?php } ?>">
+    <div class="image"><a href="item-description.php?id=<?php echo $id; ?>"><img src="<?php echo $cover; ?>" alt="<?php echo $titel; ?>"/></a></div>
+    <p class="title"><a href="item-description.php?id=<?php echo $id; ?>"><?php echo $titel; ?></a></p>
+    <p><a href="item-description.php?id=<?php echo $id; ?>">
+<?php if ($aanbiedingsprijs !== null) { ?>
+        <span class="old-price">&euro;<?php echo prijs($prijs); ?></span><br />
+        <span class="price">&euro;<?php echo prijs($aanbiedingsprijs); ?></span>
+<?php } else { ?>
+        <span class="price">&euro;<?php echo prijs($prijs); ?></span>
+<?php } ?>
+    </a></p>
+    <?php if ($datum !== null) { ?><p class="date"><?php echo $datum; ?></p><?php } ?>
+</div>
+<?php
     }
 ?>

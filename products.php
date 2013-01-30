@@ -61,7 +61,7 @@
             $var = intval($var);
         }
         
-        $query = "SELECT id, titel, cover FROM Producten WHERE verwijderd != 1";
+        $query = "SELECT Producten.id, titel, cover, Producten.prijs, Aanbiedingen.prijs FROM Producten LEFT JOIN Aanbiedingen ON product_id = Producten.id WHERE verwijderd != 1";
         
         if(isset($_GET['genres']) && $_GET['genres'] != 0) 
         {
@@ -113,10 +113,23 @@
             $query .= " AND titel LIKE ?";
         }
         
+        $productsperpage = 20;
+        if (isset($_GET['page']))
+        {
+            $page = intval($db->escape_string($_GET['page']));
+            if ($page < 1)
+                $page = 1;
+        }
+        else
+        {
+            $page = 1;
+        }
+        $query .= " LIMIT " . ($page - 1) * $productsperpage . ", " . $productsperpage;
+
         $sqli = $db->prepare($query);
         if (isset($search))
             $sqli->bind_param('s', $search);
-        $sqli->bind_result($id, $titel, $cover);
+        $sqli->bind_result($id, $titel, $cover, $prijs, $aanbiedingsprijs);
         if (!$sqli->execute())
                 throw new Exception("Er zijn foutieve parameters opgegeven.");
     ?>
@@ -128,17 +141,60 @@
         $count = 1;
         while ($sqli->fetch())
         {
-            $prijs = actuele_prijs($id);
             $cover = is_valid_cover($cover);
-            product_thumb($id, $cover, $titel, $prijs);
+            if (!isset($aanbiedingsprijs))
+                $aanbiedingsprijs = null;
+            product_thumb($id, $cover, $titel, $prijs, $aanbiedingsprijs);
             
             if ($count % 4 == 0)
                 echo '</div><div class="product-row">';
             
             $count++;
         }
-     ?>
+    ?>
         </div>
+    <?php
+        // Deze functie haalt de huidige page-waarde(n) uit de url
+        function clean_url($url, $toremove)
+        {
+            while (($pagepos = strpos($url, $toremove)) !== FALSE)
+            {
+                $pageend = strpos($url, '&', $pagepos + strlen($toremove));
+                if ($pageend === FALSE)
+                    $url = substr($url, 0, $pagepos);
+                else
+                    $url = substr($url, 0, $pagepos) . substr($url, $pageend);
+            }
+            return $url;
+        }
+    
+        $url = $_SERVER['REQUEST_URI'];
+        $url = clean_url($url, '&page=');
+        $url = clean_url($url, 'page=');        
+        if ($_SERVER['QUERY_STRING'] == '')
+            $url .= '?';
+    
+        $count = $db->prepare("SELECT COUNT(*) FROM Producten");
+        $count->execute();
+        $count->bind_result($numproducts);
+        $count->fetch();
+    
+        $prevpage = $page - 1;
+        $has_prevpage = $page > 1;
+        $nextpage = $page + 1;
+        $has_nextpage = $numproducts > $page * $productsperpage + 1;
+        
+        echo '<p>';
+        if ($has_prevpage)
+            echo '<a href="'.$url.'&page='.$prevpage.'">< Vorige</a> ';
+        if ($has_prevpage || $has_nextpage)
+            echo '|';
+        if ($has_nextpage)
+            echo ' <a href="'.$url.'&page='.$nextpage.'">Volgende ></a>';
+        echo '</p>';
+        
+        $count->free_result();
+    ?>
     </div>
 
 </div>

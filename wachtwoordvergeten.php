@@ -1,12 +1,16 @@
+<!--
+Klant komt op deze pagina als hij op "wachtwoord vergeten" klikt in het dashboard.
+-->
+
 <link rel="stylesheet" type="text/css" href="inloggen-wachtwoord-registratie.css">
 <link rel="stylesheet" type="text/css" href="centering.css">
 
 <div class="centered-container">
-  <div class="wachtwoord-vergeten">
-    <div align="right"> 
-  <h1><CENTER><b>Wachtwoord vergeten?</b></CENTER></h1>
-  <hr width="100%">
-    <br />
+<div class="wachtwoord-vergeten">
+<div align="right"> 
+<h1><CENTER><b>Wachtwoord vergeten?</b></CENTER></h1>
+<hr width="100%">
+<br />
     
    
 <?php
@@ -71,27 +75,20 @@ if (isset($_POST['email'])) {
 		<i> Where gaming begins </i> <br />
 		contact@superinternetshop.nl
 		</div>
-		'
-		
-		
-		;
-		$html .='<img class="displayed src="https.superinternetshop.nl/images/logo/logo-sis.png" alt="logo" width="70" height="33">
-		</body></html>';
+		';
+		$html .='<div align="left"><img class="displayed src="superinternetshop.nl/images/logo/logo-sis.png" alt="logo" width="70" height="33">
+		</body></html></div>';
 		$css = file_get_contents('main.css') ;
 		require_once 'email.php';
 		leuke_mail($email, $onderwerp, $html, $css);
-		
 		
 		?><div align="center">U krijgt zo spoedig mogelijk een email toegestuurd met een link om uw wachtwoord opnieuw in te stellen.</div><?php
     }
     //als er geen waarden zijn ingevuld, dan wordt het formulier weergegeven 
 } else {
 	show_form();
-    
 }
 ?>
-      </div>
-    </div>
 </div>
-
-
+</div>
+</div>

@@ -1,3 +1,8 @@
+<!--
+Als de klant op de link in de email klikt komt hij/zij op deze pagina terecht.
+Met de link is een "token" en een "id" meegegeven die gechecked worden op geldigheid.
+-->
+
 <link rel="stylesheet" type="text/css" href="inloggen-wachtwoord-registratie.css">
 <link rel="stylesheet" type="text/css" href="centering.css">
 
@@ -24,6 +29,11 @@ echo "<form method='post' action='wachtwoord-reset.php'>
 if (!isset($_POST['wachtwoord'])&&
 	!isset($_POST['wachtwoord_nogmaals'])) {
 	
+	//hier wordt aan de hand van het meegegeven id gekeken wat de token in de db is.
+	//vervolgens wordt gekeken of deze nog gelijk is aan de token die is meegegeven met de link.
+	//als een klant een ww al heeft aangepast dan is de token in de database namelijk leeg
+	//en kan hij niet meer aangepast worden.
+	
 	$db = connect_to_db();
     $token = ($_GET['token']);
 	$id = ($_GET['id']);
@@ -45,8 +55,10 @@ if (!isset($_POST['wachtwoord'])&&
 		
 	}
 	
-	  
 } else {
+	
+	//hier wordt gecontroleerd of het oude wachtwoord juist is, 
+	//en zo ja dan wordt het nieuwe wachtwoord gesalt en gahashed en wordt deze weggeschreven naar de db.
 	
 	if ($_POST['wachtwoord'] === $_POST['wachtwoord_nogmaals']) {
 		$token = $_POST['token'] ;
