@@ -64,32 +64,49 @@
         return $saltedwwhash === $salthash[1];
     }
     
+    /* is_logged_in() kijkt of de gebruiker ingelogd is.
+     */
+    
     function is_logged_in()
     {
         return isset($_SESSION['logged-in']);
     }
+    
+    /* is_logged_in() kijkt of de gebruiker ingelogd en geverifiëerd is. (Level 2 of hoger in de database).
+     */
     
     function is_verified()
     {
         return is_logged_in() && ($_SESSION['gebruiker-status'] >= 2);
     }
     
+    /* is_admin() kijkt of de gebruiker ingelogd is als een admin/medewerker (Level 3 of hoger in de database).
+     */
+    
     function is_admin()
     {
         return is_logged_in() && ($_SESSION['gebruiker-status'] >= 3);
     }
     
-     function is_owner()
+    /* is_owner() kijkt of de gebruiker ingelogd is als een owner/beheerderr (Level 4 of hoger in de database).
+     */
+    
+    function is_owner()
     {
         return is_logged_in() && ($_SESSION['gebruiker-status'] == 4);
     }
     
+    /* upload_image() is een functie bedoeld voor het uploaden van afbeeldingen naar de server.
+     * Als parameter wordt de naam van het veld waarin het bestand wordt gekozen meegegeven.
+     * De functie handelt de rest zelf af.
+     *
+     * Deze code is gebasseerd op code gepubliceerd door W3Schools. Source: http://www.w3schools.com/php/php_file_upload.asp
+     */    
     function upload_image($name) {
-        if ($_FILES[$name]["error"] > 0)
-        {
-            echo "Error: " . $_FILES[$name]["error"] . "<br>";
-        }
-    
+              
+        /* Hier wordt de extensie van het bestand vergeleken met de door ons toegestane
+         * extensies: .jpg, .jpeg, .gif en .png
+         */
         $allowedExts = array("jpg", "jpeg", "gif", "png");
         $extension = end(explode(".", $_FILES[$name]["name"]));
         if ((($_FILES[$name]["type"] == "image/gif")
@@ -97,18 +114,26 @@
         || ($_FILES[$name]["type"] == "image/png")
         || ($_FILES[$name]["type"] == "image/pjpeg"))
         && in_array($extension, $allowedExts)) {
+        
+            /* Als er iets mis is gegaan met het initiële uplaoden wordt deze error weergegeven
+             */
             if ($_FILES[$name]["error"] > 0)
             {
-                echo "Return Code: " . $_FILES[$name]["error"] . "<br />";
+                throw new Exception("Er is iets mis gegaan met het uploaden van de afbeelding. Ga terug, en probeer het opnieuw");
             }
             else
-            {
+            {  
+                /* Kijk hier nog ff naar...
+                 */
                 if (file_exists("uploads/" . $_FILES[$name]["name"]))
                 {
                     $errormsg = "Het uploaden van de afbeelding is mislukt omdat er al een afbeelding bestaat met dezelfde naam. Deze afbeelding is nu aan het product gekoppeld.";
                 }
                 else
                 {
+                    /* Als alles goed gaat, wordt het bestand uit de tmp folder gehaald en verplaatst naar de folder uploads.
+                     * Mocht dit misgaan, dan wordt er een error weergeven.
+                     */
                     if(!move_uploaded_file($_FILES[$name]["tmp_name"],
                     "uploads/" . $_FILES[$name]["name"])) {
                         throw new Exception("Het uploaden van het bestand is mislukt");
@@ -116,6 +141,8 @@
                 }
             }
             
+            /* De naam van het bestand wordt gereturned, zodat deze in de database kan worden gekoppeld aan het product
+             */
             return $_FILES[$name]["name"];
         }
         else
@@ -125,12 +152,22 @@
         }
     }
     
+    /* is_valid_cover() kijkt of de naam van de cover voorkomt in de map uploads, en of er überhaubt wel een 
+     * cover is gekoppeld aan het product. 
+     */
     function is_valid_cover($cover) 
     {
         $imgdir = "uploads/";
+        
+        /* Als er geen cover is gekoppeld aan het product, of als de cover niet meer bestaat op de server
+         * dan wordt nocover.png afgebeeld.
+         */
         if ((!file_exists($imgdir . $cover)) || (is_null($cover))) {
             $cover = "nocover.png";
         }
+        /* Aan de naam van de cover wordt het pad naar de folder geplakt. Het geheel wordt gereturned, zodat 
+         * de aanroepende code makkelijk de afbeelding kan weergeven
+         */
         $cover = $imgdir . $cover;
         return $cover;
     }
