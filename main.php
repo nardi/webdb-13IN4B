@@ -183,13 +183,12 @@
 <div class="product-thumb<?php if ($datum !== null) { ?> preorder<?php } ?>">
     <div class="image"><a href="item-description.php?id=<?php echo $id; ?>"><img src="<?php echo $cover; ?>" alt="<?php echo $titel; ?>"/></a></div>
     <p class="title"><a href="item-description.php?id=<?php echo $id; ?>"><?php echo $titel; ?></a></p>
-    <p>
+    <p><a href="item-description.php?id=<?php echo $id; ?>">
 <?php if ($aanbiedingsprijs !== null) { ?>
-        <span class="old-price"><a href="item-description.php?id=<?php echo $id; ?>">&euro;<?php echo prijs($aanbiedingsprijs); ?></a></span>
-<?php } else { ?>
-        <span class="price"><a href="item-description.php?id=<?php echo $id; ?>">&euro;<?php echo prijs($prijs); ?></a></span>
+        <span class="old-price">&euro;<?php echo prijs($aanbiedingsprijs); ?></span>
 <?php } ?>
-    </p>
+        <span class="price">&euro;<?php echo prijs($prijs); ?></span>
+    </a></p>
     <?php if ($datum !== null) { ?><p class="date"><?php echo $datum; ?></p><?php } ?>
 </div>
 <?php
