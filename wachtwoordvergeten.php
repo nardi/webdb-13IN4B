@@ -48,7 +48,7 @@ if (isset($_POST['email'])) {
 	    
 		//als emailadres bestaat in db, dan wordt er een token toegevoegd in de db 
 	    $sql->free_result();
-	    $token = md5($_POST['email'].time()) ;
+	    $token = bin2hex(openssl_random_pseudo_bytes(16));
 		$pwu = $db->prepare("UPDATE Gebruikers SET wachtwoord_token = '$token' WHERE email = ? LIMIT 1");
 		$pwu->bind_param("s", $email);
 		$pwu->execute();
@@ -76,8 +76,8 @@ if (isset($_POST['email'])) {
 		contact@superinternetshop.nl
 		</div>
 		';
-		$html .='<img class="displayed src="https.superinternetshop.nl/images/logo/logo-sis.png" alt="logo" width="70" height="33">
-		</body></html>';
+		$html .='<div align="left"><img class="displayed src="superinternetshop.nl/images/logo/logo-sis.png" alt="logo" width="70" height="33">
+		</body></html></div>';
 		$css = file_get_contents('main.css') ;
 		require_once 'email.php';
 		leuke_mail($email, $onderwerp, $html, $css);

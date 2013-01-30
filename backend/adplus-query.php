@@ -1,7 +1,9 @@
 <?php
-    if (is_admin())
+    session_start();
+    require_once '../main.php'; 
+    if (is_owner())
     {
-        require_once '../main.php'; 
+        
         $db = connect_to_db();
 
         $emailquery ='%' . $_GET['email'] . '%';

@@ -1,6 +1,7 @@
 <link rel="stylesheet" type="text/css" href="inloggen-wachtwoord-registratie.css">
 <link rel="stylesheet" type="text/css" href="centering.css">
- 
+<script src="productToevoegen.js"></script>
+
 <?php
 	if (!is_admin()) {
 	?>
@@ -26,22 +27,23 @@ Whale, whale, whale. What do we have here?
 ?>
 		<div class="centered-container">
 			<div class="product-toevoegen">
-				<form action="product-toevoegen-db.php" method="post" enctype="multipart/form-data">
+				<form method="post" enctype="multipart/form-data" onsubmit="testall()" action="javascript:void(0)">
 				  <div align="right"> 
 				  <h1><center><b>Product toevoegen</b></center></h1>
 					  <hr width="100%">
 					  <center><b>Productspecificaties</b></center>
 					  <br />
-					  Titel: <input type="text" name="titel"><br /> <br />
+					  Titel: <input type="text" id="titel" name="titel"><div id='titellabel'></div><br /> <br />
 					  Beschrijving:
-					  <textarea rows="5" cols="20" name="beschrijving"></textarea>
+					  <textarea rows="5" cols="20" id="beschrijving" name="beschrijving"></textarea><div id='beschrijvinglabel'></div>
 					  <br />  
-					  Prijs: <input type="text" name="prijs"><br />
-					  Release date: <input type="text" name="release_date"><br />
-					  Voorraad: <input type="text" name="voorraad"><br />
+					  Prijs: <input type="text" id="prijs" name="prijs"><div id='prijslabel'></div><br />
+					  Release date: <input type="text" id="release_date" name="release_date"><div id='releaselabel'></div><br />
+					  Voorraad: <input type="text" id="voorraad" name="voorraad"><div id='voorraadlabel'></div><br />
 					  Platform:
 					  <div class="platform">
-                          <select name="platform">
+                          <select name="platform" id="platform">
+                          <option value="" selected='selected'>
 <?php
         $platformsql = $db->prepare("SELECT id, naam FROM Platforms");
         $platformsql->execute();
@@ -56,12 +58,12 @@ Whale, whale, whale. What do we have here?
         $platformsql->free_result();
 ?>
 +						  </select>
-					  </div>
+					  </div><div id="platformlabel"></div>
 					  <br/>              
 					  Genre:
 					  <div class="genre">
-
-						  <select name="genre" onchange="alert('fyes, bacon!');">
+						  <select name="genre" id="genre">
+                          <option value="" selected='selected'>
 <?php
         $genresql = $db->prepare("SELECT id, naam FROM Genres");
         $genresql->execute();
@@ -78,13 +80,14 @@ Whale, whale, whale. What do we have here?
 ?>
 						  </select>
 
-					  </div>
+					  </div><div id='genrelabel'></div>
 					  <br/>
                       
                       <!-- Image upload to db test -->
                       <div>
                       Cover: 
-                      <input type="file" name="image" />
+                      <input type="file" name="image" id="image" /><div id='coverlabel'></div>
+                      <script>alert(document.getElementById('image').value)</script>
 					  </div>
                       
                       <div align="right">

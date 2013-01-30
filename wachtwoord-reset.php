@@ -38,7 +38,7 @@ if (!isset($_POST['wachtwoord'])&&
     $token = ($_GET['token']);
 	$id = ($_GET['id']);
     $sql3 = $db->prepare("SELECT wachtwoord_token FROM Gebruikers WHERE id = ? LIMIT 1");
-	$sql3->bind_param("s", $id) ;
+	$sql3->bind_param("s", $id);
 	$sql3->bind_result($token_db);
 	$sql3->execute();
 	$sql3->fetch();
@@ -64,16 +64,7 @@ if (!isset($_POST['wachtwoord'])&&
 		$token = $_POST['token'] ;
 		$wachtwoord = $_POST['wachtwoord_nogmaals'] ;
 
-		//Random getal voor salt genereren
-		$saltbytes = openssl_random_pseudo_bytes(32);
-		$salt = bin2hex($saltbytes);
-
-		//Hashen met SHA-256
-		$wwhash = hash('sha256', $wachtwoord);
-		$saltedwwhash = hash('sha256', $salt . $wwhash);
-
-		//Combinatie salt en wachtwoordhash voor database
-		$saltww = $salt . $saltedwwhash;
+		$saltww = maak_wachtwoord($wachtwoord);
 
 		//Hier wordt het wachtwoord naar de database geschreven
 		$db = connect_to_db();

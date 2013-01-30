@@ -28,14 +28,17 @@
         return $result;
     }
     
+    // Stuur de POST-data terug naar PayPal ter verificatie
     $post_data = file_get_contents('php://input');
     $verify_data = "cmd=_notify-validate&" . $post_data;
     $result = https_post("https://www.sandbox.paypal.com/nl/cgi-bin/webscr", $verify_data);
     
-    if ($result === "VERIFIED")// && $_POST['test_ipn'] != 1)
+    if ($result === "VERIFIED" && $_POST['test_ipn'] != 1)
     {
+        // De bestelling-id is opgeslagen in het custom-veld
         $bestelling = $_POST['custom'];
         
+        // Totaalbedrag bestelling berekenen
         $db = connect_to_db();
         $sql = $db->prepare("SELECT prijs, hoeveelheid, verzendkosten FROM Bestelling_Product JOIN Bestellingen ON Bestellingen.id = bestelling_id WHERE Bestellingen.id = ?");
         $sql->bind_param('i', $bestelling);
@@ -47,12 +50,13 @@
         $totaalbedrag += $verzendkosten;
         $sql->free_result();
         
-        $total_price = $_POST['mc_gross']; // moet gelijk zijn aan prijs bestelling
+        $total_price = $_POST['mc_gross']; // moet gelijk zijn aan totaalbedrag bestelling
         $business = $_POST['business']; // moet gelijk zijn aan "paypal@superinternetshop.nl"
         $status = $_POST['payment_status']; // Pending of Completed
         
-        if ($total_price == $totaalbedrag && $business == 'paypal_1358181822_biz@nardilam.nl')
+        if ($total_price == $totaalbedrag && $business == 'paypal@superinternetshop.nl')
         {
+            //Een log voor de zekerheid (bijvoorbeeld als een onbekende status ontvangen wordt)
             error_log("IPN request: bestelling " . $bestelling . " is nu " . "'$status'");
         
             if ($status == 'Pending')

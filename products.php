@@ -61,7 +61,7 @@
             $var = intval($var);
         }
         
-        $query = "SELECT Producten.id, titel, cover, Producten.prijs, Aanbiedingen.prijs FROM Producten LEFT JOIN Aanbiedingen ON product_id = Producten.id WHERE verwijderd != 1";
+        $query = "SELECT Producten.id, titel, cover, Producten.prijs, Aanbiedingen.prijs FROM Producten LEFT JOIN Aanbiedingen ON product_id = Producten.id AND start_datum <= CURRENT_DATE AND eind_datum >= CURRENT_DATE WHERE verwijderd != 1";
         
         if(isset($_GET['genres']) && $_GET['genres'] != 0) 
         {
@@ -81,38 +81,53 @@
             $platforms_valid = false;
         }
         
-        
+        $filter = '';
         if($genres_valid || $platforms_valid)
         {
-            $query .= " AND";
+            $filter .= " AND";
         
             if ($genres_valid)
             {
-                $query .= " (genre_id = ";
+                $filter .= " (genre_id = ";
                 $genres = explode(',', $_GET['genres']);
                 array_walk($genres, 'check_array', $db);
-                $query .= implode(" OR genre_id = ", array_filter($genres));
+                $filter .= implode(" OR genre_id = ", array_filter($genres));
             }
             
             if ($platforms_valid)
             {
                 if ($genres_valid)
-                    $query .= ") AND";
-                $query .= " (platform_id = ";
+                    $filter .= ") AND";
+                $filter .= " (platform_id = ";
                 $platforms = explode(',', $_GET['platforms']);
                 array_walk($platforms, 'check_array', $db);
-                $query .= implode(" OR platform_id = ", array_filter($platforms));
+                $filter .= implode(" OR platform_id = ", array_filter($platforms));
             }
 
-            $query .= ")";
+            $filter .= ")";
         }
         
         if (isset($_GET['search']))
         {
             $search = '%' . $db->escape_string($_GET['search']) . '%';
-            $query .= " AND titel LIKE ?";
+            $filter .= " AND titel LIKE ?";
         }
         
+        $query .= $filter;
+        
+        $productsperpage = 16;
+        if (isset($_GET['page']))
+        {
+            $page = intval($db->escape_string($_GET['page']));
+            if ($page < 1)
+                $page = 1;
+        }
+        else
+        {
+            $page = 1;
+        }
+        $query .= " LIMIT " . ($page - 1) * $productsperpage . ", " . $productsperpage;
+
         $sqli = $db->prepare($query);
         if (isset($search))
             $sqli->bind_param('s', $search);
@@ -138,8 +153,50 @@
             
             $count++;
         }
-     ?>
+    ?>
         </div>
+    <?php
+        // Deze functie verwijdert de huidige pagina-waarde(n) uit de url
+        function clean_url($url, $toremove)
+        {
+            while (($pagepos = strpos($url, $toremove)) !== FALSE)
+            {
+                $pageend = strpos($url, '&', $pagepos + strlen($toremove));
+                if ($pageend === FALSE)
+                    $url = substr($url, 0, $pagepos);
+                else
+                    $url = substr($url, 0, $pagepos) . substr($url, $pageend);
+            }
+            return $url;
+        }
+    
+        $url = $_SERVER['REQUEST_URI'];
+        $url = clean_url($url, '&page=');
+        $url = clean_url($url, 'page=');
+    
+        $count = $db->prepare("SELECT COUNT(*) FROM Producten WHERE verwijderd != 1" . $filter);
+        if (isset($search))
+            $count->bind_param('s', $search);
+        $count->execute();
+        $count->bind_result($numproducts);
+        $count->fetch();
+    
+        $prevpage = $page - 1;
+        $has_prevpage = $page > 1;
+        $nextpage = $page + 1;
+        $has_nextpage = $numproducts > $page * $productsperpage + 1;
+        
+        echo '<p>';
+        if ($has_prevpage)
+            echo '<a href="'.$url.'?&page='.$prevpage.'">< Vorige</a> ';
+        if ($has_prevpage || $has_nextpage)
+            echo '|';
+        if ($has_nextpage)
+            echo ' <a href="'.$url.'?&page='.$nextpage.'">Volgende ></a>';
+        echo '</p>';
+        
+        $count->free_result();
+    ?>
     </div>
 
 </div>
