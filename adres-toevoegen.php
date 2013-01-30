@@ -1,3 +1,9 @@
+<!--
+Deze file zorgt ervoor dat de gebruiker een adres kan toevoegen. 
+Vervolgens wordt het toegevoegde adres in de Adressen tabel gestopt.
+In de AdresGebruiker tabel wordt het id van het adres met het id van de gebruiker verbonden.
+-->
+
 <?php
     if (!isset($_SESSION['logged-in'])){
         echo 'U moet uiteraard ingelogd zijn om uw account aan te passen.';

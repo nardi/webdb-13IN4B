@@ -1,3 +1,7 @@
+<!--
+Klant komt op deze pagina terecht als hij een klacht heeft.
+-->
+
 <link rel="stylesheet" type="text/css" href="inloggen-wachtwoord-registratie.css">
 
 <script src="klantenservice.js">

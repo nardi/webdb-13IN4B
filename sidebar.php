@@ -16,6 +16,16 @@
     Contact
 </div>
 
+<?php
+	if (isset($_SESSION['logged-in'])) {
+		?>
+		<div id="klantenservice.php" class="clickable-item" onclick="onButtonclick(this.id);">
+			Klantenservice
+		</div>
+		<?php
+	}
+?>
+
 <div></div>
 
 <form method="get" action="products.php" id='searchform'>
