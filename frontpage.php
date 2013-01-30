@@ -39,7 +39,7 @@
 <?php
     }
 
-    $new_releases = $db->prepare('SELECT Producten.id, titel, cover, Producten.prijs, Aanbiedingen.prijs FROM Producten LEFT JOIN Aanbiedingen ON product_id = Producten.id WHERE release_date < CURRENT_DATE AND verwijderd != 1 ORDER BY release_date DESC LIMIT 8');
+    $new_releases = $db->prepare('SELECT Producten.id, titel, cover, Producten.prijs, Aanbiedingen.prijs FROM Producten LEFT JOIN Aanbiedingen ON product_id = Producten.id WHERE release_date < CURRENT_DATE AND start_datum <= CURRENT_DATE AND eind_datum >= CURRENT_DATE AND verwijderd != 1 ORDER BY release_date DESC LIMIT 8');
     $new_releases->bind_result($id, $titel, $cover, $prijs, $aanbiedingsprijs);
     $new_releases->execute();
     if ($new_releases->fetch())
@@ -72,7 +72,7 @@
     }
     $new_releases->free_result();
 
-    $pre_orders = $db->prepare('SELECT Producten.id, titel, release_date, cover, Producten.prijs, Aanbiedingen.prijs FROM Producten LEFT JOIN Aanbiedingen ON product_id = Producten.id WHERE release_date > CURRENT_DATE AND verwijderd != 1 ORDER BY release_date ASC LIMIT 8');
+    $pre_orders = $db->prepare('SELECT Producten.id, titel, release_date, cover, Producten.prijs, Aanbiedingen.prijs FROM Producten LEFT JOIN Aanbiedingen ON product_id = Producten.id WHERE release_date > CURRENT_DATE AND start_datum <= CURRENT_DATE AND eind_datum >= CURRENT_DATE AND verwijderd != 1 ORDER BY release_date ASC LIMIT 8');
     $pre_orders->bind_result($id, $titel, $datum, $cover, $prijs, $aanbiedingsprijs);
     $pre_orders->execute();
     if ($pre_orders->fetch())
