@@ -113,6 +113,7 @@
             $query .= " AND titel LIKE ?";
         }
         
+        $productsperpage = 20;
         if (isset($_GET['page']))
         {
             $page = intval($db->escape_string($_GET['page']));
@@ -123,8 +124,8 @@
         {
             $page = 1;
         }
-        $query .= " LIMIT " . ($page - 1) * 25 . ", " . 25;
-        echo $query;
+        $query .= " LIMIT " . ($page - 1) * $productsperpage . ", " . $productsperpage;
+
         $sqli = $db->prepare($query);
         if (isset($search))
             $sqli->bind_param('s', $search);
@@ -153,24 +154,25 @@
     ?>
         </div>
     <?php
+        // Deze functie haalt de huidige page-waarde(n) uit de url
+        function clean_url($url, $toremove)
+        {
+            while (($pagepos = strpos($url, $toremove)) !== FALSE)
+            {
+                $pageend = strpos($url, '&', $pagepos + strlen($toremove));
+                if ($pageend === FALSE)
+                    $url = substr($url, 0, $pagepos);
+                else
+                    $url = substr($url, 0, $pagepos) . substr($url, $pageend);
+            }
+            return $url;
+        }
+    
         $url = $_SERVER['REQUEST_URI'];
-        while (($pagepos = strpos($url, '&page=')) !== FALSE)
-        {
-            $pageend = strpos($url, '&', $pagepos + 1);
-            if ($pageend === FALSE)
-                $url = substr($url, 0, $pagepos);
-            else
-                $url = substr($url, 0, $pagepos) . substr($url, $pageend);
-        }
-        
-        while (($pagepos = strpos($url, 'page=')) !== FALSE)
-        {
-            $pageend = strpos($url, '&', $pagepos);
-            if ($pageend === FALSE)
-                $url = substr($url, 0, $pagepos);
-            else
-                $url = substr($url, 0, $pagepos) . substr($url, $pageend);
-        }
+        $url = clean_url($url, '&page=');
+        $url = clean_url($url, 'page=');        
+        if ($_SERVER['QUERY_STRING'] == '')
+            $url .= '?';
     
         $count = $db->prepare("SELECT COUNT(*) FROM Producten");
         $count->execute();
@@ -180,7 +182,7 @@
         $prevpage = $page - 1;
         $has_prevpage = $page > 1;
         $nextpage = $page + 1;
-        $has_nextpage = $numproducts > $page * 25;
+        $has_nextpage = $numproducts > $page * $productsperpage + 1;
         
         echo '<p>';
         if ($has_prevpage)
