@@ -53,4 +53,8 @@
         
         $db->close();
     }
+    
+    else{
+        throw new Exception("U heeft niet de juiste privileges om deze pagina te zien.");
+    }
 ?>
