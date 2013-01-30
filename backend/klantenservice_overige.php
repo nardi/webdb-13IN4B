@@ -1,3 +1,8 @@
+<!--
+Klant komt op deze pagina terecht als hij een overige vraag heeft. Klant kan dan op een link klikken voor het contactformulier.
+-->
+
+
 <link rel="stylesheet" type="text/css" href="inloggen-wachtwoord-registratie.css">
 
 <script src="klantenservice.js">
