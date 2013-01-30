@@ -81,39 +81,41 @@
             $platforms_valid = false;
         }
         
-        
+        $filter = '';
         if($genres_valid || $platforms_valid)
         {
-            $query .= " AND";
+            $filter .= " AND";
         
             if ($genres_valid)
             {
-                $query .= " (genre_id = ";
+                $filter .= " (genre_id = ";
                 $genres = explode(',', $_GET['genres']);
                 array_walk($genres, 'check_array', $db);
-                $query .= implode(" OR genre_id = ", array_filter($genres));
+                $filter .= implode(" OR genre_id = ", array_filter($genres));
             }
             
             if ($platforms_valid)
             {
                 if ($genres_valid)
-                    $query .= ") AND";
-                $query .= " (platform_id = ";
+                    $filter .= ") AND";
+                $filter .= " (platform_id = ";
                 $platforms = explode(',', $_GET['platforms']);
                 array_walk($platforms, 'check_array', $db);
-                $query .= implode(" OR platform_id = ", array_filter($platforms));
+                $filter .= implode(" OR platform_id = ", array_filter($platforms));
             }
 
-            $query .= ")";
+            $filter .= ")";
         }
         
         if (isset($_GET['search']))
         {
             $search = '%' . $db->escape_string($_GET['search']) . '%';
-            $query .= " AND titel LIKE ?";
+            $filter .= " AND titel LIKE ?";
         }
         
-        $productsperpage = 20;
+        $query .= $filter;
+        
+        $productsperpage = 16;
         if (isset($_GET['page']))
         {
             $page = intval($db->escape_string($_GET['page']));
@@ -154,7 +156,7 @@
     ?>
         </div>
     <?php
-        // Deze functie haalt de huidige page-waarde(n) uit de url
+        // Deze functie verwijdert de huidige pagina-waarde(n) uit de url
         function clean_url($url, $toremove)
         {
             while (($pagepos = strpos($url, $toremove)) !== FALSE)
@@ -170,11 +172,11 @@
     
         $url = $_SERVER['REQUEST_URI'];
         $url = clean_url($url, '&page=');
-        $url = clean_url($url, 'page=');        
-        if ($_SERVER['QUERY_STRING'] == '')
-            $url .= '?';
+        $url = clean_url($url, 'page=');
     
-        $count = $db->prepare("SELECT COUNT(*) FROM Producten");
+        $count = $db->prepare("SELECT COUNT(*) FROM Producten WHERE verwijderd != 1" . $filter);
+        if (isset($search))
+            $count->bind_param('s', $search);
         $count->execute();
         $count->bind_result($numproducts);
         $count->fetch();
@@ -186,11 +188,11 @@
         
         echo '<p>';
         if ($has_prevpage)
-            echo '<a href="'.$url.'&page='.$prevpage.'">< Vorige</a> ';
+            echo '<a href="'.$url.'?&page='.$prevpage.'">< Vorige</a> ';
         if ($has_prevpage || $has_nextpage)
             echo '|';
         if ($has_nextpage)
-            echo ' <a href="'.$url.'&page='.$nextpage.'">Volgende ></a>';
+            echo ' <a href="'.$url.'?&page='.$nextpage.'">Volgende ></a>';
         echo '</p>';
         
         $count->free_result();
