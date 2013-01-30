@@ -1,4 +1,5 @@
 <?php
+    session_start();
     require_once '../main.php'; 
     if (is_admin())
     {
