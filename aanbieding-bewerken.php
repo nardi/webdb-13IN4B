@@ -19,7 +19,8 @@
         
         $db = connect_to_db();
             
-        $sqli = $db->prepare('SELECT titel, Producten.prijs, Aanbiedingen.prijs, start_datum, eind_datum FROM Producten JOIN Aanbiedingen ON product_id = Producten.id WHERE eind_datum >= CURRENT_DATE');
+        $sqli = $db->prepare('SELECT titel, Producten.prijs, Aanbiedingen.prijs, start_datum, eind_datum FROM Producten JOIN Aanbiedingen ON product_id = Producten.id WHERE Producten.id = ?');
+        $sqli->bind_param('i', $idedit);
         $sqli->bind_result($titel, $oude_prijs, $prijs, $start_datum, $eind_datum);
         $sqli->execute();
         
