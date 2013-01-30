@@ -26,7 +26,7 @@
     </script>
     <form action="gebruikers-login.php" method="post">
         <div id="dashboard">
-            <div>
+            <div style="overflow: auto;">
                 <input type="text" name="e-mailadres" value="E-mailadres" onfocus="empty(this, 'E-mailadres')" onblur="emptyOrDefault(this, 'E-mailadres')" />
                 <?php ww_dash(); ?>
                 <br />
