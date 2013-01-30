@@ -38,7 +38,7 @@
 
 <?php
     if (isset($_SESSION['logged-in'])) {
-        if ($_SESSION['gebruiker-status'] >= 3) {
+        if (is_admin()) {
             ?>
             <hr>
             <div id="bestellingsoverzicht.php" class="clickable-item" onclick="onButtonclick(this.id);">
@@ -57,8 +57,13 @@
                 Aanbiedingen
             </div>
             
+        <?php    
+        }
+        if (is_owner()) {
+        ?>
+        
             <div id="adplus.php" class="clickable-item" onclick="onButtonclick(this.id);">
-                Adplus
+                Gebruikers
             </div>
             
             <div id="upload-test.html" class="clickable-item" onclick="onButtonclick(this.id);">

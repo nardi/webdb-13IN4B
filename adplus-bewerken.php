@@ -1,5 +1,5 @@
 <?php
-    if (is_admin()) 
+    if (is_owner()) 
     {
         $db = connect_to_db();
         

@@ -1,7 +1,7 @@
 <?php
     session_start();
     require_once '../main.php'; 
-    if (is_admin())
+    if (is_owner())
     {
         
         $db = connect_to_db();

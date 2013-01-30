@@ -79,6 +79,11 @@
         return is_logged_in() && ($_SESSION['gebruiker-status'] >= 3);
     }
     
+     function is_owner()
+    {
+        return is_logged_in() && ($_SESSION['gebruiker-status'] == 4);
+    }
+    
     function upload_image($name) {
         if ($_FILES[$name]["error"] > 0)
         {
