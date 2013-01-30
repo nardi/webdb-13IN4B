@@ -3,7 +3,7 @@ if (is_admin())
 { ?>
 
     <script src="adplus-request.js">
-    getNames();
+    getNames("");
     </script>
     
     <div class="centered-container">
