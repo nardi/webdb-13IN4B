@@ -33,16 +33,16 @@ Whale, whale, whale. What do we have here?
 					  <hr width="100%">
 					  <center><b>Productspecificaties</b></center>
 					  <br />
-					  Titel: <input type="text" name="titel"><div id='titellabel'></div><br /> <br />
+					  Titel: <input type="text" id="titel" name="titel"><div id='titellabel'></div><br /> <br />
 					  Beschrijving:
-					  <textarea rows="5" cols="20" name="beschrijving"></textarea><div id='beschrijvinglabel'></div>
+					  <textarea rows="5" cols="20" id="beschrijving" name="beschrijving"></textarea><div id='beschrijvinglabel'></div>
 					  <br />  
-					  Prijs: <input type="text" name="prijs"><div id='prijslabel'></div><br />
-					  Release date: <input type="text" name="release_date"><div id='releaselabel'></div><br />
-					  Voorraad: <input type="text" name="voorraad"><div id='voorraadlabel'></div><br />
+					  Prijs: <input type="text" id="prijs" name="prijs"><div id='prijslabel'></div><br />
+					  Release date: <input type="text" id="release_date" name="release_date"><div id='releaselabel'></div><br />
+					  Voorraad: <input type="text" id="voorraad" name="voorraad"><div id='voorraadlabel'></div><br />
 					  Platform:
 					  <div class="platform">
-                          <select name="platform">
+                          <select name="platform" id="platform">
                           <option value="" selected='selected'>
 <?php
         $platformsql = $db->prepare("SELECT id, naam FROM Platforms");
@@ -58,11 +58,11 @@ Whale, whale, whale. What do we have here?
         $platformsql->free_result();
 ?>
 +						  </select>
-					  </div><div id='platformlabel></div>
+					  </div><div id="platformlabel"></div>
 					  <br/>              
 					  Genre:
 					  <div class="genre">
-						  <select name="genre">
+						  <select name="genre" id="genre">
                           <option value="" selected='selected'>
 <?php
         $genresql = $db->prepare("SELECT id, naam FROM Genres");
@@ -86,7 +86,7 @@ Whale, whale, whale. What do we have here?
                       <!-- Image upload to db test -->
                       <div>
                       Cover: 
-                      <input type="file" name="image" /><div id='coverlabel'></div>
+                      <input type="file" name="image" id="image" /><div id='coverlabel'></div>
 					  </div>
                       
                       <div align="right">

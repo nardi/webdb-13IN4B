@@ -93,7 +93,7 @@ function testall(){
     checkPrijs('voorraad','voorraadlabel');
     checkDropdown('platform','platformlabel');
     checkDropdown('genre','genrelabel');
-    checkCover('cover','coverlabel');
+    checkCover('image','coverlabel');
     
     if(isValidForm){
         document.regform.action="product-toevoegen-db.php";
