@@ -61,7 +61,7 @@
             $var = intval($var);
         }
         
-        $query = "SELECT Producten.id, titel, cover, Producten.prijs, Aanbiedingen.prijs FROM Producten LEFT JOIN Aanbiedingen ON product_id = Producten.id WHERE verwijderd != 1 AND start_datum <= CURRENT_DATE AND eind_datum >= CURRENT_DATE";
+        $query = "SELECT Producten.id, titel, cover, Producten.prijs, Aanbiedingen.prijs FROM Producten LEFT JOIN Aanbiedingen ON product_id = Producten.id AND start_datum <= CURRENT_DATE AND eind_datum >= CURRENT_DATE WHERE verwijderd != 1";
         
         if(isset($_GET['genres']) && $_GET['genres'] != 0) 
         {
