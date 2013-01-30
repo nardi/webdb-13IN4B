@@ -55,6 +55,21 @@
         return curl_exec($ch);
     }
     
+    function maak_wachtwoord($wachtwoord)
+    {
+        //Random getal voor salt genereren
+		$saltbytes = openssl_random_pseudo_bytes(32);
+		$salt = bin2hex($saltbytes);
+
+		//Hashen met SHA-256
+		$wwhash = hash('sha256', $wachtwoord);
+		$saltedwwhash = hash('sha256', $salt . $wwhash);
+
+		//Combinatie salt en wachtwoordhash voor database
+		$saltww = $salt . $saltedwwhash;
+        return $saltww;
+    }
+    
     function check_wachtwoord($wachtwoord, $wwdb)
     {
         $wwhash = hash('sha256', $wachtwoord);
