@@ -115,7 +115,7 @@
         
         $query .= $filter;
         
-        $productsperpage = 20;
+        $productsperpage = 16;
         if (isset($_GET['page']))
         {
             $page = intval($db->escape_string($_GET['page']));
