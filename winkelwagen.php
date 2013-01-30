@@ -36,7 +36,7 @@
 ?>
 <br/>
 <?php
-        if (isset($_SESSION['logged-in']))
+        if (is_logged_in())
         {
 ?>
 <form>

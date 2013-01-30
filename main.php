@@ -55,6 +55,21 @@
         return curl_exec($ch);
     }
     
+    function maak_wachtwoord($wachtwoord)
+    {
+        //Random getal voor salt genereren
+		$saltbytes = openssl_random_pseudo_bytes(32);
+		$salt = bin2hex($saltbytes);
+
+		//Hashen met SHA-256
+		$wwhash = hash('sha256', $wachtwoord);
+		$saltedwwhash = hash('sha256', $salt . $wwhash);
+
+		//Combinatie salt en wachtwoordhash voor database
+		$saltww = $salt . $saltedwwhash;
+        return $saltww;
+    }
+    
     function check_wachtwoord($wachtwoord, $wwdb)
     {
         $wwhash = hash('sha256', $wachtwoord);
@@ -72,7 +87,7 @@
         return isset($_SESSION['logged-in']);
     }
     
-    /* is_logged_in() kijkt of de gebruiker ingelogd en geverifiëerd is. (Level 2 of hoger in de database).
+    /* is_verified_in() kijkt of de gebruiker ingelogd en geverifiëerd is. (Level 2 of hoger in de database).
      */
     
     function is_verified()
@@ -88,7 +103,7 @@
         return is_logged_in() && ($_SESSION['gebruiker-status'] >= 3);
     }
     
-    /* is_owner() kijkt of de gebruiker ingelogd is als een owner/beheerderr (Level 4 of hoger in de database).
+    /* is_owner() kijkt of de gebruiker ingelogd is als een owner/beheerder (Level 4 of hoger in de database).
      */
     
     function is_owner()
