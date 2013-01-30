@@ -33,13 +33,13 @@ Whale, whale, whale. What do we have here?
 					  <hr width="100%">
 					  <center><b>Productspecificaties</b></center>
 					  <br />
-					  Titel: <input type="text" id="titel" name="titel"><div id='titellabel' class='label' onblur="checkTekst('titel','titellabel')"></div><br /> <br />
+					  Titel: <input type="text" id="titel" name="titel" onblur="checkTekst('titel','titellabel')"><div id='titellabel' class='label' ></div><br /> <br />
 					  Beschrijving:
-					  <textarea rows="5" cols="20" id="beschrijving" name="beschrijving"></textarea><div id='beschrijvinglabel' class='label' onblur="checkTekst('beschrijving','beschrijvinglabel')"></div>
+					  <textarea rows="5" cols="20" id="beschrijving" name="beschrijving" onblur="checkTekst('beschrijving','beschrijvinglabel')"></textarea><div id='beschrijvinglabel' class='label' ></div>
 					  <br />  
-					  Prijs: <input type="text" id="prijs" name="prijs"><div id='prijslabel' class='label' onblur="checkPrijs('prijs', 'prijslabel')"></div><br />
-					  Release date: <input type="text" id="release_date" name="release_date"><div id='releaselabel' class='label'onblur="checkDatum('release_date','releaselabel')"></div><br />
-					  Voorraad: <input type="text" id="voorraad" name="voorraad"><div id='voorraadlabel' class='label' onblur="checkPrijs('voorraad','voorraadlabel')"></div><br />
+					  Prijs: <input type="text" id="prijs" name="prijs" onblur="checkPrijs('prijs', 'prijslabel')"><div id='prijslabel' class='label' ></div><br />
+					  Release date: <input type="text" id="release_date" name="release_date" onblur="checkDatum('release_date','releaselabel')"><div id='releaselabel' class='label'></div><br />
+					  Voorraad: <input type="text" id="voorraad" name="voorraad" onblur="checkPrijs('voorraad','voorraadlabel')"><div id='voorraadlabel' class='label' ></div><br />
 					  Platform:
 					  <div class="platform">
                           <select name="platform" id="platform" onchange="checkDropdown('platform','platformlabel')">
