@@ -57,7 +57,7 @@
 <div id="mainWindow">
     <noscript>
     	<div class="red_line vcenter-container">
-      	<p class="center"> <img src="/images/labels/error-label.png" alt="error-label" width="35" height="35"> <div class="vcenter">Deze website wordt alleen juist weergegeven met Javascript.</div></p>
+      	<div class="center"> <img src="/images/labels/error-label.png" alt="error-label" width="35" height="35" /> <p class="vcenter">Deze website wordt alleen juist weergegeven met Javascript.</p></div>
     	</div>
   	</noscript>
     <div class="banner">
@@ -65,7 +65,7 @@
             <img src="images/logo/logo-sis-met-tekst.png" alt="Link to homepage" />
         </div>
         <div id="slogan" class="vcenter">
-            <img src="images/SIS-BANNER.gif" />
+            <img src="images/SIS-BANNER.gif" alt="Super Internet Shop" />
         </div>
         <?php
             include("dashboard.php");

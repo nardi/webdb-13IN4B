@@ -77,6 +77,14 @@ if (!isset($_POST['wachtwoord'])&&
 		$sql2->bind_param("s", $token) ;
 		$sql2->execute();
 		echo "Uw wachtwoord is aangepast, hartelijk dank!" ;
+		?>
+		<!--
+		session timeout toegevoegd
+		-->
+		<script type="text/JavaScript">
+                setTimeout("location.href = '/index.php';",3000);
+		</script>
+		<?php
 	  
 	} else {
 		$token = $_POST['token'] ;
