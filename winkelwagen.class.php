@@ -64,17 +64,18 @@ class Winkelwagen
     
     function change_amount($id, $amount)
     {
+        $intamount = intval($amount);
         $voorraad = voorraad($id);
-        if (isset($this->producten[$id]))
+        if (isset($this->producten[$id]) && ($intamount > 0 || $amount === '0'))
         {
-            if ($amount == 0)
+            if ($intamount == 0)
                 $this->remove($id);
-            else if ($voorraad < $amount)
+            else if ($voorraad < $intamount)
             {
                 $this->producten[$id] = $voorraad;
             }
             else
-                $this->producten[$id] = $amount;
+                $this->producten[$id] = $intamount;
         }
     }
     

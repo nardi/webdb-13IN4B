@@ -1,3 +1,9 @@
+<!-- 
+In deze .php file wordt de het account van de gebruiker verwijderd.
+Voor het verwijderen wordt eerst het wachtwoord nogmaals gevraagd ter bevestiging.
+Na verwijdering wordt hij dus automatisch uitgelogd.
+-->
+
 <?php
     if (!isset($_SESSION['logged-in']))
     {
@@ -31,12 +37,7 @@
         $sql = $db->prepare("DELETE FROM Gebruikers WHERE id= '".$_SESSION['gebruiker-id']."' LIMIT 1");
         $sql->execute();  
         
-        $sql->free_result();
-/*      Adres van de verwijderde wordt niet verwijderd, onderstaande code werkt nog niet.
-        $sql = $db->prepare("DELETE FROM Adressen JOIN AdresGebruiker ON Adressen.id = adres_id WHERE gebruiker_id= '".$_SESSION['gebruiker-id']."' LIMIT 1");
-        $sql->execute();   
-        $sql->free_result();
-*/        
+        $sql->free_result();    
         
         if (isset($_SESSION['logged-in'])) {
             session_destroy();

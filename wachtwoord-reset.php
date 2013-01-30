@@ -41,8 +41,8 @@ if (!isset($_POST['wachtwoord'])&&
 		show_form();
 	
 	} else {
+		?><div class="centered-container">Deze link is verlopen</div><?php
 		
-		echo "Deze link is verlopen." ;
 	}
 	
 	  

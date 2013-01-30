@@ -26,11 +26,12 @@
     </script>
     <form action="gebruikers-login.php" method="post">
         <div id="dashboard">
-            <input type="text" name="e-mailadres" value="E-mailadres" onfocus="empty(this, 'E-mailadres')" onblur="emptyOrDefault(this, 'E-mailadres')" />
-            <?php ww_dash(); ?>
-            <br />
-            <input type="password" name="wachtwoord" value="wachtwoord" onfocus="empty(this, 'wachtwoord')" onblur="emptyOrDefault(this, 'wachtwoord')" />
-            <br />
+            <div style="overflow: auto;">
+                <input type="text" name="e-mailadres" value="E-mailadres" onfocus="empty(this, 'E-mailadres')" onblur="emptyOrDefault(this, 'E-mailadres')" />
+                <?php ww_dash(); ?>
+                <br />
+                <input type="password" name="wachtwoord" value="wachtwoord" onfocus="empty(this, 'wachtwoord')" onblur="emptyOrDefault(this, 'wachtwoord')" />
+            </div>
             <input type="submit" value="Log in" /> 
             <a href='wachtwoordvergeten.php' style='float: right; font-size: small; margin-top: 4px;'>Wachtwoord vergeten</a>
             <br />

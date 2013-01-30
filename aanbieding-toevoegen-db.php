@@ -21,7 +21,7 @@
         De aanbieding is toegevoegd.
         
         <script type="text/JavaScript">
-			setTimeout("location.href = 'aanbieding-toevoegen.php';",2000);
+			setTimeout("location.href = 'aanbiedingen.php';",2000);
 		</script>    
      <?php
      }

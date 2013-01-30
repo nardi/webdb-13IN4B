@@ -1,6 +1,6 @@
 html {
     overflow: scroll;
-    font-family: Lucida Sans Unicode, Century Gothic, Futura;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Helvetica, Arial, Verdana, sans-serif;
     background-color: #FFFFFF;
 }
 
@@ -70,6 +70,7 @@ a {
 #footer a {
     float: right;
     margin-left: 4px;
+    border: 0;
 }
 
 #footer img {
@@ -98,8 +99,13 @@ a {
 /* The slogan */
 
 #slogan {
-    width: auto;
-    height: auto;
+    width: 1px; /* Maakt niet uit */
+    height: 100%;
+}
+
+#slogan img {
+    position: relative;
+    left: 64pt;
 }
 
 /* The dashboard */
@@ -116,11 +122,12 @@ a {
 
 #dashboard input {
     width: auto;
+    margin-top: 3px;
 }
 
 #ww-dash {
     width: 50px;
-    height: 46px;
+    height: 48px;
     background-image: url('images/labels/cart.png');
     float: right;
     opacity: 0.5;
@@ -216,7 +223,10 @@ a {
 }
 
 .red_line{
-  border-style: groove; border-color:red; border-width:7px; 
+  border-style: groove;
+  border-color:red;
+  border-width:7px;
+  width: 100%;
 }
 
 /*
@@ -224,10 +234,6 @@ a {
  */
 .right_allign {
     text-align: right;
-}
-
-.center {
-  text-align: center;
 }
 
 .displayed {

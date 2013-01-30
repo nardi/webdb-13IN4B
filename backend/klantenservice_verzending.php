@@ -22,16 +22,16 @@ U bent niet ingelogd!
 		<br />
 		
 		<form>
-		Wat voor vraag heeft u over uw factuur? <br />
-		<select id="myList" onchange="loadXMLDoc(this.options[this.selectedIndex].value,'choice_factuur')">
+		Wat voor vraag heeft u over de verzending? <br />
+		<select id="myList" onchange="loadXMLDoc(this.options[this.selectedIndex].value,'choice_verzending')">
 		<option value="">Kies een onderwerp...</option>
-		<option value="backend/klantenservice_factuur_klopt_niet.php">Factuurbedrag klopt niet</option>
-		<option value="backend/klantenservice_factuur_niet_ontvangen.php">Ik heb geen factuur ontvangen</option>  
-		<option value="backend/klantenservice_overige.php">Overige factuurvragen</option>
+		<option value="backend/klantenservice_verzending_wanneer.php">Wanneer wordt bestelling verzonden?</option>
+		<option value="backend/klantenservice_verzendkosten.php">Wat zijn de verzendkosten?</option>  
+		<option value="backend/klantenservice_overige.php">Overige verzendvragen</option>
 		</select>
 		</form>
 		
-		<div id="choice_factuur">
+		<div id="choice_verzending">
 		
 		
 		</div>
