@@ -184,11 +184,11 @@
         
         echo '<p>';
         if ($has_prevpage)
-            echo '<a href="'.$url.'&page='.$prevpage.'">< Vorige</a> ';
+            echo '<a href="'.$url.'?&page='.$prevpage.'">< Vorige</a> ';
         if ($has_prevpage || $has_nextpage)
             echo '|';
         if ($has_nextpage)
-            echo ' <a href="'.$url.'&page='.$nextpage.'">Volgende ></a>';
+            echo ' <a href="'.$url.'?&page='.$nextpage.'">Volgende ></a>';
         echo '</p>';
         
         $count->free_result();
