@@ -19,7 +19,11 @@
 
 <div class="product-hilite">
     <a href="item-description.php?id=<?php echo $id; ?>">
-    <img src="<?php echo is_valid_cover($cover); ?>" alt="<?php echo $titel; ?>" />
+    <div id="image" class="vcenter-container">
+        <div class="vcenter">
+            <img src="<?php echo is_valid_cover($cover); ?>" alt="Cover" />
+        </div>
+    </div>
     <div id="desc" class="vcenter-container">
         <div class="vcenter">
             <p class="title"><?php echo $titel; ?></p>
