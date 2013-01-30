@@ -25,17 +25,19 @@
                     <?php
                         }
                         $productensql->free_result();
-                        $db->close();
                     ?>
                     </select> <br />
+                    Huidige prijs: <input type="text" disabled="disabled" name="prijs" value="<?php echo "$prijs"; ?>"/><br />
+                    Aanbiedingsprijs: <input type="text" name="prijs" /><br />
+                    Begin-datum: <input type="text" name="begin-datum" /><br />
+                    Eind-datum: <input type="text" name="eind-datum" /><br />
                     
-                    Aanbiedingsprijs: <input type="text" name="prijs"><br />
-                    Begin-datum: <input type="text" name="begin-datum"><br />
-                    Eind-datum: <input type="text" name="eind-datum"><br />
-                    
-                    <input type="submit" value="Voeg aanbieding toe">
+                    <input type="submit" value="Voeg aanbieding toe" />
            
-                    
+                    <?php
+                        echo "$product";
+                        $db->close();
+                    ?>
                     
                     
                 </div>

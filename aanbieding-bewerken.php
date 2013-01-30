@@ -27,7 +27,7 @@
                 
         echo '<form method="post" action="aanbieding-bewerken.php">';
         
-        echo "<input type='submit' name='submit' value='Wijzigingen opslaan'>";
+        echo "<input type='submit' name='submit' value='Wijzigingen opslaan'> <br />";
         
          
         
