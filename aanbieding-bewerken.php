@@ -19,9 +19,9 @@
         
         $db = connect_to_db();
             
-        $on_sale = $db->prepare('SELECT titel, Producten.prijs, Aanbiedingen.prijs, start_datum, eind_datum FROM Producten JOIN Aanbiedingen ON product_id = Producten.id WHERE eind_datum >= CURRENT_DATE');
-        $on_sale->bind_result($titel, $oude_prijs, $prijs, $start_datum, $eind_datum);
-        $on_sale->execute();
+        $sqli = $db->prepare('SELECT titel, Producten.prijs, Aanbiedingen.prijs, start_datum, eind_datum FROM Producten JOIN Aanbiedingen ON product_id = Producten.id WHERE eind_datum >= CURRENT_DATE');
+        $sqli->bind_result($titel, $oude_prijs, $prijs, $start_datum, $eind_datum);
+        $sqli->execute();
         
                 
         echo '<form method="post" action="aanbieding-bewerken.php">';
