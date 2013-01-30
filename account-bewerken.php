@@ -1,6 +1,7 @@
 <!--
 Deze file zorgt ervoor dat een gebruiker zijn account kan bewerken. 
 Dat gebeurt met de sql query UPDATE.
+Ten slotte wordt er ook om het wachtwoord gevraagd, dit ter bevestiging.
 -->
 
 <?php
