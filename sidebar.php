@@ -40,7 +40,7 @@
     if (isset($_SESSION['logged-in'])) {
         if (is_admin()) {
             ?>
-            <hr>
+            <br /> <hr />
             <div id="bestellingsoverzicht.php" class="clickable-item" onclick="onButtonclick(this.id);">
                 Bestellingsoverzicht
             </div>
@@ -61,7 +61,7 @@
         }
         if (is_owner()) {
         ?>
-        
+            <br /> <hr />
             <div id="adplus.php" class="clickable-item" onclick="onButtonclick(this.id);">
                 Gebruikers
             </div>
