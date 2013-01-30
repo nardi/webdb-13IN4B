@@ -184,9 +184,11 @@
     <p class="title"><a href="item-description.php?id=<?php echo $id; ?>"><?php echo $titel; ?></a></p>
     <p><a href="item-description.php?id=<?php echo $id; ?>">
 <?php if ($aanbiedingsprijs !== null) { ?>
-        <span class="old-price">&euro;<?php echo prijs($aanbiedingsprijs); ?></span><br />
-<?php } ?>
+        <span class="old-price">&euro;<?php echo prijs($prijs); ?></span><br />
+        <span class="price">&euro;<?php echo prijs($aanbiedingsprijs); ?></span>
+<?php } else { ?>
         <span class="price">&euro;<?php echo prijs($prijs); ?></span>
+<?php } ?>
     </a></p>
     <?php if ($datum !== null) { ?><p class="date"><?php echo $datum; ?></p><?php } ?>
 </div>
