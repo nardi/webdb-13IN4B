@@ -3,8 +3,6 @@ if (is_admin())
 { ?>
 
     <script src="adplus-request.js">
-    
-    getNames();
     </script>
     
     <div class="centered-container">
@@ -19,7 +17,7 @@ if (is_admin())
         <hr /> <br />
         
         <div id = "userlist">
-            Staat dit er nou nog?
+            Begin met typen om gebruikers weer te geven...
         </div>
     </div>
 <?php
