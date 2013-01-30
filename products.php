@@ -161,7 +161,7 @@
         $prevpage = $page - 1;
         $has_prevpage = $page > 1;
         $nextpage = $page + 1;
-        $has_nextpage = $numproducts > $page * 25
+        $has_nextpage = $numproducts > $page * 25;
         
         echo '<p>';
         if ($has_prevpage)
