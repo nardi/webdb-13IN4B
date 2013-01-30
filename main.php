@@ -146,7 +146,7 @@
     {
         $db = connect_to_db();
         
-        $sql = $db->prepare("SELECT prijs FROM Aanbiedingen WHERE product_id = ? LIMIT 1");
+        $sql = $db->prepare("SELECT prijs FROM Aanbiedingen WHERE product_id = ? AND start_datum <= CURRENT_DATE AND eind_datum >= CURRENT_DATE LIMIT 1");
         $sql->bind_param('i', $id);
         $sql->execute();
         $sql->bind_result($prijs);
