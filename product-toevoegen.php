@@ -87,6 +87,7 @@ Whale, whale, whale. What do we have here?
                       <div>
                       Cover: 
                       <input type="file" name="image" id="image" /><div id='coverlabel'></div>
+                      <script>alert(document.getElementById('image').value)</script>
 					  </div>
                       
                       <div align="right">
