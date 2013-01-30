@@ -15,8 +15,8 @@
                     Product: 
                     <select name="producten">
                     <?php
-                        $productensql = $db->prepare("SELECT id, titel, prijs FROM Producten");
-                        $productensql->bind_result($productid, $product, $prijs);
+                        $productensql = $db->prepare("SELECT id, titel FROM Producten");
+                        $productensql->bind_result($productid, $product);
                         $productensql->execute();
                         
                         while ($productensql->fetch()) {
@@ -25,7 +25,6 @@
                     <?php
                         }
                         $productensql->free_result();
-                        $db->close();
                     ?>
                     </select> <br />
                     Huidige prijs: <input type="text" disabled="disabled" name="prijs" value="<?php echo "$prijs"; ?>"/><br />
@@ -35,7 +34,10 @@
                     
                     <input type="submit" value="Voeg aanbieding toe" />
            
-                    
+                    <?php
+                        echo "$product";
+                        $db->close();
+                    ?>
                     
                     
                 </div>

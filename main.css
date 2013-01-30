@@ -127,7 +127,7 @@ a {
 
 #ww-dash {
     width: 50px;
-    height: 46px;
+    height: 48px;
     background-image: url('images/labels/cart.png');
     float: right;
     opacity: 0.5;
@@ -223,7 +223,10 @@ a {
 }
 
 .red_line{
-  border-style: groove; border-color:red; border-width:7px; 
+  border-style: groove;
+  border-color:red;
+  border-width:7px;
+  width: 100%;
 }
 
 /*
@@ -231,10 +234,6 @@ a {
  */
 .right_allign {
     text-align: right;
-}
-
-.center {
-  text-align: center;
 }
 
 .displayed {

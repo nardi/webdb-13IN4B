@@ -21,7 +21,7 @@
      */
     if (!isset($_SERVER['HTTPS']) || !$_SERVER['HTTPS']) {
         $uri = 'https://'.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];
-        redirect_to($uri);
+        //redirect_to($uri);
     }
     
     if (strpos($pag, '.'))
@@ -49,12 +49,17 @@
         <?php if (file_exists($pagename . ".css"))
                 echo '<link rel="stylesheet" type="text/css" href="' . $pagename . '.css" />';
         ?>    
-        <script type="text/javascript" src="button.js"></script>  
+        <script type="text/javascript" src="button.js"></script> 
 </head>
 
 <body onload = "setButtonColor('<?php echo $pag; ?>')">
 
 <div id="mainWindow">
+    <noscript>
+    	<div class="red_line vcenter-container">
+      	<p class="center vcenter"> <img src="/images/labels/error-label.png" alt="error-label" width="35" height="35"> Deze website wordt alleen juist weergegeven met Javascript.</p>
+    	</div>
+  	</noscript>
     <div class="banner">
         <div id="logo" class="vcenter" onclick="onButtonclick();">
             <img src="images/logo/logo-sis-met-tekst.png" alt="Link to homepage" />
