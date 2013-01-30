@@ -120,7 +120,8 @@
         }
         else
         {
-            throw new Exception("Ongeldig bestand. Bestand moet .jpg, .jpeg, .png of .gif zijn");
+            //throw new Exception("Ongeldig bestand. Bestand moet .jpg, .jpeg, .png of .gif zijn");
+            return "nocover.png";
         }
     }
     
