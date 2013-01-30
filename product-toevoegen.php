@@ -55,7 +55,7 @@ Whale, whale, whale. What do we have here?
         
         $platformsql->free_result();
 ?>
-						  </select>
++						  </select>
 					  </div>
 					  <br/>              
 					  Genre:
