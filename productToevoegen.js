@@ -54,7 +54,7 @@ function checkDropdown(field, label){
 //Alleen waarschuwing, cover is niet verplicht.
 function checkCover(field, label){
     var cover = document.getElementById(field).value;
-    if(cover==NULL){
+    if(cover==""){
         error(field, 'U heeft geen cover opgegeven. Klopt dit wel?');
     }
 }
