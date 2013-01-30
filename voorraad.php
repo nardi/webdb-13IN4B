@@ -7,7 +7,8 @@
         $sql->bind_param('i', $id);
         $sql->execute();
         $sql->bind_result($voorraad);
-        $sql->fetch();
+        if (!$sql->fetch())
+            return 0;
         $sql->free_result();
         $db->close();
         
@@ -22,7 +23,8 @@
         $sql->bind_param('i', $id);
         $sql->execute();
         $sql->bind_result($voorraad, $verwijderd);
-        $sql->fetch();
+        if (!$sql->fetch())
+            return false;
         $sql->free_result();
         $db->close();
         

@@ -2,6 +2,10 @@
 
 class Winkelwagen
 {
+    /*
+     * Intern wordt een winkelwagen gerepresenteerd als
+     * een array van product-id's naar hoeveelheden
+     */
     private $producten;
     
     private function __construct()
@@ -9,6 +13,10 @@ class Winkelwagen
         $this->producten = array();
     }
     
+    /*
+     * Deze functie probeert een Winkelwagen uit de standaard sessie-variabele te laden,
+     * of maakt een lege aan als dit niet lukt
+     */
     public static function try_load_from_session()
     {
         $ww = new Winkelwagen();
@@ -20,6 +28,9 @@ class Winkelwagen
         return $ww;
     }
     
+    /*
+     * Deze functie slaat de huidige winkelwagen op op de standaardlocatie
+     */
     function save_to_session()
     {
         $_SESSION['winkelwagen'] = $this->producten;
@@ -37,6 +48,10 @@ class Winkelwagen
         return json_encode($this->producten);
     }
     
+    /*
+     * Deze functie voegt een product toe als deze op voorraad is (en bestaat),
+     * of voegt een extra exemplaar toe als deze al in de winkelwagen zit
+     */
     function add($id)
     {
         if (is_op_voorraad($id))
@@ -47,21 +62,15 @@ class Winkelwagen
             }
             else
             {    
-                $db = connect_to_db();
-                
-                $sql = $db->prepare("SELECT * FROM Producten WHERE id = ? LIMIT 1");
-                $sql->bind_param('i', $id);
-                $sql->execute();
-                
-                if ($sql->fetch())
-                    $this->producten[$id] = 1;
-                    
-                $sql->free_result();
-                $db->close();
+                $this->producten[$id] = 1;
             }
         }
     }
     
+    /*
+     * Deze functie verandert de hoeveelheid van een product, mits deze in de
+     * winkelwagen zit en $amount een integer is
+     */
     function change_amount($id, $amount)
     {
         $intamount = intval($amount);
@@ -79,6 +88,12 @@ class Winkelwagen
         }
     }
     
+    /*
+     * Deze functie controleert of deze winkelwagen nog besteld kan worden
+     * (i.e. alle producten zijn op voorraad) en past deze zodanig aan.
+     * Als er veranderingen hierdoor zijn plaatsgevonden, returnt deze true
+     * zodat dat aangegeven kan worden aan de gebruiker
+     */
     function check_amounts()
     {
         $verandering = false;
@@ -132,6 +147,11 @@ class Winkelwagen
         return $cover;
     }
     
+    /*
+     * Verzendkosten worden op dit moment aangegeven via een globale variabele.
+     * Als dit anders moet gebeuren (bijvoorbeeld afhankelijk van soort of aantal
+     * producten) kan deze functie vervangen worden en wordt dit overal overgenomen.
+     */
     function get_shipping()
     {
         global $verzendkosten;
@@ -158,6 +178,10 @@ class Winkelwagen
         return count($this->producten) == 0;
     }
     
+    /*
+     * Deze functie geeft de winkelwagen weer. $editable geeft aan of de hoeveelheden
+     * kunnen worden aangepast en of producten kunnen worden verwijderd
+     */
     function display($editable)
     {
         $verzendkosten = $this->get_shipping();
