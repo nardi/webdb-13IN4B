@@ -1,4 +1,6 @@
-﻿<div id="frontpage.php" class="clickable-item" onclick="onButtonclick();">
+﻿<!-- De Sidebar bevat alle knoppen die zich in de sidebar bevinden -->
+<!-- De volgende knoppen zijn zichtbaar voor iedereen -->
+<div id="frontpage.php" class="clickable-item" onclick="onButtonclick();">
     Beginpagina
 </div>
 
@@ -16,6 +18,8 @@
     Contact
 </div>
 
+<!-- Klantenservice is alleen zichtbaar voor ingelogde gebruikers. -->
+
 <?php
 	if (isset($_SESSION['logged-in'])) {
 		?>
@@ -28,6 +32,8 @@
 
 <div></div>
 
+<!-- De zoekfunctie en bijbehorende submit knop. -->
+
 <form method="get" action="products.php" id='searchform'>
     <div id='searchcontainer'>
         <input type="text" name="search" id='searchbar'/>
@@ -35,6 +41,9 @@
         </div>
     </div>
 </form>
+
+
+<!-- De volgende knoppen zijn alleen beschikbaar voor medewerkers. (Status 3 of hoger in de database.) -->
 
 <?php
     if (isset($_SESSION['logged-in'])) {
@@ -59,6 +68,10 @@
             
         <?php    
         }
+        
+        /* Deze knop is alleen toegankelijk voor de beheerders. (Level 4 of hoger in de database)
+         */
+        
         if (is_owner()) {
         ?>
             <br /> <hr />
