@@ -87,7 +87,7 @@
         return isset($_SESSION['logged-in']);
     }
     
-    /* is_logged_in() kijkt of de gebruiker ingelogd en geverifiëerd is. (Level 2 of hoger in de database).
+    /* is_verified_in() kijkt of de gebruiker ingelogd en geverifiëerd is. (Level 2 of hoger in de database).
      */
     
     function is_verified()
@@ -103,7 +103,7 @@
         return is_logged_in() && ($_SESSION['gebruiker-status'] >= 3);
     }
     
-    /* is_owner() kijkt of de gebruiker ingelogd is als een owner/beheerderr (Level 4 of hoger in de database).
+    /* is_owner() kijkt of de gebruiker ingelogd is als een owner/beheerder (Level 4 of hoger in de database).
      */
     
     function is_owner()
