@@ -18,11 +18,11 @@ if ((!isset($_SESSION['logged-in']))) {
 	<hr width="100%">
 	<br />
 	<?php
-	echo "U heeft aangegeven dat uw vraag er niet tussen staat.
-		Klikop onderstaande link om ons een bericht te sturen.";
+	echo "Ondanks dat wij uitermate onze best doen om uw winkelervaring plesant te maken, nemen uw klachten zeer serieus.
+		U kunt via onderstaande link uw klacht aan ons kenbaar maken.";
 	?>
 	<br /><br />
-	<a href="/klantenservice_niet_beantwoord.php">ga naar formulier</a>
+	<a href="/klantenservice_niet_beantwoord.php">dien klacht in</a>
 	
 	</div>
 	</div>

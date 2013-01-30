@@ -17,11 +17,8 @@ if ((!isset($_SESSION['logged-in']))) {
 	<div class="account-wachtwoord-veranderen">
 	<hr width="100%">
 
-	<p> U heeft aangegeven dat uw geen factuur heeft ontvangen.
-	Wij sturen u altijd een orderbevestiging waarin de factuur weergegeven wordt. 
-	Het kan zijn dat de orderbevestiging in uw spamfolder terecht is gekomen.
-	Controleer alstublieft even uw spamfolder.
-	Tevens sturen wij nogmaals dezelfde factuur met de bestelling mee. </p>
+	<p> Als u een artikel heeft gevonden op onze website, en u wilt weten of deze nog op voorraad is,
+	dan kunt u in het artikelovericht zien of er nog een voorraad is van het gewenste artikel</p>
 	<br /><br />
 
 	<form action="../">
