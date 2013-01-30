@@ -30,7 +30,7 @@
         
          
         
-        $sqli->fetch()
+        $sqli->fetch();
         echo "<tr>
         <td><input size='15' type='text' name='titel' disabled='disabled' value ='$titel' /></td>
         <td><input size='15' type='text' name='oude_prijs' disabled='disabled' value ='$oude_prijs' /></td>
