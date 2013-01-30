@@ -56,8 +56,8 @@
 
 <div id="mainWindow">
     <noscript>
-    	<div class="red_line">
-      	<p class="center"> <img src="/images/labels/error-label.png" alt="error-label" width="35" height="35"> Deze website wordt alleen juist weergegeven met javascript.</p>
+    	<div class="red_line vcenter-container">
+      	<p class="center vcenter"> <img src="/images/labels/error-label.png" alt="error-label" width="35" height="35"> Deze website wordt alleen juist weergegeven met Javascript.</p>
     	</div>
   	</noscript>
     <div class="banner">
