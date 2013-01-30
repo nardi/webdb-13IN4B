@@ -65,7 +65,7 @@
             <img src="images/logo/logo-sis-met-tekst.png" alt="Link to homepage" />
         </div>
         <div id="slogan" class="vcenter">
-            <img src="images/SIS-BANNER.gif" />
+            <img src="images/SIS-BANNER.gif" alt="Super Internet Shop" />
         </div>
         <?php
             include("dashboard.php");
