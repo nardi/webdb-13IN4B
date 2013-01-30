@@ -44,8 +44,8 @@ U bent niet ingelogd!
             Achternaam: <input type="text" name="achternaam" disabled value = "<?php echo $achternaam; ?>"><br/>
             Postcode: <input type="text" name="postcode" disabled value = "<?php echo $postcode; ?>"><br/>
             <div class="huisnummer"> 
-                Huisnummer:  <input type="tekst" name="huisnummer" disabled="disabled" value = "<?php echo $huisnummer; ?>"> 
-                <input type="tekst" name="toevoeging" disabled="disabled" value = "<?php echo $toevoeging; ?>">
+                Huisnummer:  <input type="text" name="huisnummer" disabled="disabled" value = "<?php echo $huisnummer; ?>"> 
+                <input type="text" name="toevoeging" disabled="disabled" value = "<?php echo $toevoeging; ?>">
             </div><br/>
             Plaats: <input type="text" name="plaats" disabled value = "<?php echo $plaats; ?>"><br/>
             Telefoonnummer: <input type="text" name="telefoonnummer" disabled value = "<?php echo $telefoonnummer; ?>"><br/>
