@@ -16,7 +16,9 @@ if (is_admin())
         <hr /> <br />
         
         <div id = "userlist">
-        Hier komen de gebruikers...
+            <?php
+            include("adplus-query.php");
+            ?>
         </div>
     </div>
 <?php
