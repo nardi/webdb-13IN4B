@@ -17,7 +17,7 @@ function checkPrijs(field, label){
     var validPrijs =/^[0-9]+$/;
     var prijs = document.getElementById(field).value;
     var label = document.getElementById(label);
-    if(validPrijs.test(prijs)){
+    if(!validPrijs.test(prijs)){
         error(label, 'Dit veld is niet goed ingevuld.');
     }
     else{
@@ -43,7 +43,7 @@ function checkDatum(field, label){
 function checkDropdown(field, label){
     var dropdown = document.getElementById(field).value;
     var label = document.getElementById(label);
-    if(dropdown != ""){
+    if(dropdown == ""){
         error(label, 'Geef een geldige keuze op.');
     }
     else{
