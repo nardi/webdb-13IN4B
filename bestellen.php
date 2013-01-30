@@ -6,6 +6,7 @@
     
     $ww = Winkelwagen::try_load_from_session();
     
+    // Eerst een aantal checks
     if (!is_logged_in())
     {
         echo 'Je moet ingelogd zijn om een bestelling te plaatsen.';
@@ -19,15 +20,18 @@
         echo 'Voeg eerst producten toe aan je winkelwagen voor je een bestelling plaatst.';
     }
     else
-    {        
+    {    
+        // Als er dingen niet meer op voorraad zijn, wordt de winkelwagen aangepast en opnieuw weergegeven
         if ($ww->check_amounts())
         {
             $ww->save_to_session();
             echo '<p>Sommige producten in uw winkelwagen zijn niet meer op voorraad. Uw winkelwagen is hiervoor aangepast. U kunt de wijzigingen controleren en nogmaals bestellen.</p>';
             include 'winkelwagen.php';            
         }
+        // Als een wachtwoord meegestuurd is kan de bestelling geplaatst worden
         else if (isset($_POST['wachtwoord']))
         {
+            // Het wachtwoord controleren ter bevestiging
             $gebruiker_id = $_SESSION['gebruiker-id'];
             $wachtwoord = $_POST['wachtwoord'];
             
@@ -46,6 +50,7 @@
             }
             else
             {
+                // De bestelling in de database plaatsen
                 $adres_id = $_POST['adres'];
                 $verzendkosten = $ww->get_shipping();
                 $sqli_bestelling = $db->prepare("INSERT INTO Bestellingen (gebruiker_id, verzendkosten, adres_id) VALUES (?, ?, ?)");
@@ -69,9 +74,11 @@
                         throw new Exception($voorraad->error);
                 }
                 
+                // Een bevestigingsemail naar de klant sturen
                 require_once 'email.php';
                 bestelling_mail($bestelling_id, 'Uw bestelling bij Super Internet Shop', 'Bedankt voor uw bestelling bij Super Internet Shop!');
                 
+                // Opruimen
                 $db->close();
                 $ww->remove_all();
                 $ww->save_to_session();
@@ -84,6 +91,7 @@ Dit kan ook op een later moment via uw accountoverzicht, maar tot dan wordt uw b
                 echo bestelling_weergeven($bestelling_id);
             }
         }
+        // Anders wordt de volledige bestelling weergegeven ter bevestiging
         else
         {
 ?>

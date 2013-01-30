@@ -133,7 +133,7 @@ function verify(field1, field2, divLabel){
     if(field1Val != field2Val){
         error(labelPos, 'Velden zijn niet hetzelfd');
     }
-    else{
+    else if (field2Val != ""){
         ok(labelPos, 'Velden zijn hetzelfde.');
     }   
 }

@@ -1,6 +1,4 @@
 <?php
-    
-
     $db = connect_to_db();
     
     $voornaam = $_POST['voornaam'];
@@ -14,13 +12,11 @@
     $emailadres = $_POST['e-mailadres'];
     $wachtwoord = $_POST['wachtwoord'];
     
-    
     $nonStrictPostcode = '/^[0-9]{4}[\s-][a-z]{2}$/i';
     
     if(preg_match($nonStrictPostcode, $postcode)){
         $postcode=substr($postcode,0,4).substr($postcode,5);
     }
-    
     
     $adres_info = json_decode(get_address($postcode, $huisnummer));
     $straat = $adres_info->street;
@@ -28,29 +24,7 @@
     
     $registratiedatum = date('Y-m-d');
     
-    //Random getal voor salt genereren
-    $saltbytes = openssl_random_pseudo_bytes(32);
-    $salt = bin2hex($saltbytes);
-    
-    //Hashen met SHA-256
-    $wwhash = hash('sha256', $wachtwoord);
-    $saltedwwhash = hash('sha256', $salt . $wwhash);
-    
-    //Combinatie salt en wachtwoordhash voor database
-    $saltww = $salt . $saltedwwhash;
-    /*               '.       
-        .-""-._     \ \.--|  
-       /       "-..__) .-'   
-     ?_______?             /     
-      \'-.__,   .__.,'       
-       `'----'._\--'  
-     * Whale whale whale, what have we here?
-     *
-     */
-    //Onderstaande is nog niet helemaal af.
-    /*$sql_gebruikers = "INSERT INTO Gebruikers (naam, achternaam, telefoonnummer, email, wachtwoord,
-    registratie_datum, status)
-    VALUES ('$voornaam', '$achternaam', '$telefoonnummer', '$emailadres', '$saltww', '$registratiedatum', '1')";*/
+    $saltww = maak_wachtwoord($wachtwoord);
     
     $validNaam = '/^[a-z\s-\']{1,256}$/i';
     $validPostcode = '/^[0-9]{4}[a-z]{2}$/i';
@@ -60,7 +34,6 @@
     $validHuis = '/^[0-9]{1,5}$/';
     $validMail='/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i';
     $validWachtwoord='/^.+$/';
-    
        
     if(preg_match($validNaam, $voornaam)&&
        preg_match($validNaam, $achternaam)&&
@@ -77,29 +50,11 @@
         VALUES (?,?,?,?,?,?,'1')");
         
         $sqli_gebruikers->bind_param('ssssss',$voornaam, $achternaam, $telefoonnummerTot, $emailadres, $saltww, $registratiedatum);
-        
-        /*$sql_adressen = "INSERT INTO Adressen (postcode, huisnummer, toevoeging, plaats, straat)
-        VALUES ('$postcode' , '$huisnummer' , '$toevoeging' , '$plaats' , '$straat')";*/
 
         $sqli_adressen = $db->prepare("INSERT INTO Adressen (postcode, huisnummer, toevoeging, plaats, straat)
         VALUES (?,?,?,?,?)");
         
         $sqli_adressen->bind_param('sisss',$postcode , $huisnummer , $toevoeging , $plaats , $straat);
-    
-
-        /*
-            Zo moet error-handlen bij database-queries:
-            if (!$db->query(...))
-                throw new Exception($db->error);
-
-            of met resultaat:
-            $res = $db->query(...)
-            if (!$res)
-                throw new Exception($db->error);
-            of: 
-            if (!$res = $db->query(...))
-                throw new Exception($db->error);
-        */
 
         if(!$sqli_gebruikers->execute())
             if($sqli_gebruikers->error == "Duplicate entry '$emailadres' for key 'email'"){
@@ -114,7 +69,7 @@
 		//dit is de stef-code
 		
 		$db = connect_to_db();
-		$token = md5($_POST['email'].time()) ;
+		$token = bin2hex(openssl_random_pseudo_bytes(16));
 		$pwu = $db->prepare("UPDATE Gebruikers SET activatie_token = '$token' WHERE email = ? LIMIT 1");
 		$pwu->bind_param("s", $emailadres);
 		$pwu->execute();
