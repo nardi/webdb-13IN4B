@@ -31,11 +31,10 @@
     }
 ?>
 
-<link rel="stylesheet" type="text/css" href="registratie-succesvol.css" />
-<link rel="stylesheet" type="text/css" href="registratie-succesvol-classic-theme.css" />
+<link rel="stylesheet" type="text/css" href="succesvol.css" />
 
 <div class="product-toevoegen-succesvol-container">
-    <div id="logo-registratie-succesvol" title="Super Internet Shop">
+    <div id="logo-succesvol" title="Super Internet Shop">
     </div>
     
     <div class="bedankje">
