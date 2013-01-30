@@ -70,6 +70,7 @@ a {
 #footer a {
     float: right;
     margin-left: 4px;
+    border: 0;
 }
 
 #footer img {
@@ -98,9 +99,11 @@ a {
 /* The slogan */
 
 #slogan {
-    width: 530px;
+    width: 380px;
     text-align: center;
     height: auto;
+    position: relative;
+    left: 64pt;
 }
 
 /* The dashboard */
