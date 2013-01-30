@@ -99,9 +99,11 @@ a {
 /* The slogan */
 
 #slogan {
-    width: 380px;
-    text-align: center;
-    height: auto;
+    width: 1px; /* Maakt niet uit */
+    height: 100%;
+}
+
+#slogan img {
     position: relative;
     left: 64pt;
 }
