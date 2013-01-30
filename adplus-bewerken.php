@@ -16,6 +16,7 @@
             $sqli->bind_param('ssssii', $naam, $achternaam, $telefoonnummer, $email, $status, $id);
             $sqli->execute();
             
+            redirect_to("adplus.php");
             
         
         }
