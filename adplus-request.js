@@ -1,3 +1,9 @@
+/* Deze code maakt gebruik van de voorbeeld code gegeven in het college.
+ * Met deze code wordt een een XMLHTTPRequest gegenereerd en naar adplus-query.php
+ * gestuurd, wleke zich bevindt in de backend map. Dit PHP bestand kijkt naar de invoer
+ * van de gebruiker en zoekt aan de hand hiervan naar bijpassende gebruikers.
+ */
+
 function GetXMLHTTPObject()
 {
   var xmlhttp = new XMLHttpRequest();
