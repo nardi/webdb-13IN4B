@@ -21,7 +21,7 @@ if ((!isset($_SESSION['logged-in']))) {
 	<br /><br />
 
 	<!--
-	Dit is het einde van de dropdownboz en nieuwe paginas worden niet onder de andere geladen.
+	Dit is het einde van de dropdownbox en nieuwe paginas worden niet onder de andere geladen.
 	Met de window.open methode wordt de klant doorgezet naar een nieuwe pagina.
 	-->
 	<form action="../">

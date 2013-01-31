@@ -1,9 +1,10 @@
 <!--
-Klantkomthierterecht als hij in het klantenservicemenu aangeeft dat zijn factuur niet klopt.
+Klant komt op deze pagina terecht als hij wil weten waar hij de system-requirement wil weten
 -->
 
+
 <?php
-session_start();
+	session_start();
 if ((!isset($_SESSION['logged-in']))) {
 	?>
 	<pre>
@@ -15,14 +16,13 @@ if ((!isset($_SESSION['logged-in']))) {
 	<div class="centered-container"> 
 	<div class="account-wachtwoord-veranderen">
 	<hr width="100%">
-	
-	<p> Het kan voorkomen dat er iets niet klopt op de factuur. 
-	Wij doen altijd onze best om de prijzen up-to-date te houden. 
-	Houd er wel rekening mee dat wij standaard €6,75 verzendkosten in rekening brengen. </p>
+
+	<p> Als u de system-requirements van een PC-spel wilt weten, dan kunt u deze vinden in het artikeloverzicht.</p>
 	<br /><br />
-	
+
 	<!--
-	Dir formulier controleert of de vraag is beantwoord. bij de 2 keuzes wordt wordt er onchange een nieuwe pagina geopend. 
+	Dit is het einde van de dropdownbox en nieuwe paginas worden niet onder de andere geladen.
+	Met de window.open methode wordt de klant doorgezet naar een nieuwe pagina.
 	-->
 	<form action="../">
 	Is hiermee uw vraag beantwoord?<br />
@@ -32,9 +32,10 @@ if ((!isset($_SESSION['logged-in']))) {
 	<option value="klantenservice_niet_beantwoord.php">nee</option>  
 	</select>
 	</form>
-	
+
 	</div>
 	</div>
 <?php
 }
 ?>
+
