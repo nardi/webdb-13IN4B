@@ -20,7 +20,7 @@
         if ($lopende_bestellingen->affected_rows > 0)
         {
 ?>  
-    <hr width="100%">
+    <hr>
     <b>Lopende bestellingen</b><br/>
     <table>
         <tr>
@@ -57,7 +57,7 @@
         if ($bestellingen->affected_rows > 0)
         {
 ?>
-    <hr width="100%">
+    <hr>
     <b>Oude bestellingen</b><br/>
     <table>
         <tr>
