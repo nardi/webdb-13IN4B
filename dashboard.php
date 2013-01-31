@@ -1,3 +1,7 @@
+<!-- Het dashboard bevat 2 verschillende blokken:
+     1 voor als de gebruiker ingelogd is, en 1 voor 
+     als dit niet het geval is. -->
+
 <?php
     require_once 'winkelwagen.class.php';
 
@@ -18,6 +22,9 @@
 <?php
     }
     
+    /* Als de gebruiker niet ingelogd is, dan kan die inloggen via het dashboard.
+     * Het formulier hiervoor wordt hieronder gemaakt.
+     */
     if(!isset($_SESSION['logged-in'])) {
     ?>
     <script type="text/javascript">
@@ -39,6 +46,10 @@
         </div>
     </form>
 <?php
+    /* Als de gebruiker wel ingelogd is, dan krijgt deze een simpel dashboard
+     * te zien, waarvandaan genavigeerd kan worden naar het account overzicht,
+     * de winkelwagen, en de uitlog pagina.
+     */
     } else {
 ?>
     <div id="dashboard">
