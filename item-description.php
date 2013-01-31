@@ -49,7 +49,7 @@
 <div id="ItemName">
 <h3>
     <?php
-       echo $titel;
+       echo htmlspecialchars($titel, ENT_XHTML);
     ?>
 </h3>
 </div>
@@ -59,7 +59,7 @@
         <div id="ItemCover">
         <h4>Game cover</h4>
             <?php
-                echo '<img src="'. is_valid_cover($cover) .'" />';
+                echo '<img src="'. is_valid_cover($cover) .'" alt="Cover" />';
             ?>
         </div>
         <div id="ItemWWToevoegen">
@@ -89,7 +89,7 @@
     <div id="ItemDescription">
     <h4>Game Description</h4>
     <?php
-            echo $beschrijving;
+            echo htmlspecialchars($beschrijving, ENT_XHTML);
         ?>
     </div>
 

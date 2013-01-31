@@ -1,7 +1,7 @@
 <div class="centered-container">
-    <div id="filters">
-        <form method="get" action="products.php">
-            Platform:
+    <form method="get" action="products.php">
+        <div id="filters">
+            <span>Platform:</span>
             <div class="platform">
                 <select name="platforms">
 
@@ -25,7 +25,7 @@
                 </select>
             </div>          
             
-            Genre:
+            <span>Genre:</span>
             <div class="genre">
 
                 <select name="genres">
@@ -50,8 +50,8 @@
             <br />
         
             <input type="submit" value="Pas filters toe">
-        </form>
-    </div>
+        </div>
+    </form>
     <hr>
 
     <?php
@@ -156,7 +156,11 @@
     ?>
         </div>
     <?php
-        // Deze functie verwijdert de huidige pagina-waarde(n) uit de url
+        /*
+         * Deze functie verwijdert de huidige pagina-waarde(n) uit de url, zodat de nieuwe er voor in
+         * de plaats kan komen en de filters toch behouden worden.
+         * De url gaat er een beetje vreemd uitzien, maar hij werkt wel in alle gevallen.
+         */
         function clean_url($url, $toremove)
         {
             while (($pagepos = strpos($url, $toremove)) !== FALSE)
@@ -188,11 +192,11 @@
         
         echo '<p>';
         if ($has_prevpage)
-            echo '<a href="'.$url.'?&page='.$prevpage.'">< Vorige</a> ';
+            echo '<a href="'.$url.'?&page='.$prevpage.'">&lt; Vorige</a> ';
         if ($has_prevpage || $has_nextpage)
             echo '|';
         if ($has_nextpage)
-            echo ' <a href="'.$url.'?&page='.$nextpage.'">Volgende ></a>';
+            echo ' <a href="'.$url.'?&page='.$nextpage.'">Volgende &gt;</a>';
         echo '</p>';
         
         $count->free_result();
