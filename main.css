@@ -46,7 +46,7 @@ a {
     text-align: center;
 }
 
-.centered-container div {
+.centered-container div, table {
     display: inline-block;
 }
 
@@ -245,3 +245,6 @@ a {
     font-weight: bold;
 }
 
+.verlopen {
+    color: #EB0707;
+}

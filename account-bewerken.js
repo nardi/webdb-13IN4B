@@ -9,8 +9,6 @@ function submitChanges(){
     checkTel();
     checkMail();
     verify('email','email-bevestigen','email-bevestigen-label');
-    check('wachtwoord','wachtwoord-label');
-    verify('wachtwoord','wachtwoord-bevestigen','wachtwoord-bevestigen-label');
     
     if(isValidForm){
         document.regform.action="account-bewerken.php";
