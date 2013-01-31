@@ -64,7 +64,7 @@ function checkPostcode(){
     completeAddress(postcode);  
 }
 function checkNaam(field, label){
-    var validNaam = /^[a-z\s\-]{1,256}$/i
+    var validNaam = /^[a-z\s\-\']{1,256}$/i
     var naam = document.getElementById(field).value;
     var naamLabel = document.getElementById(label);
     if(!validNaam.test(naam))
