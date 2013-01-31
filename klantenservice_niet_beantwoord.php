@@ -10,7 +10,7 @@ echo "<form method='post' action='klantenservice_niet_beantwoord.php'>
 	Bericht:<br />
 	<textarea name='bericht' rows='15' cols='40'>
 	</textarea><br />
-	<input type='submit' value='verstuur'>
+	<input type='submit' value='verstuur' />
 	<br /><br />
 	</form>"; 
 }

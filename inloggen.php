@@ -25,9 +25,9 @@
 							<div ALIGN="center">
 							Vul hieronder uw inloggegevens in.
 							</div><br />
-							E-mailadres: <input type="text" name="e-mailadres"><br />
-							Wachtwoord: <input type="password" name="wachtwoord"><br />
-							<input type="submit" value="Log in"><br />
+							E-mailadres: <input type="text" name="e-mailadres" /><br />
+							Wachtwoord: <input type="password" name="wachtwoord" /><br />
+							<input type="submit" value="Log in" /><br />
 						</form>
 						
 						<a href='wachtwoordvergeten.php'><SMALL> Uw wachtwoord vergeten? </SMALL></a>

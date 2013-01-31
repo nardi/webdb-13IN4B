@@ -1,5 +1,3 @@
-<link rel="stylesheet" type="text/css" href="inloggen-wachtwoord-registratie.css">
- 
 <div class="centered-container">
 <?php
 	if ((!isset($_SESSION['logged-in']))) {
@@ -39,26 +37,26 @@ U bent niet ingelogd!
         <div align="right">
             <center><b>Accountgegevens</b></center>
             <br/>
-            Voornaam: <input type="text" name="voornaam" disabled value = "<?php echo $naam; ?>" ><br/>
-            Achternaam: <input type="text" name="achternaam" disabled value = "<?php echo $achternaam; ?>"><br/>
-            Postcode: <input type="text" name="postcode" disabled value = "<?php echo $postcode; ?>"><br/>
+            Voornaam: <input type="text" name="voornaam" disabled value = "<?php echo $naam; ?>"  /><br/>
+            Achternaam: <input type="text" name="achternaam" disabled value = "<?php echo $achternaam; ?>" /><br/>
+            Postcode: <input type="text" name="postcode" disabled value = "<?php echo $postcode; ?>" /><br/>
             <div class="huisnummer"> 
-                Huisnummer:  <input type="text" name="huisnummer" disabled="disabled" value = "<?php echo $huisnummer; ?>"> 
-                <input type="text" name="toevoeging" disabled="disabled" value = "<?php echo $toevoeging; ?>">
+                Huisnummer:  <input type="text" name="huisnummer" disabled="disabled" value = "<?php echo $huisnummer; ?>" /> 
+                <input type="text" name="toevoeging" disabled="disabled" value = "<?php echo $toevoeging; ?>" />
             </div><br/>
-            Plaats: <input type="text" name="plaats" disabled value = "<?php echo $plaats; ?>"><br/>
-            Telefoonnummer: <input type="text" name="telefoonnummer" disabled value = "<?php echo $telefoonnummer; ?>"><br/>
-            E-mailadres: <input type="email" name="e-mailadres" disabled value = "<?php echo $email; ?>"><br/>
+            Plaats: <input type="text" name="plaats" disabled value = "<?php echo $plaats; ?>" /><br/>
+            Telefoonnummer: <input type="text" name="telefoonnummer" disabled value = "<?php echo $telefoonnummer; ?>" /><br/>
+            E-mailadres: <input type="email" name="e-mailadres" disabled value = "<?php echo $email; ?>" /><br/>
         </div>
         <hr width="100%">
         <center><b>Bestellingen</b></center>
-            <a href="bestelgeschiedenis.php"><input type="submit" value="Bestelgeschiedenis"></a>
+            <a href="bestelgeschiedenis.php"><input type="submit" value="Bestelgeschiedenis" /></a>
         <hr width="100%">
         <center><b>Bewerken</b></center>
-            <a href="account-wachtwoord-veranderen.php"><input type="submit"  value="Wachtwoord veranderen"></a><br/>
-            <a href="adres-toevoegen.html"><input type="submit"  value="Adres toevoegen"></a><br />
-            <a href="account-bewerken.php"><input type="submit"  value="Accountgegevens veranderen"></a><br/>
-            <a href="account-verwijderen.html"><input type="submit"  value="Account verwijderen"></a>
+            <a href="account-wachtwoord-veranderen.php"><input type="submit"  value="Wachtwoord veranderen" /></a><br/>
+            <a href="adres-toevoegen.html"><input type="submit"  value="Adres toevoegen" /></a><br />
+            <a href="account-bewerken.php"><input type="submit"  value="Accountgegevens veranderen" /></a><br/>
+            <a href="account-verwijderen.html"><input type="submit"  value="Account verwijderen" /></a>
         <hr width="100%">
     </div>
 

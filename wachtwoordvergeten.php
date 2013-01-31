@@ -20,9 +20,9 @@ function show_form()
 		waarmee u een nieuw wachtwoord kunt opgeven. 
 		</div><br /><br />";
 	echo "<form method='post' action='wachtwoordvergeten.php'>
-		Email: <input name='email' type='text'><br />
+		Email: <input name='email' type='text' /><br />
 		</textarea><br />
-		<input type='submit' value='verstuur'>
+		<input type='submit' value='verstuur' />
 		</form>";
 }
 

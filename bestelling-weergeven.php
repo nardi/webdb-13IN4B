@@ -64,10 +64,10 @@
                     </tr>';
             
             // De info over dit product voor de PayPal-knop
-            $paypal_info .= '<input type="hidden" name="item_number_' . $count . '" value="' . $product_id . '">
-                             <input type="hidden" name="item_name_' . $count . '" value="' . $titel . '">
-                             <input type="hidden" name="amount_' . $count . '" value="' . $prijs . '">
-                             <input type="hidden" name="quantity_' . $count . '" value="' . $hoeveelheid . '">' . "\n";
+            $paypal_info .= '<input type="hidden" name="item_number_' . $count . '" value="' . $product_id . '" />
+                             <input type="hidden" name="item_name_' . $count . '" value="' . $titel . '" />
+                             <input type="hidden" name="amount_' . $count . '" value="' . $prijs . '" />
+                             <input type="hidden" name="quantity_' . $count . '" value="' . $hoeveelheid . '" />' . "\n";
                              
             $totaalbedrag += $productprijs;
             $count++;
