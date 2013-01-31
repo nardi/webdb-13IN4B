@@ -13,17 +13,24 @@
 
 <h1>In de aanbieding</h1>
 <?php
+        /*
+         * Speciale weergave voor aanbiedingen.
+         * $count is om cover om en om rechts of links weer te geven
+         */
+        $count = 1;
         do
         {
 ?>
 
 <div class="product-hilite">
     <a href="item-description.php?id=<?php echo $id; ?>">
+<?php if ($count % 2 == 0) { ?>
     <div id="image" class="vcenter-container">
         <div class="vcenter">
             <img src="<?php echo is_valid_cover($cover); ?>" alt="Cover" />
         </div>
     </div>
+<?php } ?>
     <div id="desc" class="vcenter-container">
         <div class="vcenter">
             <p class="title"><?php echo $titel; ?></p>
@@ -33,9 +40,17 @@
             <p class="price">&euro;<?php echo prijs($prijs); ?></p>
         </div>
     </div>
+<?php if ($count % 2 == 1) { ?>
+    <div id="image" class="vcenter-container">
+        <div class="vcenter">
+            <img src="<?php echo is_valid_cover($cover); ?>" alt="Cover" />
+        </div>
+    </div>
+<?php } ?>
     </a>
 </div>
 <?php
+            $count++;
         } while($on_sale->fetch());
 ?>
 
