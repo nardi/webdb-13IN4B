@@ -238,7 +238,7 @@
     {
 ?>
 <div class="product-thumb<?php if ($datum !== null) { ?> preorder<?php } ?>">
-    <div class="image"><a href="item-description.php?id=<?php echo $id; ?>"><img src="<?php echo $cover; ?>" alt="<?php echo $titel; ?>"/></a></div>
+    <div class="image"><a href="item-description.php?id=<?php echo $id; ?>"><img src="<?php echo $cover; ?>" alt="Cover"/></a></div>
     <p class="title"><a href="item-description.php?id=<?php echo $id; ?>"><?php echo $titel; ?></a></p>
     <p><a href="item-description.php?id=<?php echo $id; ?>">
 <?php if ($aanbiedingsprijs !== null) { ?>

@@ -83,10 +83,13 @@ function error(field, msg){
     labelPos.style.backgroundImage = "url('images/labels/warning-label.png')";
     labelPos.title = melding;
     labelPos.style.backgroundRepeat="no-repeat";
-    isValidForm = false;
+    if (field != document.getElementById('coverlabel')){
+        isValidForm = false;
+    }
 }
 
 function testall(){
+    var isValidForm = true;
     checkTekst('titel','titellabel');
     checkTekst('beschrijving','beschrijvinglabel');
     checkPrijs('prijs', 'prijslabel');
@@ -97,7 +100,7 @@ function testall(){
     checkCover('image','coverlabel');
     
     if(isValidForm){
-        document.regform.action="product-toevoegen-db.php";
+        document.toevoegform.action="product-toevoegen-db.php";
         return true;
     }
     else{

@@ -1,13 +1,22 @@
 <?php
+    /*
+     * De functie bestelling_weergeven stelt de html voor een bestelling samen. Hierdoor wordt overal dezelfde
+     * opmaak gebruikt. $email geeft aan of het voor een e-mail bedoeld is (en er absolute links gebruikt
+     * moeten worden) en $editable geeft aan of de verzendstatus bewerkt moet kunnen worden.
+     */
     function bestelling_weergeven($id, $email = FALSE, $editable = FALSE)
     {
         require_once 'adresweergave.php';
         
+        // $abs maakt de links absoluut
         $abs = '';
         if ($email)
             $abs = $_SERVER['SERVER_NAME'] . '/';
+            
+        // Een variabele voor de html
         $html = '';
         
+        // Haal bestellinginformatie op
         $db = connect_to_db();
         $sql = $db->prepare("SELECT Producten.id, titel, hoeveelheid, Bestelling_Product.prijs,
                                 cover, betaalstatus, verzendkosten, verzendstatus, adres_id
@@ -18,6 +27,7 @@
         $sql->bind_result($product_id, $titel, $hoeveelheid, $prijs, $cover, $betaalstatus, $verzendkosten, $verzendstatus, $adres_id);
         $sql->execute();
         
+        // De bovenste rij van de tabel
         $html .= '<table class="product-list">
                     <tr>
                         <th>#</th>
@@ -26,14 +36,17 @@
                         <th>Hoeveelheid</th>
                         <th>Totaal</th>
                     </tr>';
-                    
-        $totaalbedrag = 0;
+        
+        // $count is voor de PayPal-knop, deze wil de artikelen genummerd hebben
         $count = 1;
         $paypal_info = '';
+        $totaalbedrag = 0;
         while ($sql->fetch())
         {
+            // De prijs per product
             $productprijs = $hoeveelheid * $prijs;
             
+            // Een productrij
             $html .= '<tr>
                         <td class="product-id">
                             <a href="' . $abs . 'item-description.php?id=' . $product_id . '"><span name="product-id">' . $product_id . '</span></a>
@@ -48,7 +61,8 @@
                         <td>'. $hoeveelheid . '</td>
                         <td>&euro;<span id="productprice-' . $product_id . '">' . prijs($productprijs) . '</span></td>
                     </tr>';
-                    
+            
+            // De info over dit product voor de PayPal-knop
             $paypal_info .= '<input type="hidden" name="item_number_' . $count . '" value="' . $product_id . '">
                              <input type="hidden" name="item_name_' . $count . '" value="' . $titel . '">
                              <input type="hidden" name="amount_' . $count . '" value="' . $prijs . '">
@@ -59,6 +73,7 @@
         }
         $totaalbedrag += $verzendkosten;
         
+        // De onderste rijen
         $html .= '<tr class="bottom-row">
                     <td class="left" colspan="3">Betaalstatus: ' . $betaalstatus . '</td>
                     <td class="right" colspan="2">Verzendkosten:</td>
@@ -66,7 +81,8 @@
                 </tr>
                 <tr class="bottom-row">
                     <td class="left" colspan="3">';
-                    
+
+        // Als de bestelling $editable is moet een select voor de verzendstatus worden weergegeven
         if ($editable)
         {
             $selected = 'selected="selected"';
@@ -78,12 +94,13 @@
                         <input type="submit" value="Aanpassen"/>
                       </form>';
         }
+        // Anders wordt als hij nog niet betaald is een knop naar PayPal weerggeven
         else if ($betaalstatus == 'Niet betaald')
         {
-            $html .= '<form action="https://www.sandbox.paypal.com/us/cgi-bin/webscr" method="post">
+            $html .= '<form action="https://www.paypal.com/us/cgi-bin/webscr" method="post">
                         <input type="hidden" name="cmd" value="_cart"/>
                         <input type="hidden" name="upload" value="1"/>
-                        <input type="hidden" name="business" value="paypal_1358181822_biz@nardilam.nl"/>
+                        <input type="hidden" name="business" value="paypal@superinternetshop.nl"/>
                         <input type="hidden" name="currency_code" value="EUR"/>
                         <input type="hidden" name="return" value="https://superinternetshop.nl/betaald.php"/>
                         <input type="hidden" name="cancel_return" value="https://superinternetshop.nl/bestelling.php?id=' . $id . '"/>
@@ -96,11 +113,13 @@
                         '<input type="submit" value="Betalen via PayPal"/>
                     </form>';
         }
+        // Anders wordt de verzendstatus gewoon weergegeven
         else
         {
             $html .= "Verzendstatus: $verzendstatus";
         }
         
+        // Het laatste stukje van de tabel en het adres waar hij naartoe verstuurd wordt
         $html .= '</td>
                   <th colspan="2" class="right">Totaalbedrag:</th>
                   <td>&euro;<span id="total-price">' . prijs($totaalbedrag) . '</span></td>

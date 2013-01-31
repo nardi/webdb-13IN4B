@@ -49,14 +49,23 @@
 
 .product-hilite {
     height: 170pt;
+    width: 48.8%;
     display: inline-block;
     border: 1px solid black;
     background-color: #fefefe;
 }
 
-.product-hilite #desc, .product-hilite img {
+
+.product-hilite #desc, .product-hilite #image {
     height: 100%;
     float: left;
+    width: 50%;
+}
+
+.product-hilite #image img {
+    width: 100%;
+    display: block;
+    max-height: 100%;
 }
 
 .product-hilite p {

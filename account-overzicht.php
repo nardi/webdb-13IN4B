@@ -1,5 +1,4 @@
 <link rel="stylesheet" type="text/css" href="inloggen-wachtwoord-registratie.css">
-<link rel="stylesheet" type="text/css" href="centering.css">
  
 <div class="centered-container">
 <?php

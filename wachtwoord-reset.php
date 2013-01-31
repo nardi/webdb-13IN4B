@@ -4,7 +4,7 @@ Met de link is een "token" en een "id" meegegeven die gechecked worden op geldig
 -->
 
 <link rel="stylesheet" type="text/css" href="inloggen-wachtwoord-registratie.css">
-<link rel="stylesheet" type="text/css" href="centering.css">
+
 
 <div class="centered-container">
   <div class="wachtwoord-vergeten">

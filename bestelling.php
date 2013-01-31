@@ -1,5 +1,7 @@
 <div class="centered-container">
 <?php
+    require_once 'email.php';
+    
     // Eerst een paar checks
     if (!is_logged_in())
     {
@@ -26,7 +28,6 @@
             if ($sql->affected_rows > 0)
             {                
                 $status = $verzendstatus == 'Verzonden' ? 'is verzonden' : 'wordt klaargemaakt om te worden verzonden';
-                require_once 'email.php';
                 bestelling_mail($id, "Statusverandering van uw bestelling #$id bij Super Internet Shop", "Uw bestelling #$id $status.");
             }
         }
@@ -44,13 +45,28 @@
         {
             echo 'Deze bestelling is gedaan door een andere gebruiker.';
         }
+        else if (isset($_POST['annuleren']))
+        {
+            bestelling_mail($id, "Uw bestelling #$id bij Super Internet Shop is geannuleerd", "Uw bestelling #$id is geannuleerd. Als u dit niet zelf gedaan heeft kan dit komen door een achtergebleven betaling. Als u nog vragen heeft, neem dan contact met ons op via onze site of antwoord op deze e-mail.");
+            $sql = $db->prepare("DELETE FROM Bestellingen WHERE id = ? LIMIT 1");
+            $sql->bind_param('i', $id);
+            $sql->execute();
+            echo 'Deze bestelling is geannuleerd.';
+        }
         // Als alles klopt wordt de bestelling weergegeven
         else
         {
 ?>
+<script src="bestelling.js" type="text/javascript"></script>
+
 <h1>Bestelling #<?php echo $id; ?></h1>
 <?php
             echo bestelling_weergeven($id, FALSE, is_admin());
+?>
+<div id="annuleringsbevestiging">
+    <input type="button" onclick="laadBevestiging()">Bestelling annuleren</input>
+</div>
+<?php
         }
     }
 ?>

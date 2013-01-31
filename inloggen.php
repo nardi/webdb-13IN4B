@@ -14,7 +14,7 @@
 	} else {
 		?>
 		<link rel="stylesheet" type="text/css" href="inloggen-wachtwoord-registratie.css">
-			<link rel="stylesheet" type="text/css" href="centering.css">
+			
 				<div class="inlogformulier">
 					<div ALIGN="right"> 
 					

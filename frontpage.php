@@ -2,6 +2,7 @@
 <?php
     $db = connect_to_db();
     
+    // Deze query haalt 4 willekeurige aanbiedingen die speciaal uitgelicht worden
     $on_sale = $db->prepare('SELECT Producten.id, titel, Producten.prijs, Aanbiedingen.prijs, cover FROM Producten JOIN Aanbiedingen ON product_id = Producten.id WHERE verwijderd != 1 AND start_datum <= CURRENT_DATE AND eind_datum >= CURRENT_DATE LIMIT 8');
     $on_sale->bind_result($id, $titel, $oude_prijs, $prijs, $cover);
     $on_sale->execute();
@@ -19,7 +20,11 @@
 
 <div class="product-hilite">
     <a href="item-description.php?id=<?php echo $id; ?>">
-    <img src="<?php echo is_valid_cover($cover); ?>" alt="<?php echo $titel; ?>" />
+    <div id="image" class="vcenter-container">
+        <div class="vcenter">
+            <img src="<?php echo is_valid_cover($cover); ?>" alt="Cover" />
+        </div>
+    </div>
     <div id="desc" class="vcenter-container">
         <div class="vcenter">
             <p class="title"><?php echo $titel; ?></p>
@@ -38,7 +43,8 @@
 </div>
 <?php
     }
-
+    
+    // Deze query haalt de eerste 8 games op die al uitgebracht zijn en een release date zo dicht mogelijk hebben bij vandaag
     $new_releases = $db->prepare('SELECT Producten.id, titel, cover, Producten.prijs, Aanbiedingen.prijs FROM Producten LEFT JOIN Aanbiedingen ON product_id = Producten.id AND start_datum <= CURRENT_DATE AND eind_datum >= CURRENT_DATE WHERE verwijderd != 1 AND release_date < CURRENT_DATE ORDER BY release_date DESC LIMIT 8');
     $new_releases->bind_result($id, $titel, $cover, $prijs, $aanbiedingsprijs);
     $new_releases->execute();
@@ -71,7 +77,8 @@
 <?php
     }
     $new_releases->free_result();
-
+    
+    // Deze query haalt de eerste 8 games op die nog niet uitgbracht zijn en een release date zo dicht mogelijk hebben bij vandaag
     $pre_orders = $db->prepare('SELECT Producten.id, titel, release_date, cover, Producten.prijs, Aanbiedingen.prijs FROM Producten LEFT JOIN Aanbiedingen ON product_id = Producten.id AND start_datum <= CURRENT_DATE AND eind_datum >= CURRENT_DATE WHERE verwijderd != 1 AND release_date > CURRENT_DATE ORDER BY release_date ASC LIMIT 8');
     $pre_orders->bind_result($id, $titel, $datum, $cover, $prijs, $aanbiedingsprijs);
     $pre_orders->execute();
