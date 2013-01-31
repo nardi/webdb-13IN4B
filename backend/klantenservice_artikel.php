@@ -19,6 +19,11 @@ if ((!isset($_SESSION['logged-in']))) {
 	<hr width="100%">
 	<br />
 	
+	<!--
+	Dit formulier gebruikt de loadXMLDoc functie om nieuwe paginas in onderstaande div te laden waardoor
+	structuur van vragen en antwoorden op de site zichtbaar worden.
+	De functie is gedefinieerd in klantenservice.js
+	-->
 	<form>
 	Wat voor vraag heeft u over een artikel? <br />
 	<select id="myList" onchange="loadXMLDoc(this.options[this.selectedIndex].value,'choice_artikel')">
@@ -29,7 +34,11 @@ if ((!isset($_SESSION['logged-in']))) {
 	</select>
 	</form>
 	
+	<!--
+	In deze div word de volgende pagina geladen.
+	-->
 	<div id="choice_artikel">
+	
 	</div>
 	</div>
 	</div>	
