@@ -1,7 +1,7 @@
 <!--
-Deze file zorgt ervoor dat de gebruiker een adres kan toevoegen. 
+Deze pagina zorgt ervoor dat de gebruiker een adres kan toevoegen. 
 Vervolgens wordt het toegevoegde adres in de Adressen tabel gestopt.
-In de AdresGebruiker tabel wordt het id van het adres met het id van de gebruiker verbonden.
+In de AdresGebruiker tabel wordt het id van het adres met het id van de gebruiker 'gejoined'.
 -->
 
 <?php
