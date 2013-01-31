@@ -16,7 +16,7 @@ de klant input te vragen, en deze door te sturen naar ons emailadres.
 function show_form()
 {
 echo "<form method='post' action='contactformulier.php'>
-	Email: <br /><input name='email' type='text'><br />
+	Voer hier uw emailadres in: <br /><input name='email' type='text'><br />
 	Onderwerp: <br /><input name='onderwerp' type='text'><br />
 	Bericht: <br />
 	<textarea name='bericht' rows='15' cols='40'></textarea><br />
