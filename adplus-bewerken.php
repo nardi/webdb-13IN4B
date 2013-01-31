@@ -1,5 +1,5 @@
 <?php
-    /* Door deze check wordt, m.b.v. main.php gekeken of de gebruiker de juiste privileges heeeft.
+    /* Door deze check wordt, m.b.v. main.php gekeken of de gebruiker de juiste privileges heeft.
      */
     if (is_owner()) 
     {
