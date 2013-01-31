@@ -55,6 +55,8 @@
     <hr>
 
     <?php
+        require_once 'product-thumb.php';
+    
         function check_array(&$var, $id, $db)
         {
             $var = $db->escape_string($var);
@@ -192,11 +194,11 @@
         
         echo '<p>';
         if ($has_prevpage)
-            echo '<a href="'.$url.'?&page='.$prevpage.'">&lt; Vorige</a> ';
+            echo '<a href="'.$url.'?&amp;page='.$prevpage.'">&lt; Vorige</a> ';
         if ($has_prevpage || $has_nextpage)
             echo '|';
         if ($has_nextpage)
-            echo ' <a href="'.$url.'?&page='.$nextpage.'">Volgende &gt;</a>';
+            echo ' <a href="'.$url.'?&amp;page='.$nextpage.'">Volgende &gt;</a>';
         echo '</p>';
         
         $count->free_result();

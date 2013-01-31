@@ -1,5 +1,7 @@
 <div id="frontpage">
 <?php
+    require_once 'product-thumb.php';
+
     $db = connect_to_db();
     
     // Deze query haalt 4 willekeurige aanbiedingen die speciaal uitgelicht worden
