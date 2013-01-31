@@ -7,6 +7,13 @@ dan wordt het nieuwe wachtwoord weggeschreven naar de database.
 
 <link rel="stylesheet" type="text/css" href="inloggen-wachtwoord-registratie.css">
 
+<div class="account-wachtwoord-veranderen">
+<div align="right"> 
+<h1><center><b>Mijn account</b></center></h1>
+<hr width="100%">
+<center><b>Wachtwoord veranderen</b></center>
+<br />
+
 <?php
 //Deze functie geeft een furmulier weer waarin het oude wachtwoord en het nieuwe wachtwoord (2x) wordt gevraagd.
 function show_form()
@@ -31,16 +38,6 @@ if (!isset($_SESSION['logged-in'])) {
 	<?php
 
 } else {
-	
-	?>
-	<div align="right"> 
-	<div class="account-wachtwoord-veranderen">
-	<h1><center><b>Mijn account</b></center></h1>
-	<hr width="100%">
-	<center><b>Wachtwoord veranderen</b></center>
-	<br />
-	
-	<?php
 	
 	//als het formulier volledig is ingevuld dan wordt onderstaande reeks uitgevoerd.
 	if (isset($_POST['oud_wachtwoord'])&&
