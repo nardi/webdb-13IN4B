@@ -4,10 +4,10 @@ Klant komt op deze pagina als hij op "wachtwoord vergeten" klikt in het dashboar
 
 <div class="centered-container">
 <div class="wachtwoord-vergeten">
-<div align="right"> 
-<h1><b>Wachtwoord vergeten?</b></h1>
+<div class="right"> 
+<h1 class="center"><b>Wachtwoord vergeten?</b></h1>
 
-<hr>
+<hr></hr>
 <br />
 
     
