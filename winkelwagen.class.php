@@ -188,7 +188,6 @@ class Winkelwagen
 ?>
 <?php if ($editable) echo '<script src="winkelwagen.js"></script>'; ?>
     <table class="product-list">
-    <tbody width="100%">
         <tr>
             <?php if ($editable) echo '<th></th>'; ?>
             <th>#</th>
@@ -238,7 +237,6 @@ class Winkelwagen
             <th colspan="<?php if ($editable) echo '6'; else echo '5'; ?>" class="right">Totaalbedrag:</th>
             <td>&euro;<span id="total-price"><?php echo prijs($totaalbedrag); ?></span></td>
         </tr>
-    </tbody>
     </table>
 <?php
     }

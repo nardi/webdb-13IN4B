@@ -30,7 +30,6 @@
         
         // De bovenste rij van de tabel
         $html .= '<table class="product-list">
-                  <tbody width="100%">
                     <tr>
                         <th>#</th>
                         <th colspan="2">Product</th>
@@ -126,7 +125,6 @@
                   <th colspan="2" class="right">Totaalbedrag:</th>
                   <td>&euro;<span id="total-price">' . prijs($totaalbedrag) . '</span></td>
                 </tr>
-            </tbody>
             </table>
             <br />
             Wordt verstuurd naar:<br/>
