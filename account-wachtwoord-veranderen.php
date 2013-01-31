@@ -33,8 +33,8 @@ if (!isset($_SESSION['logged-in'])) {
 } else {
 	
 	?>
-	<div class="account-wachtwoord-veranderen">
 	<div align="right"> 
+	<div class="account-wachtwoord-veranderen">
 	<h1><center><b>Mijn account</b></center></h1>
 	<hr width="100%">
 	<center><b>Wachtwoord veranderen</b></center>
@@ -84,9 +84,9 @@ if (!isset($_SESSION['logged-in'])) {
 				$sql->bind_param("s", $id) ;
 				$sql->execute();
 				
-				?><div class="centered-container><?php
+				
 				echo "Uw wachtwoord is nu aangepast." ;
-				?></div><?php
+				
 					
 			} else {
 				
