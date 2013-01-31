@@ -18,7 +18,7 @@
       \          a    |
        ',.__.   ,__.-'/
          '--/_.'----'`
-        Whale, whale, whale. What do we have here?		
+            Whale, whale, whale. What do we have here?		
 	</pre>
     <br />
     <?php echo $exception->getMessage(); ?>
@@ -35,11 +35,18 @@
         if ($mysqli->connect_errno)
             throw new Exception($mysqli->connect_error);
         return $mysqli;
+    } 
+    
+    function refer_to($url)
+    {
+        header("Location: " . $url);
     }
     
-    function redirect_to($url)
+    function redirect_to($url, $timeout = 0)
     {
-        header("location:$url");
+?>
+<script type="text/javascript">setTimeout("location.href = '<?php echo $url; ?>';", <?php echo $timeout; ?>);</script>
+<?php
     }
     
     function string_starts_with($string, $search) 
