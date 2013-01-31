@@ -1,5 +1,6 @@
-<link rel="stylesheet" type="text/css" href="inloggen-wachtwoord-registratie.css">
-
+<!--
+Dit is een doorlinkpagina van klantenservice.php werkt exact hetzelfde.
+-->
 <script src="klantenservice.js">
 </script>
 

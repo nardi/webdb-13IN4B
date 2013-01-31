@@ -3,9 +3,6 @@ Als de klant op de link in de email klikt komt hij/zij op deze pagina terecht.
 Met de link is een "token" en een "id" meegegeven die gechecked worden op geldigheid.
 -->
 
-<link rel="stylesheet" type="text/css" href="inloggen-wachtwoord-registratie.css">
-
-
 <div class="centered-container">
 <div class="wachtwoord-vergeten">
 <div align="right"> 
