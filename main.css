@@ -48,6 +48,7 @@ a {
 
 .centered-container div, table {
     display: inline-block;
+    border-spacing: 5px;
 }
 
 /* 
