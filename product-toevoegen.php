@@ -27,7 +27,7 @@ Whale, whale, whale. What do we have here?
 ?>
 		<div class="centered-container">
 			<div class="product-toevoegen">
-				<form method="post" enctype="multipart/form-data" onsubmit="testall()" action="javascript:void(0)">
+				<form name="toevoegform" method="post" enctype="multipart/form-data" onsubmit="testall()" action="javascript:void(0)">
 				  <div align="right"> 
 				  <h1><center><b>Product toevoegen</b></center></h1>
 					  <hr width="100%">
