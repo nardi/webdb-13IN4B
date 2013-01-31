@@ -7,8 +7,10 @@ dan wordt het nieuwe wachtwoord weggeschreven naar de database.
 
 <link rel="stylesheet" type="text/css" href="inloggen-wachtwoord-registratie.css">
 
+<div class="centered-container">
 <div class="account-wachtwoord-veranderen">
-<div class="centered-container"> 
+<div align="right"> 
+ 
 <h1><center><b>Mijn account</b></center></h1>
 <hr width="100%">
 <center><b>Wachtwoord veranderen</b></center>
@@ -107,5 +109,6 @@ if (!isset($_SESSION['logged-in'])) {
 	}	
 }
 ?>	    
+</div>
 </div>
 </div>
