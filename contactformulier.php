@@ -3,7 +3,6 @@ Klant komt op deze pagina terecht als hij op de contactformulierlink klikt. Deze
 de klant input te vragen, en deze door te sturen naar ons emailadres.
 -->
 
-<link rel="stylesheet" type="text/css" href="contactformulier.css">
     
 <div class="centered-container">
 <div class="registratieformulier">

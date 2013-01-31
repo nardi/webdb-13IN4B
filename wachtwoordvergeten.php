@@ -2,8 +2,6 @@
 Klant komt op deze pagina als hij op "wachtwoord vergeten" klikt in het dashboard.
 -->
 
-<link rel="stylesheet" type="text/css" href="inloggen-wachtwoord-registratie.css">
-
 <div class="centered-container">
 <div class="wachtwoord-vergeten">
 <div align="right"> 
