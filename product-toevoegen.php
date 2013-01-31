@@ -38,7 +38,7 @@ Whale, whale, whale. What do we have here?
 					  <textarea rows="5" cols="20" id="beschrijving" name="beschrijving" onblur="checkTekst('beschrijving','beschrijvinglabel')"></textarea><div id='beschrijvinglabel' class='label' ></div>
 					  <br />  
 					  Prijs: <input type="text" id="prijs" name="prijs" onblur="checkPrijs('prijs', 'prijslabel')"><div id='prijslabel' class='label' ></div><br />
-					  Release date: <input type="text" id="release_date" name="release_date" onblur="checkDatum('release_date','releaselabel')"><div id='releaselabel' class='label'></div><br />
+					  Release date: <input type="text" id="release_date" name="release_date" onblur="checkDatum('release_date','releaselabel')" value="jjjj-mm-dd" onclick="emptydate()"><div id='releaselabel' class='label' ></div><br />
 					  Voorraad: <input type="text" id="voorraad" name="voorraad" onblur="checkPrijs('voorraad','voorraadlabel')"><div id='voorraadlabel' class='label' ></div><br />
 					  Platform:
 					  <div class="platform">

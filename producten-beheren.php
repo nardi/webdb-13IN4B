@@ -14,7 +14,7 @@
     <div id="BeheerContainer">
     <form name='EditProduct' id='EditProductId$id' action='verander-product.php' method='post' enctype='multipart/form-data'>
     <table id="Producten">
-    <tr><th>Aanpassen</th><th colspan="2">Verwijderen</th><th>Product Nummer</th><th>Titel</th><th>Cover</th><th>Beschrijving</th><th>Platform</th><th>Genre</th><th>Prijs</th><th>Voorraad</th><th>Release Datum</th></tr>
+    <tr><th>Aanpassen</th><th>Verwijderen</th><th>Product Nummer</th><th>Titel</th><th>Cover</th><th>Beschrijving</th><th>Platform</th><th>Genre</th><th>Prijs</th><th>Voorraad</th><th>Release Datum</th></tr>
     <td>
         <input type='submit' value='Wijzigen/verwijderen'>
     </td>
@@ -35,14 +35,6 @@
                 <tr id=$id>
                     <td>
                         <div class='ProductEdit' onclick='enableEdit($id)'>
-                        </div>
-                    </td>
-                    <td>
-                        <div class='ProductDelete'>
-                                <!--<form name='ActuallyAButton' id='DeleteItem' action='product-verwijderen.php' method='post'>
-                                    <input type='hidden' name='delete' value='$id'>
-                                    <input type='submit' value='' name='submitButton' class='DeleteSubmitButton'>
-                                </form>-->
                         </div>
                     </td>
                     <td><input type='checkbox' name='verwijderen$id' value='teverwijderen'></td>
