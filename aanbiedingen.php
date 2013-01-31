@@ -6,7 +6,7 @@
         if (is_admin())
         {
             
-            echo "<hr>Aanbiedingen:<hr />";
+            
             
             echo '<a href="aanbieding-toevoegen.php">Klik hier om een aanbieding toe te voegen</a>';
             echo "<br /> <hr />";
@@ -17,6 +17,7 @@
                             FROM Producten JOIN Aanbiedingen ON product_id = Producten.id WHERE eind_datum >= CURRENT_DATE');
             $on_sale->bind_result($id, $titel, $oude_prijs, $prijs, $start_datum, $eind_datum);
             $on_sale->execute();
+            echo "<h1>Aanbiedingen:<h1 />";
             echo "<form action='aanbieding-bewerken.php' method='post'>
                   <table>
                   <tr>
@@ -32,7 +33,7 @@
                 
             echo "</table> </form>";
             
-            echo "<hr>";
+            echo "<hr />";
             
             $on_sale->free_result();
             
@@ -42,7 +43,7 @@
             $on_sale->bind_result($id, $titel, $oude_prijs, $prijs, $start_datum, $eind_datum);
             $on_sale->execute();
             
-            echo "<hr>Verlopen aanbiedingen:<hr />";
+            echo "<h1>Verlopen aanbiedingen:<h1 />";
             
             echo "<form action='aanbieding-bewerken.php' method='post'>
                   <table class='verlopen'>
