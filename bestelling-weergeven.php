@@ -3,8 +3,9 @@
      * De functie bestelling_weergeven stelt de html voor een bestelling samen. Hierdoor wordt overal dezelfde
      * opmaak gebruikt. $email geeft aan of het voor een e-mail bedoeld is (en er absolute links gebruikt
      * moeten worden) en $editable geeft aan of de verzendstatus bewerkt moet kunnen worden.
+     * $canceled geeft aan of deze bestelling geanuleerd is (dan hoeft hij niet betaald te worden).
      */
-    function bestelling_weergeven($id, $email = FALSE, $editable = FALSE)
+    function bestelling_weergeven($id, $email = FALSE, $editable = FALSE, $canceled = FALSE)
     {
         require_once 'adresweergave.php';
         
@@ -95,7 +96,7 @@
                       </form>';
         }
         // Anders wordt als hij nog niet betaald is een knop naar PayPal weerggeven
-        else if ($betaalstatus == 'Niet betaald')
+        else if ($betaalstatus == 'Niet betaald' && !$canceled)
         {
             $html .= '<form action="https://www.paypal.com/us/cgi-bin/webscr" method="post">
                         <input type="hidden" name="cmd" value="_cart"/>

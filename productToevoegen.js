@@ -1,5 +1,5 @@
 function checkTekst(field, label){
-    var validTekst = /^[a-z\s\-]{1,10000}$/i;
+    var validTekst = /^[a-z\s\-0-9]{1,10000}$/i;
     var tekst = document.getElementById(field).value;
     var label = document.getElementById(label);
     
@@ -89,7 +89,7 @@ function error(field, msg){
 }
 
 function testall(){
-    var isValidForm = true;
+    isValidForm = true;
     checkTekst('titel','titellabel');
     checkTekst('beschrijving','beschrijvinglabel');
     checkPrijs('prijs', 'prijslabel');
