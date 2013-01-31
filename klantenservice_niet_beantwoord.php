@@ -1,4 +1,6 @@
-<link rel="stylesheet" type="text/css" href="inloggen-wachtwoord-registratie.css">
+<!--
+Klant komt op deze pagina terecht als zijn vraag via de interactieve klantenservice niet is beantwoord.
+-->
 
 <?php
 //deze functie geeft het formulier weer. 
@@ -15,6 +17,7 @@ echo "<form method='post' action='klantenservice_niet_beantwoord.php'>
 	</form>"; 
 }
 
+//Er word getest of de klant is ingelogd
 if (!isset($_SESSION['logged-in'])) {
 	?>
 	<pre>
@@ -31,7 +34,8 @@ if (!isset($_SESSION['logged-in'])) {
 	<?php
 
 
-	//als alles is ingevuld dan wordt de email verstuurd.
+	//als formulier is ingevuld dan worden de gegevens verstuurd. Vanuit de session worden de klantgegevens opgehaald 
+	//waardoor de klantgegevens samen met het bericht naar de klantenservice worden verstuurd.
 	if (isset($_POST['bericht'])) {
 
 		$id = $_SESSION['gebruiker-id'] ;

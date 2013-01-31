@@ -11,7 +11,7 @@ echo "Het doet ons een genoegen dat wij uw vraag hebben kunnen beantwoorden.";
 </div>
 
 <script type="text/JavaScript">
-                setTimeout("location.href = '/index.php';",3000);
+	setTimeout("location.href = '/index.php';",3000);
 </script>
 
 <?php
