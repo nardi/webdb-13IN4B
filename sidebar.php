@@ -78,10 +78,6 @@
             <div id="adplus.php" class="clickable-item" onclick="onButtonclick(this.id);">
                 Gebruikers
             </div>
-            
-            <div id="upload-test.html" class="clickable-item" onclick="onButtonclick(this.id);">
-                F-UP test
-            </div>
             <?php
         }
     }
