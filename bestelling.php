@@ -66,6 +66,7 @@
 <div id="annuleringsbevestiging">
     <input type="button" onclick="laadBevestiging()">Bestelling annuleren</input>
 </div>
+<?php
         }
     }
 ?>
