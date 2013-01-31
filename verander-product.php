@@ -1,7 +1,7 @@
 <?php
     require 'product-verwijderen.php';
     $db = connect_to_db();
-    
+    var dump($_POST);
     $sqli_id = $db->prepare("SELECT id FROM Producten");
     $sqli_id->bind_result($id);
     $sqli_id->execute();
@@ -25,8 +25,6 @@
             
             
             $sqli_verander = $db->prepare("UPDATE Producten SET titel=?, platform_id=?,genre_id=?,beschrijving=?, prijs=?, release_date=?, voorraad=? WHERE id=?");
-            
-            var_dump($sqli_verander);
             
             $sqli_verander->bind_param('siisdsis',$titel,$platform_id,$genre_id,$beschrijving,$prijs,$release_date,$voorraad,$id);
             
