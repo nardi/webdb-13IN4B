@@ -1,4 +1,6 @@
 <?php
+    error_reporting(0);
+
     $verzendkosten = 6.75;
     
     function show_error_page($exception)
