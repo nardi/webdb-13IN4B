@@ -1,26 +1,31 @@
+<!--
+Klant komt op deze pagina terecht als hij op de contactformulierlink klikt. Deze pagina heeft als functie om
+de klant input te vragen, en deze door te sturen naar ons emailadres.
+-->
+
 <link rel="stylesheet" type="text/css" href="contactformulier.css">
     
 <div class="centered-container">
-  <div class="registratieformulier">
-    <div align="right"> 
-  <h1><center><b>Contactformulier</b></center></h1>
-  <hr width="100%">
+<div class="registratieformulier">
+
+<h1><center><b>Contactformulier</b></center></h1>
+<hr width="100%">
 
 <?php
 //deze functie geeft het formulier weer. 
 function show_form()
 {
 echo "<form method='post' action='contactformulier.php'>
-	Email: <input name='email' type='text'><br />
-	Onderwerp: <input name='onderwerp' type='text'><br />
-	Bericht:<br />
-	<textarea name='bericht' rows='15' cols='40'>
-	</textarea><br />
+	Uw emailadres: <br /><input name='email' type='text'><br />
+	Onderwerp: <br /><input name='onderwerp' type='text'><br />
+	Bericht: <br />
+	<textarea name='bericht' rows='15' cols='40'></textarea><br />
 	<input type='submit' value='verstuur'>
 	</form>"; 
 }
 
-//als alles is ingevuld dan wordt de email verstuurd.
+//Hier wordt getest of het formulier volledig is ingevuld, en als deze is ingevuld dat worden
+//De ingevoerde gegevens doorgestuurd naar contact@superinternetshop.nl
 if (isset($_POST['email']) &&
 	isset($_POST['onderwerp']) &&
 	isset($_POST['bericht'])) {
@@ -36,6 +41,6 @@ else {
   show_form();
 }
 ?>
-    </div>
-  </div>
+    
+</div>
 </div>

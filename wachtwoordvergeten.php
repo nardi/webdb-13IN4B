@@ -4,7 +4,6 @@ Klant komt op deze pagina als hij op "wachtwoord vergeten" klikt in het dashboar
 
 <link rel="stylesheet" type="text/css" href="inloggen-wachtwoord-registratie.css">
 
-
 <div class="centered-container">
 <div class="wachtwoord-vergeten">
 <div align="right"> 
@@ -12,7 +11,6 @@ Klant komt op deze pagina als hij op "wachtwoord vergeten" klikt in het dashboar
 <hr width="100%">
 <br />
     
-   
 <?php
 function show_form() 
 {
@@ -28,7 +26,6 @@ function show_form()
 		</form>";
 }
 
-
 if (isset($_POST['email'])) {
 	
 	//naam en id worden opgehaald uit db, tegelijk wordt gekeken of email voorkomt in db
@@ -39,11 +36,19 @@ if (isset($_POST['email'])) {
 	$sql->bind_result($id, $naam, $achternaam) ;
 	$sql->execute();
 	
-
+	//Hier wordt getest of er gegevens uit de database gehaald konden worden met de gegeven query.
+	//Zo niet, dan betekend dit dat het emailadres nog niet bekend is in ons systeem, en komt
+	//de klant bij het formulier om zichzelf te registreren.
 	if (!$sql->fetch()) {
 	  
-		echo "Dit emailadres is niet bij ons geregistreerd." ;
+		echo "Dit emailadres is niet bij ons geregistreerd, u wordt nu doorgezet naar onze registreerpagina" ;
+		?>
 		
+		<script type="text/JavaScript">
+			setTimeout("location.href = '/registratie.html';",3500);
+		</script>
+		<?php
+	
 	} else {
 	    
 		//als emailadres bestaat in db, dan wordt er een token toegevoegd in de db 
@@ -56,7 +61,6 @@ if (isset($_POST['email'])) {
 		//hier wordt de email met een link waarin het token en id variabale in zit verstuurd
 		$onderwerp = "Nieuw wachtwoord aanvragen" ;
 		$html = '<html>
-		
 		<head>
 		</head>
 		<body>
@@ -80,6 +84,7 @@ if (isset($_POST['email'])) {
 		</body></html></div>';
 		$css = file_get_contents('main.css') ;
 		require_once 'email.php';
+		//Bovenstaand gedefinieerde variabelen worden gebruikt om de 'leuke_mail()' functie te gebruiken zodat klant een gestylede email ontvangt.
 		leuke_mail($email, $onderwerp, $html, $css);
 		
 		?><div align="center">U krijgt zo spoedig mogelijk een email toegestuurd met een link om uw wachtwoord opnieuw in te stellen.</div><?php

@@ -10,7 +10,7 @@
     if(!$sqli_product->execute())
         throw new Exception($sqli_product->error);
     if(!$sqli_product->fetch())
-        redirect_to("error.php?msg=Oeps, dit product bestaat niet.");
+        throw new Exception("Oeps, dit product bestaat niet.");
     
     //Free result is nodig om de volgende query te laten lukken.
     $sqli_product->free_result();
@@ -49,7 +49,7 @@
 <div id="ItemName">
 <h3>
     <?php
-       echo $titel;
+       echo htmlspecialchars($titel);
     ?>
 </h3>
 </div>
@@ -59,7 +59,7 @@
         <div id="ItemCover">
         <h4>Game cover</h4>
             <?php
-                echo '<img src="'. is_valid_cover($cover) .'" />';
+                echo '<img src="'. is_valid_cover($cover) .'" alt="Cover" />';
             ?>
         </div>
         <div id="ItemWWToevoegen">
@@ -89,14 +89,14 @@
     <div id="ItemDescription">
     <h4>Game Description</h4>
     <?php
-            echo $beschrijving;
+            echo htmlspecialchars($beschrijving);
         ?>
     </div>
 
     <div id="Prijs">
     <hr />
         <?php
-            echo "&euro;".prijs($prijs);
+            echo "&euro;".prijs_opmaak($prijs);
         ?>
     </div>
     </div>

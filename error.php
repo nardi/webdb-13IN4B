@@ -17,6 +17,6 @@ if(!isset($_GET["msg"]))
     echo "Oeps! Iets ging fout!";
 
 else
-    echo htmlspecialchars($_GET["msg"]);
+    echo chars($_GET["msg"]);
 ?>
     

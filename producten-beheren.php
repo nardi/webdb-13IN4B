@@ -37,7 +37,7 @@
                         <div class='ProductEdit' onclick='enableEdit($id)'>
                         </div>
                     </td>
-                    <td><input type='checkbox' name='verwijderen$id' value='teverwijderen'></td>
+                    <td><input type='checkbox' name='verwijderen$id' value='teverwijderen' disabled='disabled'></td>
                     <td class='column'>$id</td>
                     <td class='column'><input type='text' class='inputfield' name='titel$id' disabled='disabled' value='$titel' size=$titelwidth></td>
                     <td class='column'><div class='cover' id='cover$id' onclick=\"showImage(cover$id, '$cover')\">Klik hier om de cover te laten zien.</div></td>

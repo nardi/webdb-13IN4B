@@ -46,8 +46,9 @@ a {
     text-align: center;
 }
 
-.centered-container div {
+.centered-container div, table {
     display: inline-block;
+    border-spacing: 13px;
 }
 
 /* 

@@ -54,51 +54,79 @@
 
 <body onload = "setButtonColor('<?php echo $pag; ?>')">
 
+
+<!-- Het hoofd-venster, waar de site in komt te staan. -->
 <div id="mainWindow">
+    <!-- Als de gebruiker geen javascript aan heeft staan, wordt dit hem op 
+         subtiele wijze medegedeeld. -->
     <noscript>
     	<div class="red_line vcenter-container">
       	<div class="center"> <img src="/images/labels/error-label.png" alt="error-label" width="35" height="35" /> <p class="vcenter">Deze website wordt alleen juist weergegeven met Javascript.</p></div>
     	</div>
   	</noscript>
+    
+    <!-- De banner is de header van de site -->
     <div class="banner">
+        <!-- Het logo, tevens een link naar de homepage -->
         <div id="logo" class="vcenter" onclick="onButtonclick();">
             <img src="images/logo/logo-sis-met-tekst.png" alt="Link to homepage" />
         </div>
+        
+        <!-- De slogan is de GIF afbeelding. -->
         <div id="slogan" class="vcenter">
             <img src="images/SIS-BANNER.gif" alt="Super Internet Shop" />
         </div>
+        
+        <!-- Het dashboard met daarin de accountmogelijkheden wordt geïmporteerd uit dashboard.php. -->
         <?php
             include("dashboard.php");
         ?>
     </div>
+    
+    <!-- Het contentWindow bevindt zich onder de banner, en bevat alle content. -->
     <div id="contentWindow">
+    
+        <!-- De sidebar wordt geïmporteerd uit sidebar.php, en bevat de navigatieknoppen
+             voor de website. -->
         <div id="sidebar">
             <?php
                 include("sidebar.php");
 			?>
         </div>
+        
+        <!-- De code voor de content is gebasseerd op de verstrekte voorbeeldcode voor PHP frames.
+             Aan de hand van de URL wordt gekeken welke pagina geïmporteerd moet worden.-->
         <div id="content">
             <?php
+                /* Als er geen pagina in de url staat aangegeven, wordt automatisch
+                 * de frontpage geladen
+                 */
                 if (empty($pag))
                 {
                     include($default_page);
                 }
                 else
                 {
+                    /* Er wordt gekeken of het vrzochte bestand bestaat.
+                     */
                     if (file_exists($pag))
                     {
-                        //a legal file is requested, serve it up
-                        include($pag); //fetch the file and replace '<?php ... by its contents
+                        /* Zo ja, dan wordt de pagina geladen.
+                         */
+                        include($pag); 
                     }
                     else
                     {
-                        //an illegal file is requested; serve an innocent default instead
+                        /* Zo niet, dan krijg je een kleine developers joke te zien 
+                         */
                         echo "Allan, please add $pag";
                     }
                 }
             ?>
         </div>
     </div>
+    
+    <!-- De footer is het onderste deel van de webpage. Hier worden de validatieknoppen weergeven -->
     <div id="footer" class="banner">
 		<a href="http://jigsaw.w3.org/css-validator/validator?uri=https://superinternetshop.nl<?php echo $_SERVER['REQUEST_URI']; ?>">
 			<img src="http://jigsaw.w3.org/css-validator/images/vcss-blue" alt="Valid CSS3" />
@@ -109,7 +137,7 @@
     </div>
 </div>
 
-<!-- source:http://snaptortoise.com/konami-js/ -->
+<!--Developers grapje. source:http://snaptortoise.com/konami-js/ -->
 
 <script type="text/javascript" src="//konami-js.googlecode.com/svn/trunk/konami.js"></script>
 <script type="text/javascript">
@@ -117,11 +145,14 @@
 	konami.load("?pag=42.toad");
 </script>
 
+
+<!-- In verband met de cookie-wet, wordt wanneer de gebruiker nog niet de
+     cookie 'user' heeft, een cookiemelding weergeven. -->
 <?php
     if (!isset($_COOKIE["user"])) {
 ?>
     <script type="text/javascript">
-        //window.onload = alert("Deze website maakt gebruik van functionele cookies. Bij het gebruik van de website gaat u hiermee akkoord.") ;
+        window.onload = alert("Deze website maakt gebruik van functionele cookies. Bij het gebruik van de website gaat u hiermee akkoord.") ;
     </script>
 <?php
 }
