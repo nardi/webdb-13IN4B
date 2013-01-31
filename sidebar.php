@@ -21,7 +21,7 @@
 <!-- Klantenservice is alleen zichtbaar voor ingelogde gebruikers. -->
 
 <?php
-	if (isset($_SESSION['logged-in'])) {
+	if (is_logged_in()) {
 		?>
 		<div id="klantenservice.php" class="clickable-item" onclick="onButtonclick(this.id);">
 			Klantenservice
@@ -46,7 +46,7 @@
 <!-- De volgende knoppen zijn alleen beschikbaar voor medewerkers. (Status 3 of hoger in de database.) -->
 
 <?php
-    if (isset($_SESSION['logged-in'])) {
+    if (is_logged_in()) {
         if (is_admin()) {
             ?>
             <br /> <hr />
