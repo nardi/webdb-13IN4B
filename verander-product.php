@@ -1,7 +1,6 @@
 <?php
     require 'product-verwijderen.php';
     $db = connect_to_db();
-    var_dump($_POST);
     $sqli_id = $db->prepare("SELECT id FROM Producten");
     $sqli_id->bind_result($id);
     $sqli_id->execute();

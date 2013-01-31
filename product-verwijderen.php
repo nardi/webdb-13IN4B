@@ -8,7 +8,7 @@
             $sqli_verwijderen->bind_param('i',$id);
             $sqli_verwijderen->execute();
         
-            echo "<img src='images/labels/verwijderd.gif' /> <br /> <strong> $titel is succesvol verwijderd uit de database.</strong>";
+            echo "<img src='images/labels/verwijderd.gif' /> <br /> <strong> $titel is succesvol verwijderd.</strong>";
         }
         if(isset($_POST['delete'])){
             $iid=$_POST['delete'];
