@@ -68,6 +68,7 @@
             {
 ?>
 <br />
+<br />
 <div id="annuleringsbevestiging">
     <input type="button" onclick="laadBevestiging()" value="Bestelling annuleren" />
 </div>
