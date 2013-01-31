@@ -42,6 +42,7 @@ if (!isset($_SESSION['logged-in'])) {
 	
 	<?php
 	
+	//als het formulier volledig is ingevuld dan wordt onderstaande reeks uitgevoerd.
 	if (isset($_POST['oud_wachtwoord'])&&
 		isset($_POST['nieuw_wachtwoord'])&&
 		isset($_POST['nieuw_wachtwoord_nogmaals'])) {
@@ -59,7 +60,9 @@ if (!isset($_SESSION['logged-in'])) {
 		$sql->bind_result($wwdb);
 		$sql->fetch();
 		sleep(2);
-			
+		
+		//Hier wordt gecontroleerd of het wachtwoord uit de database overeenkomt met het wachtwoord dat
+		//is opgegeven bij "oud wachtwoord" met de functie 'check_wachtwoord()'
 		if (check_wachtwoord($wachtwoord, $wwdb)) {
 			
 			if ($nieuw_wachtwoord === $nieuw_wachtwoord_nogmaals) {
@@ -80,7 +83,10 @@ if (!isset($_SESSION['logged-in'])) {
 				$sql = $db->prepare("UPDATE Gebruikers SET wachtwoord = '$saltww' WHERE id = ? LIMIT 1");
 				$sql->bind_param("s", $id) ;
 				$sql->execute();
+				
+				?><div class="centered-container><?php
 				echo "Uw wachtwoord is nu aangepast." ;
+				?></div><?php
 					
 			} else {
 				
