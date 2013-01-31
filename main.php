@@ -6,7 +6,6 @@
     function show_error_page($exception)
     {
 ?>
-<center>
     <h4><strong>FAIL WHALE</strong></h4>
     <h5>Oeps, er ging iets vaudt.</h5>
     <pre style="display: inline-block">
@@ -23,7 +22,6 @@
 	</pre>
     <br />
     <?php echo $exception->getMessage(); ?>
-</center>
 <?php
     }
     

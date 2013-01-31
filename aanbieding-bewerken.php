@@ -42,7 +42,7 @@
              */
             echo '<form method="post" action="aanbieding-bewerken.php">';
             
-            echo "<input type='submit' name='submit' value='Wijzigingen opslaan'> <br />";
+            echo "<input type='submit' name='submit' value='Wijzigingen opslaan' /> <br />";
                        
             $sqli->fetch();
             echo "<tr>
