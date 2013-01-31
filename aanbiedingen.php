@@ -45,7 +45,7 @@
             echo "<hr>Verlopen aanbiedingen:<hr />";
             
             echo "<form action='aanbieding-bewerken.php' method='post'>
-                  <table>
+                  <table class='verlopen'>
                   <tr>
                   <th>Spel</th> <th>Oude prijs</th> <th>Aanbiedingsprijs</th> <th>Start Datum</th> <th>Eind Datum</th>       
                   </tr>";
