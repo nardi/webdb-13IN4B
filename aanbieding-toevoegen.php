@@ -9,7 +9,7 @@
             <form action="aanbieding-toevoegen-db.php" method="post">
                 <h1><b>Aanbieding toevoegen</b></h1>
                 <hr />
-                <b>Aanbiedings-gegevens</b>
+                <p><b>Aanbiedings-gegevens</b></p>
                 <br />
                 <p class = "right_align">
                     Product: 
