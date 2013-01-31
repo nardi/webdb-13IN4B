@@ -30,9 +30,9 @@
         <div class="vcenter">
             <p class="title"><?php echo htmlspecialchars($titel, ENT_COMPAT | ENT_XHTML); ?></p>
             <p>van</p>
-            <p class="old-price">&euro;<?php echo prijs($oude_prijs); ?></p>
+            <p class="old-price">&euro;<?php echo prijs_opmaak($oude_prijs); ?></p>
             <p>voor</p>
-            <p class="price">&euro;<?php echo prijs($prijs); ?></p>
+            <p class="price">&euro;<?php echo prijs_opmaak($prijs); ?></p>
         </div>
     </div>
 </div>

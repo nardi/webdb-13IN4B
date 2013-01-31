@@ -1,5 +1,5 @@
 <?php
-    error_reporting(0);
+    //error_reporting(0);
 
     $verzendkosten = 6.75;
     
@@ -189,7 +189,7 @@
         return $cover;
     }
     
-    function prijs($num)
+    function prijs_opmaak($num)
     {
         if (intval($num) == $num)
             return intval($num) . ',-';

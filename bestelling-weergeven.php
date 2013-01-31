@@ -58,9 +58,9 @@
                         <td class="product-title">
                             <a href="' . $abs . 'item-description.php?id=' . $product_id . '">' . $titel . '</a>
                         </td>
-                        <td>&euro;<span id="price-' . $product_id . '">' . prijs($prijs) . '</span></td>
+                        <td>&euro;<span id="price-' . $product_id . '">' . prijs_opmaak($prijs) . '</span></td>
                         <td>'. $hoeveelheid . '</td>
-                        <td>&euro;<span id="productprice-' . $product_id . '">' . prijs($productprijs) . '</span></td>
+                        <td>&euro;<span id="productprice-' . $product_id . '">' . prijs_opmaak($productprijs) . '</span></td>
                     </tr>';
             
             // De info over dit product voor de PayPal-knop
@@ -78,7 +78,7 @@
         $html .= '<tr class="bottom-row">
                     <td class="left" colspan="3">Betaalstatus: ' . $betaalstatus . '</td>
                     <td class="right" colspan="2">Verzendkosten:</td>
-                    <td>&euro;' . prijs($verzendkosten) . '</td>
+                    <td>&euro;' . prijs_opmaak($verzendkosten) . '</td>
                 </tr>
                 <tr class="bottom-row">
                     <td class="left" colspan="3">';
@@ -123,7 +123,7 @@
         // Het laatste stukje van de tabel en het adres waar hij naartoe verstuurd wordt
         $html .= '</td>
                   <th colspan="2" class="right">Totaalbedrag:</th>
-                  <td>&euro;<span id="total-price">' . prijs($totaalbedrag) . '</span></td>
+                  <td>&euro;<span id="total-price">' . prijs_opmaak($totaalbedrag) . '</span></td>
                 </tr>
             </table>
             <br />

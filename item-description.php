@@ -96,7 +96,7 @@
     <div id="Prijs">
     <hr />
         <?php
-            echo "&euro;".prijs($prijs);
+            echo "&euro;".prijs_opmaak($prijs);
         ?>
     </div>
     </div>
