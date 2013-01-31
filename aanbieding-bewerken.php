@@ -30,10 +30,10 @@
             
             /* De gegevens van het te bewerken product worden uit de database geladen.
              */
-            $sqli = $db->prepare('SELECT titel, Producten.prijs, Aanbiedingen.prijs, start_datum, eind_datum 
+            $sqli = $db->prepare('SELECT titel, Producten.prijs, Aanbiedingen.prijs, start_datum, eind_datum, Aanbiedingen.id
                     FROM Producten JOIN Aanbiedingen ON product_id = Producten.id WHERE Producten.id = ?');
             $sqli->bind_param('i', $idedit);
-            $sqli->bind_result($titel, $oude_prijs, $prijs, $start_datum, $eind_datum);
+            $sqli->bind_result($titel, $oude_prijs, $prijs, $start_datum, $eind_datum, $aanbieding_id);
             $sqli->execute();
             
             /* Er wordt een form aangemaakt met daarin de waardes van de aanbieding.
@@ -51,7 +51,7 @@
             <td><input size='15' type='text' name='prijs' value ='$prijs' /></td>
             <td><input size='20' type='text' name='start_datum' value ='$start_datum' /></td>
             <td><input size='20' type='text' name='eind_datum' value ='$eind_datum' /></td>
-            <td><input type='hidden' name='id' value ='$idedit' />
+            <td><input type='hidden' name='id' value ='$aanbiedingen_id' />
             </tr>
         
             </table>";
