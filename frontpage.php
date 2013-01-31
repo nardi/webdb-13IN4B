@@ -24,7 +24,7 @@
 
 <div class="product-hilite">
     <a href="item-description.php?id=<?php echo $id; ?>">
-<?php if ($count % 2 == 0) { ?>
+<?php if ($count % 2 == 1) { ?>
     <div id="image" class="vcenter-container">
         <div class="vcenter">
             <img src="<?php echo is_valid_cover($cover); ?>" alt="Cover" />
@@ -40,7 +40,7 @@
             <p class="price">&euro;<?php echo prijs($prijs); ?></p>
         </div>
     </div>
-<?php if ($count % 2 == 1) { ?>
+<?php if ($count % 2 == 0) { ?>
     <div id="image" class="vcenter-container">
         <div class="vcenter">
             <img src="<?php echo is_valid_cover($cover); ?>" alt="Cover" />
