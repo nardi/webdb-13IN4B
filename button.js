@@ -6,7 +6,7 @@ function onButtonclick(button) {
 
 
 function setButtonColor(button) {
-    if(button) {
+    if(button !== 'undefined') {
         document.getElementById(button).style.background = '#08C1FF';
         document.getElementById(button).style.color = '#FFFFFF';
         document.getElementById(button).style.fontWeight="bold";   
