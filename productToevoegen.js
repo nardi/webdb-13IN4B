@@ -89,6 +89,7 @@ function error(field, msg){
 }
 
 function testall(){
+    var isValidForm = true;
     checkTekst('titel','titellabel');
     checkTekst('beschrijving','beschrijvinglabel');
     checkPrijs('prijs', 'prijslabel');
