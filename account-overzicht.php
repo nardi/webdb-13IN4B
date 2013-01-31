@@ -1,6 +1,6 @@
 <!--
-Op deze pagina kan de gebruiker zijn of haar account bekijken. De gebruiker moet wel ingelogd zijn.
-Vervolgens kan de gebruiker enkele bewerkingen doen op zijn of haar gegevens. 
+    Op deze pagina kan de gebruiker zijn of haar account bekijken. De gebruiker moet wel ingelogd zijn.
+    Vervolgens kan de gebruiker enkele bewerkingen doen op zijn of haar gegevens. 
 -->
 
 <div class="centered-container">
