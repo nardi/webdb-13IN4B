@@ -8,7 +8,7 @@ dan wordt het nieuwe wachtwoord weggeschreven naar de database.
 <link rel="stylesheet" type="text/css" href="inloggen-wachtwoord-registratie.css">
 
 <div class="account-wachtwoord-veranderen">
-<div align="right"> 
+<div class="centered-container"> 
 <h1><center><b>Mijn account</b></center></h1>
 <hr width="100%">
 <center><b>Wachtwoord veranderen</b></center>
@@ -102,6 +102,7 @@ if (!isset($_SESSION['logged-in'])) {
 	//Als er nog niets is ingevuld dan wordt de 'show_form()' functie aangeroepen om het formulier weer te geven.
 	} else {
 		
+		echo "U heeft niet alle velden ingevuld" ;
 		show_form();
 	}	
 }
