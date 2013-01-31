@@ -51,7 +51,7 @@
             <td><input size='15' type='text' name='prijs' value ='$prijs' /></td>
             <td><input size='20' type='text' name='start_datum' value ='$start_datum' /></td>
             <td><input size='20' type='text' name='eind_datum' value ='$eind_datum' /></td>
-            <td><input type='hidden' name='id' value ='$aanbiedingen_id' />
+            <td><input type='hidden' name='id' value ='$aanbieding_id' />
             </tr>
         
             </table>";
