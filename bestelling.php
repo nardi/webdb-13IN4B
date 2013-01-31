@@ -32,10 +32,11 @@
             }
         }
         
-        $sql = $db->prepare("SELECT gebruiker_id FROM Bestellingen WHERE id = ?");
+        $sql = $db->prepare("SELECT gebruiker_id, betaalstatus FROM Bestellingen WHERE id = ?");
         $sql->bind_param('i', $id);
-        $sql->bind_result($gebruiker_id);
+        $sql->bind_result($gebruiker_id, $betaalstatus);
         $sql->execute();
+        $sql->store_result();
         if (!$sql->fetch())
         {
             echo 'Deze bestelling bestaat niet.';
@@ -45,6 +46,7 @@
         {
             echo 'Deze bestelling is gedaan door een andere gebruiker.';
         }
+        // Als alles klopt en de bestelling geannuleerd moet worden gebeurt dit hier
         else if (isset($_POST['annuleren']))
         {
             bestelling_mail($id, "Uw bestelling #$id bij Super Internet Shop is geannuleerd", "Uw bestelling #$id is geannuleerd. Als u dit niet zelf gedaan heeft kan dit komen door een achtergebleven betaling. Als u nog vragen heeft, neem dan contact met ons op via onze site of antwoord op deze e-mail.");
@@ -53,7 +55,7 @@
             $sql->execute();
             echo 'Deze bestelling is geannuleerd.';
         }
-        // Als alles klopt wordt de bestelling weergegeven
+        // Anders wordt de bestelling weergegeven
         else
         {
 ?>
@@ -62,10 +64,15 @@
 <h1>Bestelling #<?php echo $id; ?></h1>
 <?php
             echo bestelling_weergeven($id, FALSE, is_admin());
+            if ($betaalstatus != 'Betaald')
+            {
 ?>
+<br />
 <div id="annuleringsbevestiging">
-    <input type="button" onclick="laadBevestiging()">Bestelling annuleren</input>
+    <input type="button" onclick="laadBevestiging()" value="Bestelling annuleren" />
 </div>
+<?php
+            }
         }
     }
 ?>
