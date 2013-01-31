@@ -5,9 +5,11 @@ Klant komt op deze pagina als hij op "wachtwoord vergeten" klikt in het dashboar
 <div class="centered-container">
 <div class="wachtwoord-vergeten">
 <div align="right"> 
-<h1><CENTER><b>Wachtwoord vergeten?</b></CENTER></h1>
-<hr width="100%">
+<h1><b>Wachtwoord vergeten?</b></h1>
+
+<hr>
 <br />
+
     
 <?php
 function show_form() 
@@ -18,9 +20,9 @@ function show_form()
 		waarmee u een nieuw wachtwoord kunt opgeven. 
 		</div><br /><br />";
 	echo "<form method='post' action='wachtwoordvergeten.php'>
-		Email: <input name='email' type='text' /><br />
+		Email: <input name='email' type='text'><br />
 		</textarea><br />
-		<input type='submit' value='verstuur' />
+		<input type='submit' value='verstuur'>
 		</form>";
 }
 
