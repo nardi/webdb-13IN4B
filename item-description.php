@@ -75,7 +75,7 @@
                 <form id='DeleteItem' action='product-verwijderen.php' method='post'>
                     <div id='ItemVerwijderen'>
                         <input type='hidden' name='delete' value='$id' />
-                        <input type='submit' value='' name='submitButton' id='DeleteSubmitButton' />
+                        <input type='submit' value='' name='submitButton' id='DeleteSubmitButton' titel='Product verwijderen'/>
                     </div>
                 </form>";
             }
