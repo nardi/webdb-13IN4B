@@ -1,5 +1,7 @@
 <div id="frontpage">
 <?php
+    require_once 'product-thumb.php';
+
     $db = connect_to_db();
     
     // Deze query haalt 4 willekeurige aanbiedingen die speciaal uitgelicht worden
@@ -18,8 +20,7 @@
         {
 ?>
 
-<div class="product-hilite">
-    <a href="item-description.php?id=<?php echo $id; ?>">
+<div class="product-hilite clickable-item" onclick="location.href = 'item-description.php?id=<?php echo $id; ?>';">
     <div id="image" class="vcenter-container">
         <div class="vcenter">
             <img src="<?php echo is_valid_cover($cover); ?>" alt="Cover" />
@@ -27,14 +28,13 @@
     </div>
     <div id="desc" class="vcenter-container">
         <div class="vcenter">
-            <p class="title"><?php echo $titel; ?></p>
+            <p class="title"><?php echo htmlspecialchars($titel); ?></p>
             <p>van</p>
-            <p class="old-price">&euro;<?php echo prijs($oude_prijs); ?></p>
+            <p class="old-price">&euro;<?php echo prijs_opmaak($oude_prijs); ?></p>
             <p>voor</p>
-            <p class="price">&euro;<?php echo prijs($prijs); ?></p>
+            <p class="price">&euro;<?php echo prijs_opmaak($prijs); ?></p>
         </div>
     </div>
-    </a>
 </div>
 <?php
         } while($on_sale->fetch());

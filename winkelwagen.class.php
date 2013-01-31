@@ -220,9 +220,9 @@ class Winkelwagen
             <td class="product-id"><a href="item-description.php?id=<?php echo $id; ?>"><span name="product-id"><?php echo $id; ?></span></a></td>
             <td class="product-image"><a href="item-description.php?id=<?php echo $id; ?>"><img src="<?php echo is_valid_cover($cover); ?>" alt="Cover" /></a></td>
             <td class="product-title"><a href="item-description.php?id=<?php echo $id; ?>"><?php echo $titel; ?></a></td>
-            <td>&euro;<span id="price-<?php echo $id; ?>"><?php echo prijs($prijs); ?></span></td>
+            <td>&euro;<span id="price-<?php echo $id; ?>"><?php echo prijs_opmaak($prijs); ?></span></td>
             <td><input type="text" class="product-amount" id="amount-<?php echo $id; ?>" value="<?php echo $hoeveelheid; ?>" <?php if (!$editable) echo 'disabled="disabled"'; else echo 'onchange="changeAmount(' . $id . ');"'; ?> /></td>
-            <td>&euro;<span id="productprice-<?php echo $id; ?>"><?php echo prijs($productprijs); ?></span></td>
+            <td>&euro;<span id="productprice-<?php echo $id; ?>"><?php echo prijs_opmaak($productprijs); ?></span></td>
         </tr>
 <?php
             $totaalbedrag += $productprijs;
@@ -231,11 +231,11 @@ class Winkelwagen
 ?>
         <tr class="bottom-row">
             <td colspan="<?php if ($editable) echo '6'; else echo '5'; ?>" class="right">Verzendkosten:</th>
-            <td>&euro;<span id="shipping"><?php echo prijs($verzendkosten); ?></span></td>
+            <td>&euro;<span id="shipping"><?php echo prijs_opmaak($verzendkosten); ?></span></td>
         </tr>
         <tr class="bottom-row">
             <th colspan="<?php if ($editable) echo '6'; else echo '5'; ?>" class="right">Totaalbedrag:</th>
-            <td>&euro;<span id="total-price"><?php echo prijs($totaalbedrag); ?></span></td>
+            <td>&euro;<span id="total-price"><?php echo prijs_opmaak($totaalbedrag); ?></span></td>
         </tr>
     </table>
 <?php
