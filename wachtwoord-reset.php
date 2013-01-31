@@ -7,13 +7,16 @@ Met de link is een "token" en een "id" meegegeven die gechecked worden op geldig
 
 
 <div class="centered-container">
-  <div class="wachtwoord-vergeten">
-    <div align="right"> 
-  <h1><CENTER><b>Wachtwoord Resetten</b></CENTER></h1>
-  <hr width="100%">
-    <br />
+<div class="wachtwoord-vergeten">
+<div align="right"> 
+<h1><CENTER><b>Wachtwoord Resetten</b></CENTER></h1>
+<hr width="100%">
+<br />
     
 <?php
+//Deze functie geeft hetformulier weer dat ingevuld kan worden op de pagina.
+//De token wordt hier als een hidden variabele meegegeven met het formulier
+//zodat deze ook nog bekend is bij het herladen van deze file als er op 'verstuur' wordt gedrukt.
 function show_form()
 {  
 $token = ($_GET['token']);
@@ -29,7 +32,7 @@ echo "<form method='post' action='wachtwoord-reset.php'>
 if (!isset($_POST['wachtwoord'])&&
 	!isset($_POST['wachtwoord_nogmaals'])) {
 	
-	//hier wordt aan de hand van het meegegeven id gekeken wat de token in de db is.
+	//Hier wordt aan de hand van het meegegeven id gekeken wat de token in de db is.
 	//vervolgens wordt gekeken of deze nog gelijk is aan de token die is meegegeven met de link.
 	//als een klant een ww al heeft aangepast dan is de token in de database namelijk leeg
 	//en kan hij niet meer aangepast worden.
@@ -43,6 +46,7 @@ if (!isset($_POST['wachtwoord'])&&
 	$sql3->execute();
 	$sql3->fetch();
 
+	//Hier wordt getest of de token in de database voor het meegegeven id overeenkomt met het meegegeven token.
 	if ($token_db === $token) {
 	
 		echo "<div align='justify'>
@@ -52,7 +56,6 @@ if (!isset($_POST['wachtwoord'])&&
 	
 	} else {
 		?><div class="centered-container">Deze link is verlopen</div><?php
-		
 	}
 	
 } else {
@@ -63,7 +66,6 @@ if (!isset($_POST['wachtwoord'])&&
 	if ($_POST['wachtwoord'] === $_POST['wachtwoord_nogmaals']) {
 		$token = $_POST['token'] ;
 		$wachtwoord = $_POST['wachtwoord_nogmaals'] ;
-
 		$saltww = maak_wachtwoord($wachtwoord);
 
 		//Hier wordt het wachtwoord naar de database geschreven
@@ -79,16 +81,16 @@ if (!isset($_POST['wachtwoord'])&&
 		echo "Uw wachtwoord is aangepast, hartelijk dank!" ;
 		?>
 		<!--
-		session timeout toegevoegd
+		session timeout toegevoegd, klant gaat terug naar de index.
 		-->
 		<script type="text/JavaScript">
-                setTimeout("location.href = '/index.php';",3000);
+			setTimeout("location.href = '/index.php';",3000);
 		</script>
 		<?php
 	  
 	} else {
+		//Als klant geen overeenkomstige wachtwoorden heeft ingevoerd dan wordt het formulier nogmaals weergegeven.
 		$token = $_POST['token'] ;
-		  
 		echo "<div align='justify'>
 		Vul hieronder nogmaals het door u nieuwe gekozen wachtwoord in. 
 		</div><br /><br />";
@@ -98,8 +100,6 @@ if (!isset($_POST['wachtwoord'])&&
 } 
 	  
 ?>
-      </div>
-    </div>
 </div>
-
-
+</div>
+</div>
