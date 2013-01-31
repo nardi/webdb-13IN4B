@@ -107,7 +107,9 @@ if (!isset($_SESSION['logged-in'])) {
 		show_form();
 	}	
 }
-?>	    
+?>
+<br />
+<br />    
 </div>
 </div>
 </div>
