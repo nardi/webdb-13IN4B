@@ -104,3 +104,8 @@ function testall(){
        return false;
     }
 }
+
+function emptydate(){
+    var date= document.getElementById('release_date');
+    date.value = "";
+}
