@@ -29,7 +29,8 @@
     
     function connect_to_db()
     {
-        $db_info = json_decode(file_get_contents($db_info));
+        global $db_info_file;
+        $db_info = json_decode(file_get_contents($db_info_file));
         $mysqli = new mysqli($db_info->host, $db_info->username, $db_info->password, $db_info->database);
         if ($mysqli->connect_errno)
             throw new Exception($mysqli->connect_error);
