@@ -32,7 +32,7 @@
                 
             echo "</table> </form>";
             
-            echo "<hr>"
+            echo "<hr>";
             
             $on_sale->free_result();
             
