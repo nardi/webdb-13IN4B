@@ -83,7 +83,9 @@ function error(field, msg){
     labelPos.style.backgroundImage = "url('images/labels/warning-label.png')";
     labelPos.title = melding;
     labelPos.style.backgroundRepeat="no-repeat";
-    isValidForm = false;
+    if (field != document.getElementById('coverlabel')){
+        isValidForm = false;
+    }
 }
 
 function testall(){
