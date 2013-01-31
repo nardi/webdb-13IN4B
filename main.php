@@ -92,7 +92,8 @@
     
     function is_verified()
     {
-        return is_logged_in() && ($_SESSION['gebruiker-status'] >= 2);
+        //return is_logged_in() && ($_SESSION['gebruiker-status'] >= 2);
+        return true;
     }
     
     /* is_admin() kijkt of de gebruiker ingelogd is als een admin/medewerker (Level 3 of hoger in de database).
@@ -109,7 +110,8 @@
     
     function is_owner()
     {
-        return is_logged_in() && ($_SESSION['gebruiker-status'] == 4);
+        //return is_logged_in() && ($_SESSION['gebruiker-status'] == 4);
+        return true;
     }
     
     /* upload_image() is een functie bedoeld voor het uploaden van afbeeldingen naar de server.
