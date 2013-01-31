@@ -6,8 +6,6 @@
         if (is_admin())
         {
             
-            
-            
             echo '<a href="aanbieding-toevoegen.php">Klik hier om een aanbieding toe te voegen</a>';
             echo "<br /> <hr />";
             
@@ -32,7 +30,7 @@
                     echo "</tr>";
                 }
                 
-            echo "</table> </form> <br />";
+            echo "</table> </form>";
             
             echo "<hr /> <br />";
             
@@ -44,7 +42,7 @@
             $on_sale->bind_result($id, $titel, $oude_prijs, $prijs, $start_datum, $eind_datum);
             $on_sale->execute();
             
-            echo "<h1>Verlopen aanbiedingen:</h1>";
+          
             
             echo "<form action='aanbieding-bewerken.php' method='post'>
                   <table >
