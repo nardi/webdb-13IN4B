@@ -10,7 +10,7 @@
     if(!$sqli_product->execute())
         throw new Exception($sqli_product->error);
     if(!$sqli_product->fetch())
-        redirect_to("error.php?msg=Oeps, dit product bestaat niet.");
+        throw new Exception("Oeps, dit product bestaat niet.");
     
     //Free result is nodig om de volgende query te laten lukken.
     $sqli_product->free_result();
@@ -49,7 +49,7 @@
 <div id="ItemName">
 <h3>
     <?php
-       echo htmlspecialchars($titel, ENT_XHTML);
+       echo htmlspecialchars($titel, ENT_COMPAT | ENT_XHTML);
     ?>
 </h3>
 </div>
@@ -89,7 +89,7 @@
     <div id="ItemDescription">
     <h4>Game Description</h4>
     <?php
-            echo htmlspecialchars($beschrijving, ENT_XHTML);
+            echo htmlspecialchars($beschrijving, ENT_COMPAT | ENT_XHTML);
         ?>
     </div>
 
