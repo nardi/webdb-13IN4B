@@ -15,7 +15,7 @@
             $eind_datum = $_POST['eind_datum'];
             $id = $_POST['id'];
             
-            echo id;
+            echo $id;
             $sqli = $db->prepare("UPDATE Aanbiedingen SET prijs = ?, start_datum = ?, eind_datum = ? WHERE id = ?");
             $sqli->bind_param('dsss', $prijs, $start_datum, $eind_datum, $id);
             $sqli->execute();
