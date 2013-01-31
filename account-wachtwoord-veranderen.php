@@ -41,6 +41,7 @@ if (!isset($_SESSION['logged-in'])) {
 	
 	//als het formulier volledig is ingevuld dan wordt onderstaande reeks uitgevoerd.
 	if (isset($_POST['oud_wachtwoord'])&&
+		!empty($_POST['nieuw_wachtwoord']) &&
 		isset($_POST['nieuw_wachtwoord'])&&
 		isset($_POST['nieuw_wachtwoord_nogmaals'])) {
 		
