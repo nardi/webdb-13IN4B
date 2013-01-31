@@ -45,7 +45,7 @@
     
     ?>
 <div class="ItemDescriptionContainer">
-<div id="ItemName">
+<div id="ItemName" class="header">
 <h3>
     <?php
        echo htmlspecialchars($titel);
@@ -56,7 +56,9 @@
     <div id="ItemCoverContainer">
     
         <div id="ItemCover">
+        <div class="header">
         <h4>Game cover</h4>
+        </div>
             <?php
                 echo '<img src="'. is_valid_cover($cover) .'" alt="Cover" />';
             ?>
@@ -86,7 +88,9 @@
 
     <div id="game-description-en-prijs">
     <div id="ItemDescription">
+    <div class="header">
     <h4>Game Description</h4>
+    </div>
     <?php
             echo htmlspecialchars($beschrijving);
         ?>
@@ -107,7 +111,9 @@
         if($quotes != ""){
         echo "
             <div id='Quotes'>
+            <div class='header'>
             <h4>Wat vonden reviewers van dit spel?</h4>
+            </div>
                 $quotes;
             </div>
             <div class='buffer'>

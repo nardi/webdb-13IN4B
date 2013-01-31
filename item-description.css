@@ -86,3 +86,13 @@
     display:table-cell;
     width:1%;
 }
+.header{
+    height: 0.8cm;
+    width:100%;
+    border-top-left-radius: 0.4cm;
+    border-bottom-left-radius: 0.4cm;
+    padding-left: 0.25cm;
+    line-height: 0.7cm;
+    color: #FFFFFF;
+    background-color:#08C1FF;
+}

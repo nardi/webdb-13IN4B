@@ -10,7 +10,6 @@ function checkTekst(field, label){
     else{
         ok(label);
     }
-    
 }
 
 function checkPrijs(field, label){
