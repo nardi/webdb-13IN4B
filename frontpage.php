@@ -21,12 +21,12 @@
 ?>
 
 <div class="product-hilite clickable-item" onclick="location.href = 'item-description.php?id=<?php echo $id; ?>';">
-    <div id="image" class="vcenter-container">
+    <div class="image vcenter-container">
         <div class="vcenter">
             <img src="<?php echo is_valid_cover($cover); ?>" alt="Cover" />
         </div>
     </div>
-    <div id="desc" class="vcenter-container">
+    <div class="desc vcenter-container">
         <div class="vcenter">
             <p class="title"><?php echo htmlspecialchars($titel); ?></p>
             <p>van</p>

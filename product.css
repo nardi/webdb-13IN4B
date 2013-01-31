@@ -56,13 +56,13 @@
 }
 
 
-.product-hilite #desc, .product-hilite #image {
+.product-hilite .desc, .product-hilite .image {
     height: 100%;
     float: left;
     width: 50%;
 }
 
-.product-hilite #image img {
+.product-hilite .image img {
     width: 100%;
     display: block;
     max-height: 100%;

@@ -21,7 +21,7 @@
      */
     if (!isset($_SERVER['HTTPS']) || !$_SERVER['HTTPS']) {
         $uri = 'https://'.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];
-        //redirect_to($uri);
+        redirect_to($uri);
     }
     
     if (strpos($pag, '.'))
@@ -61,7 +61,7 @@
          subtiele wijze medegedeeld. -->
     <noscript>
     	<div class="red_line vcenter-container">
-      	<div class="center"> <img src="/images/labels/error-label.png" alt="error-label" width="35" height="35" /> <p class="vcenter">Deze website wordt alleen juist weergegeven met Javascript.</p></div>
+      	<div class="center"> <img src="/images/labels/error-label.png" alt="error-label" width="35" height="35" /> <p class="vcenter">Deze website wordt alleen juist weergegeven met JavaScript.</p></div>
     	</div>
   	</noscript>
     
