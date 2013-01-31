@@ -1,5 +1,5 @@
 <link rel="stylesheet" type="text/css" href="inloggen-wachtwoord-registratie.css">
-<link rel="stylesheet" type="text/css" href="centering.css">
+
 <script src="productToevoegen.js"></script>
 
 <?php

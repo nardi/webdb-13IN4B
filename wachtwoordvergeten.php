@@ -3,7 +3,7 @@ Klant komt op deze pagina als hij op "wachtwoord vergeten" klikt in het dashboar
 -->
 
 <link rel="stylesheet" type="text/css" href="inloggen-wachtwoord-registratie.css">
-<link rel="stylesheet" type="text/css" href="centering.css">
+
 
 <div class="centered-container">
 <div class="wachtwoord-vergeten">
