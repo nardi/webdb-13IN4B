@@ -64,8 +64,8 @@
         </div>
         <div id="ItemWWToevoegen">
             <form name="ActuallyAButton" id="AddToCartButton" action="winkelwagen.php" method="post">
-                <input type="hidden" name="add" value="<?php echo $_GET['id'] ?>">
-                <input type="submit" value="" name="submitButton" id="AddSubmitButton">
+                <input type="hidden" name="add" value="<?php echo $_GET['id'] ?>" />
+                <input type="submit" value="" name="submitButton" id="AddSubmitButton" />
             </form>
         </div>
         <?php
@@ -73,8 +73,8 @@
             if(is_admin()){echo "
                 <div id='ItemVerwijderen'>
                     <form name='ActuallyAButton' id='DeleteItem' action='product-verwijderen.php' method='post'>
-                        <input type='hidden' name='delete' value='$id'>
-                        <input type='submit' value='' name='submitButton' id='DeleteSubmitButton'>
+                        <input type='hidden' name='delete' value='$id' />
+                        <input type='submit' value='' name='submitButton' id='DeleteSubmitButton' />
                     </form>
                 </div>";
             }

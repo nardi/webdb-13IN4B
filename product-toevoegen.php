@@ -33,13 +33,13 @@ Whale, whale, whale. What do we have here?
 					  <hr width="100%">
 					  <center><b>Productspecificaties</b></center>
 					  <br />
-					  Titel: <input type="text" id="titel" name="titel" onblur="checkTekst('titel','titellabel')"><div id='titellabel' class='label' ></div><br /> <br />
+					  Titel: <input type="text" id="titel" name="titel" onblur="checkTekst('titel','titellabel')" /><div id='titellabel' class='label' ></div><br /> <br />
 					  Beschrijving:
 					  <textarea rows="5" cols="20" id="beschrijving" name="beschrijving" onblur="checkTekst('beschrijving','beschrijvinglabel')"></textarea><div id='beschrijvinglabel' class='label' ></div>
 					  <br />  
-					  Prijs: <input type="text" id="prijs" name="prijs" onblur="checkPrijs('prijs', 'prijslabel')"><div id='prijslabel' class='label' ></div><br />
-					  Release date: <input type="text" id="release_date" name="release_date" onblur="checkDatum('release_date','releaselabel')" value="jjjj-mm-dd" onclick="emptydate()"><div id='releaselabel' class='label' ></div><br />
-					  Voorraad: <input type="text" id="voorraad" name="voorraad" onblur="checkPrijs('voorraad','voorraadlabel')"><div id='voorraadlabel' class='label' ></div><br />
+					  Prijs: <input type="text" id="prijs" name="prijs" onblur="checkPrijs('prijs', 'prijslabel')" /><div id='prijslabel' class='label' ></div><br />
+					  Release date: <input type="text" id="release_date" name="release_date" onblur="checkDatum('release_date','releaselabel')" value="jjjj-mm-dd" onclick="emptydate()" /><div id='releaselabel' class='label' ></div><br />
+					  Voorraad: <input type="text" id="voorraad" name="voorraad" onblur="checkPrijs('voorraad','voorraadlabel')" /><div id='voorraadlabel' class='label' ></div><br />
 					  Platform:
 					  <div class="platform">
                           <select name="platform" id="platform" onchange="checkDropdown('platform','platformlabel')">
@@ -93,7 +93,7 @@ Whale, whale, whale. What do we have here?
 					  </div>
                       
 
-					  <input type="submit" value="Voeg product toe">
+					  <input type="submit" value="Voeg product toe" />
 				  </div>
 				</form>
 			</div>

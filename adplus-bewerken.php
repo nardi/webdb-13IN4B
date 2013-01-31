@@ -41,7 +41,7 @@
                     
             echo '<form method="post" action="adplus-bewerken.php">';
             
-            echo "<input type='submit' name='submit' value='Wijzigingen opslaan'>";
+            echo "<input type='submit' name='submit' value='Wijzigingen opslaan' />";
             
             echo "<h1> Gebruikers gegevens </h1>";
             echo "<table>

@@ -27,19 +27,19 @@ function getAddress(callback, postcode, nummer, toevoeging)
 
 function completeAddress(postcode)
 {
-    var huisnummer = document.regform.huisnummer.value;
-    var toevoeging = document.regform.toevoeging.value;
+    var huisnummer = document.getElementById'regformid'.huisnummer.value;
+    var toevoeging = document.getElementById'regformid'.toevoeging.value;
     
     getAddress(function(adresInfo)
     {
         if (adresInfo && !adresInfo.exception)
         {
-            document.regform.straat.value = adresInfo.street;
-            document.regform.plaats.value = adresInfo.city;
+            document.getElementById'regformid'.straat.value = adresInfo.street;
+            document.getElementById'regformid'.plaats.value = adresInfo.city;
         }
         else
         {
-            document.regform.straat.value = document.regform.plaats.value = '';
+            document.getElementById'regformid'.straat.value = document.getElementById'regformid'.plaats.value = '';
         }
     }, postcode, huisnummer, toevoeging);
 }
@@ -179,7 +179,7 @@ function submitThisShit(){
     verify('wachtwoord','wachtwoord-bevestigen','wachtwoord-bevestigen-label');
     
     if(isValidForm){
-        document.regform.action="gebruikers-registratie.php";
+        document.getElementById'regformid'.action="gebruikers-registratie.php";
         return true;
     }
     else{

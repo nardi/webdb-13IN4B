@@ -4,11 +4,11 @@
 function enable_text(status)
 {
 status=!status;	
-document.regform2.huisnummer.disabled = status;
-document.regform2.toevoeging.disabled = status;
-document.regform2.postcode.disabled = status;
-document.regform2.huisnummer.disabled = status;
-document.regform2.toevoeging.disabled = status;
+document.getElementById'regformid'2.huisnummer.disabled = status;
+document.getElementById'regformid'2.toevoeging.disabled = status;
+document.getElementById'regformid'2.postcode.disabled = status;
+document.getElementById'regformid'2.huisnummer.disabled = status;
+document.getElementById'regformid'2.toevoeging.disabled = status;
 }
 //-->
 </script>
@@ -19,20 +19,20 @@ document.regform2.toevoeging.disabled = status;
 
         <form name="regform2" id="regformid"  onsubmit="submitThisShit()" action="javascript:void(0)" method="post">
           <div align="right"> 
-                Vink het vakje aan als u nog een adres wilt toevoegen.<input type="checkbox" name=others onclick="enable_text(this.checked)" ><br/>
+                Vink het vakje aan als u nog een adres wilt toevoegen.<input type="checkbox" name=others onclick="enable_text(this.checked)"  /><br/>
           <h1><center><b>Registreren</b></center></h1>
               <hr width="100%">
               <center><b>Adres numero dos</b></center><br />
               
               Huisnummer en toevoeging:
               <div class="huisnummer"> 
-                <input type="tekst" id="huisnummer" name="huisnummer" onchange="completeAddress()" onblur="checkHuis()"> <input type="tekst" name="toevoeging"><div id="huisnummer-label" class="label-div"></div>
+                <input type="tekst" id="huisnummer" name="huisnummer" onchange="completeAddress()" onblur="checkHuis()" /> <input type="tekst" name="toevoeging" /><div id="huisnummer-label" class="label-div"></div>
               </div><br/>
 
-              Postcode: <input type="text" id="postcode" name="postcode" onblur="checkPostcode()"><div id="postcode-label" class="label-div"></div><br />
-              Straat: <input type="text" id="straatid" name="straat" disabled="disabled"><div id="straat-label" class="label-div"></div><br />
-              Plaats: <input type="text" name="plaats" disabled="disabled"><div id="plaats-label" class="label-div"></div><br />
+              Postcode: <input type="text" id="postcode" name="postcode" onblur="checkPostcode()" /><div id="postcode-label" class="label-div"></div><br />
+              Straat: <input type="text" id="straatid" name="straat" disabled="disabled" /><div id="straat-label" class="label-div"></div><br />
+              Plaats: <input type="text" name="plaats" disabled="disabled" /><div id="plaats-label" class="label-div"></div><br />
 
-              <input type="submit" value="Maak account aan">
+              <input type="submit" value="Maak account aan" />
           </div>
         </form>

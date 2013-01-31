@@ -21,11 +21,11 @@ function show_form()
 {  
 $token = ($_GET['token']);
 echo "<form method='post' action='wachtwoord-reset.php'>
-	<input name='token' type='hidden' value='$token'>
-	Wachtwoord: <input name='wachtwoord' type='password'><br />
-	Wachtwoord nogmaals: <input name='wachtwoord_nogmaals' type='password'><br />
+	<input name='token' type='hidden' value='$token' />
+	Wachtwoord: <input name='wachtwoord' type='password' /><br />
+	Wachtwoord nogmaals: <input name='wachtwoord_nogmaals' type='password' /><br />
 	</textarea><br />
-	<input type='submit' value='verstuur'>
+	<input type='submit' value='verstuur' />
 	</form>";
 }
 

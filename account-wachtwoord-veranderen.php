@@ -21,10 +21,10 @@ dan wordt het nieuwe wachtwoord weggeschreven naar de database.
 function show_form()
 {
 echo "<form method='post' action='account-wachtwoord-veranderen.php'>
-Oud wachtwoord: <input type='password' name='oud_wachtwoord'><br />
-Nieuw wachtwoord: <input type='password' name='nieuw_wachtwoord'><br />
-Nieuw wachtwoord bevestigen: <input type='password' name='nieuw_wachtwoord_nogmaals'><br />
-<input type='submit' value='Wachtwoord veranderen'>
+Oud wachtwoord: <input type='password' name='oud_wachtwoord' /><br />
+Nieuw wachtwoord: <input type='password' name='nieuw_wachtwoord' /><br />
+Nieuw wachtwoord bevestigen: <input type='password' name='nieuw_wachtwoord_nogmaals' /><br />
+<input type='submit' value='Wachtwoord veranderen' />
 </form>";
 }
 ?>
