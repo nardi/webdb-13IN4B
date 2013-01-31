@@ -32,9 +32,9 @@
             }
         }
         
-        $sql = $db->prepare("SELECT gebruiker_id FROM Bestellingen WHERE id = ?");
+        $sql = $db->prepare("SELECT gebruiker_id, betaalstatus FROM Bestellingen WHERE id = ?");
         $sql->bind_param('i', $id);
-        $sql->bind_result($gebruiker_id);
+        $sql->bind_result($gebruiker_id, $betaalstatus);
         $sql->execute();
         if (!$sql->fetch())
         {
@@ -62,11 +62,14 @@
 <h1>Bestelling #<?php echo $id; ?></h1>
 <?php
             echo bestelling_weergeven($id, FALSE, is_admin());
+            if ($betaalstatus != 'Betaald')
+            {
 ?>
 <div id="annuleringsbevestiging">
-    <input type="button" onclick="laadBevestiging()">Bestelling annuleren</input>
+    <input type="button" onclick="laadBevestiging()" value="Bestelling annuleren" />
 </div>
 <?php
+            }
         }
     }
 ?>
