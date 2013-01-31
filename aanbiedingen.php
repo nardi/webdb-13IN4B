@@ -17,7 +17,8 @@
                             FROM Producten JOIN Aanbiedingen ON product_id = Producten.id WHERE eind_datum >= CURRENT_DATE');
             $on_sale->bind_result($id, $titel, $oude_prijs, $prijs, $start_datum, $eind_datum);
             $on_sale->execute();
-            echo "<h1>Aanbiedingen:<h1 />";
+            
+            echo "<h1>Aanbiedingen:</h1>";
             echo "<form action='aanbieding-bewerken.php' method='post'>
                   <table>
                   <tr>
@@ -43,7 +44,7 @@
             $on_sale->bind_result($id, $titel, $oude_prijs, $prijs, $start_datum, $eind_datum);
             $on_sale->execute();
             
-            echo "<h1>Verlopen aanbiedingen:<h1 />";
+            echo "<h1>Verlopen aanbiedingen:</h1>";
             
             echo "<form action='aanbieding-bewerken.php' method='post'>
                   <table class='verlopen'>
