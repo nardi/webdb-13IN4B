@@ -57,6 +57,8 @@
         else
         {
 ?>
+<script src="bestelling.js" type="text/javascript"></script>
+
 <h1>Bestelling #<?php echo $id; ?></h1>
 <?php
             echo bestelling_weergeven($id, FALSE, is_admin());
