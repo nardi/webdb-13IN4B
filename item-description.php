@@ -49,7 +49,7 @@
 <div id="ItemName">
 <h3>
     <?php
-       echo htmlspecialchars($titel, ENT_COMPAT | ENT_XHTML);
+       echo htmlspecialchars($titel);
     ?>
 </h3>
 </div>
@@ -89,7 +89,7 @@
     <div id="ItemDescription">
     <h4>Game Description</h4>
     <?php
-            echo htmlspecialchars($beschrijving, ENT_COMPAT | ENT_XHTML);
+            echo htmlspecialchars($beschrijving);
         ?>
     </div>
 

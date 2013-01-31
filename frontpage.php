@@ -28,7 +28,7 @@
     </div>
     <div id="desc" class="vcenter-container">
         <div class="vcenter">
-            <p class="title"><?php echo htmlspecialchars($titel, ENT_COMPAT | ENT_XHTML); ?></p>
+            <p class="title"><?php echo htmlspecialchars($titel); ?></p>
             <p>van</p>
             <p class="old-price">&euro;<?php echo prijs_opmaak($oude_prijs); ?></p>
             <p>voor</p>
