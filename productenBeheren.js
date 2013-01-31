@@ -3,9 +3,11 @@ function enableEdit(id){
     var array = trId.getElementsByTagName("input");
     var txtAreaArray = trId.getElementsByTagName("textarea");
     var selectArray = trId.getElementsByTagName("select");
+    var checkboxArray = trId.getElementsByTagName("checkbox");
     var arrayLength = array.length;
     var txtAreaArrayLength = txtAreaArray.length;
     var selectArrayLength = selectArray.length;
+    var checkboxArrayLength = checkboxArray.length;
     var coverId = document.getElementById("cover"+id);
     
     for(i=0;i<arrayLength;i++){
@@ -18,6 +20,10 @@ function enableEdit(id){
     
     for(i=0;i<selectArrayLength;i++){
         selectArray[i].disabled = false;
+    }
+    
+    for(i=0;i<checkboxArrayLength;i++){
+        checkboxArray[i].disabled = false;
     }
     
     coverId.onclick=function(){uploadCover(coverId, id);};
