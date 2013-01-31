@@ -8,10 +8,10 @@
         <div class="centered-container">
             <form action="aanbieding-toevoegen-db.php" method="post">
                 <h1><b>Aanbieding toevoegen</b></h1>
-                <hr width="100%">
+                <hr />
                 <b>Aanbiedings-gegevens</b>
                 <br />
-                <div class = "right_align">
+                <p class = "right_align">
                     Product: 
                     <select name="producten">
                     <?php
@@ -39,7 +39,7 @@
                     ?>
                     
                     
-                </div>
+                </p>
             </form>
         </div>
     <?php
