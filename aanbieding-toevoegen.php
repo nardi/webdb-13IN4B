@@ -10,7 +10,7 @@
                 <h1><b>Aanbieding toevoegen</b></h1>
                 <hr />
                 <p><b>Aanbiedings-gegevens</b></p>
-                <br />
+                
                 <p class = "right_align">
                     Product: 
                     <select name="producten">
@@ -26,7 +26,7 @@
                         }
                         $productensql->free_result();
                     ?>
-                    </select> 
+                    </select> <br />
                    
                     Aanbiedingsprijs: <input type="text" name="prijs" /><br />
                     Begin-datum: <input type="text" name="begin-datum" /><br />
