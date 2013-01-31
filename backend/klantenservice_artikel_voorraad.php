@@ -2,11 +2,6 @@
 Klant komt op deze pagina terecht als hij informatie wil over de voorraad
 -->
 
-<link rel="stylesheet" type="text/css" href="inloggen-wachtwoord-registratie.css">
-
-<script src="klantenservice.js">
-</script>
-
 <?php
 	session_start();
 if ((!isset($_SESSION['logged-in']))) {
@@ -25,10 +20,13 @@ if ((!isset($_SESSION['logged-in']))) {
 	dan kunt u in het artikelovericht zien of er nog een voorraad is van het gewenste artikel</p>
 	<br /><br />
 
+	<!--
+	Dit is het einde van de dropdownboz en nieuwe paginas worden niet onder de andere geladen.
+	Met de window.open methode wordt de klant doorgezet naar een nieuwe pagina.
+	-->
 	<form action="../">
 	Is hiermee uw vraag beantwoord?<br />
 	<select onchange="window.open(this.options[this.selectedIndex].value,'_top')">
-
 	<option value="">kies een antwoord...</option>
 	<option value="klantenservice_vraag_beantwoord.php">ja</option>
 	<option value="klantenservice_niet_beantwoord.php">nee</option>  
