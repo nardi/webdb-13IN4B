@@ -100,7 +100,7 @@ function testall(){
     checkCover('image','coverlabel');
     
     if(isValidForm){
-        document.regform.action="product-toevoegen-db.php";
+        document.toevoegform.action="product-toevoegen-db.php";
         return true;
     }
     else{
