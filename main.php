@@ -1,7 +1,7 @@
 <?php
     //error_reporting(0);
-
-    $verzendkosten = 6.75;
+    
+    require 'config.php';
     
     function show_error_page($exception)
     {
@@ -29,7 +29,7 @@
     
     function connect_to_db()
     {
-        $db_info = json_decode(file_get_contents("/datastore/webdb13IN4B/db-info.json"));
+        $db_info = json_decode(file_get_contents($db_info));
         $mysqli = new mysqli($db_info->host, $db_info->username, $db_info->password, $db_info->database);
         if ($mysqli->connect_errno)
             throw new Exception($mysqli->connect_error);
