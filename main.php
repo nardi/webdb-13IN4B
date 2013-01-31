@@ -100,7 +100,8 @@
     
     function is_admin()
     {
-        return is_logged_in() && ($_SESSION['gebruiker-status'] >= 3);
+        //return is_logged_in() && ($_SESSION['gebruiker-status'] >= 3);
+        return true;
     }
     
     /* is_owner() kijkt of de gebruiker ingelogd is als een owner/beheerder (Level 4 of hoger in de database).
