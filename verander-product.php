@@ -7,7 +7,7 @@
     $sqli_id->execute();
     $sqli_id->store_result();
     while($sqli_id->fetch()){
-        if(isset($_POST["titel$id"]) && $_POST["verwijderen"] != 'teverwijderen'){
+        if(isset($_POST["titel$id"]) && $_POST["verwijderen$id"] != 'teverwijderen'){
             $titel=$_POST["titel$id"];
             $platform_id=$_POST["platform$id"];
             $genre_id=$_POST["genre$id"];
