@@ -10,11 +10,11 @@ Klant komt op deze pagina als hij op "wachtwoord vergeten" klikt in het dashboar
 <hr></hr>
 <br />
 
-    
+  
 <?php
 function show_form() 
 {
-	echo "<div align='justify'>
+	echo "<div class='justify'>
 		Als u uw wachtwoord bent vergeten, vul dan hieronder uw e-mailadres in. 
 		U ontvangt dan binnen enkele ogenblikken een e-mail van ons 
 		waarmee u een nieuw wachtwoord kunt opgeven. 
@@ -25,6 +25,7 @@ function show_form()
 		<input type='submit' value='verstuur'>
 		</form>";
 }
+
 
 if (isset($_POST['email'])) {
 	
