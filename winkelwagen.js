@@ -12,7 +12,10 @@ function changeAmount(id)
     {
         if (xhr.readyState == 4)
         {
-            recalculateTotalPrice(JSON.parse(xhr.responseText));
+            if (amount == '0')
+                location.href = 'winkelwagen.php';
+            else
+                recalculateTotalPrice(JSON.parse(xhr.responseText));
         }
     };
     xhr.send(params);

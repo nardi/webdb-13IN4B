@@ -1,13 +1,12 @@
 <?php
     require 'product-verwijderen.php';
     $db = connect_to_db();
-    
     $sqli_id = $db->prepare("SELECT id FROM Producten");
     $sqli_id->bind_result($id);
     $sqli_id->execute();
     $sqli_id->store_result();
     while($sqli_id->fetch()){
-        if(isset($_POST["titel$id"]) && $_POST["verwijderen"] != 'teverwijderen'){
+        if(isset($_POST["titel$id"]) && $_POST["verwijderen$id"] != 'teverwijderen'){
             $titel=$_POST["titel$id"];
             $platform_id=$_POST["platform$id"];
             $genre_id=$_POST["genre$id"];
@@ -25,8 +24,6 @@
             
             
             $sqli_verander = $db->prepare("UPDATE Producten SET titel=?, platform_id=?,genre_id=?,beschrijving=?, prijs=?, release_date=?, voorraad=? WHERE id=?");
-            
-            var_dump($sqli_verander);
             
             $sqli_verander->bind_param('siisdsis',$titel,$platform_id,$genre_id,$beschrijving,$prijs,$release_date,$voorraad,$id);
             
