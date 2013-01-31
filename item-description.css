@@ -1,9 +1,3 @@
-#ItemName{
-	width:100%;
-	background-color:pink;
-	height:20pt;
-	text-align:center;
-}
 #ItemCover{
 	width:100%;
 }
@@ -76,10 +70,6 @@
 
 .SystemRequirementsTable table, th, td{
 	border: 1pt solid blue;
-}
-
-.ItemDescriptionContainer h4{
-	background-color:cyan;
 }
 
 .buffer{
