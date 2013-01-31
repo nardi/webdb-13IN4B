@@ -32,9 +32,9 @@
                     echo "</tr>";
                 }
                 
-            echo "</table> </form>";
+            echo "</table> </form> <br />";
             
-            echo "<hr />";
+            echo "<hr /> <br />";
             
             $on_sale->free_result();
             
