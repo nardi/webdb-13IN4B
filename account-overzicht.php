@@ -1,5 +1,3 @@
-<link rel="stylesheet" type="text/css" href="inloggen-wachtwoord-registratie.css">
- 
 <div class="centered-container">
 <?php
 	if ((!isset($_SESSION['logged-in']))) {
