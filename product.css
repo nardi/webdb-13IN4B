@@ -48,17 +48,29 @@
 }
 
 .product-hilite {
-    /* Height eruit gehaald, want veroorzaakte problemen bij plaatjes in de aanbeiding die niet de verhoudingen van een standaard gamecover hebben.
-    height: 170pt;*/
+    height: 170pt;
+    width: 49.9%;
     display: inline-block;
     border: 1px solid black;
     background-color: #fefefe;
 }
 
-.product-hilite #desc, .product-hilite img {
-    /*Zelfde als hierboven, geeft problemen met de beschrijvingstekst van de aanbeiding.
-    height: 100%;*/
+
+.product-hilite #desc, .product-hilite #image {
+    height: 100%;
     float: left;
+}
+
+.product-hilite #desc {
+    width: 52%;
+}
+
+.product-hilite #image {
+    width: 48%;
+}
+
+.product-hilite #image img {
+    width: 100%;
 }
 
 .product-hilite p {
