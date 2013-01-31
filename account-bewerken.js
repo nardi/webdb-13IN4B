@@ -11,7 +11,7 @@ function submitChanges(){
     verify('email','email-bevestigen','email-bevestigen-label');
     
     if(isValidForm){
-        document.regform.action="account-bewerken.php";
+        document.regform.action="account-bewerken-2.php";
         return true;
     }
     else{
