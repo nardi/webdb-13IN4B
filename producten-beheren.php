@@ -37,14 +37,6 @@
                         <div class='ProductEdit' onclick='enableEdit($id)'>
                         </div>
                     </td>
-                    <td>
-                        <div class='ProductDelete'>
-                                <!--<form name='ActuallyAButton' id='DeleteItem' action='product-verwijderen.php' method='post'>
-                                    <input type='hidden' name='delete' value='$id'>
-                                    <input type='submit' value='' name='submitButton' class='DeleteSubmitButton'>
-                                </form>-->
-                        </div>
-                    </td>
                     <td><input type='checkbox' name='verwijderen$id' value='teverwijderen'></td>
                     <td class='column'>$id</td>
                     <td>
