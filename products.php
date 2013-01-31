@@ -49,10 +49,10 @@
             </div>      
             <br />
         
-            <input type="submit" value="Pas filters toe">
+            <input type="submit" value="Pas filters toe" />
         </div>
     </form>
-    <hr>
+    <hr />
 
     <?php
         require_once 'product-thumb.php';
