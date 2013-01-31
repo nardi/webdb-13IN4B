@@ -7,6 +7,13 @@ dan wordt het nieuwe wachtwoord weggeschreven naar de database.
 
 <link rel="stylesheet" type="text/css" href="inloggen-wachtwoord-registratie.css">
 
+<div class="account-wachtwoord-veranderen">
+<div align="right"> 
+<h1><center><b>Mijn account</b></center></h1>
+<hr width="100%">
+<center><b>Wachtwoord veranderen</b></center>
+<br />
+
 <?php
 //Deze functie geeft een furmulier weer waarin het oude wachtwoord en het nieuwe wachtwoord (2x) wordt gevraagd.
 function show_form()
@@ -32,17 +39,9 @@ if (!isset($_SESSION['logged-in'])) {
 
 } else {
 	
-	?>
-	<div class="account-wachtwoord-veranderen">
-	<div align="right"> 
-	<h1><center><b>Mijn account</b></center></h1>
-	<hr width="100%">
-	<center><b>Wachtwoord veranderen</b></center>
-	<br />
-	
-	<?php
-	
+	//als het formulier volledig is ingevuld dan wordt onderstaande reeks uitgevoerd.
 	if (isset($_POST['oud_wachtwoord'])&&
+		!empty($_POST['nieuw_wachtwoord']) &&
 		isset($_POST['nieuw_wachtwoord'])&&
 		isset($_POST['nieuw_wachtwoord_nogmaals'])) {
 		
@@ -59,7 +58,9 @@ if (!isset($_SESSION['logged-in'])) {
 		$sql->bind_result($wwdb);
 		$sql->fetch();
 		sleep(2);
-			
+		
+		//Hier wordt gecontroleerd of het wachtwoord uit de database overeenkomt met het wachtwoord dat
+		//is opgegeven bij "oud wachtwoord" met de functie 'check_wachtwoord()'
 		if (check_wachtwoord($wachtwoord, $wwdb)) {
 			
 			if ($nieuw_wachtwoord === $nieuw_wachtwoord_nogmaals) {
@@ -80,7 +81,10 @@ if (!isset($_SESSION['logged-in'])) {
 				$sql = $db->prepare("UPDATE Gebruikers SET wachtwoord = '$saltww' WHERE id = ? LIMIT 1");
 				$sql->bind_param("s", $id) ;
 				$sql->execute();
+				
+				
 				echo "Uw wachtwoord is nu aangepast." ;
+				
 					
 			} else {
 				
