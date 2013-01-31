@@ -1,4 +1,3 @@
-<body>
 <?php 
     /*Onderstaande verkrijgt dynamisch de informatie over een product op basis van de meegegeven id.*/
     $id=$_GET["id"];
@@ -62,21 +61,21 @@
                 echo '<img src="'. is_valid_cover($cover) .'" alt="Cover" />';
             ?>
         </div>
-        <div id="ItemWWToevoegen">
-            <form name="ActuallyAButton" id="AddToCartButton" action="winkelwagen.php" method="post">
+        <form id="AddToCartButton" action="winkelwagen.php" method="post">
+            <div id="ItemWWToevoegen">
                 <input type="hidden" name="add" value="<?php echo $_GET['id'] ?>" />
                 <input type="submit" value="" name="submitButton" id="AddSubmitButton" />
-            </form>
-        </div>
+            </div>
+        </form>
         <?php
             $id = $_GET['id'];
             if(is_admin()){echo "
-                <div id='ItemVerwijderen'>
-                    <form name='ActuallyAButton' id='DeleteItem' action='product-verwijderen.php' method='post'>
+                <form id='DeleteItem' action='product-verwijderen.php' method='post'>
+                    <div id='ItemVerwijderen'>
                         <input type='hidden' name='delete' value='$id' />
                         <input type='submit' value='' name='submitButton' id='DeleteSubmitButton' />
-                    </form>
-                </div>";
+                    </div>
+                </form>";
             }
         ?>
     </div>
@@ -140,6 +139,3 @@
     ?>
     </div>
 </div>
-</body>
-
-</html>
