@@ -18,7 +18,7 @@
       \          a    |
        ',.__.   ,__.-'/
          '--/_.'----'`
-        Whale, whale, whale. What do we have here?		
+            Whale, whale, whale. What do we have here?		
 	</pre>
     <br />
     <?php echo $exception->getMessage(); ?>
@@ -29,16 +29,24 @@
     
     function connect_to_db()
     {
-        $db_info = json_decode(file_get_contents($db_info));
+        global $db_info_file;
+        $db_info = json_decode(file_get_contents($db_info_file));
         $mysqli = new mysqli($db_info->host, $db_info->username, $db_info->password, $db_info->database);
         if ($mysqli->connect_errno)
             throw new Exception($mysqli->connect_error);
         return $mysqli;
+    } 
+    
+    function refer_to($url)
+    {
+        header("Location: " . $url);
     }
     
-    function redirect_to($url)
+    function redirect_to($url, $timeout = 0)
     {
-        header("location:$url");
+?>
+<script type="text/javascript">setTimeout("location.href = '<?php echo $url; ?>';", <?php echo $timeout; ?>);</script>
+<?php
     }
     
     function string_starts_with($string, $search) 

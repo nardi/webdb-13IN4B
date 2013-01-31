@@ -7,7 +7,7 @@
 		unset($_SESSION['gebruiker-status']);
 		echo "U bent uitgelogd.";		
 ?>
-		<script type="text/JavaScript">
+		<script type="text/javascript">
 			setTimeout("location.href = '/';",2000);
 		</script>
 <?php
