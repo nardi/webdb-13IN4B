@@ -44,10 +44,10 @@
             $on_sale->bind_result($id, $titel, $oude_prijs, $prijs, $start_datum, $eind_datum);
             $on_sale->execute();
             
-            echo "<h1>Verlopen aanbiedingen:</h1> <br />";
+            echo "<h1>Verlopen aanbiedingen:</h1>";
             
             echo "<form action='aanbieding-bewerken.php' method='post'>
-                  <table class='verlopen'>
+                  <table >
                   <tr>
                   <th>Spel</th> <th>Oude prijs</th> <th>Aanbiedingsprijs</th> <th>Start Datum</th> <th>Eind Datum</th>       
                   </tr>";
