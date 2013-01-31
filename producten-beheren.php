@@ -1,5 +1,4 @@
-<link rel="stylesheet" type="text/css" href="producten-beheren.css">
-<script src="productenBeheren.js"></script>
+<script type="text/javascript" src="productenBeheren.js"></script>
 
 <?php
     if(is_admin()){

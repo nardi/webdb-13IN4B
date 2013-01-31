@@ -1,6 +1,6 @@
 <link rel="stylesheet" type="text/css" href="inloggen-wachtwoord-registratie.css">
 
-<script src="productToevoegen.js"></script>
+<script type="text/javascript" src="productToevoegen.js"></script>
 
 <?php
 	if (!is_admin()) {
