@@ -104,7 +104,6 @@ if (!isset($_SESSION['logged-in'])) {
 	//Als er nog niets is ingevuld dan wordt de 'show_form()' functie aangeroepen om het formulier weer te geven.
 	} else {
 		
-		echo "U heeft niet alle velden ingevuld" ;
 		show_form();
 	}	
 }
