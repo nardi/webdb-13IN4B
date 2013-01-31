@@ -26,7 +26,7 @@
                         }
                         $productensql->free_result();
                     ?>
-                    </select> <br />
+                    </select> 
                    
                     Aanbiedingsprijs: <input type="text" name="prijs" /><br />
                     Begin-datum: <input type="text" name="begin-datum" /><br />
