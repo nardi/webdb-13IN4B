@@ -1,5 +1,5 @@
 <?php
-    require 'product-verwijderen.php';
+    //require 'product-verwijderen.php';
     ?><script>alert("boe")</script><?php
     if(is_admin()){
         function product_verwijderen_conf_func($pid, $titel){
