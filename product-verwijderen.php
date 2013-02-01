@@ -1,4 +1,5 @@
 <?php
+    /*Hieronder de code voor hetverwijderen van een product*/
     if(is_admin()){
         function product_verwijderen_func($pid, $titel){
             $thistitel =$titel;

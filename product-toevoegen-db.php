@@ -2,7 +2,7 @@
     if (is_admin())
     {
       
-        /* Code voor het uplaoden van afbeeldingen gebasseerd op het voorbeeld van w3.
+        /* Code voor het uploaden van afbeeldingen gebasseerd op het voorbeeld van w3.
          * URL: http://www.w3schools.com/php/php_file_upload.asp
          */
         try{

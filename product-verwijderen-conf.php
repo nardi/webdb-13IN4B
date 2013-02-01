@@ -1,4 +1,6 @@
 <?php
+    /*Hieronder een functie die een gebruiker laat kiezen of hij wel echt een 
+    product wil verwijderen.*/
     if(is_admin()){
         function product_verwijderen_conf_func($pid, $titel){
             echo "
@@ -28,6 +30,7 @@
                 </div>
             </div>";
         }
+        /*Zorgen dat het confirmatie scherm via een POST kan worden aangeroepen*/
         if(isset($_POST['deleteId']) && isset($_POST['deleteTitle'])){
             $iid=$_POST['deleteId'];
             $titel=$_POST['deleteTitle'];
