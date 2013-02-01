@@ -1,6 +1,5 @@
 <?php
     require 'product-verwijderen.php';
-    ?><script>alert("boe")</script><?php
     if(is_admin()){
         function product_verwijderen_conf_func($pid, $titel){
             echo "
@@ -13,7 +12,7 @@
             </div>
             <div id='buttons'>
                 <div id='ja'>
-                    <form id='DeleteItemConf' action='products.php' method='post'>
+                    <form id='DeleteItemConf' action='product_verwijderen_func($pid, $titel)' method='post'>
                         <div id='ItemVerwijderen'>
                             <input type='submit' value='Ja' name='submitButtonYes' id='DeleteSubmitButtonYes' title='Product verwijderen'/>
                         </div>
