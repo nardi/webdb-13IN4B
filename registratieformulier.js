@@ -27,19 +27,19 @@ function getAddress(callback, postcode, nummer, toevoeging)
 
 function completeAddress(postcode)
 {
-    var huisnummer = document.regform.huisnummer.value;
-    var toevoeging = document.regform.toevoeging.value;
+    var huisnummer = document.getElementById('regformid').huisnummer.value;
+    var toevoeging = document.getElementById('regformid').toevoeging.value;
     
     getAddress(function(adresInfo)
     {
         if (adresInfo && !adresInfo.exception)
         {
-            document.regform.straat.value = adresInfo.street;
-            document.regform.plaats.value = adresInfo.city;
+            document.getElementById('regformid').straat.value = adresInfo.street;
+            document.getElementById('regformid').plaats.value = adresInfo.city;
         }
         else
         {
-            document.regform.straat.value = document.regform.plaats.value = '';
+            document.getElementById('regformid').straat.value = document.getElementById('regformid').plaats.value = '';
         }
     }, postcode, huisnummer, toevoeging);
 }
@@ -64,7 +64,7 @@ function checkPostcode(){
     completeAddress(postcode);  
 }
 function checkNaam(field, label){
-    var validNaam = /^[a-z\s\-]{1,256}$/i
+    var validNaam = /^[a-z\s\-\']{1,256}$/i
     var naam = document.getElementById(field).value;
     var naamLabel = document.getElementById(label);
     if(!validNaam.test(naam))
@@ -131,7 +131,7 @@ function verify(field1, field2, divLabel){
     var labelPos = document.getElementById(divLabel);
     
     if(field1Val != field2Val){
-        error(labelPos, 'Velden zijn niet hetzelfd');
+        error(labelPos, 'Velden zijn niet hetzelfde');
     }
     else if (field2Val != ""){
         ok(labelPos, 'Velden zijn hetzelfde.');
@@ -179,7 +179,7 @@ function submitThisShit(){
     verify('wachtwoord','wachtwoord-bevestigen','wachtwoord-bevestigen-label');
     
     if(isValidForm){
-        document.regform.action="gebruikers-registratie.php";
+        document.getElementById('regformid').action="gebruikers-registratie.php";
         return true;
     }
     else{

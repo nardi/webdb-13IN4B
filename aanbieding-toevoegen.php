@@ -6,12 +6,20 @@
        
         
         <div class="centered-container">
+        
+            <!-- Het formulier voor het toevoegen van aanbiedingen. -->
             <form action="aanbieding-toevoegen-db.php" method="post">
-                <div align="right"> 
-                    <h1><center><b>Aanbieding toevoegen</b></center></h1>
-                    <hr width="100%">
-                    <center><b>Aanbiedings-gegevens</b></center>
-                    <br />
+                <h1><b>Aanbieding toevoegen</b></h1>
+                <hr />
+                <p><b>Aanbiedings-gegevens</b></p>
+                
+                <!-- Achterenvolgend wordt er gevraagd naar:
+                     Het product, de actieprijs en van wanneer tot wanneer
+                     de aanbieding duurt.
+                     De producten wordne m.b.v. een query uit de database 
+                     gehaald en weergeven in een dropdown menu. -->
+                     
+                <p class = "right_align">
                     Product: 
                     <select name="producten">
                     <?php
@@ -32,6 +40,7 @@
                     Begin-datum: <input type="text" name="begin-datum" /><br />
                     Eind-datum: <input type="text" name="eind-datum" /><br />
                     
+                    <!-- De ingevulde waardes worden gepost naar aanbieding-toevoegen-db.php gepost. -->
                     <input type="submit" value="Voeg aanbieding toe" />
            
                     <?php
@@ -39,7 +48,7 @@
                     ?>
                     
                     
-                </div>
+                </p>
             </form>
         </div>
     <?php

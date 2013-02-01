@@ -1,7 +1,7 @@
 <?php
     //error_reporting(0);
-
-    $verzendkosten = 6.75;
+    
+    require 'config.php';
     
     function show_error_page($exception)
     {
@@ -18,7 +18,7 @@
       \          a    |
        ',.__.   ,__.-'/
          '--/_.'----'`
-        Whale, whale, whale. What do we have here?		
+            Whale, whale, whale. What do we have here?		
 	</pre>
     <br />
     <?php echo $exception->getMessage(); ?>
@@ -29,16 +29,24 @@
     
     function connect_to_db()
     {
-        $db_info = json_decode(file_get_contents("/datastore/webdb13IN4B/db-info.json"));
+        global $db_info_file;
+        $db_info = json_decode(file_get_contents($db_info_file));
         $mysqli = new mysqli($db_info->host, $db_info->username, $db_info->password, $db_info->database);
         if ($mysqli->connect_errno)
             throw new Exception($mysqli->connect_error);
         return $mysqli;
+    } 
+    
+    function refer_to($url)
+    {
+        header("Location: " . $url);
     }
     
-    function redirect_to($url)
+    function redirect_to($url, $timeout = 0)
     {
-        header("location:$url");
+?>
+<script type="text/javascript">setTimeout("location.href = '<?php echo $url; ?>';", <?php echo $timeout; ?>);</script>
+<?php
     }
     
     function string_starts_with($string, $search) 
@@ -92,8 +100,7 @@
     
     function is_verified()
     {
-        //return is_logged_in() && ($_SESSION['gebruiker-status'] >= 2);
-        return true;
+        return is_logged_in() && ($_SESSION['gebruiker-status'] >= 2);
     }
     
     /* is_admin() kijkt of de gebruiker ingelogd is als een admin/medewerker (Level 3 of hoger in de database).
@@ -101,8 +108,7 @@
     
     function is_admin()
     {
-        //return is_logged_in() && ($_SESSION['gebruiker-status'] >= 3);
-        return true;
+        return is_logged_in() && ($_SESSION['gebruiker-status'] >= 3);
     }
     
     /* is_owner() kijkt of de gebruiker ingelogd is als een owner/beheerder (Level 4 of hoger in de database).
@@ -110,8 +116,7 @@
     
     function is_owner()
     {
-        //return is_logged_in() && ($_SESSION['gebruiker-status'] == 4);
-        return true;
+        return is_logged_in() && ($_SESSION['gebruiker-status'] == 4);
     }
     
     /* upload_image() is een functie bedoeld voor het uploaden van afbeeldingen naar de server.

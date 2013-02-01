@@ -1,4 +1,3 @@
-<body>
 <?php 
     /*Onderstaande verkrijgt dynamisch de informatie over een product op basis van de meegegeven id.*/
     $id=$_GET["id"];
@@ -46,7 +45,7 @@
     
     ?>
 <div class="ItemDescriptionContainer">
-<div id="ItemName">
+<div id="ItemName" class="header">
 <h3>
     <?php
        echo htmlspecialchars($titel);
@@ -57,26 +56,29 @@
     <div id="ItemCoverContainer">
     
         <div id="ItemCover">
+        <div class="header">
         <h4>Game cover</h4>
+        </div>
             <?php
                 echo '<img src="'. is_valid_cover($cover) .'" alt="Cover" />';
             ?>
         </div>
-        <div id="ItemWWToevoegen">
-            <form name="ActuallyAButton" id="AddToCartButton" action="winkelwagen.php" method="post">
+        <form id="AddToCartButton" action="winkelwagen.php" method="post">
+            <div id="ItemWWToevoegen">
                 <input type="hidden" name="add" value="<?php echo $_GET['id'] ?>" />
                 <input type="submit" value="" name="submitButton" id="AddSubmitButton" />
-            </form>
-        </div>
+            </div>
+        </form>
         <?php
             $id = $_GET['id'];
             if(is_admin()){echo "
-                <div id='ItemVerwijderen'>
-                    <form name='ActuallyAButton' id='DeleteItem' action='product-verwijderen.php' method='post'>
-                        <input type='hidden' name='delete' value='$id' />
-                        <input type='submit' value='' name='submitButton' id='DeleteSubmitButton' />
-                    </form>
-                </div>";
+                <form id='DeleteItem' action='product-verwijderen-conf.php' method='post'>
+                    <div id='ItemVerwijderen'>
+                        <input type='hidden' name='deleteId' value='$id' />
+                        <input type='hidden' name='deleteTitle' value='$titel' />
+                        <input type='submit' value='' name='submitButton' id='DeleteSubmitButton' title='Product verwijderen'/>
+                    </div>
+                </form>";
             }
         ?>
     </div>
@@ -87,7 +89,9 @@
 
     <div id="game-description-en-prijs">
     <div id="ItemDescription">
+    <div class="header">
     <h4>Game Description</h4>
+    </div>
     <?php
             echo htmlspecialchars($beschrijving);
         ?>
@@ -108,7 +112,9 @@
         if($quotes != ""){
         echo "
             <div id='Quotes'>
+            <div class='header'>
             <h4>Wat vonden reviewers van dit spel?</h4>
+            </div>
                 $quotes;
             </div>
             <div class='buffer'>
@@ -140,6 +146,3 @@
     ?>
     </div>
 </div>
-</body>
-
-</html>

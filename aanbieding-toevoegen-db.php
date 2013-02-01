@@ -1,6 +1,9 @@
 <?php
     if (is_admin())
     {
+        /* De ingevulde waardes worden uit de POST opgehaald, en met
+         * een query in de database opgeslagen
+         */
         $db = connect_to_db();
         $productid = $_POST['producten'];
         $prijs = $_POST['prijs'];

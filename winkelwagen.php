@@ -40,7 +40,7 @@
         {
 ?>
 <form>
-    <a href="bestellen.php"><input type="button" value="Naar de kassa"></a>
+    <a href="bestellen.php"><input type="button" value="Naar de kassa" /></a>
 </form>
 <?php
         }

@@ -1,7 +1,7 @@
 <!-- 
-In deze .php file wordt de het account van de gebruiker verwijderd.
-Voor het verwijderen wordt eerst het wachtwoord nogmaals gevraagd ter bevestiging.
-Na verwijdering wordt hij dus automatisch uitgelogd.
+    In deze .php file wordt de het account van de gebruiker verwijderd.
+    Voor het verwijderen wordt eerst het wachtwoord nogmaals gevraagd ter bevestiging.
+    Na verwijdering wordt hij dus automatisch uitgelogd.
 -->
 
 <?php

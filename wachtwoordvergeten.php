@@ -2,19 +2,19 @@
 Klant komt op deze pagina als hij op "wachtwoord vergeten" klikt in het dashboard.
 -->
 
-<link rel="stylesheet" type="text/css" href="inloggen-wachtwoord-registratie.css">
-
 <div class="centered-container">
 <div class="wachtwoord-vergeten">
-<div align="right"> 
-<h1><CENTER><b>Wachtwoord vergeten?</b></CENTER></h1>
-<hr width="100%">
+<div class="right"> 
+<h1 class="center"><b>Wachtwoord vergeten?</b></h1>
+
+<hr></hr>
 <br />
-    
+
+  
 <?php
 function show_form() 
 {
-	echo "<div align='justify'>
+	echo "<div class='justify'>
 		Als u uw wachtwoord bent vergeten, vul dan hieronder uw e-mailadres in. 
 		U ontvangt dan binnen enkele ogenblikken een e-mail van ons 
 		waarmee u een nieuw wachtwoord kunt opgeven. 
@@ -25,6 +25,7 @@ function show_form()
 		<input type='submit' value='verstuur'>
 		</form>";
 }
+
 
 if (isset($_POST['email'])) {
 	

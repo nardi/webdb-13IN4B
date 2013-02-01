@@ -5,7 +5,6 @@ Er wordt dan gecontroleerd of deze 2 maal hetzelfde is ingevult, en als al deze 
 dan wordt het nieuwe wachtwoord weggeschreven naar de database.
 -->
 
-<link rel="stylesheet" type="text/css" href="inloggen-wachtwoord-registratie.css">
 
 <div class="centered-container">
 <div class="account-wachtwoord-veranderen">

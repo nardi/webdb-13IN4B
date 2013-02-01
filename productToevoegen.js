@@ -1,5 +1,5 @@
 function checkTekst(field, label){
-    var validTekst = /^[a-z\s\-0-9]{1,10000}$/i;
+    var validTekst = /^[a-z\s\-\,\?\.\(\)\!\'\"\:\;0-9]{1,10000}$/i;
     var tekst = document.getElementById(field).value;
     var label = document.getElementById(label);
     
@@ -10,11 +10,10 @@ function checkTekst(field, label){
     else{
         ok(label);
     }
-    
 }
 
 function checkPrijs(field, label){
-    var validPrijs =/^[0-9]+$/;
+    var validPrijs =/^[0-9\,\.]+$/;
     var prijs = document.getElementById(field).value;
     var label = document.getElementById(label);
     if(!validPrijs.test(prijs)){
@@ -24,7 +23,7 @@ function checkPrijs(field, label){
         ok(label);
     }
 }
-//Er moet even gekeken worden naar wat er gebeurt als een datum als dd-mm-jjjj wordt ingevoerd.
+
 function checkDatum(field, label){
     var validDatum = /^[0-9]{4}[\-][0-9]{2}[\-][0-9]{2}$/;
     var datum = document.getElementById(field).value;

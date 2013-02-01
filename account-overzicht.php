@@ -1,5 +1,8 @@
-<link rel="stylesheet" type="text/css" href="inloggen-wachtwoord-registratie.css">
- 
+<!--
+    Op deze pagina kan de gebruiker zijn of haar account bekijken. De gebruiker moet wel ingelogd zijn.
+    Vervolgens kan de gebruiker enkele bewerkingen doen op zijn of haar gegevens. 
+-->
+
 <div class="centered-container">
 <?php
 	if ((!isset($_SESSION['logged-in']))) {
@@ -57,7 +60,7 @@ U bent niet ingelogd!
         <center><b>Bewerken</b></center>
             <a href="account-wachtwoord-veranderen.php"><input type="submit"  value="Wachtwoord veranderen" /></a><br/>
             <a href="adres-toevoegen.html"><input type="submit"  value="Adres toevoegen" /></a><br />
-            <a href="account-bewerken.php"><input type="submit"  value="Accountgegevens veranderen" /></a><br/>
+            <a href="account-bewerken.html"><input type="submit"  value="Accountgegevens veranderen" /></a><br/>
             <a href="account-verwijderen.html"><input type="submit"  value="Account verwijderen" /></a>
         <hr width="100%">
     </div>
