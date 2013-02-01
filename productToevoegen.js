@@ -14,7 +14,7 @@ function checkTekst(field, label){
 
 function checkPrijs(field, label){
     var validPrijs =/^[0-9\,\.]+$/;
-    var prijs = document.getElementById(field).value;
+    var prijs = document.getElementById(field).value.replace(',', '.');
     var label = document.getElementById(label);
     if(!validPrijs.test(prijs)){
         error(label, 'Dit veld is niet goed ingevuld.');
