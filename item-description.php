@@ -1,5 +1,4 @@
 <?php 
-    require 'product-verwijderen-conf.php';
     /*Onderstaande verkrijgt dynamisch de informatie over een product op basis van de meegegeven id.*/
     $id=$_GET["id"];
     $db = connect_to_db();
