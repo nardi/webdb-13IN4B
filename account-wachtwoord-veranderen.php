@@ -10,9 +10,9 @@ dan wordt het nieuwe wachtwoord weggeschreven naar de database.
 <div class="account-wachtwoord-veranderen">
 <div align="right"> 
  
-<h1><center><b>Mijn account</b></center></h1>
+<h1><b>Mijn account</b></h1>
 <hr width="100%">
-<center><b>Wachtwoord veranderen</b></center>
+<b>Wachtwoord veranderen</b>
 <br />
 
 <?php

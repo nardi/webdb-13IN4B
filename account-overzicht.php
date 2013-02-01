@@ -37,10 +37,10 @@ U bent niet ingelogd!
         $db->close();
     ?>
     <div class="account-overzicht"> 
-      <h1><center><b>Mijn account</b></center></h1>
+      <h1><b>Mijn account</b></h1>
         <hr width="100%">
         <div align="right">
-            <center><b>Accountgegevens</b></center>
+            <b>Accountgegevens</b>
             <br/>
             Voornaam: <input type="text" name="voornaam" disabled value = "<?php echo $naam; ?>"  /><br/>
             Achternaam: <input type="text" name="achternaam" disabled value = "<?php echo $achternaam; ?>" /><br/>
@@ -54,10 +54,10 @@ U bent niet ingelogd!
             E-mailadres: <input type="email" name="e-mailadres" disabled value = "<?php echo $email; ?>" /><br/>
         </div>
         <hr width="100%">
-        <center><b>Bestellingen</b></center>
+        <b>Bestellingen</b>
             <a href="bestelgeschiedenis.php"><input type="submit" value="Bestelgeschiedenis" /></a>
         <hr width="100%">
-        <center><b>Bewerken</b></center>
+        <b>Bewerken</b>
             <a href="account-wachtwoord-veranderen.php"><input type="submit"  value="Wachtwoord veranderen" /></a><br/>
             <a href="adres-toevoegen.html"><input type="submit"  value="Adres toevoegen" /></a><br />
             <a href="account-bewerken.php"><input type="submit"  value="Accountgegevens veranderen" /></a><br/>
