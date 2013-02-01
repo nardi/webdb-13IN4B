@@ -4,7 +4,9 @@
     if(is_admin()){
         function product_verwijderen_conf_func($pid, $titel){
             echo "<img src='images/labels/verwijderd.gif' /> <br /> 
-            <strong> Weet u zeker dat u $titel wilt verwijderen?.</strong><br />
+            <div id=tekst>
+                <strong> Weet u zeker dat u $titel wilt verwijderen?.</strong><br />
+            </div>
             <div id='buttons'>
                 <div id='ja'>
                     <form id='DeleteItemConf' action='products.php' method='post'>
@@ -24,7 +26,7 @@
         }
         if(isset($_POST['deleteId']) && isset($_POST['deleteTitle'])){
             $iid=$_POST['deleteId'];
-            $titel=$_POST['deleteTitel'];
+            $titel=$_POST['deleteTitle'];
             product_verwijderen_conf_func($iid, $titel);
         }
     }
