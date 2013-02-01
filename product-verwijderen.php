@@ -9,6 +9,7 @@
             $sqli_verwijderen->execute();
         
             echo "<img src='images/labels/verwijderd.gif' /> <br /> <strong> $titel is succesvol verwijderd.</strong>";
+            redirect_to('/', '3000');
         }
         if(isset($_POST['deleteId']) && isset($_POST['deleteTitle'])){
             $iid=$_POST['deleteId'];
