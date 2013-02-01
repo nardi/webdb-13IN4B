@@ -1,4 +1,5 @@
 <?php 
+    require 'product-verwijderen-conf.php';
     /*Onderstaande verkrijgt dynamisch de informatie over een product op basis van de meegegeven id.*/
     $id=$_GET["id"];
     $db = connect_to_db();
@@ -72,7 +73,7 @@
         <?php
             $id = $_GET['id'];
             if(is_admin()){echo "
-                <form id='DeleteItem' action='product-verwijderen.php' method='post'>
+                <form id='DeleteItem' action='product_verwijderen_conf_func($id,$titel)' method='post'>
                     <div id='ItemVerwijderen'>
                         <input type='hidden' name='delete' value='$id' />
                         <input type='submit' value='' name='submitButton' id='DeleteSubmitButton' title='Product verwijderen'/>

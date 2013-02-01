@@ -1,5 +1,5 @@
 <?php
-    require 'product-verwijderen.php';
+    require 'product-verwijderen-conf.php';
     if (is_admin())
     {
         $db = connect_to_db();
