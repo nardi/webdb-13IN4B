@@ -22,7 +22,7 @@
                 </div>
             </div>";
         }
-        if(isset($_POST['deleteId']) && isset($_POST['deleteTitel'])){
+        if(isset($_POST['deleteId']) && isset($_POST['deleteTitle'])){
             $iid=$_POST['deleteId'];
             $titel=$POST['deleteTitel'];
             product_verwijderen_conf_func($iid, $titel);
