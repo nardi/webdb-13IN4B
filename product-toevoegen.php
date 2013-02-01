@@ -23,6 +23,9 @@ Whale, whale, whale. What do we have here?
 
         $db = connect_to_db();
 ?>
+        <!--Hieronder staan alle velden die moeten worden ingevuld, ze worden 
+        gechecked met een javascript. De dropdown menus worden dynamisch uit de 
+        database gehaalt.-->
 		<div class="centered-container">
 			<div class="product-toevoegen">
 				<form name="toevoegform" method="post" enctype="multipart/form-data" onsubmit="testall()" action="javascript:void(0)">
