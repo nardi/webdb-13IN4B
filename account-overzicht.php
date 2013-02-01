@@ -40,8 +40,6 @@ U bent niet ingelogd!
       <h1><b>Mijn account</b></h1>
         <hr width="100%">
         <div align="right">
-            <b>Accountgegevens</b>
-            <br/>
             Voornaam: <input type="text" name="voornaam" disabled value = "<?php echo $naam; ?>"  /><br/>
             Achternaam: <input type="text" name="achternaam" disabled value = "<?php echo $achternaam; ?>" /><br/>
             Postcode: <input type="text" name="postcode" disabled value = "<?php echo $postcode; ?>" /><br/>
