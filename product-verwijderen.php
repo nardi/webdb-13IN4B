@@ -10,10 +10,10 @@
         
             echo "<img src='images/labels/verwijderd.gif' /> <br /> <strong> $titel is succesvol verwijderd.</strong>";
         }
-        if(isset($_POST['deleteId'])){
+        /*if(isset($_POST['deleteId'])){
             $iid=$_POST['deleteId'];
             product_verwijderen_func($iid);
-        }
+        }*/
     }
     else
         throw new Exception("U heeft niet de juiste privileges om deze pagina te zien.");
