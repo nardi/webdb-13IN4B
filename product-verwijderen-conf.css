@@ -1,0 +1,24 @@
+#ja{
+    float:left;
+}
+
+#nee{
+    float:left;
+}
+#buttons{
+    margin-left:auto;
+    margin-right:auto;
+    height:auto;
+    width:20%;
+}
+
+#tekst{
+    text-align:center;
+}
+
+#pic{
+    width:200px;
+    height:200px;
+    margin-left:auto;
+    margin-right:auto;
+}
