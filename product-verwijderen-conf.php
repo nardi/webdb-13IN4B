@@ -21,6 +21,11 @@
                 </div>
             </div>";
         }
+        if(isset($_POST['deleteId']) && isset($_POST['deleteTitel'])){
+            $iid=$_POST['deleteId'];
+            $titel=$POST['deleteTitel'];
+            product_verwijderen_conf_func($iid, $titel);
+        }
     }
     
     else

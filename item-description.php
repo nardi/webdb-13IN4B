@@ -73,9 +73,10 @@
         <?php
             $id = $_GET['id'];
             if(is_admin()){echo "
-                <form id='DeleteItem' action='product_verwijderen_conf_func($id,$titel)' method='post'>
+                <form id='DeleteItem' action='product-verwijderen-conf.php' method='post'>
                     <div id='ItemVerwijderen'>
-                        <input type='hidden' name='delete' value='$id' />
+                        <input type='hidden' name='deleteId' value='$id' />
+                        <input type='hidden' name='deleteTitle' value='$titel' />
                         <input type='submit' value='' name='submitButton' id='DeleteSubmitButton' title='Product verwijderen'/>
                     </div>
                 </form>";
