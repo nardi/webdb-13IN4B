@@ -3,7 +3,11 @@
     ?><script>alert("boe")</script><?php
     if(is_admin()){
         function product_verwijderen_conf_func($pid, $titel){
-            echo "<img src='images/labels/verwijderd.gif' /> <br /> 
+            echo "
+            <div id='pic'>
+            <img src='images/labels/verwijderd.gif' />
+            </div>
+            <br /> 
             <div id=tekst>
                 <strong> Weet u zeker dat u $titel wilt verwijderen?.</strong><br />
             </div>
