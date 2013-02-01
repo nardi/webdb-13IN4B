@@ -2,6 +2,7 @@
 
 <?php
     if(is_admin()){
+        /*Informatie ophalen uit database*/
         $db = connect_to_db();
         
         $sqli_product_lijst = $db->prepare("SELECT Producten.id,titel,platform_id,genre_id,beschrijving,prijs,release_date,voorraad,datum_toegevoegd,cover,Platforms.naam,Genres.naam FROM Producten JOIN Platforms ON platform_id=Platforms.id JOIN Genres ON genre_id=Genres.id WHERE verwijderd=0");

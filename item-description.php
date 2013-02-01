@@ -52,6 +52,9 @@
     ?>
 </h3>
 </div>
+<!-- Hieronder wordt de informatie weergegeven. Er wordt gebruik gemaakt van
+display:table-cells om ervoor te zorgen dat de informatie altijd het hele scherm inneemt,
+ook als er informatie mist-->
 <div id="variablewidth">
     <div id="ItemCoverContainer">
     
