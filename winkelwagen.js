@@ -12,6 +12,7 @@ function changeAmount(id)
     {
         if (xhr.readyState == 4)
         {
+            // Als de hoeveelheid 0 is, herlaad de pagina om het verwijderde product te laten zien
             if (amount == '0')
                 location.href = 'winkelwagen.php';
             else
