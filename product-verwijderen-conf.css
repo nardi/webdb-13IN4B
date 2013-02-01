@@ -2,6 +2,10 @@
     float:left;
 }
 
-$nee{
+#nee{
     float:left;
+}
+#buttons{
+    margin-left:auto;
+    margin-right:auto;
 }
