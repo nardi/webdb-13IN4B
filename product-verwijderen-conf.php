@@ -6,7 +6,7 @@
             <strong> Weet u zeker dat u $titel wilt verwijderen?.</strong><br />
             <div id='buttons'>
                 <div id='ja'>
-                    <form id='DeleteItemConf' action='product_verwijderen_func($pid,$titel)' method='post'>
+                    <form id='DeleteItemConf' action='products.php' method='post'>
                         <div id='ItemVerwijderen'>
                             <input type='submit' value='Ja' name='submitButton' id='DeleteSubmitButton' title='Product verwijderen'/>
                         </div>
