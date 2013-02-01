@@ -45,18 +45,23 @@
     
     ?>
 <div class="ItemDescriptionContainer">
-<div id="ItemName">
+<div id="ItemName" class="header">
 <h3>
     <?php
        echo htmlspecialchars($titel);
     ?>
 </h3>
 </div>
+<!-- Hieronder wordt de informatie weergegeven. Er wordt gebruik gemaakt van
+display:table-cells om ervoor te zorgen dat de informatie altijd het hele scherm inneemt,
+ook als er informatie mist-->
 <div id="variablewidth">
     <div id="ItemCoverContainer">
     
         <div id="ItemCover">
+        <div class="header">
         <h4>Game cover</h4>
+        </div>
             <?php
                 echo '<img src="'. is_valid_cover($cover) .'" alt="Cover" />';
             ?>
@@ -70,10 +75,11 @@
         <?php
             $id = $_GET['id'];
             if(is_admin()){echo "
-                <form id='DeleteItem' action='product-verwijderen.php' method='post'>
+                <form id='DeleteItem' action='product-verwijderen-conf.php' method='post'>
                     <div id='ItemVerwijderen'>
-                        <input type='hidden' name='delete' value='$id' />
-                        <input type='submit' value='' name='submitButton' id='DeleteSubmitButton' />
+                        <input type='hidden' name='deleteId' value='$id' />
+                        <input type='hidden' name='deleteTitle' value='$titel' />
+                        <input type='submit' value='' name='submitButton' id='DeleteSubmitButton' title='Product verwijderen'/>
                     </div>
                 </form>";
             }
@@ -86,7 +92,9 @@
 
     <div id="game-description-en-prijs">
     <div id="ItemDescription">
+    <div class="header">
     <h4>Game Description</h4>
+    </div>
     <?php
             echo htmlspecialchars($beschrijving);
         ?>
@@ -107,7 +115,9 @@
         if($quotes != ""){
         echo "
             <div id='Quotes'>
+            <div class='header'>
             <h4>Wat vonden reviewers van dit spel?</h4>
+            </div>
                 $quotes;
             </div>
             <div class='buffer'>

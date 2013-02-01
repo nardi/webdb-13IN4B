@@ -6,7 +6,7 @@ Met de link is een "token" en een "id" meegegeven die gechecked worden op geldig
 <div class="centered-container">
 <div class="wachtwoord-vergeten">
 <div align="right"> 
-<h1><CENTER><b>Wachtwoord Resetten</b></CENTER></h1>
+<h1><b>Wachtwoord Resetten</b></h1>
 <hr width="100%">
 <br />
     

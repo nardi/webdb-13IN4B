@@ -1,9 +1,3 @@
-#ItemName{
-	width:100%;
-	background-color:pink;
-	height:20pt;
-	text-align:center;
-}
 #ItemCover{
 	width:100%;
 }
@@ -78,11 +72,19 @@
 	border: 1pt solid blue;
 }
 
-.ItemDescriptionContainer h4{
-	background-color:cyan;
-}
-
 .buffer{
     display:table-cell;
-    width:1%;
+    width:2%;
+}
+.header{
+    height: 0.8cm;
+    width:100%;
+    border-top-left-radius: 0.4cm;
+    border-bottom-left-radius: 0.4cm;
+    border-top-right-radius: 0.4cm;
+    border-bottom-right-radius: 0.4cm;
+    padding-left: 0.25cm;
+    line-height: 0.7cm;
+    color: #FFFFFF;
+    background-color:#08C1FF;
 }

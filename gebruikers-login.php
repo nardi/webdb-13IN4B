@@ -13,6 +13,12 @@
     {
         sleep(2);
         echo "Er is geen account gevonden met dit e-mailadres.";
+        ?>
+        
+        <script type="text/JavaScript">
+                setTimeout("location.href = '/inloggen.php';",1500);
+        </script>
+        <?php
     }
     else
     {        

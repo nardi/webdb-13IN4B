@@ -2,6 +2,7 @@
 
 <?php
     if(is_admin()){
+        /*Informatie ophalen uit database*/
         $db = connect_to_db();
         
         $sqli_product_lijst = $db->prepare("SELECT Producten.id,titel,platform_id,genre_id,beschrijving,prijs,release_date,voorraad,datum_toegevoegd,cover,Platforms.naam,Genres.naam FROM Producten JOIN Platforms ON platform_id=Platforms.id JOIN Genres ON genre_id=Genres.id WHERE verwijderd=0");
@@ -10,6 +11,7 @@
         $sqli_product_lijst->store_result();
         
     ?>
+    <!-- Hieronder worden de items opgehaalt en getoond. Er wordt gebruik gemaakt van een while loop, zodat de tabel waar alles in getoond wordt nooit te groot is.-->
     <div id="BeheerContainer">
     <form name='EditProduct' id='EditProductId$id' action='verander-product.php' method='post' enctype='multipart/form-data'>
     <table id="Producten">
@@ -91,6 +93,7 @@
     </div>
 <?php
 }
+    /*Als de aanroeper geen Admin is, krijgt hij een foutmelding*/
     else{
         throw new Exception("U heeft niet de juiste privileges om deze pagina te zien.");
     }

@@ -1,5 +1,3 @@
-<link rel="stylesheet" type="text/css" href="inloggen-wachtwoord-registratie.css">
-
 <script type="text/javascript" src="productToevoegen.js"></script>
 
 <?php
@@ -25,13 +23,16 @@ Whale, whale, whale. What do we have here?
 
         $db = connect_to_db();
 ?>
+        <!--Hieronder staan alle velden die moeten worden ingevuld, ze worden 
+        gechecked met een javascript. De dropdown menus worden dynamisch uit de 
+        database gehaalt.-->
 		<div class="centered-container">
 			<div class="product-toevoegen">
 				<form name="toevoegform" method="post" enctype="multipart/form-data" onsubmit="testall()" action="javascript:void(0)">
 				  <div align="right"> 
-				  <h1><center><b>Product toevoegen</b></center></h1>
+				  <h1><b>Product toevoegen</b></h1>
 					  <hr width="100%">
-					  <center><b>Productspecificaties</b></center>
+					  <b>Productspecificaties</b>
 					  <br />
 					  Titel: <input type="text" id="titel" name="titel" onblur="checkTekst('titel','titellabel')" /><div id='titellabel' class='label' ></div><br /> <br />
 					  Beschrijving:
