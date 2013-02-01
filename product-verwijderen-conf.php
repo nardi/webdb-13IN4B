@@ -14,7 +14,7 @@
                     </form>
                 </div>
                 <div id='nee'>
-                    <form id='backToProduct' action='redirect_to(item-description.php?id=$pid)' method='post'>
+                    <form id='backToProduct' action='item-description.php?id=$pid' method='post'>
                         <div id='ItemNietVerwijderen'>
                             <input type='submit' value='Nee' name='submitButtonNo' id='DeleteSubmitButtonNo' title='Product verwijderen'/>
                         </div>
