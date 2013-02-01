@@ -1,5 +1,4 @@
 <?php
-    require 'product-verwijderen.php';
     if(is_admin()){
         function product_verwijderen_conf_func($pid, $titel){
             echo "
