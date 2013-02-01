@@ -13,7 +13,7 @@
                 <div id='ja'>
                     <form id='DeleteItemConf' action='product-verwijderen.php' method='post'>
                         <div id='ItemVerwijderen'>
-                            <input type='hidden' name='deleteId' value='$id' />
+                            <input type='hidden' name='deleteId' value='$pid' />
                             <input type='hidden' name='deleteTitle' value='$titel' />
                             <input type='submit' value='Ja' name='submitButtonYes' id='DeleteSubmitButtonYes' title='Product verwijderen'/>
                         </div>
