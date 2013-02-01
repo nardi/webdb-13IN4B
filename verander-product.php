@@ -39,7 +39,7 @@
                 }
             } 
             
-            else if($_POST["verwijderen$id"] == 'teverwijderen'){
+            else if(isset($_POST["verwijderen$id"]) && $_POST["verwijderen$id"] == 'teverwijderen'){
                 $titel=$_POST["titel$id"];
                 product_verwijderen_func($id, $titel);
             }        
