@@ -29,9 +29,9 @@ Whale, whale, whale. What do we have here?
 			<div class="product-toevoegen">
 				<form name="toevoegform" method="post" enctype="multipart/form-data" onsubmit="testall()" action="javascript:void(0)">
 				  <div align="right"> 
-				  <h1><center><b>Product toevoegen</b></center></h1>
+				  <h1><b>Product toevoegen</b></h1>
 					  <hr width="100%">
-					  <center><b>Productspecificaties</b></center>
+					  <b>Productspecificaties</b>
 					  <br />
 					  Titel: <input type="text" id="titel" name="titel" onblur="checkTekst('titel','titellabel')" /><div id='titellabel' class='label' ></div><br /> <br />
 					  Beschrijving:

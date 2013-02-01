@@ -14,7 +14,7 @@ if (!isset($_SESSION['logged-in'])) {
 	?>
 	<div class="centered-container"> 
 	<div class="account-wachtwoord-veranderen">
-	<h1><center><b>Klantenservice</b></center></h1>
+	<h1><b>Klantenservice</b></h1>
 	<hr width="100%">
 	
 	<br />

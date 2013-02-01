@@ -19,7 +19,7 @@
 					<div ALIGN="right"> 
 					
 						<form action="gebruikers-login.php" method="post">
-							<h1><CENTER><b>Inloggen</b></CENTER></h1>
+							<h1><b>Inloggen</b></h1>
 							<hr width="100%">
 							<br />
 							<div ALIGN="center">

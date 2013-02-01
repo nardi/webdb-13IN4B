@@ -9,7 +9,7 @@
     {
         require_once 'totaalbedrag.php';
 ?>
-  <h1><center><b>Bestellingen</b></center></h1>
+  <h1><b>Bestellingen</b></h1>
 <?php
         $db = connect_to_db();
         $aantal_bestellingen = 0;
@@ -23,7 +23,7 @@
         {
 ?>  
     <hr width="100%">
-    <center><b>Lopende bestellingen</b></center><br/>
+    <b>Lopende bestellingen</b><br/>
     <table>
         <tr>
             <th></th>
@@ -61,7 +61,7 @@
         {
 ?>
     <hr width="100%">
-    <center><b>Oude bestellingen</b></center><br/>
+    <b>Oude bestellingen</b><br/>
     <table>
         <tr>
             <th></th>

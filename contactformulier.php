@@ -7,7 +7,7 @@ de klant input te vragen, en deze door te sturen naar ons emailadres.
 <div class="centered-container">
 <div class="registratieformulier">
 
-<h1><center><b>Contactformulier</b></center></h1>
+<h1><b>Contactformulier</b></h1>
 <hr width="100%">
 
 <?php
