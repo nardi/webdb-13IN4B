@@ -1,5 +1,5 @@
 <?php
-    require 'product-verwijderen-conf.php';
+    require 'product-verwijderen.php';
     if (is_admin())
     {
         $db = connect_to_db();
@@ -41,7 +41,7 @@
             
             else if($_POST["verwijderen$id"] == 'teverwijderen'){
                 $titel=$_POST["titel$id"];
-                product_verwijderen_conf_func($id, $titel);
+                product_verwijderen_func($id, $titel);
             }        
         }
         $db->close();
